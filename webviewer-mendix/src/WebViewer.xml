@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget id="pdftron.webviewer.WebViewer" pluginWidget="true" needsEntityContext="true" offlineCapable="true"
+        supportedPlatform="Web"
+        xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+    <name>WebViewer</name>
+    <description>Apryse WebViewer is a pure client-side JavaScript library that lets you view, edit, and annotate documents and images right in your Mendix application: Apryse WebViewer is the Mendix integration of Apryse's industry-leading document SDK.</description>
+    <icon/>
+    <properties>
+        <propertyGroup caption="General">
+            <propertyGroup caption="File">
+                <property key="fileUrl" type="string" required="false" defaultValue="https://pdftron.s3.amazonaws.com/downloads/pl/webviewer-demo.pdf">
+                    <caption>URL</caption>
+                    <description>Manually specify a URL to load from.</description>
+                </property>
+                <property key="file" type="file" required="false">
+                    <caption>File</caption>
+                    <description>A FileDocument type of entity.</description>
+                </property>
+                <property key="enableFilePicker" type="boolean" defaultValue="false">
+                    <caption>Show file picker</caption>
+                    <description>Allow users to load their own local files.</description>
+                </property>
+                <property key="loadAsPDF" type="boolean" defaultValue="false">
+                    <caption>Load as PDF</caption>
+                    <description>Converts the loaded document to PDF after loading.</description>
+                </property>
+            </propertyGroup>
+            <propertyGroup caption="Editing">
+                <property key="enablePdfEditing" type="boolean" defaultValue="false">
+                    <caption>Enable PDF editing</caption>
+                    <description>Enable editing of PDFs in WebViewer.</description>
+                </property>
+                <property key="enableOfficeEditing" type="boolean" defaultValue="false">
+                    <caption>Enable Office editing</caption>
+                    <description>Switches WebViewer to Office editing.</description>
+                </property>
+            </propertyGroup>
+            <propertyGroup caption="Page Extraction">
+                <property key="enablePageExtraction" type="boolean" defaultValue="false">
+                    <caption>Enable page extraction</caption>
+                    <description>Enable page extraction so that users can select which pages they want to save to another file.</description>
+                </property>
+                <property key="allowExtractionDownload" type="boolean" defaultValue="false">
+                    <caption>Allow extraction download</caption>
+                    <description>Allow the extracted pages to be downloaded.</description>
+                </property>
+            </propertyGroup>
+            <propertyGroup caption="Other">
+                <property key="enableFullAPI" type="boolean" defaultValue="false">
+                    <caption>Enable full API</caption>
+                    <description>Loads the full API for full document processing features. This can impact performance compared to the lean API. Only turn this on if you need it.</description>
+                </property>
+            </propertyGroup>
+        </propertyGroup>
+        <propertyGroup caption="Annotations">
+            <propertyGroup caption="User">
+                <property key="annotationUser" type="attribute" required="false">
+                    <caption>User</caption>
+                    <description>Name of the user for annotations. Default is 'Guest'.</description>
+                    <attributeTypes>
+                        <attributeType name="String"/>
+                    </attributeTypes>
+                </property>
+            </propertyGroup>
+            <propertyGroup caption="Options">
+                <property key="enableAnnotations" type="boolean" defaultValue="true">
+                    <caption>Enable annotations</caption>
+                    <description>Enable annotating documents.</description>
+                </property>
+                <property key="enableMeasurement" type="boolean" defaultValue="false">
+                    <caption>Enable measurement</caption>
+                    <description>Enable measurement tools.</description>
+                </property>
+                <property key="enableRedaction" type="boolean" defaultValue="false">
+                    <caption>Enable redaction</caption>
+                    <description>Enable the ability to redact content. The full API is required to apply the redactions.</description>
+                </property>
+                <property key="selectAnnotationOnCreation" type="boolean" defaultValue="false">
+                    <caption>Select on creation</caption>
+                    <description>Automatically select annotations when they are created.</description>
+                </property>
+            </propertyGroup>
+            <propertyGroup caption="XFDF">
+                <property key="xfdfAttribute" type="attribute" required="false" onChange="onExportXfdf">
+                    <caption>XFDF Attribute</caption>
+                    <description>The XFDF attribute to import from and export to.</description>
+                    <attributeTypes>
+                        <attributeType name="String"/>
+                    </attributeTypes>
+                </property>
+                <property key="onExportXfdf" type="action" required="false">
+                    <caption>On export XFDF</caption>
+                    <description>Trigger an action when exporting annotations to XFDF. This can occur many times when auto-export is enabled.</description>
+                </property>
+                <property key="enableXfdfExportButton" type="boolean" defaultValue="false">
+                    <caption>Enable XFDF Export Button</caption>
+                    <description>Enable the button to manually export and save annotations as XFDF.</description>
+                </property>
+                <property key="enableAutoXfdfExport" type="boolean" defaultValue="false">
+                    <caption>Enable Auto XFDF Export</caption>
+                    <description>Enable automatic saving of the annotation XFDF when annotations change.</description>
+                </property>
+                <property key="enableAutoXfdfImport" type="boolean" defaultValue="false">
+                    <caption>Enable Auto XFDF Import</caption>
+                    <description>Enable automatic importing of the annotation XFDF when the document loads. Occurs only once on document load.</description>
+                </property>
+            </propertyGroup>
+        </propertyGroup>
+        <propertyGroup caption="UI">
+            <property key="isVisible" type="attribute" required="false">
+                <caption>Is visible</caption>
+                <description>A flag to toggle the visibility of WebViewer without unmounting it.</description>
+                <attributeTypes>
+                    <attributeType name="Boolean"/>
+                </attributeTypes>
+            </property>
+            <property key="containerHeight" type="string" required="true" defaultValue="100vh">
+                <caption>Container height</caption>
+                <description>The height of the container, in CSS, that WebViewer mounts to. Ultimately, the height of WebViewer as well.</description>
+            </property>
+            <property key="enableDarkMode" type="boolean" defaultValue="false">
+                <caption>Enable dark mode</caption>
+                <description>Changes to the dark theme.</description>
+            </property>
+            <property key="defaultLanguage" type="enumeration" defaultValue="en">
+                <caption>Default language</caption>
+                <description></description>
+                <enumerationValues>
+                    <enumerationValue key="en">English</enumerationValue>
+                    <enumerationValue key="de">German</enumerationValue>
+                    <enumerationValue key="es">Spanish</enumerationValue>
+                    <enumerationValue key="fr">French</enumerationValue>
+                    <enumerationValue key="it">Italian</enumerationValue>
+                    <enumerationValue key="el">Greek</enumerationValue>
+                    <enumerationValue key="ja">Japanese</enumerationValue>
+                    <enumerationValue key="ko">Korean</enumerationValue>
+                    <enumerationValue key="nl">Dutch</enumerationValue>
+                    <enumerationValue key="pt_br">Portugeuse</enumerationValue>
+                    <enumerationValue key="ru">Russian</enumerationValue>
+                    <enumerationValue key="zh_cn">Chinese Simplified</enumerationValue>
+                    <enumerationValue key="zh_tw">Chinese Traditional</enumerationValue>
+                    <enumerationValue key="vi">Vietmese</enumerationValue>
+                    <enumerationValue key="uk">Ukrainian</enumerationValue>
+                    <enumerationValue key="id">Indonesian</enumerationValue>
+                    <enumerationValue key="ms">Malaysian</enumerationValue>
+                    <enumerationValue key="bn">Bengali</enumerationValue>
+                    <enumerationValue key="hi">Hindi</enumerationValue>
+                    <enumerationValue key="tr">Turkish</enumerationValue>
+                </enumerationValues>
+            </property>
+            <property key="notesInLeftPanel" type="boolean" defaultValue="false">
+                <caption>Notes in left panel</caption>
+                <description>Moves the notes panel from the right to the left.</description>
+            </property>
+            <property key="enabledElements" type="string" multiline="true" required="false">
+                <caption>Enabled elements</caption>
+                <description>A list of elements (written on individual lines) to enable in the UI. You can find values in the UI using the data-element attribute. Takes priority over disabled elements.</description>
+            </property>
+            <property key="disabledElements" type="string" multiline="true" required="false">
+                <caption>Disabled elements</caption>
+                <description>A list of elements (written on individual lines) to disable in the UI. You can find values in the UI using the data-element attribute.</description>
+            </property>
+            <property key="customCss" type="string" required="false">
+                <caption>Custom CSS</caption>
+                <description>Provide a path to your own CSS to customize styling.</description>
+            </property>
+        </propertyGroup>
+        <propertyGroup caption="Accessibility">
+            <property key="accessibleMode" type="boolean" defaultValue="false">
+                <caption>Enable accessibility mode</caption>
+                <description>Enable accessibility features. E.g tab page selection and page text in the DOM.</description>
+            </property>
+            <property key="highContrastMode" type="boolean" defaultValue="false">
+                <caption>Enable high contrast mode</caption>
+                <description>Enable high contrast colors to help with accessibility.</description>
+            </property>
+        </propertyGroup>
+        <propertyGroup caption="Module">
+            <propertyGroup caption="Document Updates">
+                <property key="enableDocumentUpdates" type="boolean" defaultValue="true">
+                    <caption>Enable document updates</caption>
+                    <description>Adds a button to the header to allow updating the document on the server (annotations, links, widgets). Requires WebViewer module.</description>
+                </property>
+                <property key="enableSaveAsButton" type="boolean" defaultValue="true">
+                    <caption>Enable save as</caption>
+                    <description>Adds a button to the header to allow saving a document to the server as a new file. Requires WebViewer module.</description>
+                </property>
+            </propertyGroup>
+            <propertyGroup caption="Real-Time Annotating">
+                <property key="enableRealTimeAnnotating" type="boolean" defaultValue="false">
+                    <caption>Enable Real-time Annotating</caption>
+                    <description>Annotate in real-time with other users without an additional server. This will make polling requests.</description>
+                </property>
+                <property key="onExportXfdfCommand" type="action" required="false">
+                    <caption>On export XFDF command</caption>
+                    <description>Trigger an action when exporting annotations to XFDF commands. This can occur multiple files.</description>
+                </property>
+                <property key="autoXfdfCommandImportInterval" type="integer" defaultValue="1000">
+                    <caption>Auto Import Interval</caption>
+                    <description>The interval in milliseconds to get XFDF updates from the server for the current file.</description>
+                </property>
+            </propertyGroup>
+            <propertyGroup caption="Page Extraction">
+                <property key="allowSavingToMendix" type="boolean" defaultValue="false">
+                    <caption>Allow saving to Mendix</caption>
+                    <description>Allow the extracted pages to be saved back to Mendix as a separate file.</description>
+                </property>
+            </propertyGroup>
+        </propertyGroup>
+        <propertyGroup caption="License">
+            <property key="l" type="string" required="false">
+                <caption>Key</caption>
+                <description>WebViewer license key. Please reach out to sales@apryse.com for more information.</description>
+            </property>
+        </propertyGroup>
+    </properties>
+</widget>

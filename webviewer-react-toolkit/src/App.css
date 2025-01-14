@@ -1,0 +1,28 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--color-background-canvas);
+}
+
+.app__main {
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.app__placeholder {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: var(--padding);
+}
+
+.app__footer {
+  flex: 0 0;
+  padding: var(--padding);
+  border-top: 1px solid var(--color-gray-3);
+  background-color: var(--color-gray-1);
+}

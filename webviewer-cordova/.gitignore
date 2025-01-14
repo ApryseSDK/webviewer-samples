@@ -1,0 +1,15 @@
+# OS X
+.DS_Store
+
+# Node
+node_modules
+package-lock.json
+
+# Cordova
+platforms
+plugins
+
+# WebViewer
+www/js/lib
+www/js/license-key.js
+WebViewer.zip

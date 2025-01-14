@@ -1,0 +1,20 @@
+{
+  "name": "webviewer-collab-azure-example",
+  "version": "0.0.0",
+  "description": "A repo demonstrating how to deploy the server to Microsoft Azure",
+  "main": "server.js",
+  "repository": "git@github.com:PDFTron/webviewer-collab-azure-example.git",
+  "author": "Logan Bittner <lbittner@pdftron.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@pdftron/collab-server": "^2.0.0-alpha.3",
+    "@pdftron/collab-sql-resolver-generator": "^2.0.0-alpha.3",
+    "dotenv": "^10.0.0",
+    "tedious": "^11.4.0",
+    "winston": "^3.3.3"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}

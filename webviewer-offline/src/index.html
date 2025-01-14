@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no'>
+    <link rel='stylesheet' href='./style.css'>
+    <script src='/public/lib/webviewer.min.js'></script>
+    <meta name='mobile-web-app-capable' content='yes'>
+    <meta name='apple-mobile-web-app-capable' content='yes'>
+    <meta name='application-name' content='PDFTron WebViewer'>
+    <meta name='apple-mobile-web-app-status-bar-style' content='black'>
+    <meta name='apple-mobile-web-app-title' content='PDFTron WebViewer'>
+    <link rel='icon' sizes='192x192' href='/images/ic_launcher-192.png'>
+    <meta name='msapplication-TileImage' content='/images/ic_launcher-144.png'>
+    <meta name='msapplication-TileColor' content='#00a5e4'>
+    <link rel='apple-touch-icon' href='/images/ic_launcher-192.png'>
+    <meta name='theme-color' content='#00a5e4'>
+    <link rel="manifest" href="manifest.json">
+    <script src='/scripts/pwacompat.min.js' async></script>
+  </head>
+  <body>
+    <header>
+      <div class="title sample">Offline sample</div>
+    </header>
+    <div id='installer'>
+      <button class='button'>Install</button>
+    </div>
+    <aside>
+      <h1>Controls</h1>
+      <h2>Documents:</h2>
+      <ul id='documents'></ul>
+      <hr />
+      <h1>Instructions</h1>
+      <p>Use download buttons to download and cache files. After that, go offline by shutting down your local server and refresh. You will still be able to view the downloaded files and use WebViewer.</p>
+      <p>Please note that service worker is not supported in IE11.</p>
+
+    </aside>
+    <div id='viewer'></div>
+    <script src='/scripts/localforage.min.js'></script>
+    <script src='index.js'></script>
+<!--ga-tag-->
+  </body>
+</html>

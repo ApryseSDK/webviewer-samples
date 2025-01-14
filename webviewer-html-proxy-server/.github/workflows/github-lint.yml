@@ -1,0 +1,27 @@
+name: github-lint
+
+on:
+  pull_request:
+    types: [opened, reopened]
+  push:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node      
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Cache Repo Dependencies
+        id: cache-repo
+        uses: actions/cache@v2
+        with:
+          path: ./node_modules
+          key: modules-repo-${{hashFiles('package.json')}}
+      - name: NPM Install Repository Dependencies
+        if: steps.cache-repo.outputs.cache-hit != 'true'
+        run: npm install
+      - name: Lint
+        run: npm run lint:ci        

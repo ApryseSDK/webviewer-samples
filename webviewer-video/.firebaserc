@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "webviewer-video"
+  },
+  "targets": {
+    "webviewer-video": {
+      "hosting": {
+        "webviewer-video": [
+          "webviewer-video"
+        ],
+        "webviewer-video-compare": [
+          "webviewer-video-compare"
+        ]
+      }
+    }
+  }
+}

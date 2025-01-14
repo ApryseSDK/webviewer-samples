@@ -1,0 +1,37 @@
+{
+  "name": "webviewer",
+  "widgetName": "WebViewer",
+  "version": "2.1.2",
+  "description": "My widget description",
+  "copyright": "2024 Apryse",
+  "author": "Andrey Safonov",
+  "config": {
+    "projectPath": "../..//",
+    "mendixHost": "http://localhost:8080",
+    "developmentPort": "3000"
+  },
+  "packagePath": "pdftron",
+  "scripts": {
+    "start": "pluggable-widgets-tools start:server --open",
+    "dev": "pluggable-widgets-tools start:web",
+    "build": "pluggable-widgets-tools build:web",
+    "lint": "pluggable-widgets-tools lint",
+    "lint:fix": "pluggable-widgets-tools lint:fix",
+    "prerelease": "npm run lint",
+    "release": "pluggable-widgets-tools release:web"
+  },
+  "license": "",
+  "devDependencies": {
+    "@mendix/pluggable-widgets-tools": "^9.20.0",
+    "@types/big.js": "^6.1.4",
+    "@types/classnames": "^2.2.4",
+    "@types/lodash": "^4.14.191",
+    "@types/react": "~18.0.14",
+    "@types/react-dom": "~18.0.5"
+  },
+  "dependencies": {
+    "@pdftron/webviewer": "^10.8.0",
+    "classnames": "^2.2.6",
+    "lodash": "^4.17.21"
+  }
+}

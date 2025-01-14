@@ -1,0 +1,30 @@
+<template>
+  <div class="viewerCard slds-card">
+    <div
+      id="cardContainer"
+      class="
+        cardContainer
+        slds-var-p-left_x-small
+        slds-var-p-right_x-small
+        slds-var-p-top_small
+      "
+    >
+      <div id="comboboxContainer">
+        <c-pdftron-attachment-picker-combobox
+          record-id={recordId}
+        ></c-pdftron-attachment-picker-combobox>
+      </div>
+    </div>
+
+    <div
+      id="wvContainer"
+      class="
+        slds-var-p-left_x-small
+        slds-var-p-right_x-small
+        slds-var-p-bottom_x-small
+      "
+    >
+      <c-pdftron-wv-instance record-id={recordId}></c-pdftron-wv-instance>
+    </div>
+  </div>
+</template>

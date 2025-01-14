@@ -1,0 +1,13 @@
+# Misc
+.DS_Store
+.DS_Store?
+._*
+node_modules
+.parcel-cache
+.cache
+dist
+.env
+# WebViewer
+client/lib
+client/license-key.js
+collab.db

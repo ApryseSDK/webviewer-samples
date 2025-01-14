@@ -1,0 +1,14 @@
+{
+  "name": "webviewer-lib",
+  "version": "1.0.0",
+  "description": "This is where WebViewer's lib would be served statically from",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server --cors"
+  },
+  "author": "Andrey Safonov",
+  "license": "ISC",
+  "dependencies": {
+    "http-server": "^0.12.3"
+  }
+}

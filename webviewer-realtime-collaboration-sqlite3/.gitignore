@@ -1,0 +1,11 @@
+# Misc
+.DS_Store
+.DS_Store?
+._*
+node_modules
+
+# WebViewer
+client/lib
+client/license-key.js
+server/xfdf.db
+xfdf.db

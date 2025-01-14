@@ -1,0 +1,21 @@
+{
+  "name": "webviewer-annotations-sqlite3-sample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "node tools/copy-webviewer-files.js",
+    "start": "node server/serve.js"
+  },
+  "author": "Apryse Systems Inc.",
+  "devDependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "fs-extra": "^7.0.1",
+    "opn": "^5.4.0",
+    "sqlite3": "^4.0.4"
+  },
+  "dependencies": {
+    "@pdftron/webviewer": "^11.0.0"
+  }
+}

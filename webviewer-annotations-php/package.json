@@ -1,0 +1,16 @@
+{
+  "name": "webviewer-annotations-php-sample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "node tools/copy-webviewer-files.js"
+  },
+  "author": "PDFTron Systems Inc.",
+  "devDependencies": {
+    "fs-extra": "^10.0.0"
+  },
+  "dependencies": {
+    "@pdftron/webviewer": "^11.0.0"
+  }
+}

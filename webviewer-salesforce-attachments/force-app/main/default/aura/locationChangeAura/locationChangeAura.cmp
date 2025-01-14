@@ -1,0 +1,17 @@
+<aura:component
+  implements="flexipage:availableForRecordHome,force:hasRecordId"
+  access="global"
+>
+  <aura:handler event="aura:locationChange" action="{!c.update}" />
+
+  <aura:attribute name="recordId" type="String" />
+  <aura:attribute name="showViewer" type="Boolean" default="true" />
+
+  <aura:renderIf isTrue="{!v.showViewer}">
+    <!-- LWC component pdfronWeb -->
+    <c:pdftronWebviewerContainer
+      aura:id="viewerContainer"
+      recordId="{!v.recordId}"
+    />
+  </aura:renderIf>
+</aura:component>

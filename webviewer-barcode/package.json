@@ -1,0 +1,41 @@
+{
+  "name": "webviewer-barcode",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@pdftron/webviewer": "^11.0.0",
+    "javascript-barcode-reader": "^0.6.9",
+    "jsbarcode": "^3.11.6",
+    "jsqr": "^1.4.0",
+    "qrcode": "^1.5.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1"
+  },
+  "devDependencies": {
+    "download": "^8.0.0",
+    "fs-extra": "^11.2.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "postinstall": "node tools/copy-webviewer-files.js"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

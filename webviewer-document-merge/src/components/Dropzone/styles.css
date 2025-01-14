@@ -1,0 +1,24 @@
+.dropDiv {
+  border: 5px dashed #1c6ea4;
+  padding: 20px;
+  margin: 20px;
+  flex: 1;
+  margin: 8px;
+  height: 250px;
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: flex-start;
+  width: 400px;
+}
+
+img {
+  padding: 5px;
+  width: 30%;
+  box-shadow: 0 0 3px 0 #adb5bd;
+}
+

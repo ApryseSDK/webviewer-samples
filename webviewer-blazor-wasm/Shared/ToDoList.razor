@@ -1,0 +1,28 @@
+<h1>@heading</h1>
+<h4>Remaining - @todos.Count(todo => !todo.Done)</h4>
+
+<ul>
+    @foreach (var todo in todos)
+    {
+        <li>
+            <input type="checkbox" @bind="todo.Done" />
+            <label>@((MarkupString)todo.Item)</label>
+        </li>
+    }
+</ul>
+
+@code{
+    string heading = "To Do List";
+
+    class Todo
+    {
+        public bool Done { get; set; }
+        public string Item { get; set; }
+    }
+    List<Todo> todos = new List<Todo>()
+    {
+        new Todo(){ Done = false, Item = "<b>Corn</b>" },
+        new Todo(){ Done = false, Item = "Apples" },
+        new Todo(){ Done = false, Item = "Bacon" }
+    };
+}

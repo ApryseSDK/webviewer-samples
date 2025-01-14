@@ -1,0 +1,20 @@
+{
+  "name": "webviewer-annotations-nodejs-sample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "node tools/copy-webviewer-files.js",
+    "start": "node server/serve.js"
+  },
+  "author": "PDFTron Systems Inc.",
+  "devDependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "fs-extra": "^7.0.1",
+    "opn": "^5.4.0"
+  },
+  "dependencies": {
+    "@pdftron/webviewer": "^8.0.0"
+  }
+}

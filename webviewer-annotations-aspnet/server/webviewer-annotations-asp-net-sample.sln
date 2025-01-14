@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "webviewer-annotations-asp-net-sample", "webviewer-annotations-asp-net-sample\webviewer-annotations-asp-net-sample.csproj", "{4C086A97-B434-4716-9EDF-85C44512300F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C086A97-B434-4716-9EDF-85C44512300F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C086A97-B434-4716-9EDF-85C44512300F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C086A97-B434-4716-9EDF-85C44512300F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C086A97-B434-4716-9EDF-85C44512300F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B9C71481-1AE6-437E-B095-54A7727F0459}
+	EndGlobalSection
+EndGlobal

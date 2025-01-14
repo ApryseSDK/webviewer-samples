@@ -1,0 +1,63 @@
+{
+  "name": "webviewer-electron-sample",
+  "version": "2.0.0",
+  "description": "Sample to demonstrate integrating WebViewer into an Electron App",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "postinstall": "node tools/copy-webviewer-files.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PDFTron/webviewer-electron-sample.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "pdftron_reader"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  },
+  "bugs": {
+    "url": "https://github.com/PDFTron/webviewer-electron-sample/issues"
+  },
+  "homepage": "https://github.com/PDFTron/webviewer-electron-sample#readme",
+  "devDependencies": {
+    "@electron-forge/cli": "^7.5.0",
+    "@electron-forge/maker-deb": "^7.5.0",
+    "@electron-forge/maker-rpm": "^7.5.0",
+    "@electron-forge/maker-squirrel": "^7.5.0",
+    "@electron-forge/maker-zip": "^7.5.0",
+    "electron": "11.0.3",
+    "fs-extra": "^11.2.0"
+  },
+  "dependencies": {
+    "@pdftron/webviewer": "^11.0.0",
+    "electron-squirrel-startup": "^1.0.0"
+  }
+}

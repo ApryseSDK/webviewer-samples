@@ -1,0 +1,10 @@
+
+# TeamsFx files
+node_modules
+tabs/node_modules
+.fx/configs/localSettings.json
+.fx/states/*.userdata
+.DS_Store
+.env.teamsfx.local
+subscriptionInfo.json
+build

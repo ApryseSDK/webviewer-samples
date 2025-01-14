@@ -1,0 +1,3 @@
+/** Notice * This file contains works from many authors under various (but compatible) licenses. Please see core.txt for more information. **/
+(function(){(window.wpCoreControlsBundle=window.wpCoreControlsBundle||[]).push([[3],{578:function(ya,ta,n){n.r(ta);var pa=n(0),na=n(195);ya=n(572);n=n(495);ya=function(oa){function ka(ja,fa,x,y){return oa.call(this,ja,fa,x,y)||this}Object(pa.c)(ka,oa);ka.prototype.J6=function(){return{start:this.I5-na.a,stop:this.I5}};ka.prototype.Wy=function(ja){var fa=this;this.zs(this.url,{start:0,stop:1},function(x,y,r){if(x)return ja(x);x=r.request.getResponseHeader("Content-Range");fa.I5=x.split("/")[1];oa.prototype.Wy.call(fa,
+ja)})};return ka}(ya["default"]);Object(n.a)(ya);Object(n.b)(ya);ta["default"]=ya}}]);}).call(this || window)

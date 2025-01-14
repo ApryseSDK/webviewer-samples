@@ -1,0 +1,61 @@
+@page "/LifeCycle"
+
+<h3>Blazor - Application Lifecycle Method</h3>
+<br /><br />
+
+@foreach (var item in LifeCycleEvents)
+{
+    @item
+    <hr />
+}
+
+@code {
+
+    public List<string> LifeCycleEvents = new List<string>();
+
+    protected override void OnInitialized()
+    {
+        LifeCycleEvents.Add("OnInitialized ...");
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        LifeCycleEvents.Add("OnInitializedAsync ...");
+        await Task.Delay(500);
+    }
+
+    protected override void OnParametersSet()
+    {
+        LifeCycleEvents.Add("OnParametersSet ...");
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        LifeCycleEvents.Add("OnParametersSetAsync ...");
+        await Task.Delay(500);
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        LifeCycleEvents.Add("OnAfterRender [FirstRender]...");
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        LifeCycleEvents.Add("OnAfterRenderAsync [FirstRender] ...");
+        await Task.Delay(500);
+    }
+
+    protected override bool ShouldRender()
+    {
+        LifeCycleEvents.Add("ShouldRender ...");
+        return true;
+    }
+
+    public override async Task SetParametersAsync(ParameterView parameters)
+    {
+        LifeCycleEvents.Add("SetParametersAsync [Parameter View] ...");
+        await base.SetParametersAsync(parameters);
+        await Task.Delay(500); 
+    }
+}

@@ -1,0 +1,14 @@
+@page "/webviewer"
+@inject IJSRuntime JSRuntime
+
+<h1>WebViewer</h1>
+<div id='viewer' style='width: 1024px; height: 600px; margin: 0 auto;'></div>
+
+@code {
+    protected override async void OnAfterRender(bool firstRender)
+    {
+      if (firstRender) {
+        await JSRuntime.InvokeAsync<object>("webviewerFunctions.initWebViewer");
+      }
+    }
+}

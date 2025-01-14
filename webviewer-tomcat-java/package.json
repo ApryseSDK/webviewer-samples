@@ -1,0 +1,16 @@
+{
+  "name": "webviewer-java-tomcat-sample",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "./bin/startup.sh",
+    "compile": "find ./webapps/webviewer/WEB-INF/classes -name '*.java' | xargs javac -classpath ./lib/servlet-api.jar",
+    "stop": "./bin/shutdown.sh",
+    "postinstall": "node tools/copy-webviewer-files.js"
+  },
+  "devDependencies": {
+    "fs-extra": "^10.0.0"
+  },
+  "dependencies": {
+    "@pdftron/webviewer": "^11.0.0"
+  }
+}

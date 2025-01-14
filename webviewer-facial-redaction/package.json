@@ -1,0 +1,18 @@
+{
+  "name": "webviewer-facial-redaction-sample",
+  "version": "1.0.0",
+  "description": "Apryse WebViewer",
+  "scripts": {
+    "start": "npx http-server",
+    "postinstall": "node tools/copy-webviewer-files.js"
+  },
+  "devDependencies": {
+    "fs-extra": "^11.2.0",
+    "@pdftron/webviewer": "^11.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ApryseSDK/webviewer-facial-redaction-sample.git"
+  },
+  "author": "Apryse Software Inc."
+}

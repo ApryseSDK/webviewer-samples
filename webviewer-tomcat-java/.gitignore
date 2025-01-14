@@ -1,0 +1,6 @@
+node_modules
+webapps/webviewer/lib
+work
+logs/*
+!logs/.gitkeep
+.history/

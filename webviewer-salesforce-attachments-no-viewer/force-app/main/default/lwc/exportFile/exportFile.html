@@ -1,0 +1,30 @@
+<template>
+    <template if:true={hasSpinner}>
+        <div class="spinnerContainer">
+            <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+        </div>
+    </template>
+    <template if:false={hasSpinner}>
+        <div class="slds-grid slds-wrap slds-grid_vertical-align-end">
+            <div class="slds-col slds-p-around_xx-small">
+                <lightning-combobox
+                    name="toComboBox"
+                    label="Convert"
+                    value={value}
+                    placeholder="Select File Type"
+                    options={file_options}
+                    onchange={handleChange}></lightning-combobox>  
+            </div>
+            <div class="slds-col slds-grow-none slds-p-around_xx-small">
+                <lightning-button-group class="slds-show_x-large">
+                    <lightning-button label="Export" onclick={handleExport}></lightning-button> 
+                    <lightning-button label="Download" onclick={handleDownload}></lightning-button> 
+                </lightning-button-group>
+                <lightning-button-menu class="slds-hide_x-large">
+                    <lightning-menu-item label="Export" onclick={handleExport}></lightning-menu-item>
+                    <lightning-menu-item label="Download" onclick={handleDownload}></lightning-menu-item>
+                </lightning-button-menu>
+            </div>
+        </div>
+    </template>
+</template>

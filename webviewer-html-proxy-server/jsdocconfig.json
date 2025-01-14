@@ -1,0 +1,21 @@
+{
+  "opts": {
+    "recurse": true,
+    "destination": "./doc/"
+  },
+  "source": {
+    "include": [
+      "src"
+    ],
+    "includePattern": ".+\\.(ts)(doc|x)?$",
+    "excludePattern": "node_modules"
+  },
+  "templates": {
+    "default": {
+      "outputSourceFiles": false
+    }
+  },
+  "plugins": [
+    "node_modules/better-docs/typescript"
+  ]
+}

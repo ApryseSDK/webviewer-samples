@@ -1,0 +1,38 @@
+{
+  "name": "webviewer-typescript-sample",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@pdftron/webviewer": "^11.0.0",
+    "typescript": "^2.1.6"
+  },
+  "devDependencies": {
+    "btoa": "^1.2.1",
+    "download": "^7.1.0",
+    "express": "^4.17.1",
+    "fs-extra": "^7.0.1",
+    "ip": "^1.1.5",
+    "opn": "^6.0.0",
+    "parcel": "1.12.3",
+    "parcel-plugin-static-files-copy": "^2.3.1"
+  },
+  "scripts": {
+    "start": "parcel public/index.html",
+    "watch": "tsc --watch"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "staticFiles": {
+    "staticPath": [
+      {
+        "staticPath": "node_modules/@pdftron/webviewer/public",
+        "staticOutDir": "lib"
+      }
+    ],
+    "watcherGlob": "**"
+  }
+}

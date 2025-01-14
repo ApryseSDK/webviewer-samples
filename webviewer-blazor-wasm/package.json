@@ -1,0 +1,19 @@
+{
+  "name": "webviewer-blazor-webassembly-sample",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "dotnet run",
+    "postinstall": "node tools/copy-webviewer-files.js"
+  },
+  "devDependencies": {
+    "fs-extra": "^7.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "PDFTron Systems Inc.",
+  "dependencies": {
+    "@pdftron/webviewer": "^8.0.0"
+  }
+}

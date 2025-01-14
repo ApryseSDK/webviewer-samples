@@ -1,0 +1,7 @@
+.npmrc
+node_modules
+package-lock.json
+public/*
+!public/pdf
+dist
+doc

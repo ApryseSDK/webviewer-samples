@@ -1,0 +1,9 @@
+{
+  "name": "webviewer",
+  "description": "Apryse WebViewer",
+  "version": "11.0.0",
+  "main": "webviewer.min.js",
+  "author": "Apryse Software Inc.",
+  "build": "MTU3NTkzMDE2ODA2OC02LjAuMC1iZXRhLTM=",
+  "types": "./types.d.ts"
+}

@@ -1,0 +1,29 @@
+{
+  "name": "server-search",
+  "version": "1.0.0",
+  "description": "Sample how to run Apryse search on server and report result back to WebViewer client",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"nodemon --legacy-watch server/index.js\" \"start http://localhost:8080\"",
+    "postinstall": "node tools/copy-webviewer-files.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@pdftron/pdfnet-node": "^11.0.0",
+    "express": "^4.21.0",
+    "nodemon": "^3.1.7"
+  },
+  "nodemonConfig": {
+    "watch": [
+      "server"
+    ],
+    "ext": "js"
+  },
+  "devDependencies": {
+    "fs-extra": "^11.2.0",
+    "@pdftron/webviewer": "^11.0.0",
+    "concurrently": "^9.0.1"
+  }
+}

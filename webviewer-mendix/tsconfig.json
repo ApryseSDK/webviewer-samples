@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "jsxFragmentFactory": "React.Fragment",
+    "esModuleInterop": true,
+    "jsx": "react"
+  },
+  "extends": "./node_modules/@mendix/pluggable-widgets-tools/configs/tsconfig.base.json"
+}
