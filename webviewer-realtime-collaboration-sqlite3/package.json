@@ -1,5 +1,5 @@
 {
-  "name": "webviewer-realtime-collaboration-sqlite3-sample",
+  "name": "webviewer-realtime-collaboration-sqlite3",
   "version": "1.0.0",
   "description": "WebViewer sample to show how you can create a real time collaboration app with WebViewer using WebSocket, SQLite3, and Node.js server.",
   "main": "client/index.js",
