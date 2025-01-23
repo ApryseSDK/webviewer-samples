@@ -4,7 +4,7 @@
   "description": "Apryse WebViewer",
   "scripts": {
     "start": "npm run server",
-    "server": "./node_modules/.bin/supervisor -k -e html,js -i .git/,node_modules/ -- server.js",
+    "server": "supervisor -k -e html,js -i .git/,node_modules/ -- server.js",
     "postinstall": "node tools/copy-webviewer-files.js"
   },
   "devDependencies": {
