@@ -48,39 +48,36 @@ Samples showing how to integrate and use WebViewer in 3rd party platforms.
 
 - [webviewer-salesforce](./webviewer-salesforce) - Integrate WebViewer in Salesforce
 - [webviewer-salesforce-attachments](./webviewer-salesforce-attachments) - View Salesforce record attachments in WebViewer
-- [webviewer-salesforce-attachments-no-viewer](./webviewer-salesforce-attachments-no-viewer)
-- [webviewer-mendix](./webviewer-mendix)
-- [webviewer-mendix-module](./webviewer-mendix-module)
-- [webviewer-microsoft-teams](./webviewer-microsoft-teams)
-- [webviewer-powerapps-component](./webviewer-powerapps-component)
+- [webviewer-mendix](./webviewer-mendix) - Integrate WebViewer into a Mendix low-code app
+- [webviewer-mendix-module](./webviewer-mendix-module) - Server side Mendix module for WebViewer
+- [webviewer-microsoft-teams](./webviewer-microsoft-teams) - Integrate WebViewer into a Microsoft Teams project
+- [webviewer-powerapps-component](./webviewer-powerapps-component) - Integrate WebViewer into a PowerApps component
 
 ### WebViewer features
 Samples showing how to use various WebViewer features.
 
-- [webviewer-custom-ui](./webviewer-custom-ui)
-- [webviewer-realtime-collaboration-sqlite3](./webviewer-realtime-collaboration-sqlite3)
-- [webviewer-collab-azure](./webviewer-collab-azure)
-- [webviewer-collab-sql](./webviewer-collab-sql)
-- [webviewer-generate-docx](./webviewer-generate-docx)
-- [webviewer-cors](./webviewer-cors)
-- [webviewer-server-side-search](./webviewer-server-side-search)
-- [webviewer-offline](./webviewer-offline)
-- [webviewer-document-merge](./webviewer-document-merge)
-- [webviewer-annotations-aspnet](./webviewer-annotations-aspnet)
-- [webviewer-annotations-document](./webviewer-annotations-document)
-- [webviewer-annotations-nodejs](./webviewer-annotations-nodejs)
-- [webviewer-annotations-php](./webviewer-annotations-php)
-- [webviewer-annotations-sqlite3](./webviewer-annotations-sqlite3)
-- [webviewer-facial-redaction](./webviewer-facial-redaction)
-- [webviewer-filehandler](./webviewer-filehandler)
-- [webviewer-user-bookmarks-nodejs](./webviewer-user-bookmarks-nodejs)
-- [webviewer-barcode](./webviewer-barcode)
-- [webviewer-react-canvasToPDF](./webviewer-react-canvasToPDF)
+- [webviewer-custom-ui](./webviewer-custom-ui) - Learn how to create a custom UI for WebViewer
+- [webviewer-realtime-collaboration-sqlite3](./webviewer-realtime-collaboration-sqlite3) - Implement a real-time collaboration feature using SQLite3
+- [webviewer-generate-docx](./webviewer-generate-docx) - Generate DOCX documents with WebViewer
+- [webviewer-cors](./webviewer-cors) - Learn how to serve WebViewer assets from a different domain (CDN, etc)
+- [webviewer-server-side-search](./webviewer-server-side-search) - Override the default client search with a server-side search
+- [webviewer-offline](./webviewer-offline) - Load WebViewer offline with a service worker
+- [webviewer-document-merge](./webviewer-document-merge) - Learn how to merge documents with WebViewer
+- [webviewer-annotations-aspnet](./webviewer-annotations-aspnet) - Save and load annotations through files with an ASP.NET backend
+- [webviewer-annotations-document](./webviewer-annotations-document) - Save and load annotations through files with a Node.js backend
+- [webviewer-annotations-nodejs](./webviewer-annotations-nodejs) - Save and load annotations through files with a Node.js backend
+- [webviewer-annotations-php](./webviewer-annotations-php) - Save and load annotations with a PHP backend
+- [webviewer-annotations-sqlite3](./webviewer-annotations-sqlite3) - Save annotations into an SQLite3 database with a Node.js backend
+- [webviewer-facial-redaction](./webviewer-facial-redaction) - Redact faces from PDF with WebViewer
+- [webviewer-filehandler](./webviewer-filehandler)  - Load file handlers in Sharepoint
+- [webviewer-user-bookmarks-nodejs](./webviewer-user-bookmarks-nodejs) - Save and load user bookmarks with a Node.js backend
+- [webviewer-barcode](./webviewer-barcode) - Barcode generation with WebViewer
+- [webviewer-react-canvasToPDF](./webviewer-react-canvasToPDF) - Export a canvas to PDF with WebViewer
 
 ### WebViewer Modules
 Samples showing how to use different WebViewer plug-in modules.
 
-- [webviewer-BIM](./webviewer-BIM)
-- [webviewer-audio](./webviewer-audio)
-- [webviewer-video](./webviewer-video)
-- [webviewer-html-proxy-server](./webviewer-html-proxy-server)
+- [webviewer-BIM](./webviewer-BIM) - View BIM data in WebViewer
+- [webviewer-audio](./webviewer-audio) - View, annotate, and redact audio files in WebViewer
+- [webviewer-video](./webviewer-video) - View, annotate and redact video files in WebViewer
+- [webviewer-html-proxy-server](./webviewer-html-proxy-server) - Use a proxy server to load HTML files in WebViewer
