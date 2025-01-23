@@ -43,7 +43,7 @@ Samples showing how to get started with WebViewer in different environments.
 - [webviewer-blazor-wasm](./webviewer-blazor-wasm) - Integrate WebViewer in a Blazor application
 - [webviewer-tomcat-java](./webviewer-tomcat-java) - Integrate WebViewer in a Java Tomcat application
 
-### Integrations
+### 3rd Party Integrations
 Samples showing how to integrate and use WebViewer in 3rd party platforms.
 
 - [webviewer-salesforce](./webviewer-salesforce) - Integrate WebViewer in Salesforce
@@ -53,7 +53,7 @@ Samples showing how to integrate and use WebViewer in 3rd party platforms.
 - [webviewer-microsoft-teams](./webviewer-microsoft-teams) - Integrate WebViewer into a Microsoft Teams project
 - [webviewer-powerapps-component](./webviewer-powerapps-component) - Integrate WebViewer into a PowerApps component
 
-### WebViewer features
+### WebViewer Features
 Samples showing how to use various WebViewer features.
 
 - [webviewer-custom-ui](./webviewer-custom-ui) - Learn how to create a custom UI for WebViewer
