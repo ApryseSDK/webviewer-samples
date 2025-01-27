@@ -31,7 +31,7 @@ Follow the steps below to set the license key in this sample:
 ## Install
 
 ```
-git clone --depth=1 git@github.com:ApryseSDK/webviewer-samples.git
+git clone --depth=1 https://github.com/ApryseSDK/webviewer-samples.git
 cd webviewer-samples/webviewer-react
 npm install
 ```

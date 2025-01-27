@@ -1,18 +1,21 @@
 # WebViewer - Mendix Web Module
 
-[WebViewer](https://docs.apryse.com/documentation/web/) is a powerful JavaScript-based PDF Library that's part of the [Apryse PDF SDK](https://www.apryse.com). It provides a slick out-of-the-box responsive UI that interacts with the core library to view, annotate and manipulate PDFs that can be embedded into any web project.
+[WebViewer](https://docs.apryse.com/web/guides/get-started) is a powerful JavaScript-based PDF Library that is part of the [Apryse SDK](https://apryse.com/). It provides a slick out-of-the-box responsive UI that enables you to view, annotate and manipulate PDFs and other document types inside any web project.
 
-This repo provides a backend module that facilitates server side operations that work with WebViewer.
+- [WebViewer Documentation](https://docs.apryse.com/web/guides/get-started)
+- [WebViewer Demo](https://showcase.apryse.com/)
 
-![WebViewer UI](https://www.pdftron.com/downloads/pl/webviewer-ui.png)
+This sample provides a backend module that facilitates server side operations that work with WebViewer.
+
+## Get your trial key
+
+A license key is required to run WebViewer. You can obtain a trial key in our [get started guides](https://docs.apryse.com/web/guides/get-started), or by signing-up on our [developer portal](https://dev.apryse.com/).
 
 ## Features
 
 - Updating documents after annotating
 - Exporting/importing XFDF
 - Real-time collaboration
-
-More to come!
 
 ## Installation
 
@@ -27,19 +30,3 @@ Before you begin, make sure you have installed [Mendix Studio Pro](https://docs.
 ## Exporting a module
 
 To export your module, right click on the `WebViewer` module and click `Export module package`. Follow the prompts and you should be able to deselect all the dependencies (unless you have made it a dependency). Finally, save the `mpk` file that will be imported as a module package.
-
-## WebViewer APIs
-
-See [API documentation](https://docs.apryse.com/api/web/WebViewerInstance.html).
-
-## Support
-
-https://apryse.com/form/trial-support
-
-## Contributing
-
-See [contributing](./CONTRIBUTING.md).
-
-## License
-
-See [license](./LICENSE).

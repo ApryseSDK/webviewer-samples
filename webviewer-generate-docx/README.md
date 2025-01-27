@@ -1,10 +1,15 @@
 # Generate DOCX and view it in a browser
-Easily create DOCX documents in JavaScript, and view them in the browser, or convert and download as a PDF.
 
-- [DOCX Generator](https://www.npmjs.com/package/docx)
-- [Apryse WebViewer to view and convert](https://www.npmjs.com/package/@pdftron/webviewer)
+[WebViewer](https://docs.apryse.com/web/guides/get-started) is a powerful JavaScript-based PDF Library that is part of the [Apryse SDK](https://apryse.com/). It provides a slick out-of-the-box responsive UI that enables you to view, annotate and manipulate PDFs and other document types inside any web project.
 
-**If you have any questions, comments or would just like to tell us how you're using it, please feel free to open a ticket!**
+- [WebViewer Documentation](https://docs.apryse.com/web/guides/get-started)
+- [WebViewer Demo](https://showcase.apryse.com/)
+
+This sample shows how to easily create DOCX documents in JavaScript, view them in the browser, and convert and download as a PDF.
+
+## Get your trial key
+
+A license key is required to run WebViewer. You can obtain a trial key in our [get started guides](https://docs.apryse.com/web/guides/get-started), or by signing-up on our [developer portal](https://dev.apryse.com/).
 
 ## Installation
 ```
@@ -14,3 +19,5 @@ npm i && npm start
 ## Documentation
 - [DOCX](https://docx.js.org/#/)
 - [Apryse WebViewer](https://docs.apryse.com/web/get-started/)
+
+

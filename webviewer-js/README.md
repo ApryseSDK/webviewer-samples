@@ -1,19 +1,19 @@
 # WebViewer - JS Sample
 
-[WebViewer](https://docs.apryse.com/documentation/web/) is a powerful JavaScript-based PDF Library that is part of the [Apryse SDK](https://apryse.com/). It provides a slick out-of-the-box responsive UI that interacts with the core library to view, annotate and manipulate PDFs, MS Office, videos, images, and CAD that can be embedded into any web project.
+[WebViewer](https://docs.apryse.com/web/guides/get-started) is a powerful JavaScript-based PDF Library that is part of the [Apryse SDK](https://apryse.com/). It provides a slick out-of-the-box responsive UI that enables you to view, annotate and manipulate PDFs and other document types inside any web project.
 
-![WebViewer UI](https://www.pdftron.com/downloads/pl/webviewer-ui.png)
+- [WebViewer Documentation](https://docs.apryse.com/web/guides/get-started)
+- [WebViewer Demo](https://showcase.apryse.com/)
 
-This repo is specifically designed for any users interested in integrating WebViewer into a vanilla JS project.
+This sample is specifically designed for any users interested in integrating WebViewer into a vanilla JS project.
 
-## Demo
+## Get your trial key
 
-You can explore all of the functionality in our [showcase](https://showcase.apryse.com/).
+A license key is required to run WebViewer. You can obtain a trial key in our [get started guides](https://docs.apryse.com/web/guides/get-started), or by signing-up on our [developer portal](https://dev.apryse.com/).
 
 ## Initial Setup
 
 Before you begin, make sure your development environment includes [Node.js and npm](https://www.npmjs.com/get-npm).
-
 
 1. [Node.js](https://nodejs.org/en).
 2. IDE used in this sample is Visual Studio Code with an NPM extension to process commands within its terminal.
@@ -22,8 +22,8 @@ Before you begin, make sure your development environment includes [Node.js and n
 ## Install
 
 ```
-git clone https://github.com/ApryseSDK/webviewer-js-sample.git
-cd webviewer-js-sample
+git clone --depth=1 https://github.com/ApryseSDK/webviewer-samples.git
+cd webviewer-samples/webviewer-js
 npm install
 ```
 
@@ -65,19 +65,3 @@ The `package.json` file contains the `start` and `build` scripts. The only scrip
 ```
     "start": "parcel index.html --open http://localhost:1234"
 ```
-
-## WebViewer APIs
-
-* [@pdftron/webviewer API documentation](https://docs.apryse.com/api/web/global.html#WebViewer__anchor)
-* [@pdftron/webviewer-js-sample API documentation](https://github.com/ApryseSDK/webviewer-js-sample)
-* [API documentation: WebViewerInstance](https://docs.apryse.com/api/web/WebViewerInstance.html).
-
-## Showcase
-
-Refer to a running sample on Apryse SDK [showcase page](https://showcase.apryse.com/).
-
-
-## License
-
-For licensing, refer to [License](LICENSE).
-

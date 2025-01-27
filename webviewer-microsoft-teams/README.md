@@ -1,14 +1,15 @@
 # WebViewer - Microsoft Teams Sample
 
-[WebViewer](https://www.pdftron.com/documentation/web/) is a powerful JavaScript-based PDF Library that's part of the [PDFTron PDF SDK](https://www.pdftron.com). It provides a slick out-of-the-box responsive UI that interacts with the core library to view, annotate and manipulate PDFs that can be embedded into any web project.
+[WebViewer](https://docs.apryse.com/web/guides/get-started) is a powerful JavaScript-based PDF Library that is part of the [Apryse SDK](https://apryse.com/). It provides a slick out-of-the-box responsive UI that enables you to view, annotate and manipulate PDFs and other document types inside any web project.
 
-![WebViewer UI](https://www.pdftron.com/downloads/pl/webviewer-ui.png)
+- [WebViewer Documentation](https://docs.apryse.com/web/guides/get-started)
+- [WebViewer Demo](https://showcase.apryse.com/)
 
-This repo is specifically designed for any users interested in integrating WebViewer into Microsoft Teams project.
+This sample is specifically designed for any users interested in integrating WebViewer into Microsoft Teams project.
 
-## Demo
+## Get your trial key
 
-You can explore all of the functionality in our [showcase](https://www.pdftron.com/webviewer/demo/).
+A license key is required to run WebViewer. You can obtain a trial key in our [get started guides](https://docs.apryse.com/web/guides/get-started), or by signing-up on our [developer portal](https://dev.apryse.com/).
 
 ## Initial setup
 
@@ -89,7 +90,7 @@ Note: If there is an issue with Sideloading not being enabled, you must sign int
 
 ## Resources
 
-- [PDFTron Angular Getting Started](https://www.pdftron.com/documentation/web/get-started/angular/)
+- [Apryse Angular Getting Started](https://docs.apryse.com/web/guides/get-started/angular)
 - [Microsoft docs - Consideration for Teams integration](https://docs.microsoft.com/en-us/microsoftteams/platform/samples/integrating-web-apps)
 - [Microsoft docs - Overview](https://docs.microsoft.com/en-us/microsoftteams/platform/mstdd-landing)
 - [Microsoft docs - Get started overview](https://docs.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview)
@@ -101,4 +102,3 @@ Note: If there is an issue with Sideloading not being enabled, you must sign int
 - [Microsoft docs - Locally hosting and debug (ngrok)](https://docs.microsoft.com/en-us/microsoftteams/platform/concepts/build-and-test/debug)
 - [Microsoft docs - Manifest customization](https://docs.microsoft.com/en-us/microsoftteams/platform/toolkit/teamsfx-manifest-customization)
 
-----

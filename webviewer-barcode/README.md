@@ -1,8 +1,15 @@
 # WebViewer Barcode
 
-WebViewer Barcode demonstrates a PoC for generating barcodes, stamping them onto a PDF and then reading them after they have been flattened onto the document. [Watch the demo here](https://youtu.be/KCUL3HoFxkM) or [read the blog here](https://apryse.com/blog/annotation/stamp-and-read-barcode-on-pdfs-with-pdftron-sdk).
+[WebViewer](https://docs.apryse.com/web/guides/get-started) is a powerful JavaScript-based PDF Library that is part of the [Apryse SDK](https://apryse.com/). It provides a slick out-of-the-box responsive UI that enables you to view, annotate and manipulate PDFs and other document types inside any web project.
 
-![Screenshot](https://github.com/ApryseSDK/webviewer-barcode/blob/master/barcode.gif)
+- [WebViewer Documentation](https://docs.apryse.com/web/guides/get-started)
+- [WebViewer Demo](https://showcase.apryse.com/)
+
+This sample demonstrates a PoC for generating barcodes, stamping them onto a PDF and then reading them after they have been flattened onto the document. [Watch the demo here](https://youtu.be/KCUL3HoFxkM) or [read the blog here](https://apryse.com/blog/annotation/stamp-and-read-barcode-on-pdfs-with-pdftron-sdk).
+
+## Get your trial key
+
+A license key is required to run WebViewer. You can obtain a trial key in our [get started guides](https://docs.apryse.com/web/guides/get-started), or by signing-up on our [developer portal](https://dev.apryse.com/).
 
 ## Install
 
@@ -24,6 +31,3 @@ This app features [jsbarcode](https://github.com/lindell/JsBarcode) for generati
 
 See [API documentation](https://docs.apryse.com/api/web/global.html#WebViewer__anchor)
 
-## License
-
-See [license](./LICENSE).

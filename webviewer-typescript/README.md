@@ -1,11 +1,15 @@
 # TypeScript PDF Viewer Sample (WebViewer)
 
-[WebViewer](https://docs.apryse.com/documentation/web/) is a powerful JavaScript-based PDF Library that is part of the [Apryse SDK](https://apryse.com/). It provides a slick out-of-the-box responsive UI that interacts with the core library to view, annotate and manipulate PDFs that can be embedded into web projects.
+[WebViewer](https://docs.apryse.com/web/guides/get-started) is a powerful JavaScript-based PDF Library that is part of the [Apryse SDK](https://apryse.com/). It provides a slick out-of-the-box responsive UI that enables you to view, annotate and manipulate PDFs and other document types inside any web project.
 
-![WebViewer UI](https://www.pdftron.com/downloads/pl/webviewer-ui.png)
+- [WebViewer Documentation](https://docs.apryse.com/web/guides/get-started)
+- [WebViewer Demo](https://showcase.apryse.com/)
 
-This repo is specifically designed for any users interested in integrating WebViewer into a TypeScript project. WebViewer has a comprehensive definition file ready for use by just adding a reference to the definition file.
+This sample is specifically designed for any users interested in integrating WebViewer into a TypeScript project. WebViewer has a comprehensive definition file ready for use by just adding a reference to the definition file.
 
+## Get your trial key
+
+A license key is required to run WebViewer. You can obtain a trial key in our [get started guides](https://docs.apryse.com/web/guides/get-started), or by signing-up on our [developer portal](https://dev.apryse.com/).
 
 ## Trial
 
@@ -28,8 +32,8 @@ Follow the steps below to set the license key in this sample:
 ## Install
 
 ```shell
-git clone https://github.com/ApryseSDK/webviewer-typescript-sample.git
-cd webviewer-typescript-sample
+git clone --depth=1 https://github.com/ApryseSDK/webviewer-samples.git
+cd webviewer-samples/webviewer-typescript
 npm install
 ```
 
@@ -46,27 +50,3 @@ Open a different shell service and run:
 ```shell
 npm start
 ```
-
-## WebViewer APIs
-
-Most classes and functions are well documented in the TypeScript definition file. See [API documentation](https://docs.apryse.com/api/web/WebViewerInstance.html).
-
-## Enabling full API
-
-PDFNetJS Full is a complete browser side PDF SDK, unlocking viewing, parsing and editing of PDF files. To enable full API, you can modify constructor in `src/index.ts` and then use `tsc src/index.ts` from the project root:
-
-```diff
-const viewerElement = document.getElementById('viewer');
-WebViewer({
-    path: 'WebViewer/lib',
-    initialDoc: 'path/to/local/file OR online URL', // replace with your own PDF file
-+   fullAPI: true
-}, viewerElement).then((instance) => {
-    // call APIs here
-    })
-}
-```
-
-## License
-
-See [license](./LICENSE).
