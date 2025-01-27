@@ -2,7 +2,7 @@
 
 1. Sign in to [Azure Portal](https://azure.microsoft.com/en-us/get-started/azure-portal/)
 2. Switch to the tenant that you want to register the application
-3. Select **Azure Active Directory**
+3. Select **Azure Active Directory** (Microsoft renamed **Azure Active Directory** (Azure AD) to [Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/fundamentals/new-name), instructions in either case are similar)
 4. On the left sidebar, select **App registrations**
 5. Click **+ New registration**
 6. Enter a name that you find it easily, ex. "Webviewer helper" and click **register**
