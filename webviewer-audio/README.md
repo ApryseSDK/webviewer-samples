@@ -1,18 +1,15 @@
 # WebViewer Audio
 
-[WebViewer](https://docs.apryse.com/documentation/web/) is a powerful JavaScript-based PDF Library that is part of the [Apryse SDK](https://apryse.com/). It allows you to view and annotate PDF files on your web app with a fully customizable UI.
+[WebViewer](https://docs.apryse.com/web/guides/get-started) is a powerful JavaScript-based PDF Library that is part of the [Apryse SDK](https://apryse.com/). It provides a slick out-of-the-box responsive UI that enables you to view, annotate and manipulate PDFs and other document types inside any web project.
 
-This sample uses the audio addon for WebViewer that allows the loading of media elements (.mp3, .mp4, ogg, webm, etc.), so that their audio tracks can be annotated and redacted.
+- [WebViewer Documentation](https://docs.apryse.com/web/guides/get-started)
+- [WebViewer Demo](https://showcase.apryse.com/)
 
+This sample uses the audio addon for WebViewer that allows the loading of media elements (.mp3, .mp4, ogg, webm, etc.), so that their audio tracks can be annotated and redacted. This sample is specifically designed for users interested in integrating WebViewer Audio into a React project
 
+## Get your trial key
 
-![WebViewer](/src/SampleAnnotations.png)
-
-This repo is specifically designed for users interested in integrating WebViewer Audio into a React project. This project was generated with an `npx` Create React App command. 
-
-```
-npx create-react-app webviewer-audio --template javascript-blank
-```
+A license key is required to run WebViewer. You can obtain a trial key in our [get started guides](https://docs.apryse.com/web/guides/get-started), or by signing-up on our [developer portal](https://dev.apryse.com/).
 
 ## Initial setup
 
@@ -27,7 +24,7 @@ Before you begin, make sure your development environment includes [Node.js and n
 
 ```
 gh repo clone ApryseSDK/webviewer-audio
-cd webviewer-audio-sample
+cd webviewer-samples/webviewer-audio
 npm install
 ```
 
@@ -48,21 +45,3 @@ This option will be available on the UI as part of the Download button, which re
 Run `npm run build` to build the project. The build artifacts will be stored in the `build/` directory. See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 To test the build directory locally, outside of Visual Studio Code, you can use [serve](https://www.npmjs.com/package/serve) or [http-server](https://www.npmjs.com/package/http-server). In case of serve, by default it strips the .html extension stripped from paths. We added serve.json configuration to disable cleanUrls option.
-
-## WebViewer APIs
-
-* [@pdftron/webviewer API documentation](https://docs.apryse.com/api/web/global.html#WebViewer__anchor)
-* [@pdftron/webviewer-audio API documentation](https://github.com/ApryseSDK/webviewer-audio-sample)
-
-## Showcase
-
-Refer to a running sample on Apryse SDK [showcase page](https://showcase.apryse.com/annotate-audio-track).
-
-## Contributing
-
-Any submission to this repo is governed by these [guidelines](/CONTRIBUTING.md).
-
-
-## License
-
-For licensing, refer to [License](LICENSE).

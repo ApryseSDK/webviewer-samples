@@ -1,18 +1,24 @@
-# How to Add a PDFTron WebViewer to Salesforce as a Lightning Web Component
-This project contains the source code for this [blog post](https://www.pdftron.com/blog/webviewer/add-pdf-viewer-editor-to-salesforce-as-lwc/) or you can [watch a video](https://youtu.be/NdRg-RnlC5g) instead.
+# How to Add an Apryse WebViewer to Salesforce as a Lightning Web Component
 
-![WebViewer][webviewer]
+[WebViewer](https://docs.apryse.com/web/guides/get-started) is a powerful JavaScript-based PDF Library that is part of the [Apryse SDK](https://apryse.com/). It provides a slick out-of-the-box responsive UI that enables you to view, annotate and manipulate PDFs and other document types inside any web project.
 
-The quickest way to getting started with WebViewer in Salesforce is to follow
-the instructions below.
+- [WebViewer Documentation](https://docs.apryse.com/web/guides/get-started)
+- [WebViewer Demo](https://showcase.apryse.com/)
+
+The quickest way to getting started with WebViewer in Salesforce is to follow the instructions below.
+
+## Get your trial key
+
+A license key is required to run WebViewer. You can obtain a trial key in our [get started guides](https://docs.apryse.com/web/guides/get-started), or by signing-up on our [developer portal](https://dev.apryse.com/).
 
 ## Requirements
 
-* [Optional] - [PDFTron WebViewer](https://www.pdftron.com/documentation/web/download) (Download `WebViewer.zip`)
+* [Optional] - [Apryse WebViewer](https://docs.apryse.com/web/guides/download) (Download `WebViewer.zip`)
 * [Salesforce CLI](https://trailhead.salesforce.com/en/content/learn/modules/sfdx_app_dev/sfdx_app_dev_setup_dx#Tdxn4tBK-heading6)
 * [Node and NPM](https://nodejs.org/en/)
 
 ## Installing WebViewer Sample App using Salesforce DX
+
 1. Install Salesforce DX. Enable the Dev Hub in your org or sign up for a Dev Hub trial org and install the Salesforce DX CLI. Follow the instructions in the [Salesforce DX Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm?search_text=trial%20hub%20org) or in the [App Development with Salesforce DX](https://trailhead.salesforce.com/modules/sfdx_app_dev) Trailhead module. The steps include:
    * [Enable Dev Hub in you project](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_enable_devhub.htm)
    * [Install Salesforce CLI](https://trailhead.salesforce.com/en/content/learn/modules/sfdx_app_dev/sfdx_app_dev_setup_dx#Tdxn4tBK-heading6)
@@ -20,8 +26,8 @@ the instructions below.
 
 2. Clone the `webviewer-salesforce` from Github repo:
 ```
-git clone git@github.com:PDFTron/webviewer-salesforce.git
-cd webviewer-salesforce
+git clone --depth=1 https://github.com/ApryseSDK/webviewer-samples.git
+cd webviewer-samples/webviewer-salesforce
 ```
 
 3. [Optional] - If you do not need to upgrade/downgrade to a different version you can skip to step 5. Otherwise, extract `WebViewer.zip`, `cd` to the directory the contents were extracted
@@ -31,17 +37,17 @@ $ npm run optimize
 
 Optimize: Do you want us to backup your files before optimizing? [y/n]:  y
 
-Optimize: Will you be using WebViewer Server? See https://www.pdftron.com/documentation/web/guides/wv-server/ for more info. [y/n]:  n
+Optimize: Will you be using WebViewer Server? See https://www.docs.apryse.com.com/documentation/web/guides/wv-server/ for more info. [y/n]:  n
 
-Optimize: Will you be converting all your documents to XOD? See https://www.pdftron.com/documentation/web/guides/optimize-lib-folder for more info. [y/n]:  n
+Optimize: Will you be converting all your documents to XOD? See https://www.docs.apryse.com.com/documentation/web/guides/optimize-lib-folder for more info. [y/n]:  n
 
 Optimize: Do you need client side office support? [y/n]:  y
 
-Optimize: Do you need the full PDF API? See https://www.pdftron.com/documentation/web/guides/optimize-lib-folder for more info (most users dont need this option). [y/n]:  y
+Optimize: Do you need the full PDF API? See https://www.docs.apryse.com.com/documentation/web/guides/optimize-lib-folder for more info (most users dont need this option). [y/n]:  y
 
 Optimize: Do you want to use the production version of PDFNet.js? The production version does not have type checking and console messages, but is much smaller than the development version. [y/n]:  n
 
-Optimize: Do you need to deploy to Salesforce? See https://www.pdftron.com/documentation/web/guides/optimize-lib-folder for more info (most users dont need this option). [y/n]:  y
+Optimize: Do you need to deploy to Salesforce? See https://www.docs.apryse.com.com/documentation/web/guides/optimize-lib-folder for more info (most users dont need this option). [y/n]:  y
 ```
 
 This optimization process produces zip files of size 5 MB or less, which enables
@@ -50,7 +56,7 @@ you to safely upload to the Salesforce platform.
 Note that in certain circumstances, you may need the full PDF API. For more
 details on when you may need to enable it, see:
 
-https://www.pdftron.com/documentation/web/guides/full-api-overview/
+https://www.docs.apryse.com.com/documentation/web/guides/full-api-overview/
 
 4. [Optional] - Copy all the zip files from `webviewer-salesforce` folder, which were generated after running above npm optimization script, into `force-app/main/default/staticresources`.
 
@@ -108,7 +114,7 @@ Note: Include the following to your profile `.xml` for application and tab acces
 
 ## Implementation Details for Developers
 
-### Communicating with CoreControls from Lightning Web Component
+## Communicating with CoreControls from Lightning Web Component
 On the Salesforce platform, Lightning Web Component have limits accessing to WebViewer’s `iframe` due to [LockerService](https://developer.salesforce.com/blogs/developer-relations/2017/02/lockerservice-lightning-container-third-party-libraries-lightning-components.html) requirements. Lightning Component can use limited communication mechanism between components using [`postMessage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage). You can find more information about LockerService [here](https://developer.salesforce.com/blogs/developer-relations/2017/02/lockerservice-lightning-container-third-party-libraries-lightning-components.html).
 
 Here is implementation of the `postMessage` mechanism used in our sample github project and you can use this similar approach to communicate with the `iframe`’s `contentWindow`.
@@ -169,4 +175,4 @@ export default class WebViewer extends LightningElement {
 [pdftron_app]: misc/pdftron_app.png "PDFTron app"
 [webviewer]: misc/webviewer.png "WebViewer"
 [app_launcher]: misc/app_launcher.png "App Launcher"
-![](https://onepixel.pdftron.com/webviewer-salesforce)
+

@@ -1,10 +1,15 @@
 # WebViewer - Mendix Web Widget
 
-[WebViewer](https://docs.apryse.com/documentation/web/) is a powerful JavaScript-based PDF Library that's part of the [Apryse PDF SDK](https://www.apryse.com). It provides a slick out-of-the-box responsive UI that interacts with the core library to view, annotate and manipulate PDFs that can be embedded into any web project.
+[WebViewer](https://docs.apryse.com/web/guides/get-started) is a powerful JavaScript-based PDF Library that is part of the [Apryse SDK](https://apryse.com/). It provides a slick out-of-the-box responsive UI that enables you to view, annotate and manipulate PDFs and other document types inside any web project.
 
-![WebViewer UI](https://www.pdftron.com/downloads/pl/webviewer-ui.png)
+- [WebViewer Documentation](https://docs.apryse.com/web/guides/get-started)
+- [WebViewer Demo](https://showcase.apryse.com/)
 
-This repo is specifically designed for any users interested in customizing and integrating WebViewer into Mendix low-code app. You can watch [a video here](https://youtu.be/a9HNVzbmDLM) to help you get started.
+This sample is specifically designed for any users interested in customizing and integrating WebViewer into Mendix low-code app. You can watch [a video here](https://youtu.be/a9HNVzbmDLM) to help you get started.
+
+## Get your trial key
+
+A license key is required to run WebViewer. You can obtain a trial key in our [get started guides](https://docs.apryse.com/web/guides/get-started), or by signing-up on our [developer portal](https://dev.apryse.com/).
 
 ## Initial setup
 
@@ -14,7 +19,7 @@ Before you begin, make sure you have installed [Node.js](https://nodejs.org/en/)
 
 Open [Mendix Studio Pro](https://docs.mendix.com/howto/general/install) and create a new project by selecting `File > New Project` from the top menu bar, and choose the `Blank` app.
 
-After creating a new app or inside of the existing app, navigate to the root directory and create a new folder called `CustomWidgets/WebViewer` and place the extracted contents from [this sample](https://github.com/PDFTron/webviewer-mendix-sample) inside.
+After creating a new app or inside of the existing app, navigate to the root directory and create a new folder called `CustomWidgets/WebViewer` and place the extracted contents from this sample inside.
 
 By default, Mendix projects are stored in:
 ```
@@ -46,7 +51,7 @@ created dist/tmp/widgets/WebViewer.editorPreview.js in 1.3s
 
 Next, we must copy the static `lib` assets required for WebViewer to run. The files are located in `CustomWidgets/WebViewer/node_modules/@pdftron/webviewer/public` and must be moved into a location that will be served and publicly accessible.
 
-### Prior to Mendix 9
+## Prior to Mendix 9
 
 We can place it into `theme/resources`. Create a new folder called `lib` and place the contents from `node_modules/@pdftron/webviewer/public` there.
 `theme/resources` should have a directory structure like so:
@@ -57,7 +62,7 @@ We can place it into `theme/resources`. Create a new folder called `lib` and pla
     └───ui
 ```
 
-### Mendix 9 or higher
+## Mendix 9 or higher
 
 Beginning with Mendix 9, the `theme/resources` path is no longer valid. As such, please move the resources to respective folders for `web` and `mobile`. For example, for `web` it will look like this:
 ```
@@ -134,16 +139,3 @@ In the code snippet, we are listening for any of the changes in `props` and then
 You can now customize the widget by checking out other guides we have available. Perform your customizations inside of `src/components/PDFViewer.tsx`. Do not forget to run `npm run dev` within the Widget's console or terminal and update the files in your App by pressing F4, or from the top menu bar selecting `Project > Synchronize Project Directory`.
 
 You can now checkout other guides like [how to open your own documents](https://docs.apryse.com/documentation/web/guides/basics/open/url/) or [how to disable certain features](https://docs.apryse.com/documentation/web/guides/hiding-elements/).
-
-## WebViewer APIs
-
-See [API documentation](https://docs.apryse.com/api/web/WebViewerInstance.html).
-
-## Support
-
-https://apryse.com/form/trial-support
-
-## License
-
-See [license](./LICENSE).
-![](https://onepixel.pdftron.com/webviewer-react-sample)

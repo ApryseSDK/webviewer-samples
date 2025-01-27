@@ -7,7 +7,7 @@ A collection of sample projects for the [Apryse WebViewer SDK](https://apryse.co
 1. Clone this repository
 
 ```bash
-git clone --depth=1 git@github.com:ApryseSDK/webviewer-samples.git
+git clone --depth=1 https://github.com/ApryseSDK/webviewer-samples.git
 cd webviewer-samples
 ```
 

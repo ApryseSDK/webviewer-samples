@@ -1,25 +1,15 @@
 # WebViewer Nuxt 2 Sample
 
-[WebViewer](https://docs.apryse.com/documentation/web/) is a powerful JavaScript-based PDF Library that is part of the [Apryse PDF SDK](https://apryse.com/). It provides a slick out-of-the-box responsive UI that interacts with the core library to view, annotate and manipulate PDFs that can be embedded into any web project.
+[WebViewer](https://docs.apryse.com/web/guides/get-started) is a powerful JavaScript-based PDF Library that is part of the [Apryse SDK](https://apryse.com/). It provides a slick out-of-the-box responsive UI that enables you to view, annotate and manipulate PDFs and other document types inside any web project.
 
-![WebViewer UI](https://www.pdftron.com/downloads/pl/webviewer-ui.png)
+- [WebViewer Documentation](https://docs.apryse.com/web/guides/get-started)
+- [WebViewer Demo](https://showcase.apryse.com/)
 
-This repo is specifically designed for any users interested in integrating WebViewer into a [Nuxt 2](https://v2.nuxt.com/) project. This project was created using the `npm init nuxt-app` command and uses the [BootstrapVue](https://bootstrap-vue.org/) UI Framework as well as the [Axios](https://v2.nuxt.com/examples/modules/axios/) NuxtJS module, which provides a promise based HTTP client.
+This sample is specifically designed for any users interested in integrating WebViewer into a [Nuxt 2](https://v2.nuxt.com/) project. This project was created using the `npm init nuxt-app` command and uses the [BootstrapVue](https://bootstrap-vue.org/) UI Framework as well as the [Axios](https://v2.nuxt.com/examples/modules/axios/) NuxtJS module, which provides a promise based HTTP client.
 
-## Demos
+## Get your trial key
 
-- [Customizable out-of-the-box UI](https://showcase.apryse.com/toolbar-customization)
-- [PDF Viewer](https://showcase.apryse.com/)
-- [DOCX Editor](https://showcase.apryse.com/office-editor)
-- [Annotation & Markup](https://showcase.apryse.com/annotation-permissions)
-- [Generate PDFs from DOCX template](https://showcase.apryse.com/office-template-fill)
-- [Digital Signatures](https://showcase.apryse.com/digital-signatures)
-- [PDF Text Editing](https://showcase.apryse.com/pdf-editing)
-- [Page Manipulation](https://showcase.apryse.com/pdf-page-manipulation-api)
-- [Redaction](https://showcase.apryse.com/redaction)
-- [Form Building](https://showcase.apryse.com/pdf-form-build)
-- [Annotate Videos](https://showcase.apryse.com/annotate-video-frames)
-- [More](https://showcase.apryse.com/)
+A license key is required to run WebViewer. You can obtain a trial key in our [get started guides](https://docs.apryse.com/web/guides/get-started), or by signing-up on our [developer portal](https://dev.apryse.com/).
 
 ## Trial
 
@@ -30,8 +20,8 @@ WebViewer comes with a 7-day trial without any feature limitations or trial key 
 Before beginning, make sure the development environment includes [Node.js](https://nodejs.org/en/).
 
 ```
-git clone https://github.com/ApryseSDK/webviewer-nuxtjs-sample.git
-cd webviewer-nuxtjs-sample
+git clone --depth=1 https://github.com/ApryseSDK/webviewer-samples.git
+cd webviewer-samples/webviewer-nuxtjs
 npm install
 ```
 
@@ -46,10 +36,3 @@ For detailed explanation on Nuxt 2 commands and deployment, check out the [docum
 
 ## Customize configuration
 See [Configuration Reference](https://v2.nuxt.com/docs/features/configuration/).
-
-## API Reference
-* [@pdftron/webviewer API documentation](https://docs.apryse.com/api/web/global.html#WebViewer__anchor)
-
-## License
-
-For licensing, refer to [License](LICENSE).

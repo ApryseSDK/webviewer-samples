@@ -1,9 +1,19 @@
 # Webviewer Html Proxy Server
-This is a proxy server to use with [HTML sample by PDFTron](https://github.com/PDFTron/webviewer-html-annotate-proxy)
+
+[WebViewer](https://docs.apryse.com/web/guides/get-started) is a powerful JavaScript-based PDF Library that is part of the [Apryse SDK](https://apryse.com/). It provides a slick out-of-the-box responsive UI that enables you to view, annotate and manipulate PDFs and other document types inside any web project.
+
+- [WebViewer Documentation](https://docs.apryse.com/web/guides/get-started)
+- [WebViewer Demo](https://showcase.apryse.com/)
+
+This is a proxy server to use with [HTML sample by Apryse](https://github.com/ApryseSDK/webviewer-html-annotate-proxy)
+
+## Get your trial key
+
+A license key is required to run WebViewer. You can obtain a trial key in our [get started guides](https://docs.apryse.com/web/guides/get-started), or by signing-up on our [developer portal](https://dev.apryse.com/).
 
 ## Disclaimer
 
-This project is experimental. A proxy server is used to serve webpage assets. This is done to get around various security issues, when loading a webpage in an iframe. This works for a good amount of pages but there are many exceptions. If you have a subset of web pages that you would like to support then we recommend forking [this repository](https://github.com/PDFTron/webviewer-html-proxy-server) and making the necessary fixes. We won't be making those changes because it would likely result in other pages failing.
+This project is experimental. A proxy server is used to serve webpage assets. This is done to get around various security issues, when loading a webpage in an iframe. This works for a good amount of pages but there are many exceptions.
 
 ## Install
 
@@ -79,7 +89,9 @@ HTMLProxyServer.createServer({
 ```
 
 ## API Endpoints
-### Proxy a URL
+
+
+## Proxy a URL
 
 **URL** : `/pdftron-proxy?url=`
 
@@ -87,7 +99,7 @@ HTMLProxyServer.createServer({
 
 **Method** : `GET`
 
-#### Success Response
+## Success Response
 
 **Condition** : If the URL can be successfuly proxied
 
@@ -101,7 +113,7 @@ HTMLProxyServer.createServer({
 }
 ```
 
-#### Error Responses
+## Error Responses
 
 **Condition** : If URL can not be proxied.
 
@@ -109,7 +121,7 @@ HTMLProxyServer.createServer({
 
 **Content** : `{ errorMessage: 'Please enter a valid URL and try again.' }`
 
-### Download a PDF
+## Download a PDF
 
 **URL** : `/pdftron-download?url=`
 
@@ -117,7 +129,7 @@ HTMLProxyServer.createServer({
 
 **Method** : `GET`
 
-#### Success Response
+## Success Response
 
 **Condition** : If URL can be loaded in puppeteer.
 
@@ -132,10 +144,12 @@ HTMLProxyServer.createServer({
 }
 ```
 
-#### Error Responses
+## Error Responses
 
 **Condition** : If URL can not be loaded in puppeteer.
 
 **Code** : `400`
 
 **Content** : `{ errorMessage: 'Error taking screenshot from puppeteer' }`
+
+

@@ -1,10 +1,15 @@
 # WebViewer - Server-Side Search Integration
 
-[WebViewer](https://docs.apryse.com/documentation/web/) is a powerful JavaScript-based PDF Library that is part of the [Apryse SDK](https://apryse.com/). It allows you to view and annotate PDF files on your web app with a fully customizable UI.
+[WebViewer](https://docs.apryse.com/web/guides/get-started) is a powerful JavaScript-based PDF Library that is part of the [Apryse SDK](https://apryse.com/). It provides a slick out-of-the-box responsive UI that enables you to view, annotate and manipulate PDFs and other document types inside any web project.
 
-![WebViewer UI](https://pdftron.s3.amazonaws.com/downloads/pl/webviewer-ui.png "WebViewer UI")
+- [WebViewer Documentation](https://docs.apryse.com/web/guides/get-started)
+- [WebViewer Demo](https://showcase.apryse.com/)
 
 This sample adds a WebViewer to a Node.js project that enables a search feature as server-side and overrides the default client search.
+
+## Get your trial key
+
+A license key is required to run WebViewer. You can obtain a trial key in our [get started guides](https://docs.apryse.com/web/guides/get-started), or by signing-up on our [developer portal](https://dev.apryse.com/).
 
 ## Initial setup
   
@@ -13,8 +18,8 @@ Before you begin, make sure your development environment includes [Node.js](http
 ## Install
 
 ```
-git clone https://github.com/ApryseSDK/webviewer-server-side-search
-cd webviewer-server-side-search
+git clone --depth=1 https://github.com/ApryseSDK/webviewer-samples.git
+cd webviewer-samples/webviewer-server-side-search
 npm install
 ```
 
@@ -38,13 +43,3 @@ This will start a server that you can access the WebViewer client at http://loca
 
 - Click the search button at the top-right corner and execute a search.
 - The search performs in the backend and returns a list of hits for the current document. You can navigate the document from the list.
-
-## WebViewer APIs
-
-[WebViewer: Feature-Rich JavaScript PDF Viewer](https://docs.apryse.com/documentation/web/).
-
-[Guides for Server/Desktop PDF library](https://docs.apryse.com/documentation/core/guides/).
-
-## License
-
-For licensing, refer to [License](LICENSE).

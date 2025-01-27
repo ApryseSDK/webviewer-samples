@@ -1,8 +1,15 @@
 # WebViewer BIM
 
-WebViewer is a powerful JavaScript-based library that is part of the Apryse SDK. It allows you to view and annotate various file formats (PDF, MS Office, images, videos) on your web app with a fully customizable UI.
+[WebViewer](https://docs.apryse.com/web/guides/get-started) is a powerful JavaScript-based PDF Library that is part of the [Apryse SDK](https://apryse.com/). It provides a slick out-of-the-box responsive UI that enables you to view, annotate and manipulate PDFs and other document types inside any web project.
+
+- [WebViewer Documentation](https://docs.apryse.com/web/guides/get-started)
+- [WebViewer Demo](https://showcase.apryse.com/)
 
 This sample uses the BIM addon for WebViewer. It allows you to view, annotate, and collaborate on 3D models.
+
+## Get your trial key
+
+A license key is required to run WebViewer. You can obtain a trial key in our [get started guides](https://docs.apryse.com/web/guides/get-started), or by signing-up on our [developer portal](https://dev.apryse.com/).
 
 ## Features
 
@@ -21,7 +28,7 @@ There are two components to WebViewer BIM:
 1. Server-side file conversion that supports 3D streaming to the client.
 2. Client-side 3D viewer that renders BIM models and allows navigation entirely encapsulated in our familiar WebViewer UI.
 
-# Running the sample
+## Running the sample
 
 To get the sample working, both WebViewer BIM client and server must be setup and running. The server URL will be referenced in the front-end to allow communication between client and server.
 
@@ -31,38 +38,38 @@ The server comes packaged as either a binary or a Docker image available for Lin
 
 The server is supported on Windows, Linux and MacOS Intel (M1 not supported).
 
-### Prerequisites
+## Prerequisites
 - Server license key provided by Apryse.
   - **Request a [trial license key](https://apryse.com/form/trial-support) to try for free.**
 - Install [Docker](https://docs.docker.com/get-docker/).
 
-### Setup server
+## Setup server
 
 - See [Setting up server](SERVER_README.md#setting-up-server) section to download and setup the server.
 - See [Configuring server](SERVER_README.md#configuring-server) section to configure the server with provided license key.
 
-### Run server
+## Run server
 
 - See [Running server](SERVER_README.md#running-server) section to run the server.
 
-### Server APIs
+## Server APIs
 
 - See [Server APIs](SERVER_README.md#current-api) section for details on the WebViewer BIM Server APIs.
 
 ## Setting up Webviewer BIM Client
 
-### Setup application
+## Setup application
 
 1. Run the following:
 ```
-git clone https://github.com/ApryseSDK/webviewer-BIM-sample.git
-cd webviewer-BIM-sample
+git clone --depth=1 https://github.com/ApryseSDK/webviewer-samples.git
+cd webviewer-samples/webviewer-BIM
 npm install
 ```
 
 2. Change `serverURL` variable in `App.js` to wherever your server is hosted. See [Setting up WebViewer BIM Server](#setting-up-webviewer-bim-server) section for details.
 
-### Run application
+## Run application
 
 After setup is complete, run the application:
 
@@ -72,7 +79,7 @@ npm start
 
 ## Usage
 
-### initializeBimViewer(instance, serverURL, options)
+## initializeBimViewer(instance, serverURL, options)
 
 Call `initializeBimViewer` within the promise resolve of WebViewer instance to initialize BIM viewer.
 - `instance` - WebViewer instance that is available after initializing.
@@ -136,7 +143,7 @@ function getViewerOptions(license) {
 }
 ```
 
-### load3dAsset(pathToAsset)
+## load3dAsset(pathToAsset)
 
 Call `load3dAsset` after initializing the 3D viewer to load an IFC model.
 - `pathToAsset` - URL or path to IFC model.
@@ -146,7 +153,7 @@ const webviewerBIM = await initializeBimViewer(instance, serverURL, options);
 webviewerBIM.File.load3dAsset('<uri for 3d asset>');
 ```
 
-### preload3dAsset(serverURL, pathToAsset, conversionOptions)
+## preload3dAsset(serverURL, pathToAsset, conversionOptions)
 
 Static method that preloads an IFC model for future loading. This can be used to convert model data prior to loading. If 'enable_auth' is enabled on your BIM server you will also receive an Auth token for both the model data and the properties data.
 - `serverURL` - URL to your BIM server instance.
@@ -175,7 +182,7 @@ Sample Asset Object
 */
 ```
 
-### loadCached3dAsset(assetObject)
+## loadCached3dAsset(assetObject)
 
 Call `loadCached3dAsset` to load an existing asset from the BIM server
 - `assetObject` - Object containing the ids for the asset data and optionally properties data. If 1enable_auth1 is enabled on your BIM server you will also need to include an Auth token for both the model data and the properties data.
@@ -196,7 +203,7 @@ const webviewerBIM = await initializeBimViewer(instance, serverURL, options);
 const assetObject = await webviewerBIM.File.loadCached3dAsset(sampleAssetObject);
 ```
 
-### checkAssetConversionProgress(assetObject)
+## checkAssetConversionProgress(assetObject)
 
 Call `checkAssetConversionProgress` to check the progress on a preloaded Asset.
 - `assetObject` - Object containing the ids for the asset data and optionally properties data.
@@ -229,7 +236,7 @@ while (true) {
 const assetObject = await webviewerBIM.File.loadCached3dAsset(sampleAssetObject);
 ```
 
-### unmountBimViewer()
+## unmountBimViewer()
 
 Call `unmountBimViewer` to revert WebViewer back to its original state, and to clear any memory from the WebViewer BIM client.
 ```js
@@ -245,7 +252,7 @@ import { initializeBimViewer, unmountBimViewer } from '@pdftron/webviewer-bim-cl
  // unmountBimViewer(instance);
 ```
 
-### enableSSAO()
+## enableSSAO()
 
 Call `enableSSAO` to enable screen-space ambient occlusion for the viewer.
 
@@ -254,7 +261,7 @@ const webviewerBIM = await initializeBimViewer(instance, serverURL, options);
 webviewerBIM.Viewer.enableSSAO();
 ```
 
-### disableSSAO()
+## disableSSAO()
 
 Call `disableSSAO` to disable screen-space ambient occlusion for the viewer.
 
@@ -263,7 +270,7 @@ const webviewerBIM = await initializeBimViewer(instance, serverURL, options);
 webviewerBIM.Viewer.disableSSAO();
 ```
 
-### setSSAOOptions()
+## setSSAOOptions()
 
 Call `setSSAOOptions` to adjust screen-space ambient occlusion for the viewer.
 
@@ -279,7 +286,7 @@ webviewerBIM.Viewer.setSSAOOptions({
 })
 ```
 
-### enableAntiAliasing()
+## enableAntiAliasing()
 
 Call `enableAntiAliasing` to enable anti-aliasing for the viewer.
 
@@ -288,7 +295,7 @@ const webviewerBIM = await initializeBimViewer(instance, serverURL, options);
 webviewerBIM.Viewer.enableAntiAliasing();
 ```
 
-### disableAntiAliasing()
+## disableAntiAliasing()
 
 Call `disableAntiAliasing` to disable anti-aliasing for the viewer.
 
@@ -297,7 +304,7 @@ const webviewerBIM = await initializeBimViewer(instance, serverURL, options);
 webviewerBIM.Viewer.disableAntiAliasing();
 ```
 
-### setCameraSensitivity(number)
+## setCameraSensitivity(number)
 
 Call `setCameraSensitivity` to set the sensitivity for Orbit/Pan tool.
 - `number` to set the sensitivity
@@ -313,7 +320,7 @@ const panTool = documentViewer.getTool(cameraTools.pan);
 panTool.setCameraSensitivity(10);
 ```
 
-### getCameraSensitivity()
+## getCameraSensitivity()
 
 Call `getCameraSensitivity` to get the sensitivity for Orbit/Pan tool.
 Returns a value of Number
@@ -334,16 +341,16 @@ orbitTool.getCameraSensitivity();
 
 This project sample uses React as the front-end framework, but you may wish to use (or not use) a different framework. This section shows how to setup the front-end agnostic of any framework:
 
-### Prerequisites
+## Prerequisites
 
 It is recommended you install Node.js and NPM.
 
-### NPM packages
+## NPM packages
 
 - https://www.npmjs.com/package/@pdftron/webviewer
 - https://www.npmjs.com/package/@pdftron/webviewer-bim-client
 
-### Copying resources to public/ folder
+## Copying resources to public/ folder
 
 There are several directories that need to be copied and served locally in your application.
 
@@ -372,7 +379,7 @@ public/
     webviewer-bim-min.js
 ```
 
-### Sample code
+## Sample code
 
 ```js
 import  Webviewer  from  '@pdftron/webviewer';
@@ -397,9 +404,3 @@ Webviewer({
 
 Refer to a running sample on Apryse SDK [showcase page](https://showcase.apryse.com/bim-viewer).
 
-## License
-
-For licensing, refer to [License](LICENSE).
-
--------
-This project was generated with Create React App. Go to [Create React App documentation](https://reactjs.org/docs/create-a-new-react-app.html) for more information.

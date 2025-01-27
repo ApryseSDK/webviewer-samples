@@ -1,5 +1,16 @@
 # Create helper app in Azure Active Directory
 
+[WebViewer](https://docs.apryse.com/web/guides/get-started) is a powerful JavaScript-based PDF Library that is part of the [Apryse SDK](https://apryse.com/). It provides a slick out-of-the-box responsive UI that enables you to view, annotate and manipulate PDFs and other document types inside any web project.
+
+- [WebViewer Documentation](https://docs.apryse.com/web/guides/get-started)
+- [WebViewer Demo](https://showcase.apryse.com/)
+
+## Get your trial key
+
+A license key is required to run WebViewer. You can obtain a trial key in our [get started guides](https://docs.apryse.com/web/guides/get-started), or by signing-up on our [developer portal](https://dev.apryse.com/).
+
+## Create helper app in Azure Active Directory
+
 1. Sign in to [Azure Portal](https://azure.microsoft.com/en-us/get-started/azure-portal/)
 2. Switch to the tenant that you want to register the application
 3. Select **Azure Active Directory** (Microsoft renamed **Azure Active Directory** (Azure AD) to [Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/fundamentals/new-name), instructions in either case are similar)
@@ -13,8 +24,7 @@
 11. In the **Advanced Settings -> Allow public client flows**, set it to "Yes". (This is to treat app as public client)
 12. Click **Save** to save the configurations.
 
-
-# Project Setup
+## Project Setup
 
 To set up the project, download the code in this repository.
 
@@ -30,7 +40,7 @@ To set up the project, download the code in this repository.
 
 6. Run `npm run start:dev` to start the local server
 
-# Resetting cache in development for file handler in Sharepoint
+## Resetting cache in development for file handler in Sharepoint
 
 It usually takes about 24 - 48 hours for the new file handler to be effective in Sharepoint. However, microsoft provides a API to refresh the cache. ([Resetting the file hanlder cache](https://docs.microsoft.com/en-us/onedrive/developer/file-handlers/reset-cache?view=odsp-graph-online))
 
@@ -110,9 +120,10 @@ with headers: {
 The response should be your file handler configurations.
 
 
-# Deployment in production
+## Deployment in production
 After the development, you may want to deploy your server and redirect the filehandler to the hosted server.
 
 You can achieve this by change the **Manifest** in your application.
 
 Change the `logoutUrl` with your new domain but with the same path. Change the `url` in the object of the array `replyUrlsWithType`.
+
