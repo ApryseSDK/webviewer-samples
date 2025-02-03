@@ -5,16 +5,16 @@
   "homepage": "https://pdftron.github.io/webviewer-react-sample",
   "dependencies": {
     "@pdftron/canvas-to-pdf": "^1.0.0",
-    "@pdftron/webviewer": "^8.0.0",
-    "react": "^16.6.0",
-    "react-dom": "^16.6.0",
+    "@pdftron/webviewer": "^11.2.0",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "react-scripts": "2.1.1"
   },
   "devDependencies": {
     "btoa": "^1.2.1",
     "download": "^7.1.0",
     "fs-extra": "^7.0.1",
-    "gh-pages": "^3.2.2"
+    "gh-pages": "^3.2.3"
   },
   "scripts": {
     "start": "PORT=3006 react-scripts start",
