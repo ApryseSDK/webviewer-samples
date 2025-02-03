@@ -14,16 +14,16 @@
   "author": "Apryse Systems Inc.",
   "devDependencies": {
     "@eslint/js": "^9.10.0",
-    "eslint": "^9.10.0",
     "body-parser": "^1.20.2",
-    "express": "^4.19.2",
-    "fs-extra": "^11.2.0",
+    "eslint": "^9.19.0",
+    "express": "^4.21.2",
+    "fs-extra": "^11.3.0",
     "morgan": "^1.10.0",
     "open": "^10.1.0",
     "supervisor": "^0.12.0"
   },
   "dependencies": {
-    "@pdftron/webviewer": "^11.0.0",
+    "@pdftron/webviewer": "^11.2.0",
     "concurrently": "^8.2.2"
   }
 }
