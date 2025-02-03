@@ -10,11 +10,11 @@
   "author": "PDFTron Systems Inc.",
   "devDependencies": {
     "body-parser": "^1.18.3",
-    "express": "^4.16.4",
+    "express": "^4.21.2",
     "fs-extra": "^7.0.1",
-    "opn": "^5.4.0"
+    "opn": "^5.5.0"
   },
   "dependencies": {
-    "@pdftron/webviewer": "^8.0.0"
+    "@pdftron/webviewer": "^8.12.4"
   }
 }

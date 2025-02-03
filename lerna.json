@@ -1,0 +1,11 @@
+{
+    "$schema": "node_modules/lerna/schemas/lerna-schema.json",
+    "version": "0.0.0",
+    "packages": [
+      "webviewer-*",
+      "webviewer-cors/webviewer-app",
+      "webviewer-cors/webviewer-lib",
+      "webviewer-microsoft-teams/teams-project",
+      "webviewer-microsoft-teams/webviewer-angular"
+    ]
+  }
