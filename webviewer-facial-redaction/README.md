@@ -7,8 +7,8 @@
 
 Blog post is located here [https://apryse.com/blog/webviewer/automate-facial-redaction-of-pdfs-with-javascript](https://apryse.com/blog/webviewer/automate-facial-redaction-of-pdfs-with-javascript)
 
-To run this example, you only need to have files server from any web server.
-If you have npm installed on you computer you can use [http-server](https://github.com/http-party/http-server) serve the content locally.
+To run this example, you only need to have files served from any web server.
+If you have npm installed on you computer, use [http-server](https://github.com/http-party/http-server) to serve the content locally.
 
 ## Get your trial key
 
@@ -26,6 +26,6 @@ npm install
 npm start
 ```
 
-You can access it via browser at [http://127.0.0.1:8080](http://127.0.0.1:8080)
+You can access it via browser at [http://127.0.0.1:8081](http://127.0.0.1:8081)
 
 
