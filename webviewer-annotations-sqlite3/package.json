@@ -10,12 +10,12 @@
   "author": "Apryse Systems Inc.",
   "devDependencies": {
     "body-parser": "^1.18.3",
-    "express": "^4.16.4",
+    "express": "^4.21.2",
     "fs-extra": "^7.0.1",
-    "opn": "^5.4.0",
-    "sqlite3": "^4.0.4"
+    "opn": "^5.5.0",
+    "sqlite3": "^4.2.0"
   },
   "dependencies": {
-    "@pdftron/webviewer": "^11.0.0"
+    "@pdftron/webviewer": "^11.2.0"
   }
 }

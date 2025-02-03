@@ -3,18 +3,18 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@pdftron/webviewer": "^11.0.0",
-    "typescript": "^2.1.6"
+    "@pdftron/webviewer": "^11.2.0",
+    "typescript": "^2.9.2"
   },
   "devDependencies": {
     "btoa": "^1.2.1",
     "download": "^7.1.0",
-    "express": "^4.17.1",
+    "express": "^4.21.2",
     "fs-extra": "^7.0.1",
-    "ip": "^1.1.5",
+    "ip": "^1.1.9",
     "opn": "^6.0.0",
     "parcel": "1.12.3",
-    "parcel-plugin-static-files-copy": "^2.3.1"
+    "parcel-plugin-static-files-copy": "^2.6.0"
   },
   "scripts": {
     "start": "parcel public/index.html",
