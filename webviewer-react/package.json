@@ -4,14 +4,14 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "@pdftron/webviewer": "^11.0.0",
+    "@pdftron/webviewer": "^11.2.0",
     "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/react": "^16.1.0",
+    "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/fs-extra": "^11.0.4",
-    "fs-extra": "^11.2.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "fs-extra": "^11.3.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -44,7 +44,7 @@
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@vitejs/plugin-react": "^4.3.4",
     "jsdom": "^25.0.1",
-    "vite": "^6.0.3",
-    "vitest": "^2.1.8"
+    "vite": "^6.0.11",
+    "vitest": "^2.1.9"
   }
 }

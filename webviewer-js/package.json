@@ -19,11 +19,11 @@
   },
   "homepage": "https://github.com/PDFTron/webviewer-js-sample#readme",
   "dependencies": {
-    "@pdftron/webviewer": "^11.0.0"
+    "@pdftron/webviewer": "^11.2.0"
   },
   "devDependencies": {
     "@parcel/config-default": "^2.12.0",
-    "parcel": "^2.12.0",
+    "parcel": "^2.13.3",
     "parcel-reporter-multiple-static-file-copier": "^1.0.5"
   },
   "multipleStaticFileCopier": [
