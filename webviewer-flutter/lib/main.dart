@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'dart:ui' as ui;
+import 'dart:ui_web' as ui;
 import 'dart:html' as html;
 
 void main() {
@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({wkey,required this.title}) : super(key: wkey);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -52,24 +52,30 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+String viewID = "webviewer-id"; 
 
-  String viewID = "webviewer-id";
-  html.DivElement _element;
+class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void initState() {
     super.initState();
 
-    _element = html.DivElement()
+    html.DivElement _element = html.DivElement();
+    _element
       ..id = 'canvas'
+      ..style.height = '100%'
+      ..style.width = '100%'
       ..append(html.ScriptElement()
         ..text = """
-        const canvas = document.querySelector("flt-platform-view").shadowRoot.querySelector("#canvas");
+        // Defines a ShadowRoot within DOM, and is set to 'Open'
+        // Reference: https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot
+        const shadowHost = document.querySelector("flt-platform-view").querySelector("#canvas");
+        const shadowRoot = shadowHost.attachShadow({ mode: 'open' });
+
         WebViewer({
           path: 'WebViewer/lib',
           initialDoc: 'https://pdftron.s3.amazonaws.com/downloads/pl/PDFTRON_about.pdf'
-        }, canvas).then((instance) => {
+        }, shadowRoot).then((instance) => {
             // call apis here
         });
         """);
