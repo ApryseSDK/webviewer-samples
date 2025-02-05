@@ -16,6 +16,7 @@
       "webviewer-cordova",
       "webviewer-cors/webviewer-app",
       "webviewer-cors/webviewer-lib",
+      "webviewer-custom-ui",
       "webviewer-document-merge",
       "webviewer-electron",
       "webviewer-facial-redaction",
