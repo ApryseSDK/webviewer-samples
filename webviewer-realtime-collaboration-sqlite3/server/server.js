@@ -3,7 +3,7 @@ const app = express();
 const port = 3000;
 const annotationHandler = require('./annotationHandler');
 const bodyParser = require('body-parser');
-const open = require('open');
+const open = (...args) => import('open').then(({default: open}) => open(...args));
 
 app.use(bodyParser.text());
 app.use(express.static('client'));
