@@ -3,7 +3,7 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const opn = require('opn');
+const open = (...args) => import('open').then(({default: open}) => open(...args));
 const annotationHandler = require('./annotationHandler');
 
 const app = express();
@@ -19,6 +19,6 @@ app.listen(3000, 'localhost', (err) => {
 		console.error(err);
 	} else {
     console.info(`Server is listening at http://localhost:3000/client/index.html`);
-    opn('http://localhost:3000/client/index.html');
+    open('http://localhost:3000/client/index.html');
 	}
 });
