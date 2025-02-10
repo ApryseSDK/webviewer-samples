@@ -1,0 +1,32 @@
+{
+    "name": "webviewer",
+    "version": "0.1.0",
+    "engines": {
+        "node": "18 || 20"
+    },
+    "private": true,
+    "main": "./lib/app.js",
+    "dependencies": {
+        "@pdftron/webviewer": "^11.2.0",
+        "express": "^4.21.2",
+        "send": "^1.1.0"
+    },
+    "devDependencies": {
+        "@types/express": "^5.0.0",
+        "@types/node": "^22.13.1",
+        "@types/send": "^0.17.4",
+        "env-cmd": "^10.1.0",
+        "nodemon": "^3.1.9",
+        "shx": "^0.3.4",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.7.3"
+    },
+    "scripts": {
+        "dev:teamsfx": "env-cmd --silent -f .localConfigs npm run start",
+        "start": "nodemon --exec node --inspect=9239 --signal SIGINT -r ts-node/register src/app.ts",
+        "build": "tsc --build && shx cp -r ./src/views ./src/static ./lib/",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "postinstall": "node tools/copy-webviewer-files.js"
+    },
+    "homepage": "."
+}
