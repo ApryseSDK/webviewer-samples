@@ -9,11 +9,11 @@
   },
   "author": "Apryse Systems Inc.",
   "devDependencies": {
-    "body-parser": "^1.18.3",
+    "body-parser": "^1.20.3",
     "express": "^4.21.2",
-    "fs-extra": "^10.1.0",
-    "multer": "^1.4.4",
-    "opn": "^5.5.0"
+    "fs-extra": "^11.3.0",
+    "multer": "^1.4.5-lts.1",
+    "open": "^10.1.0"
   },
   "dependencies": {
     "@pdftron/webviewer": "^11.2.0"
