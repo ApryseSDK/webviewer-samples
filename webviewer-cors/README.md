@@ -5,9 +5,9 @@
 - [WebViewer Documentation](https://docs.apryse.com/web/guides/get-started)
 - [WebViewer Demo](https://showcase.apryse.com/)
 
-This sample is specifically designed for any users interested in how to serve WebViewer's lib from [a different domain](https://docs.apryse.com/web/guides/config-files/#using-a-config-file-when-the-path-is-on-another-domain).
+This sample is specifically designed for any users interested in how to serve WebViewer's lib from [a different domain](https://docs.apryse.com/web/guides/config-files/#using-a-config-file-when-the-path-is-on-another-domain). This sample implements Cross-Origin Resource Sharing (CORS) as a client server `webviewer-app` that fetches resources from a server `webviewer-lib` in another domain. The dependency reference to `@pdftron/webviewer` exists in both `webviewer-lib\package.json` and `webviewer-app\package.json`.
 
-We recommend serving WebViewer lib on the same domain as the app itself for additional performance and security.
+We recommend serving the WebViewer lib on the same domain as the app itself for additional performance and security.
 
 ## Get your trial key
 
@@ -25,35 +25,38 @@ Clone the repository
 git clone --depth=1 https://github.com/ApryseSDK/webviewer-samples.git
 ```
 
-Install WebViewer lib static server
+Find the `webviewer-cors` sample project and load both folders in their own Visual Studio Code instance: `webviewer-app` and `webviewer-lib`
+
+Install WebViewer lib static server `webviewer-lib`.
 
 ```
-cd webviewer-samples/webviewer-cors
+cd webviewer-cors/webviewer-lib
 npm i
 ```
 
-Install React-TypeScript app
+Install React-TypeScript app `webviewer-app`.
 
 ```
 cd webviewer-cors/webviewer-app
 npm i
 ```
 
-After the install completed, the `postinstall` will copy over WebViewer's lib folder to the static server under `public/lib`.
+After the install completes, the `postinstall` will copy over WebViewer's lib folder to the static server under `public/lib`.
 
-If the WebViewer lib folder is on another origin from your app then you will need to include your app's origin here if you want to load a config file
+If the WebViewer lib folder is on another origin from your app, then you will need to include your app's origin here if you want to load a config file.
 
-http://localhost:3000
+
 
 ## Run
 
-Run WebViewer lib static server to serve WebViewer lib
+Run WebViewer lib static server to serve WebViewer lib on `http://localhost:8081/lib/`
 ```
-cd webviewer-cors
+cd webviewer-lib
 npm start
 ```
 
-Run React-TypeScript app
+Run React-TypeScript app to load ` http://localhost:3000`. Notice that `App.tsx` fetches the WebViewer from `http://localhost:8081/lib/`
+
 ```
 cd webviewer-app
 npm start
