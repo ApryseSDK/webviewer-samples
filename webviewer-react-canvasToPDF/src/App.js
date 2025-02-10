@@ -1,8 +1,8 @@
-import React, { useRef, useEffect } from "react";
-import WebViewer from "@pdftron/webviewer";
-import "./App.css";
-import canvasToPDF from "@pdftron/canvas-to-pdf";
-import { drawTiger } from "./drawTiger";
+import { useRef, useEffect } from 'react';
+import WebViewer from '@pdftron/webviewer';
+import './App.css';
+import canvasToPDF from '@pdftron/canvas-to-pdf';
+import { drawTiger } from './drawTiger';
 
 const App = () => {
   const viewer = useRef(null);
