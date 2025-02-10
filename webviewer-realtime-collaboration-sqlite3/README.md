@@ -9,7 +9,7 @@ This is a WebViewer sample to show how you can construct a real time collaborati
 
 The below diagram depicts the structure of the real time collaboration sample app.
 
-![Structure](/real-time-structure.png "Structure")
+![Structure](./real-time-structure.png "Structure")
 
 ## Get your trial key
 
