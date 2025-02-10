@@ -8,7 +8,7 @@ function App() {
   useEffect(() => {
     WebViewer(
       {
-        path: 'http://localhost:8080/lib/',
+        path: 'http://localhost:8081/lib/',
       },
       viewer.current as HTMLDivElement,
     ).then((instance) => {
