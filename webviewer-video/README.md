@@ -30,3 +30,12 @@ npm install
 ```
 npm start
 ```
+
+
+**Note:** If you get `ERR_OSSL_EVP_UNSUPPORTED` when trying the run the sample, try setting the environment variable `NODE_OPTIONS` to `--openssl-legacy-provider` before the start command. In Windows, this is done by changing the following line in package.json:
+
+`"start": "node scripts/start.js"`
+
+to become:
+
+`"start": "set NODE_OPTIONS=--openssl-legacy-provider && node scripts/start.js"`
