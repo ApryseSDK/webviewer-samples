@@ -1,11 +1,9 @@
 //---------------------------------------------------------------------------------------
-// Copyright (c) 2001-2019 by PDFTron Systems Inc. All Rights Reserved.
+// Copyright (c) 2025 Apryse Software Inc. All Rights Reserved.
 // Consult legal.txt regarding legal and license information.
 //---------------------------------------------------------------------------------------
-//---------------------------------------------------------------------------------------
-// Copyright (c) 2001-2019 by PDFTron Systems Inc. All Rights Reserved.
-// Consult legal.txt regarding legal and license information.
-//---------------------------------------------------------------------------------------
+
+
 
 (exports => {
   // @link PDFNet: https://www.pdftron.com/api/web/Core.PDFNet.PDFNet.html
