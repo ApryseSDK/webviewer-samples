@@ -1,5 +1,5 @@
 //---------------------------------------------------------------------------------------
-// Copyright (c) 2001-2019 by PDFTron Systems Inc. All Rights Reserved.
+// Copyright (c) 2025 Apryse Software Inc. All Rights Reserved.
 // Consult legal.txt regarding legal and license information.
 //---------------------------------------------------------------------------------------
 
