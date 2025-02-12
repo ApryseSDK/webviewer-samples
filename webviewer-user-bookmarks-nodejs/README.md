@@ -7,6 +7,8 @@
 
 This is a WebViewer User Bookmarks sample to show how you can save and load user bookmarks through files with a Node.js backend.
 
+![WebViewer bookmarks](user-bookmarks-arrows.png "WebViewer bookmarks")
+
 ## Get your trial key
 
 A license key is required to run WebViewer. You can obtain a trial key in our [get started guides](https://docs.apryse.com/web/guides/get-started), or by signing-up on our [developer portal](https://dev.apryse.com/).
@@ -20,8 +22,11 @@ Before you begin, make sure your development environment includes [Node.js](http
 ```
 git clone --depth=1 https://github.com/ApryseSDK/webviewer-samples.git
 cd webviewer-samples/webviewer-user-bookmarks-nodejs
+npm cache clean --force
 npm install
 ```
+
+> The install command also runs the `postinstall` scrript to copy the required WebViewer resources to the `client\lib` folder.
 
 ## Run
 
