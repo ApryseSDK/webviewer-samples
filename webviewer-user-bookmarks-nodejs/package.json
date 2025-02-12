@@ -4,12 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server/serve.js"
+    "start": "node server/serve.js",
+    "postinstall": "node tools/copy-webviewer-files.js"
   },
-  "author": "PDFTron Systems Inc.",
+  "author": "Apryse Software Inc.",
   "devDependencies": {
+    "@pdftron/webviewer": "^11.2.0",
+    "fs-extra": "^11.3.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "opn": "^5.4.0"
+  },
+  "dependencies": {
+    "side-channel-list": "^1.0.0"
   }
 }
