@@ -19,22 +19,27 @@ import com.mendix.systemwideinterfaces.core.IMendixObject;
 
 public class UpdateDocument extends CustomJavaAction<java.lang.Void>
 {
-	private java.lang.String fileId;
-	private IMendixObject __Parameter;
-	private webviewer.proxies.File Parameter;
+	private final java.lang.String fileId;
+	/** @deprecated use Parameter.getMendixObject() instead. */
+	@java.lang.Deprecated(forRemoval = true)
+	private final IMendixObject __Parameter;
+	private final webviewer.proxies.File Parameter;
 
-	public UpdateDocument(IContext context, java.lang.String fileId, IMendixObject Parameter)
+	public UpdateDocument(
+		IContext context,
+		java.lang.String _fileId,
+		IMendixObject _parameter
+	)
 	{
 		super(context);
-		this.fileId = fileId;
-		this.__Parameter = Parameter;
+		this.fileId = _fileId;
+		this.__Parameter = _parameter;
+		this.Parameter = _parameter == null ? null : webviewer.proxies.File.initialize(getContext(), _parameter);
 	}
 
 	@java.lang.Override
 	public java.lang.Void executeAction() throws Exception
 	{
-		this.Parameter = this.__Parameter == null ? null : webviewer.proxies.File.initialize(getContext(), __Parameter);
-
 		// BEGIN USER CODE
 		// With the file ID we got from the request, create an identifier object
 		IMendixIdentifier id = Core.createMendixIdentifier(fileId);
