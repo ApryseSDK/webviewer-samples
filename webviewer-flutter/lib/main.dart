@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'PDFTron Flutter Demo',
+      title: 'Apryse Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'PDFTron WebViewer for Flutter'),
+      home: MyHomePage(title: 'Apryse WebViewer for Flutter'),
     );
   }
 }
@@ -74,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
         WebViewer({
           path: 'WebViewer/lib',
-          initialDoc: 'https://pdftron.s3.amazonaws.com/downloads/pl/PDFTRON_about.pdf'
+          initialDoc: 'https://pdftron.s3.amazonaws.com/downloads/pl/demo.pdf'
         }, shadowRoot).then((instance) => {
             // call apis here
         });
