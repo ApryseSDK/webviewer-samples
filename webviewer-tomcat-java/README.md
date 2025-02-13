@@ -60,7 +60,7 @@ npm install
 
 If using Windows, make the following modifications before starting:
 
-   1. If the environment variables for your Java setup are not already defined, you can add them to the beginning of startup.bat inisde the bin folder.
+   1. If the environment variables for your Java setup are not already defined, you can add them to the beginning of startup.bat file inside the bin folder.
 
 ```
 @echo off
