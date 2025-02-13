@@ -45,11 +45,18 @@ brew tap AdoptOpenJDK/openjdk
 brew install --cask adoptopenjdk8
 ```
 
+Windows:
+
+Download and install the JDK and JRE, which are available as .msi files on https://www.openlogic.com/openjdk-downloads
+
+
 ## Install Node.js
 
 Linux: `sudo apt install nodejs`
 
 Mac: `brew install node`
+
+Windows: Download the run the installer from https://nodejs.org/en/download
 
 ## Install WebViewer
 
@@ -58,6 +65,25 @@ npm install
 ```
 
 ## Start the app
+
+If using Windows, make the following modifications before starting:
+
+   1. If the environment variables for your Java setup are not already defined, you can add them to the beginning of startup.bat file inside the bin folder.
+
+```
+@echo off
+set JAVA_HOME=C:\Program Files\<JDK location>
+set JRE_HOME=C:\Program Files\<JRE location>
+```
+
+   2. Instead of the .sh file, call the .bat file, so change the following line in package.json:
+
+
+`"start": "./bin/startup.sh"`
+
+to become:
+
+`"start": "cd bin && startup.bat"`
 
 ```
 npm start

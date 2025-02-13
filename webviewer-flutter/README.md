@@ -21,12 +21,13 @@ npm install
 
 ## Initial setup
 
-Before you begin, make sure your development environment has setup based on the official documentation: [install](https://flutter.dev/docs/get-started/install) and [building a web application with Flutter](https://flutter.dev/docs/get-started/web).
+Before you begin, make sure your development environment has setup based on the official documentation:
 
+* [Install Flutter](https://flutter.dev/docs/get-started/install).
+* [Building a web application with Flutter](https://flutter.dev/docs/get-started/web).
 
-## Run 
+## Run
 
 ```
 npm start
 ```
-

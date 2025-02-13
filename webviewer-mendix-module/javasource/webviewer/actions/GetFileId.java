@@ -15,20 +15,24 @@ import com.mendix.systemwideinterfaces.core.IMendixObject;
 
 public class GetFileId extends CustomJavaAction<java.lang.String>
 {
-	private IMendixObject __inputFile;
-	private webviewer.proxies.File inputFile;
+	/** @deprecated use inputFile.getMendixObject() instead. */
+	@java.lang.Deprecated(forRemoval = true)
+	private final IMendixObject __inputFile;
+	private final webviewer.proxies.File inputFile;
 
-	public GetFileId(IContext context, IMendixObject inputFile)
+	public GetFileId(
+		IContext context,
+		IMendixObject _inputFile
+	)
 	{
 		super(context);
-		this.__inputFile = inputFile;
+		this.__inputFile = _inputFile;
+		this.inputFile = _inputFile == null ? null : webviewer.proxies.File.initialize(getContext(), _inputFile);
 	}
 
 	@java.lang.Override
 	public java.lang.String executeAction() throws Exception
 	{
-		this.inputFile = this.__inputFile == null ? null : webviewer.proxies.File.initialize(getContext(), __inputFile);
-
 		// BEGIN USER CODE
 		return "" + this.inputFile.getMendixObject().getId().toLong();
 		// END USER CODE

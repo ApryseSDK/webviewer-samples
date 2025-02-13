@@ -23,6 +23,14 @@ npm install
 npm start
 ```
 
+**Note:** If you get `ERR_OSSL_EVP_UNSUPPORTED` when trying the run the sample, try setting the environment variable `NODE_OPTIONS` to `--openssl-legacy-provider` before the start command. In Windows, this is done by changing the following line in package.json:
+
+`"start": "react-scripts start"`
+
+to become:
+
+`"start": "set NODE_OPTIONS=--openssl-legacy-provider && react-scripts start"`
+
 ## Barcode Libraries
 
 This app features [jsbarcode](https://github.com/lindell/JsBarcode) for generation and [javascript-barcode-reader](https://github.com/mubaidr/Javascript-Barcode-Reader) for reading of the 2D barcodes and [jsqr](https://github.com/cozmo/jsQR) for generation and [qrcode](https://github.com/soldair/node-qrcode) for reading of the QR codes.

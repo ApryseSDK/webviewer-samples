@@ -18,20 +18,24 @@ import com.mendix.systemwideinterfaces.core.IMendixObject;
 
 public class SaveDocument extends CustomJavaAction<java.lang.String>
 {
-	private IMendixObject __fileData;
-	private webviewer.proxies.File fileData;
+	/** @deprecated use fileData.getMendixObject() instead. */
+	@java.lang.Deprecated(forRemoval = true)
+	private final IMendixObject __fileData;
+	private final webviewer.proxies.File fileData;
 
-	public SaveDocument(IContext context, IMendixObject fileData)
+	public SaveDocument(
+		IContext context,
+		IMendixObject _fileData
+	)
 	{
 		super(context);
-		this.__fileData = fileData;
+		this.__fileData = _fileData;
+		this.fileData = _fileData == null ? null : webviewer.proxies.File.initialize(getContext(), _fileData);
 	}
 
 	@java.lang.Override
 	public java.lang.String executeAction() throws Exception
 	{
-		this.fileData = this.__fileData == null ? null : webviewer.proxies.File.initialize(getContext(), __fileData);
-
 		// BEGIN USER CODE
 		// Get the file data we got from the request to write into the original object
 		InputStream stream = Core.getFileDocumentContent(getContext(), this.fileData.getMendixObject());

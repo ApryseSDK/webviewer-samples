@@ -5,7 +5,7 @@
 - [WebViewer Documentation](https://docs.apryse.com/web/guides/get-started)
 - [WebViewer Demo](https://showcase.apryse.com/)
 
-This sample is specifically designed for any users interested in customizing and integrating WebViewer into Mendix low-code app. You can watch [a video here](https://youtu.be/a9HNVzbmDLM) to help you get started.
+This sample is specifically designed for any users interested in customizing and integrating WebViewer into Mendix low-code app.
 
 ## Get your trial key
 
@@ -91,60 +91,6 @@ In your Mendix toolbox, you should see the `WebViewer` widget near the very bott
 
 3. Right click the widget and access the properties. You can change the loaded document using the URL property. This is useful for single document viewing purposes.
 
-## Connect Attribute to WebViewer
+You can customize the widget by checking out other guides we have available. Perform your customizations inside of `src/components/PDFViewer.tsx`. Do not forget to run `npm run dev` within the Widget's console or terminal and update the files in your App by pressing F4, or from the top menu bar selecting `Project > Synchronize Project Directory`.
 
-We can bind WebViewer to an attribute to dynamically change documents. In the following example, we will add widgets to allow users to provide a document URL which make WebViewer load the new document.
-
-1. Access the `Domain Model` of the module where the viewer will be integrated, and create a new `Entity`. This entity will contain the file URL that we will load from. You can name it whatever you want.
-
-2. Right-click the newly created `Entity`, click `Add > Attribute`. You can name it whatever you want but ensure its `Type` is set to `String`.
-
-3. Next, open the page inside of your module.
-
-4. Add a `Data View` widget to the page by dragging it from the Toolbox.
-
-5. Double-click the widget, and give it a data source microflow by selecting `Data source > Type > Microflow`. This will create the entity when we change the URL.
-
-6. In the microflow field, click the `Select` button and press `New` to create a new microflow. You can name it whatever you want.
-
-7. Open the created microflow and drag `Create object` from the toolbox onto the microflow flow line. If there is a parameter object (the object that has `U` and `(Not set)` underneath), delete it.
-
-8. Open `Create object` by double-clicking on it and select the entity we created earlier.
-
-9. Right-click the `Create Entity` activity, then click `Set $NewEntity as Return Value`.
-
-10. Go back to the page where you placed the `Data View`, and drag a `Text box` into `Data View` for the user to enter a URL.
-
-11. Open the textbox's properties and find the `Data Source` panel.
-
-12. Change the `Attribute` to the string attribute you created in Steps 1 and 2. This will set the attribute when it is changed in the text box.
-
-13. Press F4 or from the top menu bar select `Project > Synchronize Project Directory` to synchronize with the local file changes.
-
-14. Return to the page you placed the `Data View`. In the Toolbox, under `Add-ons`, you should now see `WebViewer`.
-
-15. Drag the `WebViewer` widget into the `Data View`.
-
-16. Right-click on the `WebViewer` widget and set the `Attribute` property to the attribute created on your entity.
-
-17. You can now run the app by clicking `Run Locally` at the top.
-
-WebViewer can now load the URL that is passed through the text box! When the URL and Attribute are used, **Attribute** takes priority. How does it work on the WebViewer side?
-
-1. Navigate to the WebViewer location inside of `App/CustomWidgets/webViewer` and open it in your favourite code editor.
-
-2. Open WebViewer component available in `src/components/PDFViewer.tsx`. Inside of it, you can see WebViewer constructor where you can pass various customization options and call APIs on the instance object. The Attribute that you have created in previous steps is passed in `props.file`:
-
-```javascript
-useEffect(() => {
-    if (instance && props.value !== "") {
-        instance.loadDocument(props.value);
-    }
-}, [props.value]);
-```
-
-In the code snippet, we are listening for any of the changes in `props` and then calling `loadDocument` API to load a new document. You can connect it with your existing flows or pass URLs from your file storage. Make sure you have the [CORS configured](https://docs.apryse.com/documentation/web/faq/cors-support/) in case you run into any errors.
-
-You can now customize the widget by checking out other guides we have available. Perform your customizations inside of `src/components/PDFViewer.tsx`. Do not forget to run `npm run dev` within the Widget's console or terminal and update the files in your App by pressing F4, or from the top menu bar selecting `Project > Synchronize Project Directory`.
-
-You can now checkout other guides like [how to open your own documents](https://docs.apryse.com/documentation/web/guides/basics/open/url/) or [how to disable certain features](https://docs.apryse.com/documentation/web/guides/hiding-elements/).
+You can check out other guides like [how to open your own documents](https://docs.apryse.com/documentation/web/guides/basics/open/url/) or [how to disable certain features](https://docs.apryse.com/documentation/web/guides/hiding-elements/).
