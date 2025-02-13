@@ -11,6 +11,14 @@ This sample provides a backend module that facilitates server side operations th
 
 A license key is required to run WebViewer. You can obtain a trial key in our [get started guides](https://docs.apryse.com/web/guides/get-started), or by signing-up on our [developer portal](https://dev.apryse.com/).
 
+## install
+
+```
+git clone --depth=1 https://github.com/ApryseSDK/webviewer-samples.git
+cd webviewer-samples/webviewer-mendix-module
+npm install
+```
+
 ## Features
 
 - Updating documents after annotating

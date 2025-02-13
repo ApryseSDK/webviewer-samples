@@ -11,6 +11,14 @@ This sample is a ready-to-deploy Salesforce implementation of Apryse SDK's WebVi
 
 A license key is required to run WebViewer. You can obtain a trial key in our [get started guides](https://docs.apryse.com/web/guides/get-started), or by signing-up on our [developer portal](https://dev.apryse.com/).
 
+## install
+
+```
+git clone --depth=1 https://github.com/ApryseSDK/webviewer-samples.git
+cd webviewer-samples/webviewer-salesforce-attachments
+npm install
+```
+
 ## Overview
 This repository is a ready-to-deploy Salesforce implementation of Apryse SDK's WebViewer. This LWC Component will have the ability to enable client-side viewing, editing, annotation and redaction and much more in your Salesforce environment using Salesforce files or external files.
 

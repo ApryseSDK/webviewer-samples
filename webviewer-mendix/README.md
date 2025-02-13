@@ -15,6 +15,15 @@ A license key is required to run WebViewer. You can obtain a trial key in our [g
 
 Before you begin, make sure you have installed [Node.js](https://nodejs.org/en/) in your development environment.
 
+## install
+
+```
+git clone --depth=1 https://github.com/ApryseSDK/webviewer-samples.git
+cd webviewer-samples/webviewer-mendix
+npm install
+```
+
+
 ## Create a new Mendix App or use an existing app
 
 Open [Mendix Studio Pro](https://docs.mendix.com/howto/general/install) and create a new project by selecting `File > New Project` from the top menu bar, and choose the `Blank` app.

@@ -11,17 +11,22 @@ This sample is specifically designed for any users interested in integrating Web
 
 A license key is required to run WebViewer. You can obtain a trial key in our [get started guides](https://docs.apryse.com/web/guides/get-started), or by signing-up on our [developer portal](https://dev.apryse.com/).
 
+## Install
+
+```
+git clone --depth=1 https://github.com/ApryseSDK/webviewer-samples.git
+cd webviewer-samples/webviewer-flutter
+npm install
+```
+
 ## Initial setup
 
 Before you begin, make sure your development environment has setup based on the official documentation: [install](https://flutter.dev/docs/get-started/install) and [building a web application with Flutter](https://flutter.dev/docs/get-started/web).
 
-## Install
-
-[Download WebViewer](https://dev.apryse.com/?platform=web) and unzip the WebViewer package, then place it in the root folder.
 
 ## Run 
 
 ```
-flutter run -d chrome
+npm start
 ```
 
