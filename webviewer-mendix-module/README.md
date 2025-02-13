@@ -30,3 +30,9 @@ Before you begin, make sure you have installed [Mendix Studio Pro](https://docs.
 ## Exporting a module
 
 To export your module, right click on the `WebViewer` module and click `Export module package`. Follow the prompts and you should be able to deselect all the dependencies (unless you have made it a dependency). Finally, save the `mpk` file that will be imported as a module package.
+
+<img alt="Export Module Package" src="./Export_Module_Package.png">
+
+The `mpk` can then be imported and used in a WebViewer app.
+
+<img alt="Import Module Package" src="./Import_Module_Package.png">
