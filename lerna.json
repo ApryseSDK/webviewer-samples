@@ -20,6 +20,7 @@
       "webviewer-document-merge",
       "webviewer-electron",
       "webviewer-facial-redaction",
+      "webviewer-flutter",
       "webviewer-generate-docx",
       "webviewer-jquery",
       "webviewer-js",
