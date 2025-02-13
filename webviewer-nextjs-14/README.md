@@ -22,8 +22,11 @@ WebViewer comes with a 7-day trial without any feature limitations or trial key 
 
 Before you begin, make sure the development environment includes [Node.js](https://nodejs.org/en/).
 
-## Project setup
+## install
+
 ```
+git clone --depth=1 https://github.com/ApryseSDK/webviewer-samples.git
+cd webviewer-samples/webviewer-nextjs-14
 npm install
 ```
 

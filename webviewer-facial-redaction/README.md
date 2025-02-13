@@ -17,6 +17,8 @@ A license key is required to run WebViewer. You can obtain a trial key in our [g
 ## Install
 
 ```
+git clone --depth=1 https://github.com/ApryseSDK/webviewer-samples.git
+cd webviewer-samples/webviewer-facial-redaction
 npm install
 ```
 

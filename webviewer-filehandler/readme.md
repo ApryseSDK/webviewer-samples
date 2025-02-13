@@ -9,6 +9,14 @@
 
 A license key is required to run WebViewer. You can obtain a trial key in our [get started guides](https://docs.apryse.com/web/guides/get-started), or by signing-up on our [developer portal](https://dev.apryse.com/).
 
+## Install
+
+```
+git clone --depth=1 https://github.com/ApryseSDK/webviewer-samples.git
+cd webviewer-samples/webviewer-filehandler
+npm install
+```
+
 ## Create helper app in Azure Active Directory
 
 1. Sign in to [Azure Portal](https://azure.microsoft.com/en-us/get-started/azure-portal/)

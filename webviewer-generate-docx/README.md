@@ -11,10 +11,21 @@ This sample shows how to easily create DOCX documents in JavaScript, view them i
 
 A license key is required to run WebViewer. You can obtain a trial key in our [get started guides](https://docs.apryse.com/web/guides/get-started), or by signing-up on our [developer portal](https://dev.apryse.com/).
 
-## Installation
+
+## Install
+
 ```
-npm i && npm start
+git clone --depth=1 https://github.com/ApryseSDK/webviewer-samples.git
+cd webviewer-samples/webviewer-generate-docx
+npm install
 ```
+
+## Run
+
+```
+npm start
+```
+
 
 ## Documentation
 - [DOCX](https://docx.js.org/#/)
