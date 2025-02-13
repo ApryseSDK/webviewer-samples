@@ -27,6 +27,7 @@
       "webviewer-microsoft-teams",
       "webviewer-nextjs-14",
       "webviewer-nuxtjs",
+      "webviewer-offline",
       "webviewer-react",
       "webviewer-react-canvasToPDF",
       "webviewer-realtime-collaboration-sqlite3",
