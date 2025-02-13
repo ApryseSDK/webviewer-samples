@@ -1,0 +1,15 @@
+{
+  "name": "webviewer-flutter",
+  "version": "1.0.0",
+  "description": "This sample is designed for users interested in integrating Apryse WebViewer into Flutter web project.",
+  "main": "index.js",
+  "scripts": {
+    "start": "flutter run -d chrome",
+    "postinstall": "node tools/copy-webviewer-files.js"
+  },
+  "author": "Apryse Software Inc.",
+  "devDependencies": {
+    "@pdftron/webviewer": "^11.2.0",
+    "fs-extra": "^11.3.0"
+  }
+}
