@@ -30,14 +30,12 @@ Samples showing how to get started with WebViewer in different environments.
 - [webviewer-nextjs-14](./webviewer-nextjs-14) - Integrate WebViewer in a Next.js application
 - [webviewer-typescript](./webviewer-typescript) - Integrate WebViewer in a TypeScript project
 - [webviewer-angular](./webviewer-angular) - Integrate WebViewer in an Angular application
-- [webviewer-angularjs](./webviewer-angularjs) - Integrate WebViewer in an AngularJS application
 - [webviewer-svelte](./webviewer-svelte) - Integrate WebViewer in a Svelte application
 - [webviewer-vue](./webviewer-vue) - Integrate WebViewer in a Vue application
 - [webviewer-js](./webviewer-js) - Integrate WebViewer in a vanilla JavaScript application
 - [webviewer-jquery](./webviewer-jquery) - Integrate WebViewer in a jQuery application
 - [webviewer-electron](./webviewer-electron) - Integrate WebViewer in an Electron application
 - [webviewer-nuxtjs](./webviewer-nuxtjs) - Integrate WebViewer in a Nuxt.js application
-- [webviewer-cordova](./webviewer-cordova) - Integrate WebViewer in a Cordova application
 - [webviewer-flutter](./webviewer-flutter) - Integrate WebViewer in a Flutter application
 - [webviewer-blazor](./webviewer-blazor) - Integrate WebViewer in a Blazor application
 - [webviewer-blazor-wasm](./webviewer-blazor-wasm) - Integrate WebViewer in a Blazor application
@@ -80,4 +78,3 @@ Samples showing how to use different WebViewer plug-in modules.
 - [webviewer-BIM](./webviewer-BIM) - View BIM data in WebViewer
 - [webviewer-audio](./webviewer-audio) - View, annotate, and redact audio files in WebViewer
 - [webviewer-video](./webviewer-video) - View, annotate and redact video files in WebViewer
-- [webviewer-html-proxy-server](./webviewer-html-proxy-server) - Use a proxy server to load HTML files in WebViewer
