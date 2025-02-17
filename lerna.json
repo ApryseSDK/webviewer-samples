@@ -29,6 +29,7 @@
       "webviewer-nextjs-14",
       "webviewer-nuxtjs",
       "webviewer-offline",
+      "webviewer-powerapps-component",
       "webviewer-react",
       "webviewer-react-canvasToPDF",
       "webviewer-realtime-collaboration-sqlite3",
@@ -36,6 +37,7 @@
       "webviewer-svelte",
       "webviewer-tomcat-java",
       "webviewer-typescript",
+      "webviewer-user-bookmarks-nodejs",
       "webviewer-video",
       "webviewer-vue"
     ]

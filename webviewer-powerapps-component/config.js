@@ -1,13 +1,18 @@
-instance.UI.addEventListener(instance.UI.Events.VIEWER_LOADED, function() {
+(() => {
+  window.addEventListener('viewerLoaded', () => {
+    const { instance } = window;
 
-  // instance.UI.disableElements(['printButton']);
-  // instance.UI.disableElements(['downloadButton']);
+    // instance.UI.disableElements(['printButton']);
+    // instance.UI.disableElements(['downloadButton']);
 
-  //add custom save button
-  const { documentViewer, annotationManager } = instance.Core;
-  instance.UI.setHeaderItems(header => {
-    header.push({
-      type: 'actionButton',
+    //add custom save button
+    const { documentViewer, annotationManager } = instance.Core;
+
+    const topHeader = instance.UI.getModularHeader('default-top-header');
+    const items = topHeader.getItems();
+
+    const saveButton = {
+      type: 'customButton',
       img: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z"/></svg>',
       onClick: async () => {
         const doc = documentViewer.getDocument();
@@ -24,12 +29,13 @@ instance.UI.addEventListener(instance.UI.Events.VIEWER_LOADED, function() {
         };
         window.parent.postMessage({ type: 'SAVE_DOCUMENT', payload }, '*');
       }
-    });
+    };
+    items.push(saveButton);
+    topHeader.setItems(items);
   });
 
-});
-
-window.addEventListener("message", receiveMessage, false);
+  window.addEventListener("message", receiveMessage, false);
+})();
 
 function receiveMessage(event) {
   /**
