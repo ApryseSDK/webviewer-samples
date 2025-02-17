@@ -6,11 +6,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:dev": "nodemon server.js",
-    "setup:dev": "npm install && node ./setup/index.js"
+    "setup:dev": "npm install && node ./setup/index.js",
+    "postinstall": "node ./utils/WebViewerUpdater.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "download": "^8.0.0",
+    "extract-zip": "^2.0.1",
     "@azure/msal-node": "^1.12.0",
     "axios": "^0.27.2",
     "cookie-parser": "^1.4.6",
