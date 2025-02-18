@@ -11,6 +11,11 @@ This sample is a ready-to-deploy Salesforce implementation of Apryse SDK's WebVi
 
 A license key is required to run WebViewer. You can obtain a trial key in our [get started guides](https://docs.apryse.com/web/guides/get-started), or by signing-up on our [developer portal](https://dev.apryse.com/).
 
+## Prepare static files
+
+Use the `optimize` script to generate the Static Resources (**.zip** and **.xml** files) and copy them to the `force-app/main/default/staticresources` folder.  
+For details see the [Add WebViewer to Salesforce](../webviewer-salesforce/) project.
+
 ## install
 
 ```
