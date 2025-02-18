@@ -13,7 +13,7 @@ A license key is required to run WebViewer. You can obtain a trial key in our [g
 
 ## Requirements
 
-* [Optional] - [Apryse WebViewer](https://docs.apryse.com/web/guides/download) (Download `WebViewer.zip`)
+* [Apryse WebViewer](https://docs.apryse.com/web/guides/download) (Download `WebViewer.zip`)
 * [Salesforce CLI](https://trailhead.salesforce.com/en/content/learn/modules/sfdx_app_dev/sfdx_app_dev_setup_dx#Tdxn4tBK-heading6)
 * [Node and NPM](https://nodejs.org/en/)
 
@@ -30,24 +30,32 @@ git clone --depth=1 https://github.com/ApryseSDK/webviewer-samples.git
 cd webviewer-samples/webviewer-salesforce
 ```
 
-3. [Optional] - If you do not need to upgrade/downgrade to a different version you can skip to step 5. Otherwise, extract `WebViewer.zip`, `cd` to the directory the contents were extracted
+3. [Needed once] - If you already have the Static Resources and do not need to upgrade/downgrade to a different version, you can skip to step 5. Otherwise, extract `WebViewer.zip`, `cd` to the directory the contents were extracted
 
 ```
 $ npm run optimize
 
 Optimize: Do you want us to backup your files before optimizing? [y/n]:  y
 
-Optimize: Will you be using WebViewer Server? See https://www.docs.apryse.com.com/documentation/web/guides/wv-server/ for more info. [y/n]:  n
+Optimize: Will you be using WebViewer Server? See https://docs.apryse.com/documentation/web/guides/wv-server/ for more info. [y/n]:  n
 
-Optimize: Will you be converting all your documents to XOD? See https://www.docs.apryse.com.com/documentation/web/guides/optimize-lib-folder for more info. [y/n]:  n
+Optimize: Will you be converting all your documents to XOD? See https://docs.apryse.com/documentation/web/guides/optimize-lib-folder for more info. [y/n]:  n
 
-Optimize: Do you need client side office support? [y/n]:  y
+Optimize: Do you need client side office support (docx, pptx, xlsx)? [y/n]:  y
 
-Optimize: Do you need the full PDF API? See https://www.docs.apryse.com.com/documentation/web/guides/optimize-lib-folder for more info (most users dont need this option). [y/n]:  y
+Optimize: Do you need client side office support for legacy office files (doc, ppt, xls)? [y/n]:  y
+
+Optimize: Do you need the full PDF API? See https://docs.apryse.com/documentation/web/guides/optimize-lib-folder for more info (most users dont need this option). [y/n]:  y
 
 Optimize: Do you want to use the production version of PDFNet.js? The production version does not have type checking and console messages, but is much smaller than the development version. [y/n]:  n
 
-Optimize: Do you need to deploy to Salesforce? See https://www.docs.apryse.com.com/documentation/web/guides/optimize-lib-folder for more info (most users dont need this option). [y/n]:  y
+Optimize: Do you need to use the content editing feature? (This is for editing content on the page in the viewer) [y/n]:  y
+
+Optimize: Do you need to use the office editing feature? (This is for editing docx files in the viewer) [y/n]:  y
+
+Optimize: Do you need to deploy to Salesforce? See https://docs.apryse.com/documentation/web/guides/optimize-lib-folder for more info (most users dont need this option). [y/n]:  y
+
+Optimize: Would you like to use the web component version of WebViewer (instead of the iframe)? [y/n]:  n
 ```
 
 This optimization process produces zip files of size 5 MB or less, which enables
@@ -58,12 +66,13 @@ details on when you may need to enable it, see:
 
 https://www.docs.apryse.com.com/documentation/web/guides/full-api-overview/
 
-4. [Optional] - Copy all the zip files from `webviewer-salesforce` folder, which were generated after running above npm optimization script, into `force-app/main/default/staticresources`.
+4. [Needed once] - Copy all the zip files from `webviewer-salesforce` folder, which were generated after running above npm optimization script, into `force-app/main/default/staticresources`.
 
 ![Zip files][zip_files]
 
-Every `*.zip` file should have a corresponding `*.resource-meta.xml` file, where
-the contents of each `.xml` file are the same.
+Every `*.zip` file should have a corresponding `*.resource-meta.xml` file, where the contents of each `.xml` file are identical to the other `.xml` files.
+
+![XML files][xml_files]
 
 5. If you have a paid license key, you can remove the watermark from rendered
 documents by adding the key to the `PDFTron.WebViewer` constructor here
@@ -171,7 +180,8 @@ export default class WebViewer extends LightningElement {
 }
 ```
 
-[zip_files]: https://www.pdftron.com/static/152614d12bf83c31602bb8f5e4eef27c/zip-files.png "Zip files"
+[zip_files]: misc/zip-files.png "Zip files"
+[xml_files]: misc/xml-files.png "XML files"
 [pdftron_app]: misc/pdftron_app.png "PDFTron app"
 [webviewer]: misc/webviewer.png "WebViewer"
 [app_launcher]: misc/app_launcher.png "App Launcher"
