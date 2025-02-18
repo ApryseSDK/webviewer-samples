@@ -14,7 +14,7 @@ A license key is required to run WebViewer. You can obtain a trial key in our [g
 ## Prepare static files
 
 Use the `optimize` script to generate the Static Resources (**.zip** and **.xml** files) and copy them to the `force-app/main/default/staticresources` folder.  
-For details see the steps related to extracting `WebViewer.zip` and running the script in [Add WebViewer to Salesforce](../webviewer-salesforce/) project.
+For details see the steps related to extracting `WebViewer.zip` and running the script in [Add WebViewer to Salesforce](https://github.com/ApryseSDK/webviewer-samples/tree/main/webviewer-salesforce#requirements) project.
 
 ## install
 
