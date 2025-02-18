@@ -67,7 +67,6 @@ Samples showing how to use various WebViewer features.
 - [webviewer-annotations-php](./webviewer-annotations-php) - Save and load annotations with a PHP backend
 - [webviewer-annotations-sqlite3](./webviewer-annotations-sqlite3) - Save annotations into an SQLite3 database with a Node.js backend
 - [webviewer-facial-redaction](./webviewer-facial-redaction) - Redact faces from PDF with WebViewer
-- [webviewer-filehandler](./webviewer-filehandler)  - Load file handlers in Sharepoint
 - [webviewer-user-bookmarks-nodejs](./webviewer-user-bookmarks-nodejs) - Save and load user bookmarks with a Node.js backend
 - [webviewer-barcode](./webviewer-barcode) - Barcode generation with WebViewer
 - [webviewer-react-canvasToPDF](./webviewer-react-canvasToPDF) - Export a canvas to PDF with WebViewer

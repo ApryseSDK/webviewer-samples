@@ -13,8 +13,6 @@
       "webviewer-BIM",
       "webviewer-blazor",
       "webviewer-blazor-wasm",
-      "webviewer-collab-sql",
-      "webviewer-cordova",
       "webviewer-cors/webviewer-app",
       "webviewer-cors/webviewer-lib",
       "webviewer-custom-ui",
