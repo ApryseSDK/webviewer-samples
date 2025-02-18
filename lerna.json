@@ -5,6 +5,7 @@
       "webviewer-angular",
       "webviewer-annotations-aspnet",
       "webviewer-annotations-document",
+      "webviewer-annotations-nodejs",
       "webviewer-annotations-php",
       "webviewer-annotations-sqlite3",
       "webviewer-audio",

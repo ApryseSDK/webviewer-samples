@@ -22,7 +22,6 @@ public/wv-video-injection.js
 .env.development.local
 .env.test.local
 .env.production.local
-package-lock.json
 /public/assets/webviewer/core
 /public/assets/webviewer/ui
 
