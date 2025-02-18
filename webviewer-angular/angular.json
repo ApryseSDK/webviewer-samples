@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "pdftron-angular-sample": {
+    "pdftron-angular": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -40,7 +40,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/pdftron-angular-sample",
+            "outputPath": "dist/pdftron-angular",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -88,10 +88,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "pdftron-angular-sample:build:production"
+              "browserTarget": "pdftron-angular:build:production"
             },
             "development": {
-              "browserTarget": "pdftron-angular-sample:build:development"
+              "browserTarget": "pdftron-angular:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -99,7 +99,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "pdftron-angular-sample:build"
+            "browserTarget": "pdftron-angular:build"
           }
         }
       }
