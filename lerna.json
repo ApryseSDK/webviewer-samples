@@ -11,6 +11,7 @@
       "webviewer-audio",
       "webviewer-barcode",
       "webviewer-BIM",
+      "webviewer-winforms",
       "webviewer-blazor",
       "webviewer-blazor-wasm",
       "webviewer-cors/webviewer-app",
