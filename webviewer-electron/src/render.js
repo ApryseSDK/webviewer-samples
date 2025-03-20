@@ -1,6 +1,3 @@
-const { dialog } = require("electron").remote;
-const fs = require("fs");
-
 const viewerElement = document.getElementById("viewer");
 
 const openFileBtn = document.getElementById("open");
@@ -21,49 +18,22 @@ WebViewer(
   const { documentViewer, annotationManager } = instance.Core;
 
   openFileBtn.onclick = async () => {
-    const file = await dialog.showOpenDialog({
-      properties: ["openFile", "multiSelections"],
-      filters: [
-        { name: "Documents", extensions: ["pdf", "docx", "pptx", "xlsx"] },
-        { name: "Images", extensions: ["png", "jpg"] },
-      ],
-    });
-
-    if (!file.canceled) {
-      instance.UI.loadDocument(file.filePaths[0]);
+    const filePath = await window.electronAPI.openFile();
+    if (!filePath) {
+      return;
     }
+    instance.UI.loadDocument(filePath);
   };
 
   saveFileBtn.onclick = async () => {
-    const file = await dialog.showOpenDialog({
-      title: "Select where you want to save the PDF",
-      buttonLabel: "Save",
-      filters: [
-        {
-          name: "PDF",
-          extensions: ["pdf"],
-        },
-      ],
-      properties: ["openDirectory"],
+    const doc = documentViewer.getDocument();
+    const xfdfString = await annotationManager.exportAnnotations();
+    const data = await doc.getFileData({
+      // saves the document with annotations in it
+      xfdfString,
     });
+    const arr = new Uint8Array(data);
 
-    if (!file.canceled) {
-      const doc = documentViewer.getDocument();
-      const xfdfString = await annotationManager.exportAnnotations();
-      const data = await doc.getFileData({
-        // saves the document with annotations in it
-        xfdfString,
-      });
-      const arr = new Uint8Array(data);
-
-      fs.writeFile(
-        `${file.filePaths[0].toString()}/annotated.pdf`,
-        arr,
-        function (err) {
-          if (err) throw err;
-          console.log("Saved!");
-        }
-      );
-    }
+    window.electronAPI.saveFile(arr);
   };
 });
