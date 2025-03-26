@@ -17,6 +17,7 @@ const Dropzone = () => {
       }
       loadDocumentAndThumb();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [docs]);
 
   const mergeDocuments = async () => {
