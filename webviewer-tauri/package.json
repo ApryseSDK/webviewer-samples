@@ -1,0 +1,30 @@
+{
+  "name": "webviewer-tauri",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "copyassets": "node ./tools/copy-webviewer-files.cjs",
+    "dev": "npm run copyassets && vite",
+    "build": "npm run copyassets && tsc && vite build",
+    "preview": "vite preview",
+    "tauri": "tauri"
+  },
+  "dependencies": {
+    "@pdftron/webviewer": "^11.3.0",
+    "@tauri-apps/api": "^2",
+    "@tauri-apps/plugin-opener": "^2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "fs-extra": "^11.3.0",
+    "path": "^0.12.7",
+    "typescript": "~5.6.2",
+    "vite": "^6.0.3"
+  }
+}
