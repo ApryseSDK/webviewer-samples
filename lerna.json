@@ -39,6 +39,7 @@
       "webviewer-user-bookmarks-nodejs",
       "webviewer-video",
       "webviewer-vue",
-      "webviewer-winforms"
+      "webviewer-winforms",
+	  "webviewer-wpf"
     ]
   }

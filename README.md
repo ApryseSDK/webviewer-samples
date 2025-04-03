@@ -41,6 +41,7 @@ Samples showing how to get started with WebViewer in different environments.
 - [webviewer-blazor-wasm](./webviewer-blazor-wasm) - Integrate WebViewer in a Blazor application
 - [webviewer-tomcat-java](./webviewer-tomcat-java) - Integrate WebViewer in a Java Tomcat application
 - [webviewer-winforms](./webviewer-winforms) - Integrate WebViewer in a WinForms application
+- [webviewer-wpf](./webviewer-wpf) - Integrate WebViewer in a WPF application
 
 ### 3rd Party Integrations
 Samples showing how to integrate and use WebViewer in 3rd party platforms.
