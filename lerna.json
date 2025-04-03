@@ -40,6 +40,6 @@
       "webviewer-video",
       "webviewer-vue",
       "webviewer-winforms",
-	  "webviewer-wpf"
+      "webviewer-wpf"
     ]
   }
