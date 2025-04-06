@@ -7,8 +7,8 @@ const App = () => {
   return (
     <div className="App">
       <Dropzone />
-      <Viewer docToLoad='/files/PDFTRON_about.pdf'/>
-      <Viewer docToLoad='/files/Newsletter.docx'/>
+      <Viewer docToLoad='/files/WebviewerDemoDoc.pdf'/>
+      <Viewer docToLoad='/files/Capybaras.docx'/>
     </div>
   );
 };

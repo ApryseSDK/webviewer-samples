@@ -7,10 +7,11 @@ const Viewer = ({ docToLoad }) => {
   useEffect(() => {
     WebViewer.Iframe(
       {
-        path: '/webviewer/lib',
+        path: '/lib/webviewer',
         initialDoc: docToLoad,
         ui: 'legacy',
         loadAsPDF: true,
+        enableFilePicker: true,
       },
       viewer.current,
     ).then((instance) => {
@@ -24,6 +25,7 @@ const Viewer = ({ docToLoad }) => {
       instance.UI.enableElements(['documentControl']);
       instance.UI.openElements(['leftPanel']);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return <div className="webviewer" ref={viewer}></div>;
