@@ -12,7 +12,7 @@
     "postinstall": "node tools/copy-webviewer-files.js"
   },
   "dependencies": {
-    "@pdftron/webviewer": "^11.3.0",
+    "@pdftron/webviewer": "^11.4.0",
     "vue": "^3.5.4"
   },
   "devDependencies": {
