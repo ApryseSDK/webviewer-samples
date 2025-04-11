@@ -13,7 +13,6 @@ A license key is required to run WebViewer. You can obtain a trial key in our [g
 
 ## Requirements
 
-* [Apryse WebViewer](https://docs.apryse.com/web/guides/download) (Download `WebViewer.zip`)
 * [Salesforce CLI](https://trailhead.salesforce.com/en/content/learn/modules/sfdx_app_dev/sfdx_app_dev_setup_dx#Tdxn4tBK-heading6)
 * [Node and NPM](https://nodejs.org/en/)
 
@@ -30,11 +29,23 @@ git clone --depth=1 https://github.com/ApryseSDK/webviewer-samples.git
 cd webviewer-samples/webviewer-salesforce
 ```
 
-3. [Needed once] - If you already have the Static Resources and do not need to upgrade/downgrade to a different version, you can skip to step 5. Otherwise, extract `WebViewer.zip`, `cd` to the directory the contents were extracted
+**NOTE**: Steps 3 and 4 are needed once - If static resources are already existing under `./force-app/main/default/staticresources` and do not need to upgrade/downgrade to a different version, skip to step 5.
+
+3. Install the Apryse WebViewer SDK
+```
+npm install
+```
+
+`npm install` will download Apryse WebViewer SDK to `webviewer-salesforce/webviewer`.
+
+4. Prepare static files. Use the `optimize` script to generate the Static Resources (.zip and .xml files).
+```
+npm run optimize
+```
+
+Answer the following questions:
 
 ```
-$ npm run optimize
-
 Optimize: Do you want us to backup your files before optimizing? [y/n]:  y
 
 Optimize: Will you be using WebViewer Server? See https://docs.apryse.com/documentation/web/guides/wv-server/ for more info. [y/n]:  n
@@ -58,15 +69,13 @@ Optimize: Do you need to deploy to Salesforce? See https://docs.apryse.com/docum
 Optimize: Would you like to use the web component version of WebViewer (instead of the iframe)? [y/n]:  n
 ```
 
-This optimization process produces zip files of size 5 MB or less, which enables
-you to safely upload to the Salesforce platform.
+This optimization process produces zip files of size 5 MB or less, which enables you to safely upload to the Salesforce platform.
 
-Note that in certain circumstances, you may need the full PDF API. For more
-details on when you may need to enable it, see:
+Note that in certain circumstances, you may need the full PDF API. For more details on when you may need to enable it, see:
 
-https://www.docs.apryse.com.com/documentation/web/guides/full-api-overview/
+https://docs.apryse.com/web/guides/full-api-overview
 
-4. [Needed once] - Copy all the zip files from `webviewer-salesforce` folder, which were generated after running above npm optimization script, into `force-app/main/default/staticresources`.
+The static resources are generated after running above npm optimization script, into `./force-app/main/default/staticresources`.
 
 ![Zip files][zip_files]
 
