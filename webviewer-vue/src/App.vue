@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <WebViewer
-      initialDoc="/files/WebviewerDemoDoc.pdf"
+      initialDoc="https://apryse.s3.amazonaws.com/public/files/samples/WebviewerDemoDoc.pdf"
     />
   </div>
 </template>

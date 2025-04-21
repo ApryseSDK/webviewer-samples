@@ -15,7 +15,7 @@ export class WebViewerComponent implements AfterViewInit {
     WebViewer({
       path: '../../lib/webviewer',
       licenseKey: 'your_license_key', // sign up to get a free trial key at https://dev.apryse.com
-      initialDoc: '/files/WebviewerDemoDoc.pdf'
+      initialDoc: 'https://apryse.s3.amazonaws.com/public/files/samples/WebviewerDemoDoc.pdf'
     }, this.viewer.nativeElement).then(instance => {
       
       const { documentViewer, Annotations, annotationManager } = instance.Core;

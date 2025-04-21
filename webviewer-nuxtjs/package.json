@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
+    "dev": "npm run copy-webviewer && nuxt",
+    "build": "npm run copy-webviewer && nuxt build",
     "generate": "nuxt generate",
-    "start": "nuxt start",
-    "postinstall": "node tools/copy-webviewer-files.js"
+    "start": "npm run copy-webviewer && nuxt start",
+    "copy-webviewer": "node scripts/copy-webviewer-files.cjs"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",

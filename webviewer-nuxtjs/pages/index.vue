@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <WebViewer :path="`${publicPath}webviewer`"
-      url="https://pdftron.s3.amazonaws.com/downloads/pl/webviewer-demo.pdf" />
+    <WebViewer
+      url="https://apryse.s3.amazonaws.com/public/files/samples/WebviewerDemoDoc.pdf"
+    />
   </div>
 </template>
 

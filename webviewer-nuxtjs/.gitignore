@@ -91,4 +91,5 @@ sw.*
 
 # WebViewer Core and UI files
 static/webviewer
+static/lib/webviewer
 
