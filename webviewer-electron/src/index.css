@@ -33,7 +33,7 @@ button {
   cursor: pointer;
 }
 
-.webviewer {
+#viewer {
   height: 100vh;
   width: 100%;
 }

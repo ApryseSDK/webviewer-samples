@@ -6,12 +6,11 @@ const saveFileBtn = document.getElementById("save");
 WebViewer(
   {
     path: "../lib/webviewer",
-    initialDoc: "../files/webviewer-demo-annotated.pdf",
+    initialDoc: "https://apryse.s3.amazonaws.com/public/files/samples/WebviewerDemoDoc.pdf",
   },
   viewerElement
 ).then((instance) => {
   // Interact with APIs here.
-  // See https://www.pdftron.com/documentation/web for more info
   instance.UI.setTheme('dark');
   instance.UI.disableElements(['downloadButton']);
 
