@@ -1,9 +1,13 @@
-import fs from 'fs-extra';
-import path from 'path';
+const fs = require('fs-extra');
+const path = require('path');
+
+/**
+ * Learn more about this script at https://docs.apryse.com/web/guides/get-started/copy-assets
+ */
 
 const copyFiles = async () => {
   const sourcePath = path.resolve('./node_modules/@pdftron/webviewer/public');
-  const destPath = path.resolve('./public/lib/');
+  const destPath = path.resolve('./public/lib/webviewer/');
 
   try {
     await fs.copy(sourcePath, destPath);

@@ -8,8 +8,10 @@
 
 	onMount(async () => {
 		const ele = document.getElementById('viewer');
-	WebViewer({
-      path: '/lib'
+		WebViewer({
+      path: '/lib/webviewer',
+			licenseKey: 'YOUR_LICENSE_KEY',
+			initialDoc: 'https://apryse.s3.amazonaws.com/public/files/samples/WebviewerDemoDoc.pdf',
 		}, ele).then(instance => {
 			dispatch('ready', {
 				instance
@@ -22,9 +24,10 @@
 <style>
 	#viewer {
 		width: 100%;
+		height: 100vh;
 	}
 </style>
 
-<div id='viewer' style="height: 100vh;">
+<div id='viewer'>
 
 </div>
