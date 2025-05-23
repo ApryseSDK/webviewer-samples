@@ -178,7 +178,7 @@ export default class WebViewer extends LightningElement {
       fullAPI: myObj.fullAPI,
       custom: JSON.stringify(myObj),
       initialDoc: 'file.pdf',
-      config: myfilesUrl + '/config.js',
+      config: myfilesUrl + '/config_apex.js',
     }, viewerElement);
 
     viewerElement.addEventListener('ready', () => {

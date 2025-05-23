@@ -23,6 +23,10 @@ window.Core.setOfficeEditorWorkerPath(resourceURL + 'office_edit');
 window.Core.ContentEdit.setWorkerPath(resourceURL + 'content_edit');
 window.Core.ContentEdit.setResourcePath(resourceURL + 'content_edit_resource');
 
+window.Core.setPDFWorkerChunkPaths([
+  resourceURL + 'full_worker_0',
+  resourceURL + 'full_worker_1',
+])
 // pdf workers
 window.Core.setPDFResourcePath(resourceURL + 'resource')
 if (custom.fullAPI) {

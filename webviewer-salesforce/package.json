@@ -5,7 +5,7 @@
   "author": "Apryse Systems Inc.",
   "scripts": {
     "postinstall": "node ./utils/webViewerDownloader.js",
-    "optimize" : "cd webviewer && npm install && npm run optimize && cd.. && node ./utils/copyStaticResources.js"
+    "optimize" : "cd webviewer && npm install && npm run optimize && cd .. && node ./utils/copyStaticResources.js"
   },
   "dependencies": {
     "download": "^8.0.0",
