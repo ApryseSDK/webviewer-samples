@@ -31,7 +31,8 @@ npm install
 ```
 
 ## Run
-- Open the webviewer-wpf/webview2/WebView2.sln file in Visual Studio.
+
+- Open the webviewer-wpf/lib/WebView2.sln file in Visual Studio.
 - Build the project and then run it.
 
 ## Sample Output
