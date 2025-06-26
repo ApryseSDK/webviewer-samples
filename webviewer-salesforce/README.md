@@ -116,6 +116,18 @@ sf org create scratch --definition-file config/project-scratch-def.json --set-de
 sf project deploy start --source-dir force-app
 ```
 
+If this error occurs, this means that the total deployment size is over the limit.
+```
+Error (1): Maximum size of request reached. Maximum size of request is 52428800 bytes.
+```
+
+Use these commands to deploy the main resources and utilities that WebViewer uses to ensure deployment stays under the limits
+```
+sf project deploy start --manifest force-app/main/default/manifest/WebViewerCore.xml
+sf project deploy start --manifest force-app/main/default/manifest/WebViewerUtils.xml
+sf project deploy start --manifest force-app/main/default/manifest/WebViewerSalesforce.xml
+```
+
 9. Open the scratch org:
 ```
 sf org open

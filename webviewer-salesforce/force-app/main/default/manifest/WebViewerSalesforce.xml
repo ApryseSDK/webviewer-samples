@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+  
+  <!-- Custom Applications -->
+  <types>
+    <members>PDFTron</members>
+    <name>CustomApplication</name>
+  </types>
+
+  <!-- Apex Classes -->
+  <types>
+    <members>LookupSearchResult</members>
+    <members>LookupSearchResultTests</members>
+    <members>PDFTron_ContentVersionController</members>
+    <name>ApexClass</name>
+  </types>
+
+  <!-- Static Resources (used if deploying ContentAssets via static resources) -->
+  <types>
+    <members>logoaprysesquare</members>
+    <name>ContentAsset</name>
+  </types>
+
+  <!-- FlexiPages (Lightning Pages) -->
+  <types>
+    <members>File_Browser</members>
+    <members>PDFTron_UtilityBar</members>
+    <members>WebViewer</members>
+    <name>FlexiPage</name>
+  </types>
+
+  <!-- Lightning Web Components -->
+  <types>
+    <members>lookup</members>
+    <members>pdftronAttachmentPickerCombobox</members>
+    <members>pdftronFilePickerCombobox</members>
+    <members>pdftronTabViewer</members>
+    <members>pdftronWebViewer</members>
+    <members>pdftronWebviewerContainer</members>
+    <members>pdftronWvFileBrowserComponent</members>
+    <members>pubsub</members>
+    <name>LightningComponentBundle</name>
+  </types>
+
+  <!-- Message Channels -->
+  <types>
+    <members>LMSWebViewer</members>
+    <name>LightningMessageChannel</name>
+  </types>
+
+  <!-- Profiles -->
+  <types>
+    <members>Admin</members>
+    <name>Profile</name>
+  </types>
+
+  <!-- Custom Tabs -->
+  <types>
+    <members>File_Browser</members>
+    <members>WebViewer</members>
+    <name>CustomTab</name>
+  </types>
+
+  <!-- API Version -->
+  <version>50.0</version>
+
+</Package>
