@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@pdftron/webviewer": "^11.5.0",
+    "@pdftron/webviewer": "^11.6.0",
     "@pdftron/webviewer-audio": "^2.21.7",
     "eslint-config-prettier": "^9.1.0",
     "react": "^18.3.1",
