@@ -8,7 +8,6 @@
       "webviewer-annotations-nodejs",
       "webviewer-annotations-php",
       "webviewer-annotations-sqlite3",
-      "webviewer-audio",
       "webviewer-barcode",
       "webviewer-blazor",
       "webviewer-blazor-wasm",
@@ -17,7 +16,6 @@
       "webviewer-custom-ui",
       "webviewer-document-merge",
       "webviewer-electron",
-      "webviewer-facial-redaction",
       "webviewer-flutter",
       "webviewer-generate-docx",
       "webviewer-jquery",
@@ -36,7 +34,6 @@
       "webviewer-tomcat-java",
       "webviewer-typescript",
       "webviewer-user-bookmarks-nodejs",
-      "webviewer-video",
       "webviewer-vue",
       "webviewer-winforms"
     ]

@@ -67,13 +67,7 @@ Samples showing how to use various WebViewer features.
 - [webviewer-annotations-nodejs](./webviewer-annotations-nodejs) - Save and load annotations through files with a Node.js backend
 - [webviewer-annotations-php](./webviewer-annotations-php) - Save and load annotations with a PHP backend
 - [webviewer-annotations-sqlite3](./webviewer-annotations-sqlite3) - Save annotations into an SQLite3 database with a Node.js backend
-- [webviewer-facial-redaction](./webviewer-facial-redaction) - Redact faces from PDF with WebViewer
 - [webviewer-user-bookmarks-nodejs](./webviewer-user-bookmarks-nodejs) - Save and load user bookmarks with a Node.js backend
 - [webviewer-barcode](./webviewer-barcode) - Barcode generation with WebViewer
 - [webviewer-react-canvasToPDF](./webviewer-react-canvasToPDF) - Export a canvas to PDF with WebViewer
 
-### WebViewer Modules
-Samples showing how to use different WebViewer plug-in modules.
-
-- [webviewer-audio](./webviewer-audio) - View, annotate, and redact audio files in WebViewer
-- [webviewer-video](./webviewer-video) - View, annotate and redact video files in WebViewer
