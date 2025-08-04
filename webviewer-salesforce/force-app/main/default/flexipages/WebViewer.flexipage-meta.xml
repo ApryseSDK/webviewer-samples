@@ -3,6 +3,7 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
+                <identifier>pdftronFilePickerCombobox</identifier>
                 <componentName>pdftronFilePickerCombobox</componentName>
             </componentInstance>
         </itemInstances>
@@ -12,7 +13,8 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentName>pdftronWebViewerContainer</componentName>
+                <identifier>pdftronWebviewerContainer</identifier>
+                <componentName>pdftronWebviewerContainer</componentName>
             </componentInstance>
         </itemInstances>
         <name>region3</name>
