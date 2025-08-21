@@ -23,15 +23,19 @@ window.Core.setOfficeEditorWorkerPath(resourceURL + 'office_edit');
 window.Core.ContentEdit.setWorkerPath(resourceURL + 'content_edit');
 window.Core.ContentEdit.setResourcePath(resourceURL + 'content_edit_resource');
 
-window.Core.setPDFWorkerChunkPaths([
-  resourceURL + 'full_worker_0',
-  resourceURL + 'full_worker_1',
-])
-// pdf workers
-window.Core.setPDFResourcePath(resourceURL + 'resource')
+window.Core.SpreadsheetEditor.setSpreadsheetEditorWorkerPath(resourceURL + 'spreadsheetEditor');
+
 if (custom.fullAPI) {
-  window.Core.setPDFWorkerPath(resourceURL + 'pdf_full')
+  window.Core.setPDFWorkerChunkPaths([
+    resourceURL + 'full_worker_0',
+    resourceURL + 'full_worker_1',
+  ])
+  window.Core.setPDFWorkerPath(resourceURL + 'pdf_full');
 } else {
+  window.Core.setPDFWorkerChunkPaths([
+    resourceURL + 'lean_worker_0',
+    resourceURL + 'lean_worker_1',
+  ])
   window.Core.setPDFWorkerPath(resourceURL + 'pdf_lean')
 }
 

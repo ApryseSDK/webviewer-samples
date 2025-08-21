@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>lib</members>
+        <members>myfiles</members>
+        <members>pdf_lean</members>
+        <members>resource</members>
+        <members>external</members>
+        <members>font_assets</members>
+        <members>lean_worker_0</members>
+        <members>lean_worker_1</members>
+        <name>StaticResource</name>
+    </types>
+    <version>50.0</version>
+</Package>
