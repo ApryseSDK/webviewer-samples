@@ -107,7 +107,7 @@ export default class ApryseWvInstance extends LightningElement {
     const viewerElement = this.template.querySelector('div')
     // eslint-disable-next-line no-unused-vars
     const viewer = new WebViewer.Iframe({
-      path: libUrl, // path to the PDFTron 'lib' folder on your server
+      path: libUrl, // path to the Apryse 'lib' folder on your server
       custom: JSON.stringify(myObj),
       backendType: 'ems',
       config: myfilesUrl + '/config_apex.js',
