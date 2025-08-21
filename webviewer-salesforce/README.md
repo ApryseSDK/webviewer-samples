@@ -95,7 +95,7 @@ Every `*.zip` file should have a corresponding `*.resource-meta.xml` file, where
 
 5. If you have a paid license key, you can remove the watermark from rendered
 documents by adding the `licenseKey` property value to the `WebViewer` constructor here
-[`./force-app/main/default/lwc/pdftronWebViewer/pdftronWebViewer.js`](./force-app/main/default/lwc/pdftronWebViewer/pdftronWebViewer.js#L63).
+[`./force-app/main/default/lwc/apryseWvInstance/apryseWvInstance.js`](./force-app/main/default/lwc/apryseWvInstance/apryseWvInstance.js#L63).
 
 ```
 licenseKey: 'YOUR_LICENSE_KEY'
@@ -123,7 +123,10 @@ Error (1): Maximum size of request reached. Maximum size of request is 52428800 
 
 Use these commands to deploy the main resources and utilities that WebViewer uses to ensure deployment stays under the limits
 ```
-sf project deploy start --manifest force-app/main/default/manifest/WebViewerCore.xml
+// Using Full API
+sf project deploy start --manifest force-app/main/default/manifest/WebViewerCoreFull.xml
+// Using Lean
+sf project deploy start --manifest force-app/main/default/manifest/WebViewerCoreFull.xml
 sf project deploy start --manifest force-app/main/default/manifest/WebViewerUtils.xml
 sf project deploy start --manifest force-app/main/default/manifest/WebViewerSalesforce.xml
 ```
