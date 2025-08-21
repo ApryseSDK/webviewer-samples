@@ -1,5 +1,5 @@
-import getUser from '@salesforce/apex/PDFTron_ContentVersionController.getUser';
-import saveDocument from '@salesforce/apex/PDFTron_ContentVersionController.saveDocument';
+import getUser from '@salesforce/apex/Apryse_ContentVersionController.getUser';
+import saveDocument from '@salesforce/apex/Apryse_ContentVersionController.saveDocument';
 import libUrl from '@salesforce/resourceUrl/lib';
 import myfilesUrl from '@salesforce/resourceUrl/myfiles';
 import { fireEvent, registerListener, unregisterAllListeners } from 'c/pubsub';
@@ -18,7 +18,7 @@ function _base64ToArrayBuffer(base64) {
   return bytes.buffer;
 }
 
-export default class PdftronWvInstance extends LightningElement {
+export default class ApryseWvInstance extends LightningElement {
   //initialization options
   fullAPI = true;
   enableRedaction = true;
