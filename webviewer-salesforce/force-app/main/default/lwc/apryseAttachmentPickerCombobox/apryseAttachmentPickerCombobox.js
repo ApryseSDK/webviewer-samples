@@ -2,12 +2,12 @@ import { LightningElement, track, wire, api } from 'lwc'
 import { CurrentPageReference } from 'lightning/navigation'
 import { fireEvent, registerListener, unregisterAllListeners } from 'c/pubsub'
 import { ShowToastEvent } from 'lightning/platformShowToastEvent'
-import getAttachments from '@salesforce/apex/PDFTron_ContentVersionController.getExistingAttachments'
-import getBase64FromCv from '@salesforce/apex/PDFTron_ContentVersionController.getBase64FromCv'
-import apexSearch from '@salesforce/apex/PDFTron_ContentVersionController.search'
-import getFileDataFromId from '@salesforce/apex/PDFTron_ContentVersionController.getFileDataFromId'
+import getAttachments from '@salesforce/apex/Apryse_ContentVersionController.getExistingAttachments'
+import getBase64FromCv from '@salesforce/apex/Apryse_ContentVersionController.getBase64FromCv'
+import apexSearch from '@salesforce/apex/Apryse_ContentVersionController.search'
+import getFileDataFromId from '@salesforce/apex/Apryse_ContentVersionController.getFileDataFromId'
 
-export default class PdftronAttachmentPickerCombobox extends LightningElement {
+export default class ApryseAttachmentPickerCombobox extends LightningElement {
   error
 
   @track isModalOpen = false
