@@ -126,7 +126,8 @@ Use these commands to deploy the main resources and utilities that WebViewer use
 // Using Full API
 sf project deploy start --manifest force-app/main/default/manifest/WebViewerCoreFull.xml
 // Using Lean
-sf project deploy start --manifest force-app/main/default/manifest/WebViewerCoreFull.xml
+sf project deploy start --manifest force-app/main/default/manifest/WebViewerCoreLean.xml
+
 sf project deploy start --manifest force-app/main/default/manifest/WebViewerUtils.xml
 sf project deploy start --manifest force-app/main/default/manifest/WebViewerSalesforce.xml
 ```
