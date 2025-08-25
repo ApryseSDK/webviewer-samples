@@ -25,6 +25,9 @@ window.Core.ContentEdit.setResourcePath(resourceURL + 'content_edit_resource');
 
 window.Core.SpreadsheetEditor.setSpreadsheetEditorWorkerPath(resourceURL + 'spreadsheetEditor');
 
+// pdf workers
+window.Core.setPDFResourcePath(resourceURL + 'resource')
+
 if (custom.fullAPI) {
   window.Core.setPDFWorkerChunkPaths([
     resourceURL + 'full_worker_0',
