@@ -15,5 +15,5 @@
     <tabs>WebViewer</tabs>
     <tabs>File_Browser</tabs>
     <uiType>Lightning</uiType>
-    <utilityBar>PDFTron_UtilityBar</utilityBar>
+    <utilityBar>Apryse_UtilityBar</utilityBar>
 </CustomApplication>

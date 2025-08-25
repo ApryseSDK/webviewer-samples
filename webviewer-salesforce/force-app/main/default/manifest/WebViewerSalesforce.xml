@@ -3,7 +3,7 @@
   
   <!-- Custom Applications -->
   <types>
-    <members>PDFTron</members>
+    <members>Apryse</members>
     <name>CustomApplication</name>
   </types>
 
@@ -11,7 +11,7 @@
   <types>
     <members>LookupSearchResult</members>
     <members>LookupSearchResultTests</members>
-    <members>PDFTron_ContentVersionController</members>
+    <members>Apryse_ContentVersionController</members>
     <name>ApexClass</name>
   </types>
 
@@ -24,7 +24,7 @@
   <!-- FlexiPages (Lightning Pages) -->
   <types>
     <members>File_Browser</members>
-    <members>PDFTron_UtilityBar</members>
+    <members>Apryse_UtilityBar</members>
     <members>WebViewer</members>
     <name>FlexiPage</name>
   </types>
@@ -32,13 +32,12 @@
   <!-- Lightning Web Components -->
   <types>
     <members>lookup</members>
-    <members>pdftronAttachmentPickerCombobox</members>
-    <members>pdftronFilePickerCombobox</members>
-    <members>pdftronTabViewer</members>
-    <members>pdftronWebViewer</members>
-    <members>pdftronWebviewerContainer</members>
-    <members>pdftronWvFileBrowserComponent</members>
-    <members>pdftronWvInstance</members>
+    <members>apryseAttachmentPickerCombobox</members>
+    <members>apryseFilePickerCombobox</members>
+    <members>apryseWebViewer</members>
+    <members>apryseWebviewerContainer</members>
+    <members>apryseWvFileBrowserComponent</members>
+    <members>apryseWvInstance</members>
     <members>pubsub</members>
     <name>LightningComponentBundle</name>
   </types>

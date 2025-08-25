@@ -9,7 +9,7 @@ const path = require('path');
 
 // path constants
 const zip = "WebViewer.zip";
-const url = `https://www.pdftron.com/downloads/${zip}`;
+const url = `https://www.apryse.com/downloads/${zip}`;
 const root = "./";
 const dist = `${root}webviewer`;
 

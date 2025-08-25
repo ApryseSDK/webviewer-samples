@@ -3,7 +3,7 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentName>pdftronFilePickerCombobox</componentName>
+                <componentName>apryseFilePickerCombobox</componentName>
             </componentInstance>
         </itemInstances>
         <name>main</name>

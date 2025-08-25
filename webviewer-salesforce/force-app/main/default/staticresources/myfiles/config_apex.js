@@ -23,15 +23,22 @@ window.Core.setOfficeEditorWorkerPath(resourceURL + 'office_edit');
 window.Core.ContentEdit.setWorkerPath(resourceURL + 'content_edit');
 window.Core.ContentEdit.setResourcePath(resourceURL + 'content_edit_resource');
 
-window.Core.setPDFWorkerChunkPaths([
-  resourceURL + 'full_worker_0',
-  resourceURL + 'full_worker_1',
-])
+window.Core.SpreadsheetEditor.setSpreadsheetEditorWorkerPath(resourceURL + 'spreadsheetEditor');
+
 // pdf workers
 window.Core.setPDFResourcePath(resourceURL + 'resource')
+
 if (custom.fullAPI) {
-  window.Core.setPDFWorkerPath(resourceURL + 'pdf_full')
+  window.Core.setPDFWorkerChunkPaths([
+    resourceURL + 'full_worker_0',
+    resourceURL + 'full_worker_1',
+  ])
+  window.Core.setPDFWorkerPath(resourceURL + 'pdf_full');
 } else {
+  window.Core.setPDFWorkerChunkPaths([
+    resourceURL + 'lean_worker_0',
+    resourceURL + 'lean_worker_1',
+  ])
   window.Core.setPDFWorkerPath(resourceURL + 'pdf_lean')
 }
 
@@ -125,7 +132,7 @@ window.addEventListener('viewerLoaded', async function () {
   });
 
   // When the viewer has loaded, this makes the necessary call to get the
-  // pdftronWvInstance code to pass User Record information to this config file
+  // apryseWvInstance code to pass User Record information to this config file
   // to invoke annotManager.setCurrentUser
   instance.Core.documentViewer.getAnnotationManager().setCurrentUser(custom.username);
   instance.UI.enableFeatures([instance.UI.Feature.ContentEdit]);
