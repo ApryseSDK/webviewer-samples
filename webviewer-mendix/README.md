@@ -32,7 +32,7 @@ After creating a new app or inside of the existing app, navigate to the root dir
 
 By default, Mendix projects are stored in:
 ```
-C:\Users\$your_username\Documents\Mendix\
+C:\Users\$your_username\Mendix\
 ```
 In the terminal or command line, navigate to `CustomWidgets/WebViewer` and run:
 ```
