@@ -9,7 +9,7 @@
   },
   "author": "Apryse Software Inc.",
   "devDependencies": {
-    "@pdftron/webviewer": "^11.6.0",
+    "@pdftron/webviewer": "^11.7.1",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "fs-extra": "^11.3.0",

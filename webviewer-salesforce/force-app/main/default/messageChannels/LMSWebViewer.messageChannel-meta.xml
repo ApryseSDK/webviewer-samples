@@ -2,5 +2,5 @@
 <LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
    <masterLabel>WebViewer LMS</masterLabel>
    <isExposed>true</isExposed>
-   <description>Message channel to enable communication between PDFTron's WebViewer and LWC, Aura, VF</description> 
+   <description>Message channel to enable communication between Apryse's WebViewer and LWC, Aura, VF</description> 
 </LightningMessageChannel>

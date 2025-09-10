@@ -3,7 +3,7 @@ import myfilesUrl from '@salesforce/resourceUrl/myfiles';
 import { CurrentPageReference } from 'lightning/navigation';
 import { fireEvent } from 'c/pubsub';
 
-export default class PdftronFilePickerCombobox extends LightningElement {
+export default class ApryseFilePickerCombobox extends LightningElement {
     @track value = 'inProgress';
     @track fileUrl = '';
     @wire(CurrentPageReference) pageRef;

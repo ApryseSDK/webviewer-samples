@@ -23,8 +23,8 @@ In order to set the license key, you will need to set the string in the WebViewe
 
 Follow the steps below to set the license key in this sample:
 
-- Locate the app.component.ts file at src/app.js
-- Replace "your_license_key" with your license
+- Locate the file /src/App.tsx
+- Replace "YOUR_LICENSE_KEY" with your license
 - Save the file
 
 

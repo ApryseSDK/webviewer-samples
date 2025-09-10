@@ -19,8 +19,8 @@ A license key is required to run WebViewer. You can obtain a trial key in our [g
 ## Installing WebViewer Sample App using Salesforce DX
 
 1. Install Salesforce DX. Enable the Dev Hub in your org or sign up for a Dev Hub trial org and install the Salesforce DX CLI. Follow the instructions in the [Salesforce DX Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm?search_text=trial%20hub%20org) or in the [App Development with Salesforce DX](https://trailhead.salesforce.com/modules/sfdx_app_dev) Trailhead module. The steps include:
-   * [Enable Dev Hub in you project](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_enable_devhub.htm)
-   * [Install Salesforce CLI](https://trailhead.salesforce.com/en/content/learn/modules/sfdx_app_dev/sfdx_app_dev_setup_dx#Tdxn4tBK-heading6)
+   * [Enable Dev Hub in you project](https://trailhead.salesforce.com/content/learn/modules/sfdx_app_dev/sfdx_app_dev_setup_dx#enable-dev-hub)
+   * [Install Salesforce CLI](https://trailhead.salesforce.com/content/learn/modules/sfdx_app_dev/sfdx_app_dev_setup_dx#install-salesforce-cli)
    * (Optional) [Install Salesforce Extensions for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=salesforce.salesforcedx-vscode)
 
 2. Clone the `webviewer-salesforce` from Github repo:
@@ -95,7 +95,7 @@ Every `*.zip` file should have a corresponding `*.resource-meta.xml` file, where
 
 5. If you have a paid license key, you can remove the watermark from rendered
 documents by adding the `licenseKey` property value to the `WebViewer` constructor here
-[`./force-app/main/default/lwc/pdftronWebViewer/pdftronWebViewer.js`](./force-app/main/default/lwc/pdftronWebViewer/pdftronWebViewer.js#L63).
+[`./force-app/main/default/lwc/apryseWvInstance/apryseWvInstance.js`](./force-app/main/default/lwc/apryseWvInstance/apryseWvInstance.js#L63).
 
 ```
 licenseKey: 'YOUR_LICENSE_KEY'
@@ -123,7 +123,11 @@ Error (1): Maximum size of request reached. Maximum size of request is 52428800 
 
 Use these commands to deploy the main resources and utilities that WebViewer uses to ensure deployment stays under the limits
 ```
-sf project deploy start --manifest force-app/main/default/manifest/WebViewerCore.xml
+// Using Full API
+sf project deploy start --manifest force-app/main/default/manifest/WebViewerCoreFull.xml
+// Using Lean
+sf project deploy start --manifest force-app/main/default/manifest/WebViewerCoreLean.xml
+
 sf project deploy start --manifest force-app/main/default/manifest/WebViewerUtils.xml
 sf project deploy start --manifest force-app/main/default/manifest/WebViewerSalesforce.xml
 ```

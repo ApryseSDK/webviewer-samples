@@ -1,4 +1,4 @@
-public with sharing class PDFTron_ContentVersionController {
+public with sharing class Apryse_ContentVersionController {
     static Set<String> supportedFileFormats = new Set<String> {
         'pdf', 
         'xfdf',
@@ -64,7 +64,7 @@ public with sharing class PDFTron_ContentVersionController {
     public static String saveDocument(String json, String recordId, String cvId) {
         try {
             //parse annotated document payload and create new ContentVersion
-            PDFTron_ContentVersionPayload pl = new PDFTron_ContentVersionPayload(json);
+            Apryse_ContentVersionPayload pl = new Apryse_ContentVersionPayload(json);
             ContentVersion annotatedCv = new ContentVersion();
 
             //retrieve original document before annotation
@@ -137,7 +137,7 @@ public with sharing class PDFTron_ContentVersionController {
             Long max = 1024 * 1024 * 25; // kb - mb - 6 MB
             ContentVersion cv = [SELECT Title, FileExtension, ContentSize, VersionData, ContentDocumentId, LastModifiedDate FROM ContentVersion WHERE Id = :Id];
             if(cv.ContentSize > max) {
-                throw new PDFTronException('Your file size must not exceed ' + convertBytesToFormattedString(max) + ' - current file size: ' + convertBytesToFormattedString(cv.ContentSize));
+                throw new ApryseException('Your file size must not exceed ' + convertBytesToFormattedString(max) + ' - current file size: ' + convertBytesToFormattedString(cv.ContentSize));
             }
             return new ContentVersionWrapper(cv, true);
         } catch(Exception e) {
@@ -264,14 +264,14 @@ public with sharing class PDFTron_ContentVersionController {
         }
     }
 
-    public class PDFTron_ContentVersionPayload {
+    public class Apryse_ContentVersionPayload {
         public String title {get; set;}
         public String filename {get; set;}
         public String base64Data {get; set;}
         public String contentDocumentId {get; set;}
 
-        public PDFTron_ContentVersionPayload(String json) {
-            PDFTron_ContentVersionPayload pl = (PDFTron_ContentVersionPayload) System.JSON.deserialize(json, PDFTron_ContentVersionPayload.class);
+        public Apryse_ContentVersionPayload(String json) {
+            Apryse_ContentVersionPayload pl = (Apryse_ContentVersionPayload) System.JSON.deserialize(json, Apryse_ContentVersionPayload.class);
             this.title = pl.title;
             this.filename = pl.filename;
             this.base64Data = pl.base64Data;
@@ -279,5 +279,5 @@ public with sharing class PDFTron_ContentVersionController {
         }
     }
 
-    public class PDFTronException extends Exception {}
+    public class ApryseException extends Exception {}
 }

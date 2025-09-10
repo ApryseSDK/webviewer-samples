@@ -26,8 +26,8 @@ This repo is specifically designed for any users interested in integrating WebVi
 Before you begin, make sure your development environment includes
 
 - [VS Code](https://code.visualstudio.com/download)
-- [VS Code Teams Toolkit Extension](https://docs.microsoft.com/en-us/microsoftteams/platform/toolkit/teams-toolkit-fundamentals)
-- You need a **Microsoft 365 account** and if you do not have one, you can sign up for the free [**Microsoft 365 Developer Program**](https://docs.microsoft.com/en-us/microsoftteams/platform/toolkit/teams-toolkit-fundamentals)
+- [Microsoft 365 Agents Toolkit Extension](https://marketplace.visualstudio.com/items?itemName=TeamsDevApp.ms-teams-vscode-extension)
+- You need a **Microsoft 365 account** and if you do not have one, you can sign up for the free [**Microsoft 365 Developer Program**](https://developer.microsoft.com/en-us/microsoft-365/dev-program)
 - [Node.js](https://nodejs.org/en/download/)
 
 ## Install

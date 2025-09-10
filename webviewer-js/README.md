@@ -39,6 +39,12 @@ npm install
 }
 ```
 
+Run build command:
+
+```
+npm run build
+```
+
 ## Run
 
 ```

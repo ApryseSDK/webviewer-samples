@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A simple JS app to demonstrate how to embed PDFTron's WebViewer",
   "source": "index.js",
-  "main": "test/index.js",
+
   "scripts": {
     "start": "parcel index.html --open http://localhost:1234",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/PDFTron/webviewer-js-sample#readme",
   "dependencies": {
-    "@pdftron/webviewer": "^11.6.0"
+    "@pdftron/webviewer": "^11.7.1"
   },
   "devDependencies": {
     "@parcel/config-default": "^2.12.0",
