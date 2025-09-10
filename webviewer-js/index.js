@@ -27,6 +27,7 @@ WebViewer(
     path: '/public/webviewer',
     initialDoc:
       'https://pdftron.s3.amazonaws.com/downloads/pl/demo-annotated.pdf',
+    licenseKey: 'YOUR_LICENSE_KEY',
   },
   element
 ).then((instance) => {

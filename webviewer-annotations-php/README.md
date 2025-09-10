@@ -48,7 +48,12 @@ As a sample of a development environment using [XAMPP](https://www.apachefriends
 
 4. To check the environment is set correctly, click the **Start** buttons for the **Apache** and **MySQL** modules. Then click on the **Admin** buttons and a page should render on the `localhost:8181` for each module. If you see both pages, your environment is set. 
 
-5. To render the page using this environment, you can simply move both folders **client** and **server** from the root of this project to a `demo` folder in `C:\xampp\htdocs`. Once you move the folders, it should look like this `C:\xampp\htdocs` with two folders named `client` and `server`. While the XAMPP dev environment is able to render the `localhost:8181` default page, you can navigate to `http://localhost:8181/demo/client/index.html`.
+5. To render the page using this environment, you can simply move both folders **client** and **server** from the root of this project to a `demo` folder in `C:\xampp\htdocs`. Once you move the folders, it should look like this `C:\xampp\htdocs\demo` with two folders named `client` and `server`.
+
+* `C:\xampp\htdocs\demo\client`
+* `C:\xampp\htdocs\demo\server`
+
+ While the XAMPP dev environment is able to render the `localhost:8181` default page, you can navigate to `http://localhost:8181/demo/client/index.html`.
 
 
 
