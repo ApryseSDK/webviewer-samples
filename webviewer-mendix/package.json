@@ -28,7 +28,7 @@
     "@types/lodash": "^4.17.15"
   },
   "dependencies": {
-    "@pdftron/webviewer": "^11.6.0",
+    "@pdftron/webviewer": "^11.7.1",
     "classnames": "^2.5.1",
     "lodash": "^4.17.21"
   },
