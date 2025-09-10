@@ -2,6 +2,13 @@
 
 A collection of sample projects for the [Apryse WebViewer SDK](https://apryse.com/products/webviewer).
 
+## Need Technical Support?
+
+Our repositories are actively maintained, but for technical questions—such as those related to samples, SDKs, APIs, and other content—we recommend using our dedicated support channels.
+
+Please post your question on our support forum for trial-related technical assistance:
+🔗 https://apryse.com/support – Trial Tech Support
+
 ## Get started
 
 1. Clone this repository
