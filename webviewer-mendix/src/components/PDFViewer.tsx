@@ -351,28 +351,42 @@ const PDFViewer: React.FC<InputProps> = props => {
                     });
                 }
 
-                UI.setHeaderItems((header: any) => {
+                UI.setHeaderItems(() => {
+                    const customHeaderItems: any[] = [];
                     if (props.enableDocumentUpdates) {
-                        header.push({
-                            type: "actionButton",
-                            title: "Save document",
-                            img: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z"/></svg>',
-                            onClick: async () => wvUIEventHandlers.current.saveCurrentDocument()
+                        const saveCurrentDocumentButton = new instance.UI.Components.CustomButton({
+                            dataElement: "customSaveCurrentButton",
+                            onClick: () => {
+                                wvUIEventHandlers.current.saveCurrentDocument();
+                            },
+                            img: "icon-save",
+                            // @ts-ignore
+                            style: {
+                                backgroundColor: "#F1F3F5"
+                            }
                         });
+                        customHeaderItems.push(saveCurrentDocumentButton);
                     }
 
                     if (props.enableSaveAsButton) {
-                        header.push({
-                            type: "actionButton",
-                            title: "Save As",
-                            img: `<svg width="auto" height="auto" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M21.3439 12.2929C20.9534 11.9024 20.3202 11.9024 19.9297 12.2929L18.9611 13.2615L20.6786 14.979L21.6472 14.0104C22.0377 13.6199 22.0377 12.9867 21.6472 12.5962L21.3439 12.2929Z" fill="black"/>
-                            <path d="M19.5615 16.0961L17.844 14.3786L12.2584 19.9642L12 21.9401L13.9759 21.6817L19.5615 16.0961Z" fill="black"/>
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.05087 21H4C2.897 21 2 20.103 2 19V5C2 3.897 2.897 3 4 3H15C15.266 3 15.52 3.105 15.707 3.293L19.707 7.293C19.895 7.48 20 7.735 20 8V10.0509L18.0003 12.0505L18 8.414L14.586 5H14V9H13H12H10H8H6V5H4V19H6V14C6 12.897 6.897 12 8 12H14C15.103 12 16 12.897 16 14V14.0509L14 16.0509V14H8V19H11.0509L9.05087 21ZM10 7H12V5H10V7Z" fill="black"/>
-                            </svg>`,
-                            onClick: async () => wvUIEventHandlers.current.saveAsDocument()
+                        const saveAsButton = new instance.UI.Components.CustomButton({
+                            dataElement: "customSaveAsButton",
+                            onClick: async () => {
+                                wvUIEventHandlers.current.saveAsDocument();
+                            },
+                            img: "icon-save",
+                            label: "Save As",
+                            // @ts-ignore
+                            style: {
+                                backgroundColor: "#F1F3F5"
+                            }
                         });
+                        customHeaderItems.push(saveAsButton);
                     }
+                    // This can now be added to a modular header
+                    const defaultHeader = instance.UI.getModularHeader("default-top-header");
+                    // @ts-ignore
+                    defaultHeader.setItems([...defaultHeader.items, ...customHeaderItems]);
                 });
 
                 // Manual and auto XFDF export
