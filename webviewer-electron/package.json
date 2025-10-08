@@ -11,7 +11,7 @@
   "author": "Apryse",
   "license": "ISC",
   "dependencies": {
-    "@pdftron/webviewer": "^11.7.1",
+    "@pdftron/webviewer": "^11.8.0",
     "electron-squirrel-startup": "^1.0.1"
   },
   "devDependencies": {
