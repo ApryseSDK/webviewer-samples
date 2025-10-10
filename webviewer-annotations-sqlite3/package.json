@@ -16,6 +16,6 @@
     "sqlite3": "^5.1.7"
   },
   "dependencies": {
-    "@pdftron/webviewer": "^11.7.1"
+    "@pdftron/webviewer": "^11.8.0"
   }
 }
