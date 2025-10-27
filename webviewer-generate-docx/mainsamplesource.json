@@ -1,8 +1,13 @@
 {
   "githubId": "354d10c4-a7e0-4352-a233-61c47827ec44",
   "files": [
-	{
+    {
       "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-generate-docx/src/App.js",
+      "description": "",
+      "reason": ""
+    },
+    {
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-generate-docx/src/components/Viewer.js",
       "description": "",
       "reason": ""
     }
