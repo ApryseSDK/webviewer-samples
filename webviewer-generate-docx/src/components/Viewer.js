@@ -6,7 +6,10 @@ const Viewer = () => {
   const viewer = useRef(null);
   const { setInstance } = useContext(WebViewerContext);
 
-  // if using a class, equivalent of componentDidMount
+  // IMPORTANT:
+  // Add this property in App.js:  
+  // `enableOfficeEditing: true,`
+  // This enables Office Editing when loading each blob
   useEffect(() => {
     WebViewer(
       {

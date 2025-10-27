@@ -42,10 +42,14 @@ function App() {
       const docBlob = await generateDocx();
       await instance.Core.documentViewer.loadDocument(docBlob, {
         extension: 'docx',
+        enableOfficeEditing: true, // Enable Office Editing for the loaded document
+        filename: 'blob_generated.docx', // Set the filename for the document viewer
       });
     };
     if (instance) {
       generateAndLoadDocument();
+
+
     }
   }, [instance]);
 
