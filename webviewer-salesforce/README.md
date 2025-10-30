@@ -91,9 +91,26 @@ The static resources are generated after running above optimization, into `./for
 
 ![static resources](misc/static-resources.png "Static Resources")
 
+**NOTE**: If spreadsheet editing feature is intended to be used, the following static resources are generated:
+
+![spreadsheet editor static resources](misc/spreadsheet-static-resources.png "Spreadsheet Editor Static Resources")
+
 Every `*.zip` file should have a corresponding `*.resource-meta.xml` file, where the contents of each `.xml` file are identical to the other `.xml` files.
 
-5. If you have a paid license key, you can remove the watermark from rendered
+5. If spreadsheet editing feature is intended to be used, the `WebViewer` constructor here
+[`./force-app/main/default/lwc/apryseWvInstance/apryseWvInstance.js`](./force-app/main/default/lwc/apryseWvInstance/apryseWvInstance.js) requires the following tuning:
+   * Disable the office documents conversion to a PDF on loading, by removing the following line of code:
+     ```
+     loadAsPDF: true
+     ```
+   * Set the initial UI mode of the viewer to Spreadsheet Editor, by passing the `initialMode` parameter in WebViewer's constructor options:
+     ```
+     initialMode: WebViewer.Modes.SPREADSHEET_EDITOR
+     ```
+   For more information, see this video on [How to Add a Spreadsheet in Salesforce](https://www.youtube.com/watch?v=PNbQQohluBY&t=1s).
+
+
+6. If you have a paid license key, you can remove the watermark from rendered
 documents by adding the `licenseKey` property value to the `WebViewer` constructor here
 [`./force-app/main/default/lwc/apryseWvInstance/apryseWvInstance.js`](./force-app/main/default/lwc/apryseWvInstance/apryseWvInstance.js#L63).
 
@@ -101,43 +118,50 @@ documents by adding the `licenseKey` property value to the `WebViewer` construct
 licenseKey: 'YOUR_LICENSE_KEY'
 ```
 
-6. If you have not already done so, authenticate with your hub org and provide it with an alias (**DevHub** in the command below):
+7. If you have not already done so, authenticate with your hub org and provide it with an alias (**DevHub** in the command below):
 ```
 sf org login web --set-default-dev-hub --alias DevHub
 ```
 
-7. Enter your Dev Hub org credentials in the browser that opens. After you log in successfully, you can close the browser. Create a scratch org using the `config/project-scratch-def.json` file, set the **username** as your default, and assign it an alias.
+8. Enter your Dev Hub org credentials in the browser that opens. After you log in successfully, you can close the browser. Create a scratch org using the `config/project-scratch-def.json` file, set the **username** as your default, and assign it an alias.
 ```
 sf org create scratch --definition-file config/project-scratch-def.json --set-default --alias my-scratch-org
 ```
 
-8. Push the app to your scratch org:
+9. Push the app to your scratch org:
 ```
 sf project deploy start --source-dir force-app
 ```
 
-If this error occurs, this means that the total deployment size is over the limit.
+**NOTE**: If this error occurs, this means that the total deployment size is over the limit.
+
 ```
 Error (1): Maximum size of request reached. Maximum size of request is 52428800 bytes.
 ```
 
-Use these commands to deploy the main resources and utilities that WebViewer uses to ensure deployment stays under the limits
-```
-// Using Full API
-sf project deploy start --manifest force-app/main/default/manifest/WebViewerCoreFull.xml
-// Using Lean
-sf project deploy start --manifest force-app/main/default/manifest/WebViewerCoreLean.xml
+Use these commands to deploy the main resources and utilities that WebViewer uses to ensure deployment stays under the limits:
 
+If full API is used (answered yes for "Optimize: Do you need the full PDF API?" in the optimization step)
+```
+sf project deploy start --manifest force-app/main/default/manifest/WebViewerCoreFull.xml
+```
+
+If lean version is used (answered no for "Optimize: Do you need the full PDF API?" in the optimization step)
+```
+sf project deploy start --manifest force-app/main/default/manifest/WebViewerCoreLean.xml
+```
+
+```
 sf project deploy start --manifest force-app/main/default/manifest/WebViewerUtils.xml
 sf project deploy start --manifest force-app/main/default/manifest/WebViewerSalesforce.xml
 ```
 
-9. Open the scratch org:
+10. Open the scratch org:
 ```
 sf org open
 ```
 
-10. Click the app launcher icon ![App Launcher icon](misc/app_launcher.png "App Launcher") to open the App Launcher, then click Apryse.
+11. Click the app launcher icon ![App Launcher icon](misc/app_launcher.png "App Launcher") to open the App Launcher, then click Apryse.
 
 ![Apryse App](misc/Apryse-app.png "Apryse App")
 

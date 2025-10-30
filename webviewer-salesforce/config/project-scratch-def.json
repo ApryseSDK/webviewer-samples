@@ -1,9 +1,14 @@
 {
-    "orgName": "your Company",
-    "edition": "Developer",
-    "settings": {
-        "lightningExperienceSettings": {
-            "enableS1DesktopEnabled": true
-        }
+  "orgName": "your Company",
+  "edition": "Developer",
+  "settings": {
+    "lightningExperienceSettings": {
+        "enableS1DesktopEnabled": true
     }
+  },
+  "objectSettings": {
+    "account": {
+        "defaultRecordType": "default"
+    }
+  }
 }

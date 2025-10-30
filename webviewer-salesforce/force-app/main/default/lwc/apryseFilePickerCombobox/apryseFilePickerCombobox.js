@@ -37,6 +37,7 @@ export default class ApryseFilePickerCombobox extends LightningElement {
             { label: 'compressed.tracemonkey-pldi-09.pdf', value: myfilesUrl + '/compressed.tracemonkey-pldi-09.pdf' },
             { label: 'webviewer-demo-annotated.xod', value: myfilesUrl + '/webviewer-demo-annotated.xod' },
             { label: 'word.docx', value: myfilesUrl + '/word.docx' },
+            { label: 'invoice_template.xlsx', value: myfilesUrl + '/invoice_template.xlsx' },
         ];
     }
 

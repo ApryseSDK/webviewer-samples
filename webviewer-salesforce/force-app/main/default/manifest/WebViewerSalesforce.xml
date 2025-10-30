@@ -34,7 +34,6 @@
     <members>lookup</members>
     <members>apryseAttachmentPickerCombobox</members>
     <members>apryseFilePickerCombobox</members>
-    <members>apryseWebViewer</members>
     <members>apryseWebviewerContainer</members>
     <members>apryseWvFileBrowserComponent</members>
     <members>apryseWvInstance</members>
@@ -62,6 +61,6 @@
   </types>
 
   <!-- API Version -->
-  <version>50.0</version>
+  <version>54.0</version>
 
 </Package>

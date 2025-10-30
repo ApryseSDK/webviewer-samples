@@ -117,7 +117,9 @@ export default class ApryseWvInstance extends LightningElement {
       enableMeasurement: this.enableMeasurement,
       enableOptimizedWorkers: true,
       loadAsPDF: true,
-      // l: 'YOUR_LICENSE_KEY_HERE',
+      // l: 'YOUR_LICENSE_KEY',
+      // To use spreadsheet editor feature, uncomment the below line and comment out loadAsPDF: true
+      // initialMode: WebViewer.Modes.SPREADSHEET_EDITOR,
     }, viewerElement);
 
     viewerElement.addEventListener('ready', () => {
