@@ -1,8 +1,13 @@
 {
   "githubId": "6be16c46-12be-43d6-a69b-9309a069e1b8",
   "files": [
-	{
+    {
       "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-salesforce/force-app/main/default/lwc/apryseWvInstance/apryseWvInstance.js",
+      "description": "",
+      "reason": ""
+    },
+    {
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-salesforce/force-app/main/default/staticresources/myfiles/visualforce-page-viewing.js",
       "description": "",
       "reason": ""
     }
