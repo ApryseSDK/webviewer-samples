@@ -1,0 +1,67 @@
+.askWebSDKMainDiv {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+}
+
+.askWebSDKHeaderDivClass {
+    background-color: #34495e;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.askWebSDKChattingDivClass {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    overflow: auto;
+    padding: 10px 10px 150px 10px;
+}
+
+.askWebSDKQuestionDivClass {
+    width: 100%;
+    background-color: #ecf0f1;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    align-items: center;
+}
+
+.askWebSDKQuestionInputClass {
+    width: 85%;
+    margin-right: 5px;
+}
+
+.askWebSDKQuestionButtonClass {
+    background-color: Blue;
+    color: white;
+    cursor: pointer;
+}
+
+.askWebSDKSystemMessageClass {
+    background-color: #ecf0f1;
+    color: black;
+    align-self: flex-start;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 70%;
+}
+
+.askWebSDKUserMessageClass {
+    background-color: #3498db;
+    color: white;
+    align-self: flex-end;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 70%;
+}

@@ -1,0 +1,7 @@
+# Misc
+.DS_Store
+node_modules
+
+# WebViewer
+client/lib
+client/license-key.js
