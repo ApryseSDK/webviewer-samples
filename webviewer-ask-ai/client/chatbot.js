@@ -1,15 +1,19 @@
 // Browser-compatible chatbot client
 class ChatbotClient {
+  constructor() {
+    this.conversationHistory = [];
+  }
 
   // Initialize chat interface for the WebViewer panel
   initialize = () => {
-
     // You can expand this to integrate with the WebViewer panel UI
     window.chatbot = this; // Make chatbot available globally for testing
   };
 
-  async sendMessage(promptLine, message) {
+  async sendMessage(promptLine, message, options = {}) {
     try {
+      // For document-level operations, optionally use empty history to prevent token overflow
+      const historyToSend = options.useEmptyHistory ? [] : this.conversationHistory;
       const response = await fetch('/api/chat', {
         method: 'POST',
         headers: {
@@ -17,7 +21,8 @@ class ChatbotClient {
         },
         body: JSON.stringify({
           message: message,
-          promptType: promptLine
+          promptType: promptLine,
+          history: historyToSend
         })
       });
 
@@ -26,6 +31,14 @@ class ChatbotClient {
       }
 
       const data = await response.json();
+
+      // Update conversation history only if not explicitly disabled
+      if (!options.skipHistoryUpdate) {
+        this.conversationHistory.push(
+          { role: 'human', content: `${promptLine}: ${message.substring(0, 100)}...` }, // Truncate long messages in history
+          { role: 'assistant', content: data.response }
+        );
+      }
 
       return data.response;
     } catch (error) {
@@ -54,12 +67,16 @@ class ChatbotClient {
           if (loadedPages === pageCount) {
             const completeText = pageTexts.join('\n\n');
 
-            this.sendMessage(promptType, completeText).then(response => {
+            // Use empty history for document-level operations to prevent token overflow
+            this.sendMessage(promptType, completeText, {
+              useEmptyHistory: true,
+              skipHistoryUpdate: false // Still update history but with truncated content
+            }).then(response => {
               let responseText = this.responseText(response);
               responseText = this.formatText(promptType, responseText);
-              createBubble(responseText, 'system');
+              createBubble(responseText, 'assistant');
             }).catch(error => {
-              createBubble(`Error: ${error.message}`, 'system');
+              createBubble(`Error: ${error.message}`, 'assistant');
             });
           }
         } catch (error) {
@@ -70,12 +87,15 @@ class ChatbotClient {
           if (loadedPages === pageCount) {
             const completeText = pageTexts.join('\n\n');
 
-            this.sendMessage(promptType, completeText).then(response => {
+            this.sendMessage(promptType, completeText, {
+              useEmptyHistory: true,
+              skipHistoryUpdate: false
+            }).then(response => {
               let responseText = this.responseText(response);
               responseText = this.formatText(promptType, responseText);
-              createBubble(responseText, 'system');
+              createBubble(responseText, 'assistant');
             }).catch(error => {
-              createBubble(`Error: ${error.message}`, 'system');
+              createBubble(`Error: ${error.message}`, 'assistant');
             });
           }
         }
@@ -112,7 +132,51 @@ class ChatbotClient {
   // Format text to include cited page links
   // and page breaks based on prompt type
   formatText = (promptType, text) => {
-    let matches = text.match(/\[\d+(?:\s*,\s*\d+)+\]/g);
+    switch (promptType) {
+      case 'DOCUMENT_SUMMARY':
+      case 'SELECTED_TEXT_SUMMARY':
+      case 'DOCUMENT_QUESTION':
+        // Add page breaks to page citation ends with period
+        text = text.replace(/(\d+\])\./g, '$1.<br/><br/>');
+        break;
+      case 'DOCUMENT_KEYWORDS':
+        // Format bullet points with line breaks
+        let lines = text.split(/•\s*/).filter(Boolean);
+        text = lines.map(line => `• ${line.trim()}`).join('<br/>');
+        break;
+      default:
+        break;
+    }
+
+    // Separate citations group on form [1, 2, 3] to individual [1][2][3]
+    text = this.separateGroupedCitations(text, /\[\d+(?:\s*,\s*\d+)+\]/g);
+
+    // Separate citations range on form [1-3] to individual [1][2][3]
+    text = this.separateGroupedCitations(text, /\[\d+(?:\s*-\s*\d+)+\]/g);
+
+    let matches = text.match(/\[\d+\]/g);
+    if (matches && matches.length > 0) {
+      // Element duplicate matches
+      matches = [...new Set(matches)];
+
+      let pageNumber = 1;
+      // match to be turned into link
+      matches.forEach(match => {
+        pageNumber = match.match(/\d+/)[0];
+        if (pageNumber > 0 &&
+          pageNumber <= window.WebViewer.getInstance().Core.documentViewer.getDocument().getPageCount()) {
+          const pageLink = `<a href="#" style="color:blue;" onclick="window.WebViewer.getInstance().Core.documentViewer.setCurrentPage(${pageNumber}, true);">[${pageNumber}]</a>`;
+          text = text.replaceAll(match, `${pageLink}`);
+        }
+      });
+    }
+
+    return text;
+  }
+
+  // Helper to separate grouped citations on form [1, 2, 3] or [1-3] into individual [1][2][3]
+  separateGroupedCitations = (text, pattern) => {
+    let matches = text.match(pattern);
     if (matches && matches.length > 0) {
       let formattedMatchNumbers = '';
       matches.forEach(match => {
@@ -126,44 +190,11 @@ class ChatbotClient {
       });
     }
 
-    switch (promptType) {
-      case 'DOCUMENT_SUMMARY':
-      case 'SELECTED_TEXT_SUMMARY':
-      case 'DOCUMENT_QUESTION':
-        matches = text.match(/\[\d+\][.]/g);
-        break;
-      case 'DOCUMENT_KEYWORDS':
-        matches = text.match(/\[\d+\]/g);
-        break;
-      default:
-        break;
-    }
-
-    if (matches && matches.length > 0) {
-      // Element duplicate matches
-      matches = [...new Set(matches)];
-
-      let pageNumber = 1;
-      // match to be turned into link
-      matches.forEach(match => {
-        pageNumber = match.match(/\d+/)[0];
-        if (pageNumber > 0 &&
-          pageNumber <= window.WebViewer.getInstance().Core.documentViewer.getDocument().getPageCount()) {
-          const pageLink = `<a href="#" style="color:blue;" onclick="window.WebViewer.getInstance().Core.documentViewer.setCurrentPage(${pageNumber}, true);">[${pageNumber}]</a>`;
-          if (promptType === 'DOCUMENT_KEYWORDS')
-            text = text.replaceAll(match, `${pageLink}`);
-          else
-            text = text.replaceAll(match, `${pageLink}.<br/>`);
-        }
-      });
-    }
-
-    if (promptType === 'DOCUMENT_KEYWORDS') {
-      let lines = text.split(/•\s*/).filter(Boolean);
-      text = lines.map(line => `• ${line.trim()}`).join('<br/>');
-    }
-
     return text;
+  }
+
+  clearHistory() {
+    this.conversationHistory = [];
   }
 }
 

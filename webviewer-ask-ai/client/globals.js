@@ -5,3 +5,6 @@ const ASK_WEB_SDK_ICO = "<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" fill=\\\"
 const setSelectedText = (selectedText) => {
   window.selectedText = selectedText;
 }
+
+let conversationLog = [];
+window.conversationLog = conversationLog;

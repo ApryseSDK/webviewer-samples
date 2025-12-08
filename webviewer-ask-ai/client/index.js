@@ -19,21 +19,20 @@ WebViewer({
   // Listen for text selection events
   // The user can select text in the document, to be added as context for the chatbot to be processed
   instance.Core.documentViewer.addEventListener('textSelected', (quads, selectedText) => {
-    if (selectedText) {
-      // Set selected text as context for chatbot
       setSelectedText(selectedText);
-    }
   });
 
   // Listen for document loaded event to initialize the chatbot panel
   instance.Core.documentViewer.addEventListener('documentLoaded', () => {
-    instance.UI.closeElements(['askWebSDKPanel']);
-    instance.UI.openElements(['askWebSDKPanel']);
-    instance.UI.setPanelWidth('askWebSDKPanel', 600);
-
     // Initialize chatbot
     const chatbot = createChatbot();
     window.chatbot = chatbot;
+    // Clear the conversation on new document load
+    window.conversationLog = [];
+
+    instance.UI.closeElements(['askWebSDKPanel']);
+    instance.UI.openElements(['askWebSDKPanel']);
+    instance.UI.setPanelWidth('askWebSDKPanel', 600);
   });
 });
 

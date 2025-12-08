@@ -21,9 +21,15 @@ const spinOptions = {
 };
 let askWebSDKMainDiv = null;
 let askWebSDKChattingDiv = null;
-const systemMessages = [
+const keywords = {
+  summarization: ['summarize', 'summary', 'summarization'],
+  area: ['text', 'paragraph', 'area'],
+  selection: ['selected', 'selection', 'highlighted']
+};
+const spinner = new Spinner(spinOptions);
+const assistantMessages = [
   {
-    type: 'welcoming',
+    type: 'info',
     content: `Hello, I'm ${APP_SITE_NAME}. How can I help you?`,
   },
   {
@@ -34,19 +40,16 @@ const systemMessages = [
     type: 'info',
     content: [
       {
-        id: 0,
         type: 'info',
         content: 'Choose:',
         promptType: '',
       },
       {
-        id: 1,
         type: 'question',
         content: 'Summarize Document',
         promptType: 'DOCUMENT_SUMMARY'
       },
       {
-        id: 2,
         type: 'question',
         content: 'List Keywords',
         promptType: 'DOCUMENT_KEYWORDS'
@@ -75,48 +78,49 @@ const functionMap = {
     askWebSDKHeaderDiv.appendChild(askWebSDKHeaderTitle);
     askWebSDKMainDiv.appendChild(askWebSDKHeaderDiv);
 
-    // Chatting container div with system and user messages
+    // Chatting container div with assistant and human messages
     askWebSDKChattingDiv = document.createElement('div');
     askWebSDKChattingDiv.id = 'askWebSDKChattingDiv';
     askWebSDKChattingDiv.className = 'askWebSDKChattingDivClass';
-    systemMessages.forEach((message) => {
+    assistantMessages.forEach((message) => {
       let messageDiv = document.createElement('div');
-      messageDiv.className = 'askWebSDKSystemMessageClass';
+      messageDiv.className = 'askWebSDKAssistantMessageClass';
       if (Array.isArray(message.content)) {
         message.content.forEach((contentItem) => {
-          let systemContentDiv = (contentItem.type === 'info') ? document.createElement('div') : document.createElement('li');
-          systemContentDiv.className = (contentItem.type === 'info') ? 'askWebSDKInfoMessageClass' : 'askWebSDKQuestionMessageClass';
+          let assistantContentDiv = (contentItem.type === 'info') ? document.createElement('div') : document.createElement('li');
+          assistantContentDiv.className = (contentItem.type === 'info') ? 'askWebSDKInfoMessageClass' : 'askWebSDKQuestionMessageClass';
           if (contentItem.type === 'question') {
-            systemContentDiv.onmouseover = () => {
-              systemContentDiv.style.textDecoration = 'underline';
-              systemContentDiv.style.color = 'blue';
+            assistantContentDiv.onmouseover = () => {
+              assistantContentDiv.style.textDecoration = 'underline';
+              assistantContentDiv.style.color = 'blue';
             };
-            systemContentDiv.onmouseout = () => {
-              systemContentDiv.style.textDecoration = 'none';
-              systemContentDiv.style.color = 'black';
+            assistantContentDiv.onmouseout = () => {
+              assistantContentDiv.style.textDecoration = 'none';
+              assistantContentDiv.style.color = 'black';
             };
-            systemContentDiv.onclick = () => {
-              createBubble(contentItem.content, 'user');
-              const spinner = new Spinner(spinOptions);
-              spinner.spin(askWebSDKMainDiv);
-              
-              // Create a wrapper callback that stops the spinner after createBubble is called
-              const callbackWrapper = (...args) => {
-                createBubble(...args);
-                spinner.stop();
-              };
-              
-              window.chatbot.getAllText(contentItem.promptType, callbackWrapper);
+            assistantContentDiv.onclick = () => {
+              createBubble(contentItem.content, 'human');
+              askQuestionByPrompt(contentItem.promptType);
             };
           }
-          systemContentDiv.innerText = contentItem.content;
-          messageDiv.appendChild(systemContentDiv);
+          assistantContentDiv.innerText = contentItem.content;
+          messageDiv.appendChild(assistantContentDiv);
         });
       } else
         messageDiv.innerText = message.content;
 
       askWebSDKChattingDiv.appendChild(messageDiv);
     });
+
+    // maintain the conversation sequence
+    if (window.conversationLog.length > 0) {
+      window.conversationLog.forEach((chatMessage) => {
+        let messageDiv = document.createElement('div');
+        messageDiv.className = (chatMessage.role === 'assistant') ? 'askWebSDKAssistantMessageClass' : 'askWebSDKHumanMessageClass';
+        messageDiv.innerHTML = chatMessage.content;
+        askWebSDKChattingDiv.appendChild(messageDiv);
+      });
+    }
 
     askWebSDKMainDiv.appendChild(askWebSDKChattingDiv);
 
@@ -140,11 +144,37 @@ const functionMap = {
     askWebSDKQuestionButton.className = 'askWebSDKQuestionButtonClass';
     askWebSDKQuestionButton.innerText = 'Send';
     askWebSDKQuestionButton.onclick = () => {
-      if (askWebSDKQuestionInput.value.trim() !== '') {
-        createBubble(askWebSDKQuestionInput.value.trim(), 'user');
+      let question = askWebSDKQuestionInput.value.trim();
+      if (question === '') {
+        createBubble('Please ask a question first.', 'assistant');
+        return;
+      }
 
-        // Start loading spinner on main div to block all interactions
-        const spinner = new Spinner(spinOptions);
+      createBubble(question, 'human');
+
+      // Check if the question is a summarization request
+      if (containsAny(question.toLowerCase(), keywords.summarization)) {
+        // summarize entire document
+        if (question.toLowerCase().includes('document') &&
+          !containsAny(question.toLowerCase(), keywords.area))
+          askQuestionByPrompt('DOCUMENT_SUMMARY');
+
+        // summarize selected text in document
+        if (containsAny(question.toLowerCase(), keywords.selection)) {
+          if (window.selectedText && window.selectedText.trim() !== '')
+            summarizeSelectedText();
+          else
+            createBubble('Please select text in the document first.', 'assistant');
+        }
+
+        if (!question.toLowerCase().includes('document')
+          && !containsAny(question.toLowerCase(), keywords.selection)) {
+          createBubble('Please specify if you want to summarize the entire document or selected text.', 'assistant');
+        }
+      }
+      // Any other questions about the document
+      else {
+        // Start spinning on main div
         spinner.spin(askWebSDKMainDiv);
 
         // Send question as document query
@@ -152,10 +182,10 @@ const functionMap = {
           spinner.stop();
           let responseText = window.chatbot.responseText(response);
           responseText = window.chatbot.formatText('DOCUMENT_QUESTION', responseText);
-          createBubble(responseText, 'system');
+          createBubble(responseText, 'assistant');
         }).catch(error => {
           spinner.stop();
-          createBubble(`Error: ${error.message}`, 'system');
+          createBubble(`Error: ${error.message}`, 'assistant');
         });
       }
     };
@@ -168,32 +198,55 @@ const functionMap = {
   },
   // Handle selected text summary popup click
   'askWebSDKPopupClick': () => {
-    createBubble('Summarize the selected text.', 'user');
-
-    // Start loading spinner for selected text summary on main div
-    const spinner = new Spinner(spinOptions);
-    spinner.spin(askWebSDKMainDiv);
-
-    //Combine into single container for all bubble responses
-    window.chatbot.sendMessage('SELECTED_TEXT_SUMMARY', window.selectedText).then(response => {
-      spinner.stop();
-      let responseText = window.chatbot.responseText(response);
-      responseText = window.chatbot.formatText('SELECTED_TEXT_SUMMARY', responseText);
-      createBubble(responseText, 'system');
-    }).catch(error => {
-      spinner.stop();
-      createBubble(`Error: ${error.message}`, 'system');
-    });
+    createBubble('Summarize the selected text.', 'human');
+    summarizeSelectedText();
   },
 };
 
+// Function to summarize selected text
+function summarizeSelectedText() {
+  // Start spinning on main div
+  spinner.spin(askWebSDKMainDiv);
+
+  // Combine into single container for all bubble responses
+  window.chatbot.sendMessage('SELECTED_TEXT_SUMMARY', window.selectedText).then(response => {
+    spinner.stop();
+    let responseText = window.chatbot.responseText(response);
+    responseText = window.chatbot.formatText('SELECTED_TEXT_SUMMARY', responseText);
+    createBubble(responseText, 'assistant');
+  }).catch(error => {
+    spinner.stop();
+    createBubble(`Error: ${error.message}`, 'assistant');
+  });
+}
+
+// Function to ask question by prompt
+function askQuestionByPrompt(prompt) {
+  // Start spinning on main div
+  spinner.spin(askWebSDKMainDiv);
+
+  // Create a wrapper callback that stops the spinner after createBubble is called
+  const callbackWrapper = (...args) => {
+    createBubble(...args);
+    spinner.stop();
+  };
+
+  window.chatbot.getAllText(prompt, callbackWrapper);
+}
+
 // Function to create a chat bubble
 function createBubble(content, role) {
+  window.conversationLog.push({ role: role, content: content });
+
   let messageDiv = document.createElement('div');
-  messageDiv.className = (role === 'system') ? 'askWebSDKSystemMessageClass' : 'askWebSDKUserMessageClass';
+  messageDiv.className = (role === 'assistant') ? 'askWebSDKAssistantMessageClass' : 'askWebSDKHumanMessageClass';
   messageDiv.innerHTML = content;
   askWebSDKChattingDiv.appendChild(messageDiv);
   askWebSDKChattingDiv.scrollTop = askWebSDKChattingDiv.scrollHeight;
+}
+
+function containsAny(text, list) {
+  return list.some(keyword => text.toLowerCase().includes(keyword.toLowerCase()));
 }
 
 export default functionMap;

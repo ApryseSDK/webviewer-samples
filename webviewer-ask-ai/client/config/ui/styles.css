@@ -49,7 +49,7 @@
     cursor: pointer;
 }
 
-.askWebSDKSystemMessageClass {
+.askWebSDKAssistantMessageClass {
     background-color: #ecf0f1;
     color: black;
     align-self: flex-start;
@@ -59,7 +59,7 @@
     max-width: 70%;
 }
 
-.askWebSDKUserMessageClass {
+.askWebSDKHumanMessageClass {
     background-color: #3498db;
     color: white;
     align-self: flex-end;
