@@ -16,10 +16,19 @@ WebViewer({
   // Import modular components configuration from JSON file
   importModularComponents(instance);
 
-  // Listen for text selection events
+  // Set up text selection listener
+  const tool = instance.Core.documentViewer.getTool(instance.Core.Tools.ToolNames.TEXT_SELECT);
+
+  // Listen for text selectionComplete event
   // The user can select text in the document, to be added as context for the chatbot to be processed
-  instance.Core.documentViewer.addEventListener('textSelected', (quads, selectedText) => {
-      setSelectedText(selectedText);
+  // The text selection can span multiple pages
+  tool.addEventListener('selectionComplete', (startQuad, allQuads) => {
+    let selectedText = '';
+    Object.keys(allQuads).forEach(pageNum => {
+      const text = instance.Core.documentViewer.getSelectedText(pageNum);
+      selectedText += text  + `\n<<PAGE_BREAK>> Page ${pageNum}\n`;
+    });
+    setSelectedText(selectedText);
   });
 
   // Listen for document loaded event to initialize the chatbot panel
