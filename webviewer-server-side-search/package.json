@@ -22,7 +22,7 @@
     "ext": "js"
   },
   "devDependencies": {
-    "@pdftron/webviewer": "^11.8.0",
+    "@pdftron/webviewer": "^11.9.0",
     "concurrently": "^9.1.2",
     "fs-extra": "^11.3.0"
   }

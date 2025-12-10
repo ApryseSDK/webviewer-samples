@@ -23,7 +23,7 @@
     "supervisor": "^0.12.0"
   },
   "dependencies": {
-    "@pdftron/webviewer": "^11.8.0",
+    "@pdftron/webviewer": "^11.9.0",
     "concurrently": "^8.2.2"
   }
 }
