@@ -6,14 +6,11 @@ WebViewer({
     initialDoc: 'https://pdftron.s3.amazonaws.com/downloads/pl/webviewer-demo.pdf',
   }, document.getElementById('viewer'))
   .then(function(instance) {
-    const docViewer = instance.docViewer;
-    const annotManager = instance.annotManager;
+    const docViewer = instance.Core.documentViewer;
+    const annotManager = instance.Core.annotationManager;
     // call methods from instance, docViewer and annotManager as needed
   
     // you can also access major namespaces from the instance as follows:
-    const Tools = instance.Tools;
-    const Annotations = instance.Annotations;
+    const Tools = instance.Core.Tools;
+    const Annotations = instance.Core.Annotations;
   });
-
-
-
