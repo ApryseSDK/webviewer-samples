@@ -77,4 +77,4 @@ Samples showing how to use various WebViewer features.
 - [webviewer-user-bookmarks-nodejs](./webviewer-user-bookmarks-nodejs) - Save and load user bookmarks with a Node.js backend
 - [webviewer-barcode](./webviewer-barcode) - Barcode generation with WebViewer
 - [webviewer-react-canvasToPDF](./webviewer-react-canvasToPDF) - Export a canvas to PDF with WebViewer
-
+- [webviewer-linearization][./webviewer-linearization] - Setup a web-optimized viewing experience using WebViewer
