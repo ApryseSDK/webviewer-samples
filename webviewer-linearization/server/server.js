@@ -15,11 +15,6 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = 4000;
 
-// Sample URLs
-const pdfURL = 'http://pdftron.s3.amazonaws.com/downloads/pl/test/Alice.pdf';
-const linearizedPdfUrl = 'https://pdftron.s3.amazonaws.com/files/temp/US-Tax-Code-26-Linearized.pdf'; // PDF file hosted on AWS
-
-
 // CORS middleware
 app.use(cors({
   origin: 'http://localhost:5173',   // Specify the frontend origin (by default Vite uses Port 5173)
