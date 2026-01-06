@@ -5,8 +5,9 @@
 - [WebViewer Documentation](https://docs.apryse.com/web/guides/get-started)
 - [WebViewer Demo](https://showcase.apryse.com/)
 
-This repo is designed for users who are planning to setup a web-optimized viewing experience using WebViewer in their application. 
+This repo is designed for users who are planning to setup a web-optimized viewing experience using WebViewer in their application by demonstrating the requirements for linearization when loading a document.
 
+Linearization optimizes PDFs so that they can be streamed into a client applocation. This allows remote online documents to be displayed almost instantly without having to wait for them to be completely downloaded.
 
 ## Get your trial key
 
