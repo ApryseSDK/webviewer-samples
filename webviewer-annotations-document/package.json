@@ -16,6 +16,6 @@
     "open": "^10.1.0"
   },
   "dependencies": {
-    "@pdftron/webviewer": "^11.9.0"
+    "@pdftron/webviewer": "^11.10.0"
   }
 }
