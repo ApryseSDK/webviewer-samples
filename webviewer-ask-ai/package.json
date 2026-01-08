@@ -10,16 +10,16 @@
   },
   "author": "Apryse Systems Inc.",
   "devDependencies": {
-    "body-parser": "^2.2.0",
-    "express": "^5.1.0",
-    "fs-extra": "^11.3.2",
-    "open": "^10.2.0"
+    "body-parser": "^2.2.2",
+    "fs-extra": "^11.3.3",
+    "open": "^11.0.0"
   },
   "dependencies": {
-    "@langchain/core": "^1.0.6",
-    "@langchain/openai": "^1.1.2",
-    "@pdftron/webviewer": "^11.8.0",
+    "@langchain/core": "^1.1.11",
+    "@langchain/openai": "^1.2.1",
+    "@pdftron/webviewer": "^11.10.0",
     "dotenv": "^17.2.3",
-    "spin.js": "^4.1.2"
+    "spin.js": "^4.1.2",
+    "express": "^5.2.1"
   }
 }

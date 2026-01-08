@@ -2,6 +2,11 @@
 class ChatbotClient {
   constructor() {
     this.conversationHistory = [];
+    this.options = {
+      useEmptyHistory: false, // Keep document context from history
+      conversationHistoryMaxTokens: 8000, // Increased limit for document questions - allows room for both history and document content
+      skipHistoryUpdate: false // Update conversation history
+    };
   }
 
   // Initialize chat interface for the WebViewer panel
@@ -10,10 +15,47 @@ class ChatbotClient {
     window.chatbot = this; // Make chatbot available globally for testing
   };
 
+  // Trim conversation history to fit within token limit
+  async trimHistoryForTokenLimit(history, maxTokens) {
+    let tokenCount = 0;
+    const trimmedHistory = [];
+
+    for (let i = history.length - 1; i >= 0; i--) {
+      const message = history[i];
+      let messageTokenCount;
+
+      try {
+        // Use simple character-based estimation for token counting
+        messageTokenCount = Math.ceil(message.content.length / 4);
+      } catch (error) {
+        // Fallback to estimation
+        messageTokenCount = Math.ceil(message.content.length / 4);
+      }
+
+      if (tokenCount + messageTokenCount <= maxTokens) {
+        trimmedHistory.unshift(message);
+        tokenCount += messageTokenCount;
+      } else {
+        break;
+      }
+    }
+
+    return trimmedHistory;
+  }
+
   async sendMessage(promptLine, message, options = {}) {
     try {
-      // For document-level operations, optionally use empty history to prevent token overflow
-      const historyToSend = options.useEmptyHistory ? [] : this.conversationHistory;
+      // For document-level operations, use increased token limit to preserve conversation history
+      // Adjust token limits based on prompt type to balance document content and history
+      let maxHistoryTokens = options.conversationHistoryMaxTokens || 8000;
+
+      // For document questions, we need more room for history since we're sending full document
+      if (promptLine.includes('DOCUMENT_')) {
+        maxHistoryTokens = Math.max(maxHistoryTokens, 8000); // Ensure minimum 8000 tokens for document questions
+      }
+
+      const historyToSend = options.useEmptyHistory ? [] : await this.trimHistoryForTokenLimit(this.conversationHistory, maxHistoryTokens);
+
       const response = await fetch('/api/chat', {
         method: 'POST',
         headers: {
@@ -34,12 +76,30 @@ class ChatbotClient {
 
       // Update conversation history only if not explicitly disabled
       if (!options.skipHistoryUpdate) {
+        const beforeLength = this.conversationHistory.length;
+
+        // For document queries, extract only the question part to avoid storing redundant document content
+        let historyMessage = message;
+        if (promptLine.includes('DOCUMENT_')) {
+          // Extract question from document queries to avoid token waste
+          const questionMatch = message.match(/(?:User Question|Question): (.+?)\n\nDocument Content:/);
+          if (questionMatch) {
+            historyMessage = questionMatch[1];
+          } else {
+            // Fallback: use first 200 chars if pattern not found, avoiding full document
+
+            historyMessage = message.length > 200 ? message.substring(0, 200) + '... [document content excluded from history]' : message;
+          }
+        }
+
         this.conversationHistory.push(
-          { role: 'human', content: `${promptLine}: ${message.substring(0, 100)}...` }, // Truncate long messages in history
+          { role: 'human', content: `${promptLine}: ${historyMessage}` },
           { role: 'assistant', content: data.response }
         );
-      }
 
+      } else {
+        // History update was skipped
+      }
       return data.response;
     } catch (error) {
       throw error;
@@ -47,7 +107,7 @@ class ChatbotClient {
   }
 
   //Combine into single container for all bubble responses
-  getAllText = async (promptType, createBubble) => {
+  getAllText = async (promptType, createBubble, questionText = null) => {
     const doc = window.WebViewer.getInstance().Core.documentViewer.getDocument();
     doc.getDocumentCompletePromise().then(async () => {
 
@@ -67,14 +127,38 @@ class ChatbotClient {
           if (loadedPages === pageCount) {
             const completeText = pageTexts.join('\n\n');
 
-            // Use empty history for document-level operations to prevent token overflow
-            this.sendMessage(promptType, completeText, {
-              useEmptyHistory: true,
-              skipHistoryUpdate: false // Still update history but with truncated content
-            }).then(response => {
+            // Modify message based on whether it's a contextual question or history question
+            let messageToSend;
+            if (questionText && promptType === 'DOCUMENT_CONTEXTUAL_QUESTION_EXACTLY') {
+              // Prepend the question to the document content
+              messageToSend = `Question: ${questionText}\n\nDocument Content:\n${completeText}`;
+            } else if (questionText && promptType === 'DOCUMENT_HISTORY_QUESTION') {
+              // For history questions, prepend the user question to document content
+              messageToSend = `User Question: ${questionText}\n\nDocument Content:\n${completeText}`;
+            } else {
+              // Use document content as-is for other prompt types
+              messageToSend = completeText;
+            }
+
+            // Handle different document question types with appropriate history settings
+            let sendOptions = { ...this.options };
+
+            // For DOCUMENT_CONTEXTUAL_QUESTION_EXACTLY, we want history but need to be careful about contamination
+            // Use higher token limit to ensure history is preserved
+            if (promptType === 'DOCUMENT_CONTEXTUAL_QUESTION_EXACTLY') {
+              sendOptions.conversationHistoryMaxTokens = 10000; // Extra room for both document and history
+            }
+
+            // For contextual questions, preserve conversation history to allow reference to previous interactions
+            this.sendMessage(promptType, messageToSend, sendOptions).then(response => {
               let responseText = this.responseText(response);
-              responseText = this.formatText(promptType, responseText);
+              responseText = formatText(promptType, responseText);
               createBubble(responseText, 'assistant');
+
+              // Only call transferContextualQuestions for the DOCUMENT_CONTEXTUAL_QUESTIONS prompt type
+              if (promptType === 'DOCUMENT_CONTEXTUAL_QUESTIONS') {
+                window.chatbot.transferContextualQuestions(window.chatbot.conversationHistory[1].content);
+              }
             }).catch(error => {
               createBubble(`Error: ${error.message}`, 'assistant');
             });
@@ -87,13 +171,38 @@ class ChatbotClient {
           if (loadedPages === pageCount) {
             const completeText = pageTexts.join('\n\n');
 
-            this.sendMessage(promptType, completeText, {
-              useEmptyHistory: true,
-              skipHistoryUpdate: false
-            }).then(response => {
+            // Modify message based on whether it's a contextual question or history question
+            let messageToSend;
+            if (questionText && promptType === 'DOCUMENT_CONTEXTUAL_QUESTION_EXACTLY') {
+              // Prepend the question to the document content
+              messageToSend = `Question: ${questionText}\n\nDocument Content:\n${completeText}`;
+            } else if (questionText && promptType === 'DOCUMENT_HISTORY_QUESTION') {
+              // For history questions, prepend the user question to document content
+              messageToSend = `User Question: ${questionText}\n\nDocument Content:\n${completeText}`;
+            } else {
+              // Use document content as-is for other prompt types
+              messageToSend = completeText;
+            }
+
+            // Handle different document question types with appropriate history settings
+            let sendOptions = { ...this.options };
+
+            // For DOCUMENT_CONTEXTUAL_QUESTION_EXACTLY, we want history but need to be careful about contamination
+            // Use higher token limit to ensure history is preserved
+            if (promptType === 'DOCUMENT_CONTEXTUAL_QUESTION_EXACTLY') {
+              sendOptions.conversationHistoryMaxTokens = 10000; // Extra room for both document and history
+            }
+
+            // For contextual questions, preserve conversation history to allow reference to previous interactions
+            this.sendMessage(promptType, messageToSend, sendOptions).then(response => {
               let responseText = this.responseText(response);
-              responseText = this.formatText(promptType, responseText);
+              responseText = formatText(promptType, responseText);
               createBubble(responseText, 'assistant');
+
+              // Only call transferContextualQuestions for the DOCUMENT_CONTEXTUAL_QUESTIONS prompt type
+              if (promptType === 'DOCUMENT_CONTEXTUAL_QUESTIONS') {
+                window.chatbot.transferContextualQuestions(window.chatbot.conversationHistory[1].content);
+              }
             }).catch(error => {
               createBubble(`Error: ${error.message}`, 'assistant');
             });
@@ -129,72 +238,114 @@ class ChatbotClient {
     return 'No response received';
   };
 
-  // Format text to include cited page links
-  // and page breaks based on prompt type
-  formatText = (promptType, text) => {
-    switch (promptType) {
-      case 'DOCUMENT_SUMMARY':
-      case 'SELECTED_TEXT_SUMMARY':
-      case 'DOCUMENT_QUESTION':
-        // Add page breaks to page citation ends with period
-        text = text.replace(/(\d+\])\./g, '$1.<br/><br/>');
-        break;
-      case 'DOCUMENT_KEYWORDS':
-        // Format bullet points with line breaks
-        let lines = text.split(/•\s*/).filter(Boolean);
-        text = lines.map(line => `• ${line.trim()}`).join('<br/>');
-        break;
-      default:
-        break;
+  // Transfer contextual questions to global variable for UI update
+  transferContextualQuestions = async (questionsText) => {
+
+    this.questionsContextuallySound = [];
+    let lines = questionsText.split(/•\s*/).filter(Boolean);
+    lines.forEach(line => {
+      this.questionsContextuallySound.push(line.trim());
+    });
+
+    if (!window.questionsLIs || window.questionsLIs.length === 0) {
+
+      this.transferContextualQuestions(questionsText);
+
+      return;
     }
 
-    // Separate citations group on form [1, 2, 3] to individual [1][2][3]
-    text = this.separateGroupedCitations(text, /\[\d+(?:\s*,\s*\d+)+\]/g);
+    //find all LIs with promptType 'DOCUMENT_CONTEXTUAL_QUESTION_EXACTLY' (these are the contextual questions)
+    let index = 0;
+    let updatedCount = 0;
+    window.questionsLIs.forEach((configAndLiTags, arrayIndex) => {
 
-    // Separate citations range on form [1-3] to individual [1][2][3]
-    text = this.separateGroupedCitations(text, /\[\d+(?:\s*-\s*\d+)+\]/g);
+      if (configAndLiTags[0] && configAndLiTags[0].promptType === 'DOCUMENT_CONTEXTUAL_QUESTION_EXACTLY') {
 
-    let matches = text.match(/\[\d+\]/g);
-    if (matches && matches.length > 0) {
-      // Element duplicate matches
-      matches = [...new Set(matches)];
+        if (this.questionsContextuallySound[index] !== undefined) {
 
-      let pageNumber = 1;
-      // match to be turned into link
-      matches.forEach(match => {
-        pageNumber = match.match(/\d+/)[0];
-        if (pageNumber > 0 &&
-          pageNumber <= window.WebViewer.getInstance().Core.documentViewer.getDocument().getPageCount()) {
-          const pageLink = `<a href="#" style="color:blue;" onclick="window.WebViewer.getInstance().Core.documentViewer.setCurrentPage(${pageNumber}, true);">[${pageNumber}]</a>`;
-          text = text.replaceAll(match, `${pageLink}`);
+          let li = configAndLiTags[1];
+          if (li) {
+            li.innerText = this.questionsContextuallySound[index];
+          } else {
+            console.warn(`No UI element found for contextual question ${index + 1}`);
+          }
+
+          let configItem = configAndLiTags[0];
+          if (configItem) {
+            configItem.content = this.questionsContextuallySound[index];
+          }
+
+          updatedCount++;
+        } else {
+          console.warn(`Question ${index + 1} is undefined! Available questions:`, this.questionsContextuallySound);
+        }
+
+        index++;
+      }
+    });
+
+    //Now window.questionsLIs should be updated where all its LIs will be added to a UL element
+    if (window.questionsLIs.length > 0) {
+      //Now select all LIs within the parent and move them all inside a UL element.
+      const parentElement = window.questionsLIs[0][1].parentElement;
+      if (parentElement) {
+        const ulElement = document.createElement('ul');
+        // Move all LIs inside the UL
+        window.questionsLIs.forEach(configAndLiTags => {
+          ulElement.appendChild(configAndLiTags[1]);
+        });
+        parentElement.appendChild(ulElement);
+      }
+    }
+  };
+
+  clearHistory() {
+    const previousLength = this.conversationHistory.length;
+    this.conversationHistory = [];
+  }
+
+  clearContextualQuestions() {
+    // Reset the contextual questions array
+    this.questionsContextuallySound = [];
+
+    // Reset UI questions to defaults using promptType instead of content matching
+    if (window.questionsLIs && window.questionsLIs.length > 0) {
+      let defaultQuestions = ["Loading...", "Loading...", "Loading..."];// These are question placeholders
+      let index = 0;
+
+      window.questionsLIs.forEach(configAndLiTags => {
+        if (configAndLiTags[0] && configAndLiTags[0].promptType === 'DOCUMENT_CONTEXTUAL_QUESTION_EXACTLY') {
+          let li = configAndLiTags[1];
+          if (li) {
+            li.innerText = defaultQuestions[index] || `Question ${index + 1}`;
+          }
+
+          let configItem = configAndLiTags[0];
+          if (configItem) {
+            configItem.content = defaultQuestions[index] || `Question ${index + 1}`;
+          }
+          index++;
         }
       });
     }
-
-    return text;
   }
 
-  // Helper to separate grouped citations on form [1, 2, 3] or [1-3] into individual [1][2][3]
-  separateGroupedCitations = (text, pattern) => {
-    let matches = text.match(pattern);
-    if (matches && matches.length > 0) {
-      let formattedMatchNumbers = '';
-      matches.forEach(match => {
-        let matchNumbers = match.match(/\d+/g);
-        matchNumbers.forEach(matchNumber => {
-          formattedMatchNumbers += `[${matchNumber}]`;
-        });
+  resetForNewDocument() {
+    // Clear conversation history
+    this.clearHistory();
 
-        text = text.replaceAll(match, formattedMatchNumbers);
-        formattedMatchNumbers = '';
-      });
-    }
+    // Clear contextual questions completely
+    this.clearContextualQuestions();
 
-    return text;
-  }
+    // Reset options to defaults
+    this.options = {
+      useEmptyHistory: false,
+      conversationHistoryMaxTokens: 8000,
+      skipHistoryUpdate: false
+    };
 
-  clearHistory() {
-    this.conversationHistory = [];
+    // Reset any document-specific state
+    this.questionsContextuallySound = [];
   }
 }
 

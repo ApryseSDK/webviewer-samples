@@ -115,9 +115,7 @@
       "disabled": true,
       "type": "ribbonItem",
       "label": "Annotate",
-      "groupedItems": [
-        "annotateGroupedItems"
-      ],
+      "groupedItems": ["annotateGroupedItems"],
       "toolbarGroup": "toolbarGroup-Annotate"
     },
     "toolbarGroup-Shapes": {
@@ -126,9 +124,7 @@
       "disabled": true,
       "type": "ribbonItem",
       "label": "Shapes",
-      "groupedItems": [
-        "shapesGroupedItems"
-      ],
+      "groupedItems": ["shapesGroupedItems"],
       "toolbarGroup": "toolbarGroup-Shapes"
     },
     "toolbarGroup-Insert": {
@@ -137,9 +133,7 @@
       "disabled": true,
       "type": "ribbonItem",
       "label": "Insert",
-      "groupedItems": [
-        "insertGroupedItems"
-      ],
+      "groupedItems": ["insertGroupedItems"],
       "toolbarGroup": "toolbarGroup-Insert"
     },
     "toolbarGroup-Measure": {
@@ -148,9 +142,7 @@
       "disabled": true,
       "type": "ribbonItem",
       "label": "Measure",
-      "groupedItems": [
-        "measureGroupedItems"
-      ],
+      "groupedItems": ["measureGroupedItems"],
       "toolbarGroup": "toolbarGroup-Measure"
     },
     "toolbarGroup-Redact": {
@@ -159,9 +151,7 @@
       "disabled": true,
       "type": "ribbonItem",
       "label": "Redact",
-      "groupedItems": [
-        "redactionGroupedItems"
-      ],
+      "groupedItems": ["redactionGroupedItems"],
       "toolbarGroup": "toolbarGroup-Redact"
     },
     "toolbarGroup-Edit": {
@@ -170,9 +160,7 @@
       "disabled": true,
       "type": "ribbonItem",
       "label": "Edit",
-      "groupedItems": [
-        "editGroupedItems"
-      ],
+      "groupedItems": ["editGroupedItems"],
       "toolbarGroup": "toolbarGroup-Edit"
     },
     "toolbarGroup-EditText": {
@@ -181,9 +169,7 @@
       "disabled": true,
       "type": "ribbonItem",
       "label": "Content Edit",
-      "groupedItems": [
-        "contentEditGroupedItems"
-      ],
+      "groupedItems": ["contentEditGroupedItems"],
       "toolbarGroup": "toolbarGroup-EditText"
     },
     "toolbarGroup-FillAndSign": {
@@ -192,9 +178,7 @@
       "disabled": true,
       "type": "ribbonItem",
       "label": "Fill and Sign",
-      "groupedItems": [
-        "fillAndSignGroupedItems"
-      ],
+      "groupedItems": ["fillAndSignGroupedItems"],
       "toolbarGroup": "toolbarGroup-FillAndSign"
     },
     "toolbarGroup-Forms": {
@@ -203,9 +187,7 @@
       "disabled": true,
       "type": "ribbonItem",
       "label": "Forms",
-      "groupedItems": [
-        "formsGroupedItems"
-      ],
+      "groupedItems": ["formsGroupedItems"],
       "toolbarGroup": "toolbarGroup-Forms"
     },
     "highlightToolButton": {
@@ -307,12 +289,7 @@
     },
     "defaultAnnotationUtilities": {
       "dataElement": "defaultAnnotationUtilities",
-      "items": [
-        "divider-0.5",
-        "undoButton",
-        "redoButton",
-        "eraserToolButton"
-      ],
+      "items": ["divider-0.5", "undoButton", "redoButton", "eraserToolButton"],
       "type": "groupedItems",
       "grow": 0,
       "gap": 12,
@@ -569,10 +546,7 @@
     },
     "editGroupedItems": {
       "dataElement": "editGroupedItems",
-      "items": [
-        "cropToolButton",
-        "snippingToolButton"
-      ],
+      "items": ["cropToolButton", "snippingToolButton"],
       "type": "groupedItems",
       "grow": 0,
       "gap": 12,
@@ -893,9 +867,7 @@
         "borderWidth": 1,
         "borderColor": "var(--gray-5)"
       },
-      "items": [
-        "page-controls-container"
-      ]
+      "items": ["page-controls-container"]
     }
   },
   "panels": {

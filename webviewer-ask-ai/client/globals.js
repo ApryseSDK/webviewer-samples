@@ -8,3 +8,176 @@ const setSelectedText = (selectedText) => {
 
 let conversationLog = [];
 window.conversationLog = conversationLog;
+
+let questionsLIs = [];
+window.questionsLIs = questionsLIs;
+
+const keywords = {
+  summarization: ['summarize', 'summary', 'summarization'],
+  area: ['text', 'paragraph', 'area'],
+  selection: ['selected', 'selection', 'highlighted'],
+  history: ['history', 'previous', 'generated', 'earlier', 'asked', 'before', 'questions']
+};
+window.keywords = keywords;
+
+const assistantMessages = [
+  {
+    type: 'info',
+    content: [
+      {
+        type: 'info',
+        content: 'Here are some suggested questions to get you started:',
+        promptType: '',
+      },
+      {
+        type: 'question',
+        content: 'Summarize Document',
+        promptType: 'DOCUMENT_SUMMARY'
+      },
+      {
+        type: 'question',
+        content: 'List Keywords',
+        promptType: 'DOCUMENT_KEYWORDS'
+      },
+      {
+        type: 'question',
+        content: 'Loading...',
+        promptType: 'DOCUMENT_CONTEXTUAL_QUESTION_EXACTLY'
+      },
+      {
+        type: 'question',
+        content: 'Loading...',
+        promptType: 'DOCUMENT_CONTEXTUAL_QUESTION_EXACTLY'
+      },
+      {
+        type: 'question',
+        content: 'Loading...',
+        promptType: 'DOCUMENT_CONTEXTUAL_QUESTION_EXACTLY'
+      }
+    ]
+  }
+];
+window.assistantMessages = assistantMessages;
+
+const containsAny = (text, list) => {
+  return list.some(keyword => text.toLowerCase().includes(keyword.toLowerCase()));
+}
+
+const spinOptions = {
+  lines: 8, // The number of lines to draw
+  length: 15, // The length of each line
+  width: 10, // The line thickness
+  radius: 15, // The radius of the inner circle
+  scale: 0.1, // Scales overall size of the spinner
+  corners: 1, // Corner roundness (0..1)
+  speed: 1, // Rounds per second
+  rotate: 0, // The rotation offset
+  animation: 'spinner-line-fade-quick', // The CSS animation name for the lines
+  direction: 1, // 1: clockwise, -1: counterclockwise
+  color: 'var(--note)', // CSS color or array of colors
+  fadeColor: 'var(--modal-negative-space)', // CSS color or array of colors
+  top: '50%', // Top position relative to parent
+  left: '50%', // Left position relative to parent
+  shadow: '0 0 1px var(--note-box-shadow)', // Box-shadow for the lines
+  zIndex: 2000000000, // The z-index (defaults to 2e9)
+  className: 'spinner', // The CSS class to assign to the spinner
+  position: 'absolute', // Element positioning
+};
+
+let askWebSDKMainDiv = null;
+window.askWebSDKMainDiv = askWebSDKMainDiv;
+
+let askWebSDKChattingDiv = null;
+window.askWebSDKChattingDiv = askWebSDKChattingDiv;
+
+let assistantContentDiv = null;
+window.assistantContentDiv = assistantContentDiv;
+
+// Function to create a chat bubble
+const createBubble = (content, role) => {
+  window.conversationLog.push({ role: role, content: content });
+
+  let messageDiv = document.createElement('div');
+  messageDiv.className = (role === 'assistant') ? 'askWebSDKAssistantMessageClass' : 'askWebSDKHumanMessageClass';
+  messageDiv.innerHTML = content;
+  window.askWebSDKChattingDiv.appendChild(messageDiv);
+  window.askWebSDKChattingDiv.scrollTop = window.askWebSDKChattingDiv.scrollHeight;
+}
+
+// Format text to include cited page links
+// and page breaks based on prompt type
+const formatText = (promptType, text) => {
+  switch (promptType) {
+    case 'DOCUMENT_SUMMARY':
+    case 'SELECTED_TEXT_SUMMARY':
+    case 'DOCUMENT_QUESTION':
+      // Add page breaks to page citation ends with period
+      text = text.replace(/(\d+\])\./g, '$1.<br/><br/>');
+      break;
+    case 'DOCUMENT_CONTEXTUAL_QUESTIONS':
+      // Format bullet points with line breaks
+      let lines_contextual_questions = text.split(/•\s*/).filter(Boolean);
+      text = lines_contextual_questions.map(line => `• ${line.trim()}`).join('<br/>');
+      break;
+    case 'DOCUMENT_KEYWORDS':
+      // Format bullet points with line breaks
+      let lines = text.split(/•\s*/).filter(Boolean);
+      text = lines.map(line => `• ${line.trim()}`).join('<br/>');
+      break;
+    default:
+      break;
+  }
+
+  // Separate citations group on form [1, 2, 3] to individual [1][2][3]
+  text = separateGroupedCitations(text, /\[\d+(?:\s*,\s*\d+)+\]/g);
+
+  // Separate citations range on form [1-3] to individual [1][2][3]
+  text = separateGroupedCitations(text, /\[\d+(?:\s*-\s*\d+)+\]/g);
+
+  if (promptType === 'DOCUMENT_KEYWORDS') {
+    let lines = text.split('<br/>').filter(Boolean);
+    lines.forEach((line, index) => {
+      const formattedLine = line.replace(/(\[\d+])(?:\1)+/g, '$1');
+      lines[index] = formattedLine;
+    });
+    text = lines.join('<br/>');
+  }
+
+  let matches = text.match(/\[\d+\]/g);
+  if (matches && matches.length > 0) {
+    // Element duplicate matches
+    matches = [...new Set(matches)];
+
+    let pageNumber = 1;
+    // match to be turned into link
+    matches.forEach(match => {
+      pageNumber = match.match(/\d+/)[0];
+      if (pageNumber > 0 &&
+        pageNumber <= window.WebViewer.getInstance().Core.documentViewer.getDocument().getPageCount()) {
+        const pageLink = `<button class="page-link" type="button" style="color:blue;" onclick="window.WebViewer.getInstance().Core.documentViewer.setCurrentPage(${pageNumber}, true);">[${pageNumber}]</button>`;
+        text = text.replaceAll(match, `${pageLink}`);
+      }
+    });
+  }
+
+  return text;
+}
+
+// Helper to separate grouped citations on form [1, 2, 3] or [1-3] into individual [1][2][3]
+const separateGroupedCitations = (text, pattern) => {
+  let matches = text.match(pattern);
+  if (matches && matches.length > 0) {
+    let formattedMatchNumbers = '';
+    matches.forEach(match => {
+      let matchNumbers = match.match(/\d+/g);
+      matchNumbers.forEach(matchNumber => {
+        formattedMatchNumbers += `[${matchNumber}]`;
+      });
+
+      text = text.replaceAll(match, formattedMatchNumbers);
+      formattedMatchNumbers = '';
+    });
+  }
+
+  return text;
+}

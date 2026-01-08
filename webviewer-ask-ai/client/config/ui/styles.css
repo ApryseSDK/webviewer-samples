@@ -1,72 +1,112 @@
-.askWebSDKMainDiv {
-    display: flex;
+.askWebSDKPanel {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+#askWebSDKMainDiv {
+    height: 100%;
     flex-direction: column;
-    overflow: hidden;
-    position: relative;
+    display: flex;
+}
+
+#askWebSDKQuestionDivTop {
+    flex: 1;
+    width: 100%;
+    min-height: 0;
+    max-height: calc(100vh - 1px);
+    /* Reserve space for bottom div */
+}
+
+#askWebSDKQuestionDivBottom {
+    flex: 0 0 auto;
+    /* Don't grow, don't shrink, use natural size */
+    width: 100%;
+    position: sticky;
+    /* Alternative: keeps it visible during scroll */
+    bottom: 0;
+    z-index: 100;
+    padding: 5px 0 5px 0;
+    border-top: var(--lighter-border) 1px solid;
 }
 
 .askWebSDKHeaderDivClass {
-    background-color: #34495e;
-    color: white;
+    background-color: var(--panel-background);
     display: flex;
+    flex-direction: column;
     align-items: center;
-    padding-left: 10px;
+    text-align: center;
+    padding: 10px 0 0 0;
+    overflow: hidden;
+    height: 40px;
+    box-sizing: border-box;
+    border-bottom: var(--lighter-border) 1px solid;
 }
 
 .askWebSDKChattingDivClass {
+
     display: flex;
     flex-direction: column;
     flex: 1 1 auto;
     overflow: auto;
-    padding: 10px 10px 150px 10px;
-    height: 80vh;
-    position: fixed;
+    padding: 10px 10px 10px 10px;
+    height: 85vh;
+    top: 0;
+    bottom: 0;
 }
 
 .askWebSDKQuestionDivClass {
-    width: 600px;
-    background-color: #ecf0f1;
+
     padding: 10px;
     box-sizing: border-box;
     display: flex;
-    position: fixed;
+    position: relative;
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 1000;
     align-items: center;
     justify-self: end;
+    width: 100%;
 }
 
 .askWebSDKQuestionInputClass {
     width: 85%;
     margin-right: 5px;
+    border: var(--lighter-border) 1px solid;
+    height: 30px;
 }
 
 .askWebSDKQuestionButtonClass {
-    background-color: Blue;
-    color: white;
+    background-color: var(--primary-button);
+    color: var(--primary-button-text);
     cursor: pointer;
+    border-radius: 2px;
+    border: var(--outline-color) 3px solid;
+}
+
+.askWebSDKQuestionButtonClass:hover {
+    background-color: var(--primary-button-hover);
 }
 
 .askWebSDKAssistantMessageClass {
-    background-color: #ecf0f1;
-    color: black;
+    background-color: var(--gray-2);
+    border: var(--border) 1px solid;
+    color: var(--text-color);
     align-self: flex-start;
     margin: 5px;
     padding: 10px;
-    border-radius: 5px;
-    max-width: 70%;
+    border-radius: 4px;
+    max-width: 85%;
 }
 
 .askWebSDKHumanMessageClass {
-    background-color: #3498db;
-    color: white;
+    background-color: var(--badge-fill);
+    color: var(--primary-button-text);
+    border: var(--border) 1px solid;
     align-self: flex-end;
     margin: 5px;
     padding: 10px;
     border-radius: 5px;
-    max-width: 70%;
+    max-width: 85%;
 }
 
 .askWebSDKInfoMessageClass {
@@ -74,6 +114,36 @@
 }
 
 .askWebSDKQuestionMessageClass {
-    margin-top: 5px;
     cursor: pointer;
+    padding: 1px;
+    text-decoration: underline;
+}
+
+.askWebSDKQuestionMessageHoverClassOnClick {
+    cursor: pointer;
+    padding: 1px;
+    text-decoration: underline;
+}
+
+.askWebSDKQuestionMessageHoverClassOnMouseOver {
+    cursor: pointer;
+    padding: 1px;
+    text-decoration: underline;
+
+}
+
+.askWebSDKQuestionMessageHoverClassOnMouseOut {
+    cursor: pointer;
+    padding: 1px;
+    text-decoration: underline;
+    color: var(--gray-8);
+}
+
+.page-link {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
 }
