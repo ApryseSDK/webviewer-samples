@@ -52,6 +52,7 @@ Samples showing how to get started with WebViewer in different environments.
 ### 3rd Party Integrations
 Samples showing how to integrate and use WebViewer in 3rd party platforms.
 
+- [webviewer-ask-ai](./webviewer-ask-ai) - Integrate WebViewer with Artificial Intelligence
 - [webviewer-salesforce](./webviewer-salesforce) - Integrate WebViewer in Salesforce
 - [webviewer-salesforce-attachments](./webviewer-salesforce-attachments) - View Salesforce record attachments in WebViewer
 - [webviewer-mendix](./webviewer-mendix) - Integrate WebViewer into a Mendix low-code app
