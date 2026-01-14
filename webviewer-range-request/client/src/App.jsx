@@ -17,7 +17,6 @@ function App() {
         path: '/webviewer/lib',
         l: 'YOUR_LICENSE_KEY',
         fullAPI: true,
-        disableVirtualDisplayMode: true, // disable Virtual Display mode which does not perform well with large linearized documents
       },
       viewer.current
     ).then((instance) => {
