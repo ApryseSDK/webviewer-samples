@@ -3,7 +3,7 @@ import functionMap from './config/ui/functionMap.js';
 const customUIFile = './config/ui/custom.json';
 
 WebViewer({
-  path: 'lib',
+  path: 'libs/webviewer',
   initialDoc: 'https://apryse.s3.us-west-1.amazonaws.com/public/files/samples/Report_2011.pdf',
   loadAsPDF: true,
   enableFilePicker: true, // Enable file picker to open files. In WebViewer -> menu icon -> Open File

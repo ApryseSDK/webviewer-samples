@@ -1,4 +1,4 @@
-import { Spinner } from './spinjs/spin.js';
+import { Spinner } from '../../libs/spinjs/spin.js';
 const spinner = new Spinner(spinOptions);
 
 const functionMap = {
@@ -118,7 +118,7 @@ const functionMap = {
         // summarize selected text in document
         if (containsAny(question, window.keywords.selection)) {
           if (window.selectedText && window.selectedText.trim() !== '')
-            summarizeSelectedText();
+            summarizeTextByPrompt('SELECTED_TEXT_SUMMARY', window.selectedText);
           else
             createBubble('Please select text in the document first.', 'assistant');
         }
@@ -136,21 +136,8 @@ const functionMap = {
         if (isHistoryQuestion) {
           // Use document-aware flow for history questions
           askQuestionByPrompt('DOCUMENT_HISTORY_QUESTION', question);
-        } else {
-          // Start spinning on main div
-          spinner.spin(window.askWebSDKMainDiv);
-
-          // Send question as document query
-          window.chatbot.sendMessage('DOCUMENT_QUESTION', askWebSDKQuestionInput.value.trim(), window.chatbot.options).then(response => {
-            spinner.stop();
-            let responseText = window.chatbot.responseText(response);
-            responseText = formatText('DOCUMENT_QUESTION', responseText);
-            createBubble(responseText, 'assistant');
-          }).catch(error => {
-            spinner.stop();
-            createBubble(`Error: ${error.message}`, 'assistant');
-          });
-        }
+        } else
+          summarizeTextByPrompt('DOCUMENT_QUESTION', question);
       }
 
       askWebSDKQuestionInput.value = ''; // Clear input box
@@ -168,20 +155,22 @@ const functionMap = {
   // Handle selected text summary popup click
   'askWebSDKPopupClick': () => {
     createBubble('Summarize the selected text.', 'human');
-    summarizeSelectedText();
+    summarizeTextByPrompt('SELECTED_TEXT_SUMMARY', window.selectedText);
   },
 };
 
-// Function to summarize selected text
-function summarizeSelectedText() {
+// Function to summarize the text for prompts:
+// SELECTED_TEXT_SUMMARY
+// DOCUMENT_QUESTION
+function summarizeTextByPrompt(prompt, text) {
   // Start spinning on main div
   spinner.spin(window.askWebSDKMainDiv);
 
   // Combine into single container for all bubble responses
-  window.chatbot.sendMessage('SELECTED_TEXT_SUMMARY', window.selectedText, window.chatbot.options).then(response => {
+  window.chatbot.sendMessage(prompt, text, window.chatbot.options).then(response => {
     spinner.stop();
     let responseText = window.chatbot.responseText(response);
-    responseText = formatText('SELECTED_TEXT_SUMMARY', responseText);
+    responseText = formatResponse(prompt, responseText);
     createBubble(responseText, 'assistant');
   }).catch(error => {
     spinner.stop();

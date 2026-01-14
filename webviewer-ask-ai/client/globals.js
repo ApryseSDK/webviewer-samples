@@ -104,9 +104,9 @@ const createBubble = (content, role) => {
   window.askWebSDKChattingDiv.scrollTop = window.askWebSDKChattingDiv.scrollHeight;
 }
 
-// Format text to include cited page links
+// Format response to include cited page links
 // and page breaks based on prompt type
-const formatText = (promptType, text) => {
+const formatResponse = (promptType, text) => {
   switch (promptType) {
     case 'DOCUMENT_SUMMARY':
     case 'SELECTED_TEXT_SUMMARY':

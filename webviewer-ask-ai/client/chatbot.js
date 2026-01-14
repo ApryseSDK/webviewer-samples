@@ -82,7 +82,7 @@ class ChatbotClient {
         let historyMessage = message;
         if (promptLine.includes('DOCUMENT_')) {
           // Extract question from document queries to avoid token waste
-          const questionMatch = message.match(/(?:User Question|Question): (.+?)\n\nDocument Content:/);
+          const questionMatch = message.match(/(?:Human Question|Question): (.+?)\n\nDocument Content:/);
           if (questionMatch) {
             historyMessage = questionMatch[1];
           } else {
@@ -133,8 +133,8 @@ class ChatbotClient {
               // Prepend the question to the document content
               messageToSend = `Question: ${questionText}\n\nDocument Content:\n${completeText}`;
             } else if (questionText && promptType === 'DOCUMENT_HISTORY_QUESTION') {
-              // For history questions, prepend the user question to document content
-              messageToSend = `User Question: ${questionText}\n\nDocument Content:\n${completeText}`;
+              // For history questions, prepend the human question to document content
+              messageToSend = `Human Question: ${questionText}\n\nDocument Content:\n${completeText}`;
             } else {
               // Use document content as-is for other prompt types
               messageToSend = completeText;
@@ -152,7 +152,7 @@ class ChatbotClient {
             // For contextual questions, preserve conversation history to allow reference to previous interactions
             this.sendMessage(promptType, messageToSend, sendOptions).then(response => {
               let responseText = this.responseText(response);
-              responseText = formatText(promptType, responseText);
+              responseText = formatResponse(promptType, responseText);
               createBubble(responseText, 'assistant');
 
               // Only call transferContextualQuestions for the DOCUMENT_CONTEXTUAL_QUESTIONS prompt type
@@ -177,8 +177,8 @@ class ChatbotClient {
               // Prepend the question to the document content
               messageToSend = `Question: ${questionText}\n\nDocument Content:\n${completeText}`;
             } else if (questionText && promptType === 'DOCUMENT_HISTORY_QUESTION') {
-              // For history questions, prepend the user question to document content
-              messageToSend = `User Question: ${questionText}\n\nDocument Content:\n${completeText}`;
+              // For history questions, prepend the human question to document content
+              messageToSend = `Human Question: ${questionText}\n\nDocument Content:\n${completeText}`;
             } else {
               // Use document content as-is for other prompt types
               messageToSend = completeText;
@@ -196,7 +196,7 @@ class ChatbotClient {
             // For contextual questions, preserve conversation history to allow reference to previous interactions
             this.sendMessage(promptType, messageToSend, sendOptions).then(response => {
               let responseText = this.responseText(response);
-              responseText = formatText(promptType, responseText);
+              responseText = formatResponse(promptType, responseText);
               createBubble(responseText, 'assistant');
 
               // Only call transferContextualQuestions for the DOCUMENT_CONTEXTUAL_QUESTIONS prompt type

@@ -30,8 +30,8 @@ const PROMPT_GUARD_RAILS = {
     seed: 42
   },
   'DOCUMENT_KEYWORDS': {
-    assistantPrompt: 'You are a keyword extraction specialist. Create a bulleted list of the 10 most important keywords from the provided document text. CONSISTENCY REQUIREMENTS: 1) If chat history contains previous keyword extractions from this same document, maintain the same core keywords and terminology to ensure reproducible results. 2) Use standardized, canonical forms of terms (e.g., always use "Federal Acquisition Regulation" not "FAR" or "Fed Acq Reg"). 3) Prioritize the most significant and frequently occurring terms. CRITICALLY IMPORTANT: For each keyword, you MUST include the page number where it appears in square brackets. The document text is divided by page break markers in the format "<<PAGE_BREAK>> Page N" where N is the page number. When you see "<<PAGE_BREAK>> Page 3", all content following that marker until the next page break is from page 3. Format each keyword as: "• Keyword [page#]" Example: "• Federal Acquisition Regulation [1]" or "• Section 508 compliance [2]". Always cite the correct page number for each keyword.',
-    maxTokens: 500,
+    assistantPrompt: 'You are a keyword extraction specialist. Create a bulleted list of the 10 most important keywords from the provided document text. Format each keyword as: "• Keyword [page#]" where page# is ONE page number where the keyword appears. Do not repeat page numbers or list multiple pages for the same keyword. Example: "• Federal Acquisition Regulation [1]" or "• Section 508 compliance [2]". Keep responses concise. Do not add **Keywords** on the response. JUST the bulleted list.',
+    maxTokens: 300, // Reduced to prevent truncation
     temperature: 0.0,
     seed: 42
   },
@@ -54,7 +54,7 @@ const PROMPT_GUARD_RAILS = {
     seed: 42
   },
   'DOCUMENT_CONTEXTUAL_QUESTION_EXACTLY': {
-    assistantPrompt: 'You are an expert researcher. CRITICAL: Answer ONLY the current question about the document. However, you MUST use the document content provided to answer the question. Base your response SOLELY on the document content provided in this message. Be direct and concise. CRITICAL: You must provide an answer from the document contents, even if it is a brief comment. REQUIRED: Add page citations [1], [2], etc. for each fact from the document. Format: Direct answer only, no question restatement.',
+    assistantPrompt: 'You are an expert researcher. CRITICAL: Answer ONLY the current question about the document. However, you MUST use the document content provided to answer the question. Base your response SOLELY on the document content provided in this message. Be direct and concise. CRITICAL: You must provide an answer from the document contents, even if it is a brief comment. REQUIRED: Add page citations [1], [2]. In case there are multiple pages, do not repeat the same page number. If more than one page is cited separate by comma as [1,2] for pages 1 and 2. CRITICAL: do not make up page number that does not exist in the document. Direct answer only, no question restatement.',
     maxTokens: 500,
     temperature: 0.0,
     seed: 42
@@ -268,12 +268,13 @@ export default (app) => {
 
             // update llm settings for this prompt with consistency parameters
             llm.temperature = promptSettings.temperature || 0.0;
-            llm.maxTokens = 150;
+            llm.maxTokens = 120; // Reduced to prevent truncation and repetition
             llm.seed = promptSettings.seed || 42;
 
             const chunkResponse = await llm.invoke(chunkMessages);
             const chunkContent = await parser.parse(chunkResponse);
             allKeywords.push(chunkContent);
+            console.log(`Extracted keywords from chunk ${i + 1}/${chunks.length}`);
           }
 
           // Now consolidate all keywords into final list with deterministic approach

@@ -3,5 +3,5 @@
 node_modules
 
 # WebViewer
-client/lib
+client/libs
 client/license-key.js
