@@ -36,6 +36,7 @@
       "webviewer-typescript",
       "webviewer-user-bookmarks-nodejs",
       "webviewer-vue",
-      "webviewer-winforms"
+      "webviewer-winforms",
+      "webviewer-wpf"
     ]
   }
