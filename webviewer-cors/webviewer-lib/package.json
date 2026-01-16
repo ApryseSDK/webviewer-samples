@@ -9,7 +9,7 @@
   "author": "Andrey Safonov",
   "license": "ISC",
   "dependencies": {
-    "@pdftron/webviewer": "^11.9.0",
+    "@pdftron/webviewer": "^11.10.0",
     "http-server": "^0.12.3"
   }
 }
