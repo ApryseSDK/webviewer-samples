@@ -12,7 +12,7 @@
     "copy-webviewer": "node scripts/copy-webviewer-files.cjs"
   },
   "dependencies": {
-    "@pdftron/webviewer": "^11.9.1",
+    "@pdftron/webviewer": "^11.10.0",
     "vue": "^3.5.4"
   },
   "devDependencies": {
