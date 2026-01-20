@@ -1,0 +1,44 @@
+.App {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.App .header {
+  width: 100%;
+  height: 60px;
+  padding: 8px 8px 8px 16px;
+  box-sizing: border-box;
+  background: #00a5e4;
+  font-size: 1.2em;
+  line-height: 44px;
+  color: white;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+#sample-button {
+  width: 200px;
+  height: 40px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#sample-button:hover {
+  background-color: #e0e0e0;
+}
+
+#result-box {
+  font-size: 16px;
+  color: #333;
+}
