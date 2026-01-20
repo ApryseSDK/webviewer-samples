@@ -26,6 +26,7 @@
       "webviewer-nuxtjs",
       "webviewer-offline",
       "webviewer-powerapps-component",
+      "webviewer-range-request",
       "webviewer-react",
       "webviewer-react-canvasToPDF",
       "webviewer-realtime-collaboration-sqlite3",
