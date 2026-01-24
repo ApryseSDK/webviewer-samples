@@ -1,0 +1,21 @@
+<html>
+<head>
+  <title>Basic WebViewer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <!-- Import WebViewer as a script tag -->
+  <script src='webviewer.min.js'></script>
+</head>
+<body style="margin: 0;">
+  <div id='viewer' style='width: 100vw; height: 100vh; margin: 0 auto; padding: 0;'></div>
+  <script>
+    WebViewer.Iframe({
+      path: 'lib', // path to the Apryse 'lib' folder on your server
+      initialDoc: 'WebviewerDemoDoc.pdf',
+      //licenseKey: 'KEY'
+    }, document.getElementById('viewer'))
+    .then(instance => {
+        console.log(instance);
+    });
+   </script>
+</body>
+</html>
