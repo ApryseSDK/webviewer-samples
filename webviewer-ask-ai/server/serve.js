@@ -13,7 +13,10 @@ const app = express();
 // Use JSON body parser for API endpoints
 app.use(bodyParser.json());
 app.use(bodyParser.text());
-app.use('/client', express.static('client')); // For statically serving 'client' folder at '/'
+// For statically serving 'client' folder
+app.use('/client', express.static('client'));
+// Serve config directory for client-side access
+app.use('/config', express.static('config'));
 
 handler(app);
 

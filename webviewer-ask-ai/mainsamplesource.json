@@ -7,17 +7,32 @@
       "reason": ""
     },
     {
-      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-ask-ai/client/chatbot.js",
-      "description": "",
-      "reason": ""
-    },
-    {
       "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-ask-ai/client/globals.js",
       "description": "",
       "reason": ""
     },
     {
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-ask-ai/client/chatbot/chatbot.js",
+      "description": "",
+      "reason": ""
+    },
+    {
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-ask-ai/client/chatbot/response.js",
+      "description": "",
+      "reason": ""
+    },
+    {
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-ask-ai/client/documentManager.js",
+      "description": "",
+      "reason": ""
+    },
+    {
       "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-ask-ai/server/handler.js",
+      "description": "",
+      "reason": ""
+    },
+    {
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-ask-ai/server/llmManager.js",
       "description": "",
       "reason": ""
     },
@@ -32,17 +47,27 @@
       "reason": ""
     },
     {
-      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-ask-ai/client/config/ui/custom.json",
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-ask-ai/client/ui/custom.json",
       "description": "",
       "reason": ""
     },
     {
-      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-ask-ai/client/config/ui/functionMap.js",
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-ask-ai/client/ui/functionMap.js",
       "description": "",
       "reason": ""
     },
     {
-      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-ask-ai/client/config/ui/styles.css",
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-ask-ai/client/ui/styles.css",
+      "description": "",
+      "reason": ""
+    },
+    {
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-ask-ai/config/config.json",
+      "description": "",
+      "reason": ""
+    },
+    {
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-ask-ai/config/loader.js",
       "description": "",
       "reason": ""
     }

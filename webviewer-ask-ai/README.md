@@ -5,7 +5,7 @@
 - [WebViewer Documentation](https://docs.apryse.com/web/guides/get-started)
 - [WebViewer Demo](https://showcase.apryse.com/)
 
-This sample demonstrates how to utilize the artificial intelligence capabilities within the WebViewer, using a chat panel interface to ask questions about the loaded document. Also the user can select a text in the document that can be summarized.
+This sample demonstrates how to utilize the artificial intelligence capabilities within the WebViewer, using a chat panel interface to ask questions about the loaded document. Also the user can select text to summarize.
 
 ## Get your trial key
 
@@ -32,8 +32,9 @@ However, to get started with this sample rename `.env.example` file into `.env` 
 ```
 OPENAI_API_KEY=your-openai-api-key-here
 OPENAI_MODEL=your-openai-model-here
-OPENAI_TEMPERATURE=your-openai-temperature-here
 OPENAI_MAX_TOKENS=your-openai-max-tokens-here
+OPENAI_TEMPERATURE=your-openai-temperature-here
+OPENAI_SEED=your-openai-seed-here
 ```
 
 ## Run
@@ -42,4 +43,4 @@ OPENAI_MAX_TOKENS=your-openai-max-tokens-here
 npm start
 ```
 
-This will start a server that you can access the WebViewer client at http://localhost:4040/client/index.html, and the connection to the OpenAI will be managed on backend.
+This will start a server that you can access the WebViewer client at http://localhost:4040/client/index.html, and manage the connection to the OpenAI on backend.

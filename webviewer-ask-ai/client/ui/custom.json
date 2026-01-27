@@ -772,7 +772,7 @@
       "dataElement": "askWebSDKPanelToggle",
       "title": "{{APP_SITE_NAME}}",
       "type": "toggleButton",
-      "img": "{{ASK_WEB_SDK_ICO}}",
+      "img": "assets/ask-ai-icon.svg",
       "toggleElement": "askWebSDKPanel"
     },
     "newDocumentButton": {
@@ -1081,7 +1081,7 @@
       {
         "dataElement": "askWebSDKButton",
         "type": "customButton",
-        "img": "{{ASK_WEB_SDK_ICO}}",
+        "img": "assets/ask-ai-icon.svg",
         "title": "Summarize Selection",
         "onClick": "askWebSDKPopupClick"
       },

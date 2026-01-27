@@ -64,13 +64,13 @@ class Logger {
     }
 
     // Specific debug logging for DOCUMENT_CONTEXTUAL_QUESTION_EXACTLY
-    async logContextualQuestionDebug(promptType, message, promptSettings, history, getTokenCount) {
+    async logContextualQuestionDebug(promptType, message, guardRail, history, getTokenCount) {
         if (promptType !== 'DOCUMENT_CONTEXTUAL_QUESTION_EXACTLY') return;
 
         this.debug('\n🔍 CONTEXTUAL_QUESTION_EXACTLY Debug:');
         this.debug('📊 Token counts:', {
             messageTokens: await getTokenCount(message),
-            promptTokens: await getTokenCount(promptSettings.assistantPrompt),
+            promptTokens: await getTokenCount(guardRail.LLM.Prompt),
             historyEntries: history.length
         });
         this.debug('📝 Question extracted:', message.split('\n')[0]);
@@ -81,28 +81,6 @@ class Logger {
             this.debug('🗣️ Last history entry preview:', history[history.length - 1].content.substring(0, 100) + '...');
         }
         this.debug('\n');
-    }
-
-    // Get log history for debugging or monitoring
-    getLogHistory(level = null, limit = 100) {
-        let logs = this.logHistory;
-
-        if (level) {
-            logs = logs.filter(log => log.level === level.toUpperCase());
-        }
-
-        return logs.slice(-limit);
-    }
-
-    // Clear log history
-    clearHistory() {
-        this.logHistory = [];
-    }
-
-    // Format log entry for display
-    formatLogEntry(entry) {
-        const argsStr = entry.args.length > 0 ? ` ${JSON.stringify(entry.args)}` : '';
-        return `[${entry.timestamp}] ${entry.level}: ${entry.message}${argsStr}`;
     }
 }
 
