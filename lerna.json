@@ -8,6 +8,7 @@
       "webviewer-annotations-nodejs",
       "webviewer-annotations-php",
       "webviewer-annotations-sqlite3",
+      "webviewer-ask-ai",
       "webviewer-barcode",
       "webviewer-blazor",
       "webviewer-blazor-wasm",

@@ -1,0 +1,230 @@
+.askWebSDKPanel {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+#askWebSDKMainDiv {
+    height: 100%;
+    flex-direction: column;
+    display: flex;
+}
+
+#askWebSDKQuestionDivTop {
+    flex: 1;
+    width: 100%;
+    min-height: 0;
+    max-height: calc(100vh - 1px);
+    /* Reserve space for bottom div */
+}
+
+#askWebSDKQuestionDivBottom {
+    flex: 0 0 auto;
+    /* Don't grow, don't shrink, use natural size */
+    width: 100%;
+    position: sticky;
+    /* Alternative: keeps it visible during scroll */
+    bottom: 0;
+    z-index: 100;
+    padding: 5px 0 5px 0;
+    border-top: var(--lighter-border) 1px solid;
+}
+
+.askWebSDKHeaderDivClass {
+    background-color: var(--panel-background);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px 0 0 0;
+    overflow: hidden;
+    height: 40px;
+    box-sizing: border-box;
+    border-bottom: var(--lighter-border) 1px solid;
+}
+
+.askWebSDKChattingDivClass {
+
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    overflow: auto;
+    padding: 10px 10px 10px 10px;
+    height: 85vh;
+    top: 0;
+    bottom: 0;
+}
+
+.askWebSDKQuestionDivClass {
+
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    align-items: center;
+    justify-self: end;
+    width: 100%;
+}
+
+.askWebSDKQuestionInputClass {
+    width: 85%;
+    margin-right: 5px;
+    border: var(--lighter-border) 1px solid;
+    height: 30px;
+}
+
+.askWebSDKQuestionButtonClass {
+    background-color: var(--primary-button);
+    color: var(--primary-button-text);
+    cursor: pointer;
+    border-radius: 2px;
+    border: var(--outline-color) 3px solid;
+}
+
+.askWebSDKQuestionButtonClass:hover {
+    background-color: var(--primary-button-hover);
+}
+
+.askWebSDKAssistantMessageClass {
+    background-color: var(--gray-2);
+    border: var(--border) 1px solid;
+    color: var(--text-color);
+    align-self: flex-start;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 4px;
+    max-width: 85%;
+}
+
+.askWebSDKHumanMessageClass {
+    background-color: var(--badge-fill);
+    color: var(--primary-button-text);
+    border: var(--border) 1px solid;
+    align-self: flex-end;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 85%;
+}
+
+.askWebSDKInfoMessageClass {
+    margin-top: 5px;
+}
+
+.askWebSDKQuestionMessageClass {
+    cursor: pointer;
+    padding: 1px;
+    text-decoration: underline;
+}
+
+.askWebSDKQuestionMessageHoverClassOnClick {
+    cursor: pointer;
+    padding: 1px;
+    text-decoration: underline;
+}
+
+.askWebSDKQuestionMessageHoverClassOnMouseOver {
+    cursor: pointer;
+    padding: 1px;
+    text-decoration: underline;
+
+}
+
+.askWebSDKQuestionMessageHoverClassOnMouseOut {
+    cursor: pointer;
+    padding: 1px;
+    text-decoration: underline;
+    color: var(--gray-8);
+}
+
+.page-link {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+/* Chatbot Spinner Styles */
+.chatbot-spinner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.01);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    pointer-events: all;
+    cursor: wait;
+}
+
+/* Dark theme overlay */
+@media (prefers-color-scheme: dark) {
+    .chatbot-spinner-overlay {
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* Custom data-theme attribute support */
+[data-theme="dark"] .chatbot-spinner-overlay {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] .chatbot-spinner-overlay {
+    background-color: rgba(0, 0, 0, 0.01);
+}
+
+.chatbot-spinner {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border: 4px solid var(--note-box-shadow);
+    border-top-color: var(--note);
+    border-radius: 50%;
+    animation: chatbot-spinner-rotate 0.8s linear infinite;
+}
+
+/* Light theme colors */
+.chatbot-spinner {
+    border: 4px solid var(--note-box-shadow);
+    border-top-color: var(--note);
+}
+
+/* Dark theme colors */
+@media (prefers-color-scheme: dark) {
+    .chatbot-spinner {
+        border: 4px solid var(--note-box-shadow);
+        border-top-color: var(--note);
+    }
+}
+
+/* Custom data-theme attribute support */
+[data-theme="dark"] .chatbot-spinner {
+    border: 4px solid var(--note-box-shadow);
+    border-top-color: var(--note);
+}
+
+[data-theme="light"] .chatbot-spinner {
+    border: 4px solid var(--note-box-shadow);
+    border-top-color: var(--note);
+}
+
+@keyframes chatbot-spinner-rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Smooth hardware-accelerated animation */
+.chatbot-spinner {
+    will-change: transform;
+}

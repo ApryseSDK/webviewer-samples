@@ -1,0 +1,24 @@
+{
+  "name": "webviewer-ask-ai",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "node tools/copy-webviewer-files.js",
+    "start": "node server/serve.js"
+  },
+  "author": "Apryse Systems Inc.",
+  "devDependencies": {
+    "body-parser": "^2.2.2",
+    "fs-extra": "^11.3.3",
+    "open": "^11.0.0"
+  },
+  "dependencies": {
+    "@langchain/core": "^1.1.17",
+    "@langchain/openai": "^1.2.3",
+    "@pdftron/webviewer": "^11.10.0",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1"
+  }
+}
