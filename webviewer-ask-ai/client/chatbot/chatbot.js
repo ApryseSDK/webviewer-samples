@@ -1,7 +1,7 @@
 import ChatbotResponse from './response.js';
-import { Spinner } from '../libs/spinjs/spin.js';
+import { ChatbotSpinner } from './spinner.js';
 
-const spinner = new Spinner(spinOptions);
+const spinner = new ChatbotSpinner();
 
 // Browser-compatible chatbot client
 class Chatbot {

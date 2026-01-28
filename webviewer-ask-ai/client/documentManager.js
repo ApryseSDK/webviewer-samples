@@ -1,4 +1,6 @@
 // Document class to manage the loaded document-related properties and operations
+// NOTE: The loaded document contents is cached in this object.
+//       Document contents edit requires saving then re-loading.
 class DocumentManager {
   #documentViewer;
   instance;

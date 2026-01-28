@@ -19,7 +19,6 @@
     "@langchain/openai": "^1.2.3",
     "@pdftron/webviewer": "^11.10.0",
     "dotenv": "^17.2.3",
-    "spin.js": "^4.1.2",
     "express": "^5.2.1"
   }
 }
