@@ -39,7 +39,7 @@ OPENAI_TEMPERATURE=your-openai-temperature-here
 OPENAI_SEED=your-openai-seed-here
 ```
 
-To use another model, replace the LangChain provider in [code block: `server/llmManager.js`], install the corresponding provider package, and update the `.env` variables for that model provider. 
+To use another model, replace the LangChain provider in `server/llmManager.js`, install the corresponding provider package, and update the `.env` variables for that model provider. 
 
 ## Run
 
