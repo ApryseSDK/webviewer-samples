@@ -2,9 +2,10 @@ import { HumanMessage, SystemMessage as AssistantMessage } from '@langchain/core
 import dotenv from 'dotenv';
 import LLMManager from './llmManager.js';
 import logger from './logger.js';
-import { readFileSync } from 'fs';
-import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { dirname, join } from 'node:path';
+import { randomUUID } from 'node:crypto';
 
 dotenv.config();
 
@@ -19,8 +20,7 @@ const GUARD_RAILS = configData.GUARD_RAILS;
 // Create LLMManager instance
 const llmManager = new LLMManager();
 
-export default (app) => {
-
+export default function registerHandlers(app) {
   // Initialize LangChain on startup
   llmManager.initialize();
 
@@ -91,7 +91,7 @@ export default (app) => {
 
             // Update llm settings
             // Reduced maxTokens to prevent truncation and repetition
-            llmManager.tuneSettings({maxTokens: 120});
+            llmManager.tuneSettings({ maxTokens: 120 });
 
             // Execute keyword extraction for this chunk
             const chunkContent = await llmManager.executeMessages(chunkMessages);
@@ -106,7 +106,7 @@ export default (app) => {
           ];
 
           // Update llm settings
-          llmManager.tuneSettings({maxTokens: 200});
+          llmManager.tuneSettings({ maxTokens: 200 });
 
           // Execute consolidation messages to get final keywords
           finalContent = await llmManager.executeMessages(consolidationMessages);
@@ -124,7 +124,7 @@ export default (app) => {
           ];
 
           // Update llm settings
-          llmManager.tuneSettings({maxTokens: guardRail.LLM.Settings.maxTokens});
+          llmManager.tuneSettings({ maxTokens: guardRail.LLM.Settings.maxTokens });
 
           // Execute messages with only the first chunk
           finalContent = await llmManager.executeMessages(messages);
@@ -145,7 +145,7 @@ export default (app) => {
         await logger.logContextualQuestionDebug(promptType, message, guardRail, history, llmManager.getTokenCount.bind(llmManager));
 
         // Update llm settings
-        llmManager.tuneSettings({maxTokens: guardRail.LLM.Settings.maxTokens});
+        llmManager.tuneSettings({ maxTokens: guardRail.LLM.Settings.maxTokens });
 
         // Execute messages normally
         finalContent = await llmManager.executeMessages(messages);
@@ -157,8 +157,16 @@ export default (app) => {
 
       response.status(200).json({ response: cleanResponse });
     } catch (error) {
+      const requestId = randomUUID();
+      const isDebugMode = process.env.DEBUG_ERRORS === 'true' || process.env.NODE_ENV === 'development';
+
+      logger.error(`Chat API error [requestId=${requestId}]`, error);
+
       response.status(500).json({
-        error: 'An error occurred while processing your request'
+        error: isDebugMode
+          ? (error?.message || 'An error occurred while processing the chat request')
+          : 'An internal server error occurred while processing the chat request',
+        requestId
       });
     }
   });

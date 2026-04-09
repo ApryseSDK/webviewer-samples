@@ -17,7 +17,7 @@ A license key is required to run WebViewer. You can obtain a trial key in our [g
 
 ## Initial setup
 
-Before you begin, make sure the development environment includes [Node.js](https://nodejs.org/en/).
+Before you begin, make sure the development environment includes [Node.js](https://nodejs.org/en/) 20 or newer.
 
 ## Install
 

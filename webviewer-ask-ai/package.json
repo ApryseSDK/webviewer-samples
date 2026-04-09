@@ -6,12 +6,19 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "node tools/copy-webviewer-files.js",
-    "start": "node server/serve.js"
+    "start": "node server/serve.js",
+    "test:e2e": "npx playwright test",
+    "test:e2e:ui": "npx playwright test --ui",
+    "test:e2e:debug": "npx playwright test --debug"
+  },
+  "engines": {
+    "node": ">=20"
   },
   "author": "Apryse Systems Inc.",
   "devDependencies": {
+    "@playwright/test": "^1.58.2",
     "body-parser": "^2.2.2",
-    "fs-extra": "^11.3.3",
+    "fs-extra": "^11.3.4",
     "open": "^11.0.0"
   },
   "dependencies": {

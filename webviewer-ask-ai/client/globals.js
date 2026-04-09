@@ -8,8 +8,11 @@ let clipboard = '';
 
 // Chatbot panel div elements
 let askWebSDKMainDiv = null;
+globalThis.askWebSDKMainDiv = askWebSDKMainDiv;
 let askWebSDKChattingDiv = null;
+globalThis.askWebSDKChattingDiv = askWebSDKChattingDiv;
 let assistantContentDiv = null;
+globalThis.assistantContentDiv = assistantContentDiv;
 
 // Chatbot panel conversation log
 // to keep track of assistant and human messages

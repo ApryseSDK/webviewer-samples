@@ -1,3 +1,23 @@
+function handleSummarization(question) {
+  // summarize entire document
+  if (question.toLowerCase().includes('document') &&
+    !containsAny(question, configData.KEYWORDS.area)) {
+    chatbot.askQuestionByPrompt('DOCUMENT_SUMMARY');
+  }
+  // summarize selected text (clipboard) in document
+  if (containsAny(question, configData.KEYWORDS.selection)) {
+    if (clipboard && clipboard.trim() !== '')
+      chatbot.summarizeTextByPrompt('SELECTED_TEXT_SUMMARY', clipboard);
+    else
+      chatbot.bubble('Please select text in the document first.', 'assistant');
+  }
+
+  if (!question.toLowerCase().includes('document')
+    && !containsAny(question, configData.KEYWORDS.selection)) {
+    chatbot.bubble('Please specify if you want to summarize the entire document or selected text.', 'assistant');
+  }
+}
+
 const functionMap = {
   // Render the WebViewer chat panel
   'askWebSDKPanelRender': () => {
@@ -13,9 +33,9 @@ const functionMap = {
     }
 
     // The main container div
-    askWebSDKMainDiv = document.createElement('div');
-    askWebSDKMainDiv.id = 'askWebSDKMainDiv';
-    askWebSDKMainDiv.className = 'askWebSDKMainDivClass';
+    globalThis.askWebSDKMainDiv = document.createElement('div');
+    globalThis.askWebSDKMainDiv.id = 'askWebSDKMainDiv';
+    globalThis.askWebSDKMainDiv.className = 'askWebSDKMainDivClass';
 
     //Top and Bottom container divs
     const askWebSDKQuestionDivTop = document.createElement('div');
@@ -32,9 +52,9 @@ const functionMap = {
     askWebSDKQuestionDivTop.appendChild(askWebSDKHeaderDiv);
 
     // Chatting container div with assistant and human messages
-    askWebSDKChattingDiv = document.createElement('div');
-    askWebSDKChattingDiv.id = 'askWebSDKChattingDiv';
-    askWebSDKChattingDiv.className = 'askWebSDKChattingDivClass';
+    globalThis.askWebSDKChattingDiv = document.createElement('div');
+    globalThis.askWebSDKChattingDiv.id = 'askWebSDKChattingDiv';
+    globalThis.askWebSDKChattingDiv.className = 'askWebSDKChattingDivClass';
 
     // Initial assistant messages
     configData.ASSISTANT_MESSAGES.forEach((message) => {
@@ -43,37 +63,36 @@ const functionMap = {
       if (Array.isArray(message.content)) {
         message.content.forEach((contentItem) => {
           // Create different elements for info and question types
-          assistantContentDiv = (contentItem.type === 'info') ? document.createElement('div') : document.createElement('li');
-          assistantContentDiv.className = (contentItem.type === 'info') ? 'askWebSDKInfoMessageClass' : 'askWebSDKQuestionMessageClass';
+          globalThis.assistantContentDiv = (contentItem.type === 'info') ? document.createElement('div') : document.createElement('li');
+          globalThis.assistantContentDiv.className = (contentItem.type === 'info') ? 'askWebSDKInfoMessageClass' : 'askWebSDKQuestionMessageClass';
           if (contentItem.type === 'question') {
 
             // Store question LIs for later updating with contextual questions
             let configAndLiTags = [];
-            configAndLiTags.push(contentItem); //Stores type, content, promptType
-            configAndLiTags.push(assistantContentDiv); //Stores the actual LI element
+            configAndLiTags.push(contentItem, globalThis.assistantContentDiv); // Stores type, content, promptType and the actual LI element
             questionsLIs.push(configAndLiTags);
 
-            assistantContentDiv.onmouseover = () => {
-              assistantContentDiv.className = 'askWebSDKQuestionMessageHoverClassOnMouseOver';
+            globalThis.assistantContentDiv.onmouseover = () => {
+              globalThis.assistantContentDiv.className = 'askWebSDKQuestionMessageHoverClassOnMouseOver';
             };
-            assistantContentDiv.onmouseout = () => {
-              assistantContentDiv.className = 'askWebSDKQuestionMessageHoverClassOnMouseOut';
+            globalThis.assistantContentDiv.onmouseout = () => {
+              globalThis.assistantContentDiv.className = 'askWebSDKQuestionMessageHoverClassOnMouseOut';
             };
-            assistantContentDiv.onclick = () => {
+            globalThis.assistantContentDiv.onclick = () => {
               chatbot.bubble(contentItem.content, 'human');
               // Pass question content for all question types, including contextual questions
               chatbot.askQuestionByPrompt(contentItem.promptType, contentItem.content);
-              assistantContentDiv.className = 'askWebSDKQuestionMessageHoverClassOnClick';
+              globalThis.assistantContentDiv.className = 'askWebSDKQuestionMessageHoverClassOnClick';
             };
           }
-          assistantContentDiv.innerText = contentItem.content;
-          messageDiv.appendChild(assistantContentDiv);
+          globalThis.assistantContentDiv.innerText = contentItem.content;
+          messageDiv.appendChild(globalThis.assistantContentDiv);
         });
 
       } else
         messageDiv.innerText = `${message.content}`;
 
-      askWebSDKChattingDiv.appendChild(messageDiv);
+      globalThis.askWebSDKChattingDiv.appendChild(messageDiv);
     });
 
     // maintain the chatbot panel conversation sequence
@@ -82,11 +101,11 @@ const functionMap = {
         let messageDiv = document.createElement('div');
         messageDiv.className = (chatMessage.role === 'assistant') ? 'askWebSDKAssistantMessageClass' : 'askWebSDKHumanMessageClass';
         messageDiv.innerHTML = chatMessage.content;
-        askWebSDKChattingDiv.appendChild(messageDiv);
+        globalThis.askWebSDKChattingDiv.appendChild(messageDiv);
       });
     }
 
-    askWebSDKQuestionDivTop.appendChild(askWebSDKChattingDiv);
+    askWebSDKQuestionDivTop.appendChild(globalThis.askWebSDKChattingDiv);
     // Question input container div with input box and send button
     let askWebSDKQuestionDiv = document.createElement('div');
     askWebSDKQuestionDiv.id = 'askWebSDKQuestionDiv';
@@ -106,6 +125,7 @@ const functionMap = {
     askWebSDKQuestionButton.id = 'askWebSDKQuestionButton';
     askWebSDKQuestionButton.className = 'askWebSDKQuestionButtonClass';
     askWebSDKQuestionButton.innerText = 'Send';
+
     askWebSDKQuestionButton.onclick = () => {
       let question = askWebSDKQuestionInput.value.trim();
       if (question === '') {
@@ -117,32 +137,14 @@ const functionMap = {
 
       // Check if the question is a summarization request
       if (containsAny(question, configData.KEYWORDS.summarization)) {
-        // summarize entire document
-        if (question.toLowerCase().includes('document') &&
-          !containsAny(question, configData.KEYWORDS.area)) {
-          chatbot.askQuestionByPrompt('DOCUMENT_SUMMARY');
-        }
-        // summarize selected text (clipboard) in document
-        if (containsAny(question, configData.KEYWORDS.selection)) {
-          if (clipboard && clipboard.trim() !== '')
-            chatbot.summarizeTextByPrompt('SELECTED_TEXT_SUMMARY', clipboard);
-          else
-            chatbot.bubble('Please select text in the document first.', 'assistant');
-        }
-
-        if (!question.toLowerCase().includes('document')
-          && !containsAny(question, configData.KEYWORDS.selection)) {
-          chatbot.bubble('Please specify if you want to summarize the entire document or selected text.', 'assistant');
-        }
+        handleSummarization(question);
       }
       // Any other questions about the document
-      else {
-        // Check if this is a history-related question
-        if (containsAny(question, configData.KEYWORDS.history))
-          // Use document-aware flow for history questions
-          chatbot.askQuestionByPrompt('DOCUMENT_HISTORY_QUESTION', question);
-        else
-          chatbot.summarizeTextByPrompt('DOCUMENT_QUESTION', question);
+      else if (containsAny(question, configData.KEYWORDS.history)) {
+        // Use document-aware flow for history questions
+        chatbot.askQuestionByPrompt('DOCUMENT_HISTORY_QUESTION', question);
+      } else {
+        chatbot.summarizeTextByPrompt('DOCUMENT_QUESTION', question);
       }
 
       askWebSDKQuestionInput.value = ''; // Clear input box
@@ -152,10 +154,10 @@ const functionMap = {
     askWebSDKQuestionDiv.appendChild(askWebSDKQuestionButton);
     askWebSDKQuestionDivBottom.appendChild(askWebSDKQuestionDiv);
 
-    askWebSDKMainDiv.appendChild(askWebSDKQuestionDivTop);
-    askWebSDKMainDiv.appendChild(askWebSDKQuestionDivBottom);
+    globalThis.askWebSDKMainDiv.appendChild(askWebSDKQuestionDivTop);
+    globalThis.askWebSDKMainDiv.appendChild(askWebSDKQuestionDivBottom);
 
-    return askWebSDKMainDiv;
+    return globalThis.askWebSDKMainDiv;
   },
   // Handle selected text (clipboard) summary popup click
   'askWebSDKPopupClick': () => {

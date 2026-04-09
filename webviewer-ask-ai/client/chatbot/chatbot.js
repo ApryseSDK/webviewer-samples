@@ -29,13 +29,8 @@ class Chatbot {
       const message = messagesHistory[i];
       let messageTokenCount;
 
-      try {
-        // Use simple character-based estimation for token counting
-        messageTokenCount = Math.ceil(message.content.length / 4);
-      } catch (error) {
-        // Fallback to estimation
-        messageTokenCount = Math.ceil(message.content.length / 4);
-      }
+      // Use simple character-based estimation for token counting
+      messageTokenCount = Math.ceil(message.content.length / 4);
 
       if (tokenCount + messageTokenCount <= maxTokens) {
         trimmedHistory.unshift(message);
@@ -48,57 +43,53 @@ class Chatbot {
   }
 
   async sendMessage(promptLine, message) {
-    try {
-      // For document-level operations, use increased token limit to preserve messages history
-      // Adjust token limits based on prompt type to balance document content and messages history
-      let maxTokens = this.messagesHistoryOptions.maxTokens || 8000;
+    // For document-level operations, use increased token limit to preserve messages history
+    // Adjust token limits based on prompt type to balance document content and messages history
+    let maxTokens = this.messagesHistoryOptions.maxTokens || 8000;
 
-      // For document questions, we need more room for messages history since we're sending full document
-      if (promptLine.includes('DOCUMENT_'))
-        maxTokens = Math.max(maxTokens, 8000); // Ensure minimum 8000 tokens for document questions
-      const messagesHistoryToSend = this.messagesHistoryOptions.useEmpty ? [] : await this.trimHistoryForTokenLimit(this.messagesHistory, maxTokens);
+    // For document questions, we need more room for messages history since we're sending full document
+    if (promptLine.includes('DOCUMENT_'))
+      maxTokens = Math.max(maxTokens, 8000); // Ensure minimum 8000 tokens for document questions
+    const messagesHistoryToSend = this.messagesHistoryOptions.useEmpty ? [] : await this.trimHistoryForTokenLimit(this.messagesHistory, maxTokens);
 
-      const response = await fetch('/api/chat', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          message: message,
-          promptType: promptLine,
-          history: messagesHistoryToSend
-        })
-      });
+    const response = await fetch('/api/chat', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        message: message,
+        promptType: promptLine,
+        history: messagesHistoryToSend
+      })
+    });
 
-      if (!response.ok)
-        throw new Error(`HTTP error! status: ${response.status}`);
+    if (!response.ok)
+      throw new Error(`HTTP error! status: ${response.status}`);
 
-      const data = await response.json();
+    const data = await response.json();
 
-      // Update messages history only if not explicitly disabled
-      if (!this.messagesHistoryOptions.skipUpdate) {
-        // For document queries, extract only the question part to avoid storing redundant document content
-        let historyMessage = message;
-        if (promptLine.includes('DOCUMENT_')) {
-          // Extract question from document queries to avoid token waste
-          const questionMatch = message.match(/(?:Human Question|Question): (.+?)\n\nDocument Content:/);
-          if (questionMatch)
-            historyMessage = questionMatch[1];
-          else
-            // Fallback: use first 200 chars if pattern not found, avoiding full document
-            historyMessage = message.length > 200 ? message.substring(0, 200) + '... [document content excluded from history]' : message;
-        }
-
-        this.messagesHistory.push(
-          { role: 'human', content: `${promptLine}: ${historyMessage}` },
-          { role: 'assistant', content: data.response }
-        );
+    // Update messages history only if not explicitly disabled
+    if (!this.messagesHistoryOptions.skipUpdate) {
+      // For document queries, extract only the question part to avoid storing redundant document content
+      let historyMessage = message;
+      if (promptLine.includes('DOCUMENT_')) {
+        // Extract question from document queries to avoid token waste
+        const questionMatch = message.match(/(?:Human Question|Question): (.+?)\n\nDocument Content:/);
+        if (questionMatch)
+          historyMessage = questionMatch[1];
+        else
+          // Fallback: use first 200 chars if pattern not found, avoiding full document
+          historyMessage = message.length > 200 ? message.substring(0, 200) + '... [document content excluded from history]' : message;
       }
 
-      return data.response;
-    } catch (error) {
-      throw error;
+      this.messagesHistory.push(
+        { role: 'human', content: `${promptLine}: ${historyMessage}` },
+        { role: 'assistant', content: data.response }
+      );
     }
+
+    return data.response;
   }
 
   // Prepare a message, considering contextual question or history question
@@ -151,7 +142,7 @@ class Chatbot {
 
   askQuestionByPrompt(prompt, question = null) {
     // Start spinning on main div
-    spinner.spin(askWebSDKMainDiv);
+    spinner.spin(globalThis.askWebSDKMainDiv);
 
     // Create a wrapper callback that stops the spinner after bubble is called
     const callbackWrapper = (...args) => {
@@ -169,7 +160,7 @@ class Chatbot {
   // DOCUMENT_QUESTION
   async summarizeTextByPrompt(prompt, text) {
     // Start spinning on main div
-    spinner.spin(askWebSDKMainDiv);
+    spinner.spin(globalThis.askWebSDKMainDiv);
 
     // Combine into single container for all bubble responses
     let responseText = '';
@@ -204,9 +195,11 @@ class Chatbot {
     let updatedCount = 0;
     questionsLIs.forEach((configAndLiTags) => {
 
-      if (configAndLiTags[0] && configAndLiTags[0].promptType === 'DOCUMENT_CONTEXTUAL_QUESTION_EXACTLY') {
+      if (configAndLiTags[0]?.promptType === 'DOCUMENT_CONTEXTUAL_QUESTION_EXACTLY') {
 
-        if (this.questionsContextuallySound[index] !== undefined) {
+        if (this.questionsContextuallySound[index] === undefined) {
+          console.warn(`Question ${index + 1} is undefined! Available questions:`, this.questionsContextuallySound);
+        } else {
           let li = configAndLiTags[1];
           if (li)
             li.innerText = this.questionsContextuallySound[index];
@@ -218,8 +211,7 @@ class Chatbot {
             configItem.content = this.questionsContextuallySound[index];
 
           updatedCount++;
-        } else
-          console.warn(`Question ${index + 1} is undefined! Available questions:`, this.questionsContextuallySound);
+        }
 
         index++;
       }
@@ -248,8 +240,8 @@ class Chatbot {
     let messageDiv = document.createElement('div');
     messageDiv.className = (role === 'assistant') ? 'askWebSDKAssistantMessageClass' : 'askWebSDKHumanMessageClass';
     messageDiv.innerHTML = content;
-    askWebSDKChattingDiv.appendChild(messageDiv);
-    askWebSDKChattingDiv.scrollTop = askWebSDKChattingDiv.scrollHeight;
+    globalThis.askWebSDKChattingDiv.appendChild(messageDiv);
+    globalThis.askWebSDKChattingDiv.scrollTop = globalThis.askWebSDKChattingDiv.scrollHeight;
   }
 };
 
