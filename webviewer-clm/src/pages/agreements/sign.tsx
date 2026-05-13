@@ -9,7 +9,7 @@ import { decode, encode } from "base64-arraybuffer";
 
 export const AgreementSign = () => {
   const viewer = useRef<any>(null);
-  const wvInstance = useRef<WebViewerInstance>(null);
+  const wvInstance = useRef<WebViewerInstance | null>(null);
   const [isWebViewerReady, setIsWebViewerReady] = useState(false);
   const { id } = useParams();
 
@@ -53,7 +53,11 @@ export const AgreementSign = () => {
   }, []);
 
   const handleSave = async () => {
-    const { documentViewer, annotationManager } = wvInstance?.current?.Core;
+    const core = wvInstance.current?.Core;
+    if (!core) {
+      return;
+    }
+    const { documentViewer, annotationManager } = core;
 
     const doc = documentViewer.getDocument();
     const xfdfString = await annotationManager.exportAnnotations();

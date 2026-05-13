@@ -1,6 +1,5 @@
 import { Create, useForm, useSelect } from "@refinedev/antd";
-import MDEditor from "@uiw/react-md-editor";
-import { Flex, Form, Input, Select } from "antd";
+import { Flex, Form, Select } from "antd";
 import React, { useEffect, useRef, useState } from "react";
 import { supabaseClient } from "../../utility";
 import { decode, encode } from "base64-arraybuffer";
@@ -9,21 +8,21 @@ import { v4 as uuidv4 } from 'uuid';
 
 export const AgreementCreate = () => {
     const viewer = useRef<any>(null);
-    const wvInstance = useRef<WebViewerInstance>(null);
+    const wvInstance = useRef<WebViewerInstance | null>(null);
 
     const [loading, setLoading] = useState(false);
     const { formProps, saveButtonProps, onFinish } = useForm({});
 
     const { selectProps: users } = useSelect({
         resource: "users",
-        optionLabel: (item) => `${item?.first_name} ${item?.last_name}`,
-        optionValue: "id" 
+        optionLabel: (item: any) => `${item?.first_name} ${item?.last_name}`,
+        optionValue: (item: any) => item?.id
     });
 
     const { selectProps: templates } = useSelect({
         resource: "templates",
-        optionLabel: (item) => item?.title,
-        optionValue: "id" 
+        optionLabel: (item: any) => item?.title,
+        optionValue: (item: any) => item?.id
     });
 
    const handleOnFinish = async (formData: any) => {
@@ -61,7 +60,12 @@ export const AgreementCreate = () => {
             userData = data;
         }
 
-        const { Core, UI } = wvInstance?.current;
+        const instance = wvInstance.current;
+        if (!instance) {
+            setLoading(false);
+            return;
+        }
+        const { Core } = instance;
         const { PDFNet, Math, Annotations } = Core;
         const { WidgetFlags } = Annotations;
         await PDFNet.initialize()
@@ -136,8 +140,8 @@ export const AgreementCreate = () => {
             result = await txtSearch.run();
         }
     
-        const buffer = await document!.saveMemoryBuffer(wvInstance?.current?.Core.PDFNet.SDFDoc.SaveOptions.e_linearized);
-        const base64 = encode(buffer);
+        const buffer = await document!.saveMemoryBuffer(Core.PDFNet.SDFDoc.SaveOptions.e_linearized);
+        const base64 = encode(buffer.buffer as ArrayBuffer);
 
         onFinish({
             ...formData,
