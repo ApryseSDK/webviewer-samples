@@ -14,8 +14,12 @@ export const TemplateEdit = () => {
   const { data: identity } = useGetIdentity<any>();
 
 
-  const handleOnFinish = async () => {
-    const { documentViewer } = wvInstance.current?.Core!;
+  const handleOnFinish = async (_values: any) => {
+    const core = wvInstance.current?.Core;
+    if (!core) {
+      return;
+    }
+    const { documentViewer } = core;
 
     const document = documentViewer.getDocument();
 
