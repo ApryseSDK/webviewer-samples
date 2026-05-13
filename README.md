@@ -86,4 +86,4 @@ Samples showing how to integrate WebViewer with Artificial Intelligence.
 - [webviewer-redaction-ai](./webviewer-redaction-ai) - Identify and apply redaction of the personal information in the provided PDF
 
 ### WebViewer Complete Applications
-- [webviewer-clm](./webviewer-clm) - Build complete CLM workflow that leverages multiple webviewer capabilities
+- [webviewer-clm](./webviewer-clm) - Complete CLM workflow that leverages multiple webviewer capabilities
