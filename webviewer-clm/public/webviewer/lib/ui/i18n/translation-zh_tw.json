@@ -1,0 +1,6062 @@
+{
+  "action": {
+    "addParagraph": "添加段落",
+    "add": "添加",
+    "addSheet": "新增工作表",
+    "apply": "套用",
+    "applyAll": "全部套用",
+    "calendar": "日曆",
+    "calibrate": "校準",
+    "cancel": "取消",
+    "confirm": "確認",
+    "currentPageIs": "當前頁面是",
+    "clear": "清除",
+    "clearAll": "全部清除",
+    "close": "關閉",
+    "undo": "撤消",
+    "redo": "準備",
+    "comment": "評論",
+    "reply": "回覆",
+    "copy": "複製",
+    "cut": "切",
+    "paste": "粘貼",
+    "pasteWithoutFormatting": "不帶格式粘貼",
+    "addComment": "新增評論",
+    "delete": "刪除",
+    "deleted": "已刪除",
+    "group": "組",
+    "ungroup": "取消組合",
+    "download": "下載",
+    "edit": "編輯",
+    "collapse": "坍塌",
+    "expand": "擴張",
+    "extract": "提取",
+    "extractPage": "提取頁面",
+    "enterFullscreen": "全螢幕",
+    "exitFullscreen": "退出全螢幕",
+    "fit": "符合",
+    "fitToPage": "符合頁面大小",
+    "fitToWidth": "符合寬度",
+    "more": "更多",
+    "openFile": "開啟檔案",
+    "showMoreFiles": "顯示更多文件",
+    "page": "頁",
+    "of": "的",
+    "pagePrev": "上一頁",
+    "pageNext": "下一頁",
+    "pageSet": "設定頁面",
+    "print": "列印",
+    "proceed": "繼續",
+    "name": "名稱",
+    "rename": "改名",
+    "remove": "消除",
+    "ok": "OK",
+    "rotate": "旋轉",
+    "rotate3D": "旋轉",
+    "rotateClockwise": "順時針",
+    "rotateCounterClockwise": "逆時針",
+    "rotatedClockwise": "順時針旋轉",
+    "rotatedCounterClockwise": "逆時針旋轉",
+    "rotationIs": "當前頁面旋轉是",
+    "movedToBottomOfDocument": "移至文件底部",
+    "movedToTopofDocument": "移至文件頂部",
+    "extracted": "提取的",
+    "save": "儲存",
+    "post": "發布",
+    "create": "建立",
+    "update": "更新",
+    "showMoreResults": "顯示更多結果",
+    "sign": "簽署",
+    "style": "樣式",
+    "submit": "提交",
+    "zoom": "縮放",
+    "zoomIn": "放大",
+    "zoomOut": "縮小",
+    "zoomSet": "設定縮放",
+    "zoomChanged": "目前縮放為",
+    "zoomControls": "縮放控制",
+    "draw": "畫",
+    "type": "類型",
+    "upload": "上載",
+    "link": "鏈接",
+    "unlink": "刪除連結",
+    "fileAttachmentDownload": "下載附件",
+    "prevResult": "先前的結果",
+    "nextResult": "下一個結果",
+    "prev": "以前",
+    "next": "下一個",
+    "startFormEditing": "開始表格編輯",
+    "exitFormEditing": "退出表格編輯模式",
+    "exit": "出口",
+    "addOption": "新增選項",
+    "formFieldEdit": "編輯表格欄位",
+    "formFieldEditMode": "編輯表單字段",
+    "contentEditMode": "編輯內容",
+    "viewShortCutKeysFor3D": "查看快捷鍵",
+    "markAllRead": "將所有內容標記為已讀",
+    "pageInsertion": "頁面插入",
+    "insertPage": "頁面插入",
+    "insert": "插入",
+    "pageManipulation": "頁面操作",
+    "replace": "代替",
+    "replacePage": "替換頁面",
+    "goToResult": "轉到結果",
+    "modal": "莫代爾",
+    "isOpen": "開了",
+    "setDestination": "設置目的地",
+    "showLess": "顯示較少",
+    "showMore": "...更多的",
+    "chooseFile": "選擇一個文件",
+    "changeDate": "改變日期",
+    "browse": "瀏覽文件",
+    "selectYourOption": "選擇您的選項",
+    "open": "打開",
+    "deselectAll": "取消全選",
+    "select": "選擇",
+    "buttonPressed": "已按下 {{buttonName}} 按鈕",
+    "moveToTop": "移到頂部",
+    "moveToBottom": "移到底部",
+    "movePageToTop": "將頁面移至頂部",
+    "movePageToBottom": "將頁面移至底部",
+    "moveUp": "上移",
+    "moveDown": "下移",
+    "moveLeft": "向左移動",
+    "moveRight": "向右移動",
+    "backToMenu": "返回菜單",
+    "redactPages": "編輯頁面",
+    "playAudio": "播放音頻",
+    "pauseAudio": "音頻暫停",
+    "selectAll": "全選",
+    "unselect": "取消選擇",
+    "addMark": "添加標記",
+    "viewFile": "查看文件",
+    "multiReplyAnnotations": "回复所選註釋 ({{count}})",
+    "comparePages": "比較頁面",
+    "startComparison": "開始比較",
+    "showComparison": "顯示比較",
+    "highlightChanges": "突出顯示變化",
+    "back": "後退",
+    "clearSignature": "清晰的簽名",
+    "clearInitial": "清除初始值",
+    "readOnlySignature": "只讀簽名無法刪除",
+    "newDocument": "新建文件",
+    "sideBySideView": "並排視圖",
+    "pageNumberInput": "頁碼輸入",
+    "addNewColor": "新增顏色",
+    "deleteColor": "刪除選取的顏色",
+    "copySelectedColor": "複製選定的顏色",
+    "showMoreColors": "顯示更多顏色",
+    "showLessColors": "顯示較少的顏色",
+    "fromCustomColorPicker": "來自自訂顏色選擇器",
+    "newSpreadsheetDocument": "新電子表格",
+    "resetDefault": "重設為預設值"
+  },
+  "annotation": {
+    "areaMeasurement": "測量面積",
+    "arc": "弧",
+    "arcMeasurement": "電弧測量",
+    "arrow": "箭頭",
+    "callout": "圖說文字",
+    "crop": "裁剪頁面",
+    "caret": "插入號",
+    "dateFreeText": "日曆",
+    "formFillCheckmark": "打鉤",
+    "formFillCross": "叉",
+    "distanceMeasurement": "測量距離",
+    "rectangularAreaMeasurement": "矩形面積",
+    "ellipseMeasurement": "橢圓面積",
+    "countMeasurement": "計數測量",
+    "ellipse": "橢圓",
+    "eraser": "橡皮",
+    "fileattachment": "文件附件",
+    "freehand": "手繪",
+    "freeHandHighlight": "自由手精選",
+    "freetext": "任意文字",
+    "markInsertText": "插入文本",
+    "markReplaceText": "替換文本",
+    "highlight": "強調顯示",
+    "image": "圖像",
+    "line": "線條",
+    "perimeterMeasurement": "測量周長",
+    "polygon": "多邊形",
+    "polygonCloud": "雲",
+    "polyline": "聚合線條",
+    "rectangle": "矩形",
+    "redact": "修訂",
+    "formFillDot": "點",
+    "signature": "簽名",
+    "snipping": "剪裁工具",
+    "squiggly": "曲線",
+    "stamp": "圖章",
+    "stickyNote": "評論",
+    "strikeout": "刪除線",
+    "underline": "底線",
+    "custom": "自訂",
+    "rubberStamp": "橡皮圖章",
+    "note": "注意",
+    "textField": "文本域",
+    "signatureFormField": "簽名欄",
+    "checkBoxFormField": "複選框字段",
+    "radioButtonFormField": "單選按鈕字段",
+    "listBoxFormField": "列錶框字段",
+    "comboBoxFormField": "組合框字段",
+    "link": "鏈接",
+    "other": "其他",
+    "3D": "3D",
+    "sound": "聲音",
+    "changeView": "更改視圖",
+    "newImage": "新圖片",
+    "defaultCustomStampTitle": "客製化印章"
+  },
+  "rubberStamp": {
+    "Approved": "已批准",
+    "AsIs": "照原樣",
+    "Completed": "已完成",
+    "Confidential": "機密",
+    "Departmental": "部門的",
+    "Draft": "草案",
+    "Experimental": "實驗性",
+    "Expired": "已過期",
+    "Final": "最後",
+    "ForComment": "徵求意見",
+    "ForPublicRelease": "公開發行",
+    "InformationOnly": "僅供參考",
+    "NotApproved": "不批准",
+    "NotForPublicRelease": "不公開發布",
+    "PreliminaryResults": "初步結果",
+    "Sold": "已售出",
+    "TopSecret": "最高機密",
+    "Void": "空洞",
+    "SHSignHere": "在這裡簽名",
+    "SHWitness": "見證人",
+    "SHInitialHere": "最初在這裡",
+    "SHAccepted": "公認",
+    "SBRejected": "拒絕"
+  },
+  "component": {
+    "attachmentPanel": "附件",
+    "leftPanel": "左側面板",
+    "toolsHeader": "工具類",
+    "searchOverlay": "搜尋",
+    "searchPanel": "搜索",
+    "menuOverlay": "功能表",
+    "notesPanel": "備忘稿",
+    "indexPanel": "索引面板",
+    "outlinePanel": "大綱",
+    "outlinesPanel": "大綱",
+    "newOutlineTitle": "新大綱標題",
+    "outlineTitle": "大綱標題",
+    "destination": "目的地",
+    "bookmarkPanel": "書籤",
+    "bookmarksPanel": "書籤",
+    "bookmarkTitle": "書籤標題",
+    "bookmarkPage": "頁",
+    "signaturePanel": "簽名",
+    "layersPanel": "圖層",
+    "thumbnailsPanel": "縮圖",
+    "toolsButton": "工具",
+    "redaction": "修訂",
+    "viewControls": "查看權限",
+    "pageControls": "頁面控件",
+    "calibration": "校準",
+    "zoomOverlay": "縮放疊加",
+    "textPopup": "文字彈出",
+    "createStampButton": "創建新圖章",
+    "filter": "過濾",
+    "multiSelectButton": "多選",
+    "pageReplaceModalTitle": "替換頁面",
+    "files": "文件",
+    "file": "文件",
+    "editText": "編輯文本",
+    "redactionPanel": "編輯面板",
+    "tabLabel": "選項卡",
+    "noteGroupSection": {
+      "open": "查看所有註釋",
+      "close": "關閉所有註釋"
+    },
+    "comparePanel": "比較面板",
+    "mainMenu": "主選單"
+  },
+  "message": {
+    "showMore": "展示更多",
+    "showLess": "顯示較少",
+    "toolsOverlayNoPresets": "無預設",
+    "badDocument": "無法載入文件。此文件已損壞或無效。",
+    "customPrintPlaceholder": "例如：3, 4-10",
+    "encryptedAttemptsExceeded": "無法載入加密文件。嘗試次數過多。",
+    "encryptedUserCancelled": "無法載入加密文件。已取消密碼輸入。",
+    "enterPassword": "文件有密碼保護。請輸入密碼",
+    "incorrectPassword": "密碼不正確，剩下 {{ remainingAttempts }} 次嘗試機會",
+    "noAnnotations": "開始製作註釋以發表評論。",
+    "noAnnotationsReadOnly": "此文件沒有註釋。",
+    "noAnnotationsFilter": "開始製作註釋，過濾器將顯示在此處。",
+    "noBookmarks": "沒有可用的書籤",
+    "noOutlines": "此文件沒有大綱。",
+    "noAttachments": "本文檔沒有附件。",
+    "noResults": "沒有找到結果。",
+    "numResultsFound": "找到結果",
+    "loadError": "載入文檔時出錯",
+    "urlInputFileLoadError": "無法從提供的 URL 檢索文件。",
+    "notSupported": "不支援該檔案類型。",
+    "passwordRequired": "需要密碼",
+    "enterPasswordPlaceholder": "輸入密碼",
+    "preparingToPrint": "正在準備列印...",
+    "annotationReplyCount": "{{count}} 回复",
+    "annotationReplyCount_plural": "{{count}} 回复",
+    "printTotalPageCount": "{{count}} 頁",
+    "printTotalPageCount_plural": "{{count}} 頁",
+    "processing": "正在處理...",
+    "searching": "正在搜尋...",
+    "searchCommentsPlaceholder": "搜索評論",
+    "searchDocumentPlaceholder": "搜索文件",
+    "clearSearchResults": "清除搜尋結果",
+    "toggleReplaceInput": "切換替換輸入",
+    "toggleSearchOptions": "切換搜尋選項",
+    "searchResultsCleared": "搜尋結果已清除",
+    "searchSettingsPlaceholder": "搜尋設定",
+    "searchSuggestionsPlaceholder": "搜尋建議",
+    "signHere": "在這裡簽名",
+    "insertTextHere": "在這裡插入文字",
+    "imageSignatureAcceptedFileTypes": "僅接受{{acceptedFileTypes}}",
+    "signatureRequired": "需要簽名和姓名縮寫才能繼續",
+    "enterMeasurement": "在兩點之間輸入測量值",
+    "errorEnterMeasurement": "您輸入的數字無效，您可以輸入7.5或7 1/2之類的值",
+    "linkURLorPage": "鏈接網址或頁面",
+    "warning": "警告",
+    "svgMalicious": "出於安全原因忽略了 SVG 腳本",
+    "doNotShowAgain": "別再給我看這個了",
+    "doNotAskAgain": "不要再問了",
+    "enterReplacementText": "輸入要替換的文本",
+    "sort": "種類",
+    "sortBy": "排序方式",
+    "emptyCustomStampInput": "印章文字不能為空",
+    "unpostedComment": "未發布評論",
+    "lockedLayer": "圖層已鎖定",
+    "layerVisibilityNoChange": "圖層可見性無法更改",
+    "noLayers": "該文件沒有圖層。",
+    "noSignatureFields": "該文檔沒有簽名字段。",
+    "untitled": "無標題",
+    "selectHowToLoadFile": "選擇如何加載文檔",
+    "openFileByUrl": "通過 URL 打開文件：",
+    "enterUrlHere": "在此輸入網址",
+    "openLocalFile": "打開本地文件：",
+    "selectFile": "選擇文件",
+    "selectPageToReplace": "選擇文檔中要替換的頁面。",
+    "embeddedFiles": "嵌入文件",
+    "pageNum": "頁",
+    "viewBookmark": "在頁面上查看書籤",
+    "error": "錯誤",
+    "errorPageNumberPart1": "頁碼無效。",
+    "errorPageNumberPart2": "極限是",
+    "errorBlankPageNumber": "請指定頁碼",
+    "errorLoadingDocument": "閱讀本文檔時出現問題，某些頁面可能無法顯示。這表明文檔可能已損壞。總頁數為 {{totalPageCount}}，顯示的頁數為 {{displayedPageCount}}。",
+    "noRevisions": "本文檔沒有任何修訂。",
+    "listEmptyValue": "一個或多個欄位具有空值。",
+    "listDuplicateValue": "多個欄位具有以下值：",
+    "networkError": "載入此組件時出現錯誤。請檢查您的網路連線並重新整理頁面。",
+    "refreshPage": "請檢查您的網路連線並重新整理頁面。",
+    "renderErrors": {
+      "error": "這裡出問題了。",
+      "refreshPanel": "您可以繼續工作。請嘗試重新打開面板。"
+    }
+  },
+  "option": {
+    "type": {
+      "caret": "缺乏",
+      "custom": "風俗",
+      "ellipse": "橢圓",
+      "fileattachment": "文件附件",
+      "freehand": "空手",
+      "callout": "大喊",
+      "freetext": "自由文本",
+      "line": "線",
+      "polygon": "多邊形",
+      "polyline": "折線",
+      "rectangle": "長方形",
+      "redact": "纂",
+      "signature": "簽名",
+      "stamp": "郵票",
+      "stickyNote": "粘滯便箋",
+      "highlight": "強調",
+      "strikeout": "三振",
+      "underline": "強調",
+      "squiggly": "彎彎曲曲的",
+      "3D": "3D",
+      "other": "其他",
+      "initials": "縮寫",
+      "saved": "已保存"
+    },
+    "notesOrder": {
+      "dropdownLabel": "排序訂單清單",
+      "position": "位置",
+      "linePosition": "位置",
+      "time": "時間",
+      "status": "狀態",
+      "author": "作者",
+      "type": "類型",
+      "color": "顏色",
+      "createdDate": "創建日期",
+      "modifiedDate": "修改日期"
+    },
+    "toolbarGroup": {
+      "dropdownLabel": "工具欄組",
+      "flyoutLabel": "絲帶",
+      "toolbarGroup-View": "視圖",
+      "toolbarGroup-Annotate": "註釋",
+      "toolbarGroup-Shapes": "形狀",
+      "toolbarGroup-Insert": "插",
+      "toolbarGroup-Measure": "測量",
+      "toolbarGroup-Edit": "編輯",
+      "toolbarGroup-EditText": "編輯文本",
+      "toolbarGroup-FillAndSign": "填寫並簽名",
+      "toolbarGroup-Forms": "形式",
+      "toolbarGroup-Redact": "纂",
+      "toolbarGroup-oe-Home": "家",
+      "toolbarGroup-oe-Insert": "插入",
+      "toolbarGroup-oe-Layout": "佈局",
+      "toolbarGroup-oe-Review": "審查"
+    },
+    "annotationColor": {
+      "StrokeColor": "邊框顏色",
+      "FillColor": "填充顏色",
+      "TextColor": "文字顏色"
+    },
+    "colorPalette": {
+      "colorLabel": "顏色"
+    },
+    "colorPalettePicker": {
+      "addColor": "新增顏色",
+      "selectColor": "選擇顏色"
+    },
+    "displayMode": {
+      "layout": "版面",
+      "pageTransition": "頁面切換"
+    },
+    "documentControls": {
+      "selectTooltip": "選擇多個頁面",
+      "closeTooltip": "關閉多選"
+    },
+    "bookmarkOutlineControls": {
+      "edit": "編輯",
+      "done": "完畢",
+      "reorder": "重新排序"
+    },
+    "layout": {
+      "cover": "封面",
+      "double": "2 頁",
+      "single": "單面"
+    },
+    "mathSymbols": "數學符號",
+    "notesPanel": {
+      "separator": {
+        "today": "今天",
+        "yesterday": "昨天",
+        "unknown": "未知"
+      },
+      "noteContent": {
+        "noName": "（無名）",
+        "noDate": "（未註明日期的）"
+      },
+      "toggleMultiSelect": "切換多選註釋"
+    },
+    "pageTransition": {
+      "continuous": "連續",
+      "default": "逐頁",
+      "reader": "閱讀"
+    },
+    "print": {
+      "all": "全部",
+      "current": "當前頁面",
+      "pages": "頁面",
+      "specifyPages": "指定頁面",
+      "view": "目前來看",
+      "pageQuality": "打印質量",
+      "qualityNormal": "正常",
+      "qualityHigh": "高",
+      "includeAnnotations": "包括註釋",
+      "includeComments": "包括評論",
+      "printSettings": "打印設置",
+      "printGrayscale": "灰度打印",
+      "printCurrentDisabled": "目前視圖僅在查看單一頁面時可用。"
+    },
+    "printInfo": {
+      "author": "作者",
+      "subject": "學科",
+      "date": "日期"
+    },
+    "redaction": {
+      "markForRedaction": "標示為修訂"
+    },
+    "searchPanel": {
+      "searchResults": "搜尋結果",
+      "caseSensitive": "區分大小寫",
+      "wholeWordOnly": "全字相符",
+      "wildcard": "通配符",
+      "replace": "代替",
+      "replaceAll": "全部替換",
+      "replaceText": "替換文本",
+      "replaceOptions": "替換選項",
+      "confirmMessageReplaceAll": "您確定要替換所有文本嗎？",
+      "confirmMessageReplaceOne": "您確定要替換此文本嗎？",
+      "moreOptions": "更多選擇",
+      "lessOptions": "更少的選擇",
+      "confirm": "確認",
+      "filter": "篩選"
+    },
+    "toolsOverlay": {
+      "currentStamp": "目前的郵票",
+      "currentSignature": "當前簽名",
+      "signatureAltText": "簽名"
+    },
+    "stampOverlay": {
+      "addStamp": "添加新郵票"
+    },
+    "signatureOverlay": {
+      "addSignatureOrInitials": "新的簽名/首字母",
+      "addSignature": "新簽名"
+    },
+    "signatureModal": {
+      "modalName": "創建新簽名",
+      "dragAndDrop": "將圖片拖放到此處",
+      "or": "要么",
+      "pickImage": "選擇簽名圖像",
+      "selectImage": "在此處選擇您的圖片",
+      "typeSignature": "類型簽名*",
+      "typeInitial": "類型首字母*",
+      "drawSignature": "繪製簽名*",
+      "drawInitial": "畫首字母*",
+      "imageSignature": "影像簽名",
+      "imageInitial": "影像首字母",
+      "pickInitialsFile": "選擇縮寫",
+      "noSignatures": "當前沒有保存的簽名。",
+      "fontStyle": "字體樣式",
+      "textSignature": {
+        "dropdownLabel": "字體家族"
+      }
+    },
+    "pageReplacementModal": {
+      "yourFiles": "您的文件",
+      "chooseFile": "選擇一個文件",
+      "localFile": "本地文件",
+      "pageReplaceInputLabel": "替換頁面",
+      "pageReplaceInputFromSource": "有頁面",
+      "warning": {
+        "title": "退出替換頁面？",
+        "message": "退出將取消您迄今為止所做的所有選擇。你確定你還想退出嗎？"
+      }
+    },
+    "filterAnnotModal": {
+      "color": "顏色",
+      "includeReplies": "包括回覆",
+      "filters": "過濾器",
+      "user": "用戶",
+      "type": "類型",
+      "status": "地位",
+      "filterSettings": "過濾器設置",
+      "filterDocument": "過濾文檔和評論面板"
+    },
+    "state": {
+      "accepted": "公認",
+      "rejected": "被拒絕",
+      "completed": "已完成",
+      "cancelled": "取消",
+      "set": "設定狀態：",
+      "setBy": "通過設置",
+      "none": "沒有",
+      "marked": "標記",
+      "unmarked": "未標記"
+    },
+    "measurementOverlay": {
+      "scale": "比例",
+      "angle": "角度",
+      "distance": "距離",
+      "perimeter": "周長",
+      "area": "面積",
+      "distanceMeasurement": "測量距離",
+      "perimeterMeasurement": "測量周長",
+      "arcMeasurement": "電弧測量",
+      "areaMeasurement": "測量面積",
+      "countMeasurement": "計數測量",
+      "radius": "半徑",
+      "count": "計數",
+      "length": "長度",
+      "xAxis": "X軸",
+      "yAxis": "Y軸"
+    },
+    "freeTextOption": {
+      "autoSizeFont": "動態縮放字體大小"
+    },
+    "measurementOption": {
+      "scale": "比例",
+      "selectScale": "選擇比例",
+      "selectScaleDropdown": "選擇比例下拉式選單"
+    },
+    "measurement": {
+      "scaleModal": {
+        "calibrate": "校準",
+        "custom": "風俗",
+        "fractionalUnits": "分數單位",
+        "precision": "精確",
+        "preset": "預設",
+        "paperUnits": "紙張單位",
+        "displayUnits": "顯示單元",
+        "fractionUnitsTooltip": "分數單位僅適用於 in 和 ft-in",
+        "incorrectSyntax": "語法不正確",
+        "units": "單位"
+      },
+      "scaleOverlay": {
+        "addNewScale": "添加新比例",
+        "selectTwoPoints": "選擇已知尺寸的兩個點進行校準",
+        "inputKnowDimension": "輸入已知尺寸和單位進行校準",
+        "multipleScales": "多尺度"
+      },
+      "deleteScaleModal": {
+        "deleteScale": "刪除比例",
+        "scaleIsOn-delete-info": "該量表目前正在使用",
+        "page-delete-info": "頁",
+        "appliedTo-delete-info": "並應用於",
+        "measurement": "測量",
+        "measurements": "測量",
+        "deletionIs": "刪除是",
+        "irreversible": "不可逆轉",
+        "willDeleteMeasurement": "並將刪除相關的測量。",
+        "confirmDelete": "確定要刪除此比例嗎？",
+        "thisCantBeUndone": " 這無法撤消。",
+        "ifChangeScale": "如果您更改所選測量或工具的比例，請按比例",
+        "notUsedWillDelete": " 將不再被任何測量或工具使用，並將被刪除。刪除是不可逆的。",
+        "ifToContinue": "您確定要繼續嗎？"
+      }
+    },
+    "contentEdit": {
+      "deletionModal": {
+        "title": "刪除內容",
+        "message": "您確定要刪除所選內容嗎？這無法撤消。"
+      },
+      "digitalSign": {
+        "title": "警告密封文件",
+        "message": "本文件已簽署，不能更改或變更。"
+      }
+    },
+    "stylePopup": {
+      "textStyle": "文字樣式",
+      "colors": "顏色",
+      "invalidFontSize": "字體大小必須在以下範圍內",
+      "labelText": "標籤文本",
+      "labelTextPlaceholder": "添加標籤文本"
+    },
+    "styleOption": {
+      "style": "樣式",
+      "solid": "固體",
+      "cloudy": "多雲的"
+    },
+    "slider": {
+      "opacity": "不透明度",
+      "thickness": "厚度",
+      "text": "文字大小"
+    },
+    "shared": {
+      "sheetIndex": "床單",
+      "page": "頁面",
+      "precision": "精確度",
+      "enableSnapping": "啟用測量工具的捕捉"
+    },
+    "watermark": {
+      "title": "水印",
+      "addWatermark": "加水印",
+      "size": "尺寸",
+      "location": "選擇一個位置來編輯水印",
+      "text": "文本",
+      "style": "樣式",
+      "resetAllSettings": "重置所有設置",
+      "font": "字形",
+      "addNew": "添新",
+      "locations": {
+        "center": "中央",
+        "topLeft": "左上方",
+        "topRight": "右上",
+        "topCenter": "頂尖中心",
+        "bottomLeft": "左下方",
+        "bottomRight": "右下",
+        "bottomCenter": "底部中心"
+      }
+    },
+    "thumbnailPanel": {
+      "delete": "刪除",
+      "rotateClockwise": "順時針",
+      "rotateCounterClockwise": "逆時針方向",
+      "rotatePageClockwise": "順時針旋轉頁面",
+      "rotatePageCounterClockwise": "逆時針旋轉頁面",
+      "moreOptions": "更多選擇",
+      "moreOptionsMenu": "更多縮圖選項選單",
+      "enterPageNumbers": "輸入要選擇的頁碼",
+      "multiSelectPages": "多選頁面",
+      "multiSelectPagesExample": "例如1、3、5-10"
+    },
+    "thumbnailsControlOverlay": {
+      "move": "移動頁面"
+    },
+    "richText": {
+      "bold": "粗體",
+      "italic": "斜體",
+      "underline": "下劃綫",
+      "strikeout": "刪除綫",
+      "alignLeft": "文字左對齊",
+      "alignRight": "文字右對齊",
+      "alignCenter": "文字居中對齊",
+      "justifyCenter": "文本對齊中心",
+      "alignTop": "頂部對齊",
+      "alignMiddle": "居中對齊",
+      "alignBottom": "底部對齊"
+    },
+    "customStampModal": {
+      "modalName": "創建新圖章",
+      "stampText": "印章文字",
+      "timestampText": "時間戳記文字",
+      "Username": "用戶名",
+      "Date": "日期",
+      "Time": "時間",
+      "fontStyle": "字體樣式",
+      "dateFormat": "日期格式",
+      "month": "月",
+      "day": "天",
+      "year": "年",
+      "hour": "小時",
+      "minute": "分鐘",
+      "second": "第二",
+      "textColor": "文字顏色",
+      "backgroundColor": "背景顏色",
+      "dateToolTipLabel": "有關日期格式的更多信息",
+      "previewCustomStamp": "預覽"
+    },
+    "pageRedactModal": {
+      "addMark": "添加標記",
+      "pageSelection": "頁面選擇",
+      "current": "當前頁面",
+      "specify": "指定頁面",
+      "odd": "僅奇數頁",
+      "even": "僅偶數頁"
+    },
+    "lineStyleOptions": {
+      "title": "風格"
+    },
+    "settings": {
+      "settings": "設置",
+      "searchSettings": "搜索設置",
+      "general": "一般的",
+      "language": "語",
+      "theme": "主題",
+      "darkMode": "黑暗模式",
+      "lightMode": "燈光模式",
+      "advancedSetting": "高級設置",
+      "viewing": "查看",
+      "disableFadePageNavigationComponent": "禁用淡入淡出頁面導航組件",
+      "disableFadePageNavigationComponentDesc": "始終保持頁面導航組件在屏幕上。默認行為是在一段時間不活動後將其淡化。",
+      "enabledFormFieldHighlighting": "啟用表單欄位突出顯示",
+      "enabledFormFieldHighlightingDesc": "啟用 PDF 文件中表單欄位的突出顯示。預設啟用。",
+      "disableNativeScrolling": "禁用本機滾動",
+      "disableNativeScrollingDesc": "如果之前已啟用，則禁用本機移動設備滾動行為。請注意，本機移動設備滾動行為默認情況下是關閉的。",
+      "annotations": "註釋",
+      "disableToolDefaultStyleUpdateFromAnnotationPopup": "從註釋彈出窗口禁用工具默認樣式更新",
+      "disableToolDefaultStyleUpdateFromAnnotationPopupDesc": "禁用將註釋樣式更新同步到創建註釋的關聯工具。因此，如果註釋的樣式發生更改，工具默認樣式將不會更新。",
+      "notesPanel": "筆記面板",
+      "disableNoteSubmissionWithEnter": "使用 Enter 禁用註釋提交",
+      "disableNoteSubmissionWithEnterDesc": "如果之前已啟用，則僅按 Enter 即可禁用提交註釋的功能。這會將筆記提交恢復為默認值，即 Ctrl/Cmd + Enter。",
+      "disableAutoExpandCommentThread": "禁用自動展開評論線程",
+      "disableAutoExpandCommentThreadDesc": "禁用註釋面板中所有評論線程的自動擴展。",
+      "disableReplyCollapse": "禁用回复折疊",
+      "disableReplyCollapseDesc": "禁止折疊備註面板中的回复。",
+      "disableTextCollapse": "禁用文本折疊",
+      "disableTextCollapseDesc": "禁用註釋面板中註釋文本的折疊。",
+      "search": "搜索",
+      "disableClearSearchOnPanelClose": "在面板關閉時禁用清除搜索",
+      "disableClearSearchOnPanelCloseDesc": "當用戶關閉搜索面板時禁用清除搜索結果。禁用時，即使用戶關閉並重新打開搜索面板，搜索結果也會保留。請注意，即使啟用此設置，移動設備也不會清除搜索結果。這是因為需要關閉面板才能查看文檔上的搜索結果。",
+      "pageManipulation": "頁面操作",
+      "disablePageDeletionConfirmationModal": "禁用頁面刪除確認模式",
+      "disablePageDeletionConfirmationModalDesc": "從縮略圖視圖中刪除頁面時禁用確認模式",
+      "disableMultiselect": "禁用多選",
+      "disableMultiselectDesc": "在左側縮略圖面板中禁用多選",
+      "miscellaneous": "各種各樣的",
+      "keyboardShortcut": "鍵盤快捷鍵",
+      "command": "命令",
+      "description": "描述",
+      "action": "行動",
+      "rotateDocumentClockwise": "順時針旋轉文檔",
+      "rotateDocumentCounterclockwise": "逆時針旋轉文檔",
+      "copyText": "複製選定的文本或註釋",
+      "pasteText": "粘貼文本或註釋",
+      "undoChange": "撤消註釋更改",
+      "redoChange": "重做註釋更改",
+      "openFile": "打開文件選擇器",
+      "openSearch": "打開搜索疊加層",
+      "zoomOptions": "縮放選項",
+      "zoomIn": "放大",
+      "zoomOut": "縮小",
+      "setHeaderFocus": "將焦點設定到標題",
+      "fitScreenWidth": "在小屏幕（< 640px）中將文檔調整為屏幕寬度，否則將其調整為原始大小",
+      "print": "打印",
+      "bookmarkOpenPanel": "快速為頁面添加書籤並打開書籤面板",
+      "goToPreviousPage": "轉到上一頁",
+      "goToNextPage": "轉到下一頁",
+      "goToPreviousPageArrowUp": "以單一佈局模式轉到上一頁（ArrowUp）",
+      "goToNextPageArrowDown": "以單一佈局模式轉到下一頁（ArrowDown）",
+      "holdSwitchPan": "按住切換到平移模式並鬆開返回上一個工具",
+      "selectAnnotationEdit": "選擇註釋編輯工具",
+      "selectPan": "選擇平移工具",
+      "selectCreateArrowTool": "選擇 AnnotationCreateArrow 工具",
+      "selectCreateCalloutTool": "選擇 AnnotationCreateCallout 工具",
+      "selectEraserTool": "選擇 AnnotationEraser 工具",
+      "selectCreateFreeHandTool": "選擇 AnnotationCreateFreeHand 工具",
+      "selectCreateStampTool": "選擇 AnnotationCreateStamp 工具",
+      "selectCreateLineTool": "選擇 AnnotationCreateLine 工具",
+      "selectCreateStickyTool": "選擇 AnnotationCreateSticky 工具",
+      "selectCreateEllipseTool": "選擇 AnnotationCreateEllipse 工具",
+      "selectCreateRectangleTool": "選擇 AnnotationCreateRectangle 工具",
+      "selectCreateRubberStampTool": "選擇 AnnotationCreateRubberStamp 工具",
+      "selectCreateFreeTextTool": "選擇 AnnotationCreateFreeText 工具",
+      "openSignatureModal": "打開簽名模式或覆蓋",
+      "selectCreateTextSquigglyTool": "選擇 AnnotationCreateTextSquiggly 工具",
+      "selectCreateTextHighlightTool": "選擇 AnnotationCreateTextHighlight 工具",
+      "selectCreateTextStrikeoutTool": "選擇 AnnotationCreateTextStrikeout 工具",
+      "selectCreateTextUnderlineTool": "選擇 AnnotationCreateTextUnderline 工具",
+      "editKeyboardShortcut": "編輯快捷鍵",
+      "setShortcut": "設定快捷方式",
+      "editShortcut": "編輯快捷方式",
+      "shortcutAlreadyExists": "上面的鍵盤快捷鍵已經存在。",
+      "close": "關閉工具提示",
+      "spreadsheetEditor": {
+        "copyText": "複製選取的文字或儲存格",
+        "pasteText": "貼上文字或單元格",
+        "cutText": "剪下選定的文字或儲存格",
+        "undoChange": "撤銷更改",
+        "redoChange": "重做更改",
+        "selectAll": "選取所有儲存格",
+        "moveToEdgeUp": "跳至工作表頂部",
+        "moveToEdgeDown": "跳至工作表底部",
+        "moveToEdgeLeft": "跳到最左邊的列",
+        "moveToEdgeRight": "跳到最右邊的列",
+        "adjustSelectionUp": "向上擴展選擇",
+        "adjustSelectionDown": "向下擴展選擇",
+        "adjustSelectionLeft": "向左擴展選擇",
+        "adjustSelectionRight": "擴大選擇權",
+        "up": "向上移動單元格選擇框",
+        "down": "向下移動單元格選擇框",
+        "left": "向左移動儲存格選擇框",
+        "right": "向右移動單元格選擇框",
+        "enter": "編輯選取的儲存格",
+        "tab": "將儲存格選擇框向右移動",
+        "delete": "清除單元格數據"
+      }
+    },
+    "cellBorderStyle": {
+      "none": "沒有任何",
+      "thin": "堅硬的",
+      "dashed": "虛線",
+      "dotted": "虛線"
+    }
+  },
+  "warning": {
+    "deletePage": {
+      "deleteTitle": "刪除頁面",
+      "deleteMessage": "您確定要刪除所選頁面嗎？此操作無法撤銷。",
+      "deleteLastPageMessage": "您無法刪除文檔中的所有頁面。"
+    },
+    "extractPage": {
+      "title": "提取頁面",
+      "message": "您確定要提取所選頁面嗎？",
+      "confirmBtn": "提取頁面",
+      "secondaryBtn": "提取並刪除頁面"
+    },
+    "redaction": {
+      "applyTile": "應用編輯",
+      "applyMessage": "此操作將永久刪除所有要編輯的項目。無法撤消。"
+    },
+    "deleteBookmark": {
+      "title": "刪除書籤？",
+      "message": "您確定要刪除這些書籤嗎？您無法撤消此操作。"
+    },
+    "deleteOutline": {
+      "title": "刪除大綱？",
+      "message": "您確定要刪除這些大綱嗎？\n\n刪除具有嵌套輪廓的輪廓將導致整個內部結構被刪除，並且如果需要，必須重新創建。"
+    },
+    "selectPage": {
+      "selectTitle": "未選擇頁面",
+      "selectMessage": "請選擇頁面，然後重試。"
+    },
+    "colorPicker": {
+      "deleteTitle": "刪除自定義顏色",
+      "deleteMessage": "刪除所選的自定義顏色？它將從您的調色板中刪除。"
+    },
+    "colorPalettePicker": {
+      "deleteTitle": "刪除自訂顏色"
+    },
+    "multiDeleteAnnotation": {
+      "title": "刪除註釋？",
+      "message": "刪除將刪除所有評論、回復和分組，並且無法撤消。\n\n 您確定要刪除這些註釋嗎？"
+    },
+    "closeFile": {
+      "title": "不下載就關閉？",
+      "message": "此文檔有更改，您確定要關閉它而不下載您的工作嗎？您無法撤消此操作。",
+      "rejectDownloadButton": "關閉而不下載"
+    },
+    "connectToURL": {
+      "title": "安全警告",
+      "message": "該文檔正在嘗試連接到：\n\n{{- uri}}\n\n 如果您信任此文檔，請單擊“確認”將其打開。"
+    },
+    "sheetTabRenameIssueOne": {
+      "title": "編輯工作表名稱",
+      "message": "此名稱已存在。請輸入其他名稱。"
+    },
+    "sheetTabRenameIssueTwo": {
+      "title": "編輯工作表名稱",
+      "message": "工作表名稱不能為空。請輸入一個名稱。"
+    },
+    "sheetTabDeleteMessage": {
+      "title": "刪除表格",
+      "message": "您確定要刪除此工作表嗎？"
+    },
+    "officeEditorPageLayout": {
+      "title": "頁面佈局",
+      "columnsMessage": "在某些部分中，您選擇的列間距設定對於頁面寬度來說太大。",
+      "marginsMessage": "在某些部分中，您選擇的邊距設定對於頁面寬度來說太大。"
+    }
+  },
+  "shortcut": {
+    "arrow": "(A)",
+    "callout": "(C)",
+    "copy": "(Ctrl C)",
+    "delete": "(Del)",
+    "ellipse": "(O)",
+    "eraser": "(E)",
+    "freehand": "(F)",
+    "freetext": "(T)",
+    "highlight": "(H)",
+    "line": "(L)",
+    "pan": "(P)",
+    "rectangle": "(R)",
+    "rotateClockwise": "(Ctrl Shift +)",
+    "rotateCounterClockwise": "(Ctrl Shift -)",
+    "select": "(Esc)",
+    "signature": "(S)",
+    "squiggly": "(G)",
+    "image": "（一世）",
+    "redo": "（Ctrl Shift Z）",
+    "redo_windows": "(Ctrl Y)",
+    "undo": "（Ctrl Z）",
+    "stickyNote": "(N)",
+    "strikeout": "(K)",
+    "underline": "(U)",
+    "zoomIn": "(Ctrl +)",
+    "zoomOut": "(Ctrl -)",
+    "richText": {
+      "bold": "（Ctrl B）",
+      "italic": "（Ctrl I）",
+      "underline": "（Ctrl U）",
+      "strikeout": "（Ctrl K）"
+    },
+    "rotate3D": "Shift +拖動",
+    "zoom3D": "Shift +滾動"
+  },
+  "tool": {
+    "pan": "移動瀏覽",
+    "select": "選取",
+    "selectAnOption": "選擇一個選項",
+    "Marquee": "跑馬燈縮放",
+    "Link": "鏈接網址或頁面",
+    "Standard": "標準",
+    "Custom": "自訂"
+  },
+  "link": {
+    "url": "網址",
+    "page": "頁",
+    "enterurl": "輸入您想要鏈接的URL",
+    "enterUrlAlt": "輸入網址",
+    "insertLink": "插入連結",
+    "insertLinkOrPage": "插入連結或頁面",
+    "enterpage": "輸入您想要連結到的頁碼",
+    "urlLink": "網址連結"
+  },
+  "Model3D": {
+    "add3D": "通過輸入URL添加3D註釋",
+    "enterurl": "輸入glTF格式的3D對象的URL",
+    "enterurlOrLocalFile": "輸入URL或以glTF格式上傳3D對象",
+    "formatError": "僅支持glTF（.glb）格式"
+  },
+  "OpenFile": {
+    "enterUrlOrChooseFile": "輸入 URL 或選擇要加載到 WebViewer 的文件",
+    "enterUrl": "輸入文件網址",
+    "extension": "文件擴展名",
+    "existingFile": "文件已經打開",
+    "addTab": "新增選項卡",
+    "newTab": "新標籤"
+  },
+  "datePicker": {
+    "previousMonth": "前一個月",
+    "nextMonth": "下個月",
+    "months": {
+      "0": "一月",
+      "1": "二月",
+      "2": "三月",
+      "3": "四月",
+      "4": "五月",
+      "5": "六月",
+      "6": "七月",
+      "7": "八月",
+      "8": "九月",
+      "9": "十月",
+      "10": "十一月",
+      "11": "十二月"
+    },
+    "monthsShort": {
+      "0": "一月",
+      "1": "二月",
+      "2": "三月",
+      "3": "四月",
+      "4": "五月",
+      "5": "六月",
+      "6": "七月",
+      "7": "八月",
+      "8": "九月",
+      "9": "十月",
+      "10": "十一月",
+      "11": "十二月"
+    },
+    "weekdays": {
+      "0": "星期日",
+      "1": "星期一",
+      "2": "星期二",
+      "3": "星期三",
+      "4": "星期四",
+      "5": "星期五",
+      "6": "星期六"
+    },
+    "weekdaysShort": {
+      "0": "週日",
+      "1": "週一",
+      "2": "週二",
+      "3": "週三",
+      "4": "週四",
+      "5": "週五",
+      "6": "週六"
+    },
+    "today": "今天",
+    "invalidDateTime": "無效的日期/時間：輸入應與格式匹配"
+  },
+  "formField": {
+    "indexPanel": {
+      "formFieldList": "表單欄位列表",
+      "notFields": "該文檔沒有表單字段"
+    },
+    "formFieldPopup": {
+      "fieldName": "欄位名稱",
+      "fieldValue": "默認值",
+      "readOnly": "只讀",
+      "multiSelect": "多選",
+      "required": "必需的",
+      "multiLine": "多行",
+      "apply": "申請",
+      "cancel": "取消",
+      "flags": "場旗",
+      "fieldSize": "視野大小",
+      "options": "選項",
+      "properties": "特性",
+      "radioGroups": "具有相同字段名稱的單選按鈕將屬於同一分組。",
+      "nameRequired": "字段名稱為必填項",
+      "fieldIndicator": "現場指標",
+      "documentFieldIndicator": "文檔字段指示符",
+      "includeFieldIndicator": "包括字段指示器",
+      "indicatorPlaceHolders": {
+        "TextFormField": "在此處插入文本",
+        "CheckBoxFormField": "查看",
+        "RadioButtonFormField": "充滿",
+        "ListBoxFormField": "選擇",
+        "ComboBoxFormField": "選擇",
+        "SignatureFormField": {
+          "fullSignature": "在這裡簽名",
+          "initialsSignature": "初始在這裡"
+        }
+      },
+      "size": "尺寸",
+      "width": "寬度",
+      "height": "高度",
+      "invalidField": {
+        "duplicate": "字段名稱已存在",
+        "empty": "字段名稱不能為空"
+      }
+    },
+    "formFieldPanel": {
+      "SignatureFormField": "簽名字段註釋",
+      "CheckBoxFormField": "複選框字段註釋",
+      "RadioButtonFormField": "單選按鈕欄位註釋",
+      "ListBoxFormField": "列錶框字段註釋",
+      "ComboBoxFormField": "組合框字段註釋",
+      "TextFormField": "文字欄位註釋"
+    },
+    "apply": "套用欄位",
+    "type": "字段類型",
+    "types": {
+      "text": "文本",
+      "signature": "簽名",
+      "checkbox": "複選框",
+      "radio": "單選按鈕",
+      "listbox": "列錶框",
+      "combobox": "組合框",
+      "button": "按鈕"
+    }
+  },
+  "alignmentPopup": {
+    "alignment": "對齊",
+    "alignLeft": "左對齊",
+    "alignHorizontalCenter": "水平居中對齊",
+    "alignVerticalCenter": "垂直居中對齊",
+    "alignRight": "右對齊",
+    "alignTop": "頂部對齊",
+    "alignBottom": "底部對齊",
+    "distribute": "散佈",
+    "distributeHorizontal": "水平分佈",
+    "distributeVertical": "垂直分佈"
+  },
+  "digitalSignatureModal": {
+    "certification": "認證證書",
+    "Certification": "資質認證",
+    "signature": "簽名",
+    "Signature": "簽名",
+    "valid": "有效",
+    "invalid": "無效",
+    "unknown": "未知",
+    "title": "{{type}}屬性",
+    "header": {
+      "documentIntegrity": "文件完整性",
+      "identitiesTrust": "身份與信任",
+      "generalErrors": "一般錯誤",
+      "digestStatus": "摘要狀態"
+    },
+    "documentPermission": {
+      "noChangesAllowed": "{{editor}}已指定不允許對此文檔進行任何更改",
+      "formfillingSigningAllowed": "{{editor}}已指定允許此文檔使用“表單填寫”和“簽名”。不允許其他更改。",
+      "annotatingFormfillingSigningAllowed": "{{editor}}已指定允許該文檔的表單填寫，簽名和註釋。不允許其他更改。",
+      "unrestricted": "{{editor}}已指定此文檔沒有任何限制。"
+    },
+    "digestAlgorithm": {
+      "preamble": "用於簽名簽名的摘要算法：",
+      "unknown": "用於簽名簽名的摘要算法未知。"
+    },
+    "trustVerification": {
+      "none": "沒有詳細的信任驗證結果。",
+      "current": "嘗試針對當前時間進行信任驗證",
+      "signing": "嘗試進行有關簽名時間的信任驗證：{{trustVerificationTime}}",
+      "timestamp": "嘗試針對安全嵌入式時間戳記進行信任驗證：{{trustVerificationTime}}"
+    },
+    "signerIdentity": {
+      "preamble": "簽名者的身份是",
+      "valid": "有效。",
+      "unknown": "未知。"
+    },
+    "summaryBox": {
+      "summary": "數字{{type}}是{{status}}",
+      "signedBy": "，由{{name}}簽名"
+    }
+  },
+  "digitalSignatureVerification": {
+    "certifier": "證明",
+    "certified": "認證的",
+    "Certified": "已認證",
+    "Certification": "認證",
+    "signer": "標誌",
+    "signed": "簽",
+    "Signed": "簽",
+    "Signature": "簽名",
+    "by": "通過",
+    "on": "上",
+    "disallowedChange": "不允許更改：{{type}}，objnum：{{objnum}}",
+    "unsignedSignatureField": "未簽名的簽名字段：{{fieldName}}",
+    "signatureProperties": "簽名屬性",
+    "trustVerification": {
+      "current": "驗證時間為當前時間",
+      "signing": "驗證時間是來自簽名者計算機上的時鐘",
+      "timestamp": "驗證時間來自文檔中嵌入的安全時間戳",
+      "verifiedTrust": "信任驗證結果：已驗證",
+      "noTrustVerification": "沒有詳細的信任驗證結果。"
+    },
+    "permissionStatus": {
+      "noPermissionsStatus": "沒有權限狀態可以報告。",
+      "permissionsVerificationDisabled": "權限驗證已被禁用。",
+      "hasAllowedChanges": "該文檔具有簽名權限設置所允許的更改。",
+      "invalidatedByDisallowedChanges": "文檔具有簽名權限設置不允許的更改。",
+      "unmodified": "該文檔自從",
+      "unsupportedPermissionsFeatures": "遇到不支援的權限功能。"
+    },
+    "trustStatus": {
+      "trustVerified": "已成功建立對{{verificationType}}的信任。",
+      "untrusted": "無法建立信任。",
+      "trustVerificationDisabled": "信任驗證已被禁用。",
+      "noTrustStatus": "沒有可報告的信任狀態。"
+    },
+    "digestStatus": {
+      "digestInvalid": "摘要不正確。",
+      "digestVerified": "摘要是正確的。",
+      "digestVerificationDisabled": "摘要驗證已禁用。",
+      "weakDigestAlgorithmButDigestVerifiable": "摘要是正確的，但摘要算法較弱且不安全。",
+      "noDigestStatus": "沒有摘要狀態可報告。",
+      "unsupportedEncoding": "沒有安裝的SignatureHandler能夠識別簽名的編碼",
+      "documentHasBeenAltered": "文件自簽署以來已被更改或損壞。"
+    },
+    "documentStatus": {
+      "noError": "沒有一般錯誤要報告。",
+      "corruptFile": "SignatureHandler報告文件損壞。",
+      "unsigned": "簽名尚未進行加密簽名。",
+      "badByteRanges": "SignatureHandler報告數字簽名中ByteRanges中的損壞。",
+      "corruptCryptographicContents": "SignatureHandler報告數字簽名內容中的損壞。"
+    },
+    "signatureDetails": {
+      "signatureDetails": "簽名細節",
+      "contactInformation": "聯繫信息",
+      "location": "位置",
+      "reason": "原因",
+      "signingTime": "簽約時間",
+      "noContactInformation": "沒有提供聯繫信息",
+      "noLocation": "沒有提供位置",
+      "noReason": "沒有提供原因",
+      "noSigningTime": "找不到簽名時間"
+    },
+    "panelMessages": {
+      "noSignatureFields": "該文檔沒有簽名字段",
+      "certificateDownloadError": "嘗試下載受信任的證書時遇到錯誤",
+      "localCertificateError": "讀取本地證書存在一些問題"
+    },
+    "verificationStatus": {
+      "valid": "{{verificationType}} 有效。",
+      "failed": "{{verificationType}} 失敗。"
+    }
+  },
+  "cropPopUp": {
+    "title": "要裁剪的頁面",
+    "allPages": "全部",
+    "singlePage": "當前頁面",
+    "multiPage": "指定頁面",
+    "cropDimensions": "作物尺寸",
+    "dimensionInput": {
+      "unitOfMeasurement": "單元",
+      "autoTrim": "自動修剪",
+      "autoTrimCustom": "風俗"
+    },
+    "cropModal": {
+      "applyTitle": "應用作物？",
+      "applyMessage": "此操作將永久裁剪所有選定的選定頁面。它無法撤消。",
+      "cancelTitle": "取消裁剪？",
+      "cancelMessage": "您確定要取消裁剪所有選定的頁面嗎？"
+    }
+  },
+  "snippingPopUp": {
+    "title": "剪裁工具",
+    "clipboard": "複製到剪貼板",
+    "download": "下載",
+    "cropAndRemove": "裁剪和刪除",
+    "snippingModal": {
+      "applyTitle": "套用剪裁？",
+      "applyMessage": "此操作將永久剪裁指定的區域並刪除其他頁面。無法撤銷。",
+      "cancelTitle": "取消剪裁？",
+      "cancelMessage": "您確定要停止剪裁嗎？"
+    }
+  },
+  "textEditingPanel": {
+    "paragraph": "段落",
+    "text": "文本"
+  },
+  "redactionPanel": {
+    "noMarkedRedactions": "通過標記文本、區域、頁面或進行搜索來開始編輯。",
+    "redactionSearchPlaceholder": "透過鍵盤或模式進行編輯",
+    "redactionCounter": "標記為編輯",
+    "clearMarked": "清除",
+    "redactAllMarked": "全部編輯",
+    "redactionItems": "密文項目",
+    "redactionItem": {
+      "regionRedaction": "區域編輯",
+      "fullPageRedaction": "整頁編輯",
+      "fullVideoFrameRedaction": "視頻編輯",
+      "audioRedaction": "音頻編輯",
+      "fullVideoFrameAndAudioRedaction": "視頻和音頻編輯",
+      "image": "圖片"
+    },
+    "expand": "擴張",
+    "collapse": "坍塌",
+    "searchResults": "搜尋結果",
+    "search": {
+      "creditCards": "信用卡",
+      "phoneNumbers": "電話號碼",
+      "images": "圖片",
+      "emails": "電子郵件",
+      "pattern": "圖案",
+      "start": "開始搜索"
+    }
+  },
+  "wv3dPropertiesPanel": {
+    "propertiesHeader": "屬性",
+    "miscValuesHeader": "全部",
+    "emptyPanelMessage": "選擇一個元素來查看它的屬性."
+  },
+  "portfolio": {
+    "createPDFPortfolio": "創建 PDF 包",
+    "uploadFiles": "上傳文件",
+    "uploadFolder": "上傳文件夾",
+    "addFiles": "添加文件",
+    "addFile": "添加文件",
+    "addFolder": "新增文件夾",
+    "createFolder": "創建文件夾",
+    "portfolioPanelTitle": "PDF 作品集",
+    "portfolioNewFolder": "新建文件夾",
+    "portfolioDocumentTitle": "檔案名稱",
+    "portfolioFolderPlaceholder": "文件夾名稱",
+    "portfolioFilePlaceholder": "文件名",
+    "folderNameAlreadyExists": "文件夾名稱已存在",
+    "fileNameAlreadyExists": "文件名已存在",
+    "openFile": "在新選項卡中打開",
+    "fileAlreadyExists": "文件已存在",
+    "fileAlreadyExistsMessage": "文件“{{fileName}}”已存在於組合中。",
+    "deletePortfolio": "您確定要刪除“{{fileName}}”嗎？",
+    "reselect": "重新選擇"
+  },
+  "languageModal": {
+    "selectLanguage": "選擇語言"
+  },
+  "officeEditor": {
+    "bold": "大膽的",
+    "italic": "斜體",
+    "underline": "強調",
+    "strikeout": "刪除線",
+    "textColor": "文字顏色",
+    "leftAlign": "左對齊",
+    "centerAlign": "居中對齊",
+    "rightAlign": "右對齊",
+    "justify": "證明合法",
+    "lineSpacing": "行間距和段落間距",
+    "lineSpacingMenu": "行距",
+    "bulletList": "項目符號列表",
+    "numberList": "編號列表",
+    "decreaseIndent": "減少縮排",
+    "increaseIndent": "增加縮排",
+    "nonPrintingCharacters": "非列印字符",
+    "insertLink": "插入鏈接",
+    "insertImage": "插入圖片",
+    "image": "影像",
+    "table": "桌子",
+    "insertRowAbove": "在上方插入行",
+    "insertRowBelow": "在下面插入行",
+    "insertColumnRight": "右插入列",
+    "insertColumnLeft": "向左插入列",
+    "deleteRow": "刪除行",
+    "deleteColumn": "刪除列",
+    "deleteTable": "刪除表",
+    "deleted": "已刪除：",
+    "added": "添加：",
+    "formatted": "格式化：",
+    "editing": "編輯",
+    "editingDescription": "編輯文檔",
+    "reviewing": "審閱",
+    "reviewingDescription": "提供建議",
+    "viewOnly": "只讀",
+    "viewOnlyDescription": "查看無建議",
+    "notSupportedOnMobile": "移動設備不支持 Office 編輯。",
+    "previewAllChanges": "預覽所有更改",
+    "changes": "變化",
+    "comments": "評論",
+    "commentsAndChangesTabs": "評論和更改選項卡",
+    "accept": "接受",
+    "reject": "拒絕",
+    "pastingTitle": "無法貼上",
+    "pastingMessage": "您的瀏覽器不支援貼上。相反，您可以使用鍵盤快捷鍵",
+    "pastingWithoutFormatTitle": "不含格式貼上不可用",
+    "pastingWithoutFormatMessage": "您的瀏覽器不支援不含格式的貼上。相反，您可以使用鍵盤快捷鍵",
+    "breaks": "休息時間",
+    "pageBreak": "分頁符",
+    "pageBreakDescription": "結束頁面並從新頁面開始",
+    "sectionBreakNextPage": "分節符 - 下一頁",
+    "sectionBreakNextPageDescription": "插入分節符號並從下一頁開始",
+    "sectionBreakContinuous": "分節符號 - 連續",
+    "sectionBreakContinuousDescription": "插入分節符號並在同一頁上繼續 ",
+    "section": "部分",
+    "margins": "邊距",
+    "normal": "普通的",
+    "narrow": "狹窄的",
+    "moderate": "緩和",
+    "wide": "寬的",
+    "top": "頂部",
+    "bottom": "底部",
+    "left": "左邊",
+    "right": "正確的",
+    "customMargins": "自訂邊距",
+    "customMarginsDescription": "訂定自訂邊距",
+    "column": "柱子",
+    "columns": "列",
+    "singleColumn": "1 列",
+    "twoColumn": "2 列",
+    "threeColumn": "3 列",
+    "customColumn": "自訂列",
+    "customColumnDescription": "訂定自訂列",
+    "unitMeasurement": "單位測量",
+    "header": {
+      "0": "標頭",
+      "1": "首頁頁眉",
+      "2": "偶數頁頁眉",
+      "3": "奇數頁頁眉",
+      "-1": "無效標頭"
+    },
+    "footer": {
+      "0": "頁尾",
+      "1": "首頁頁腳",
+      "2": "偶數頁頁腳",
+      "3": "奇數頁頁腳",
+      "-1": "頁尾無效"
+    },
+    "options": "選項",
+    "pageOptions": "頁面選項",
+    "removeHeader": "刪除標題",
+    "removeFooter": "刪除頁腳",
+    "headerFooterOptionsModal": {
+      "title": "頁首和頁尾格式",
+      "headerFromTop": "標題從頂部",
+      "footerFromBottom": "頁腳從底部開始",
+      "layouts": {
+        "layout": "佈局",
+        "noSelection": "無選擇",
+        "differentFirstPage": "不同的首頁",
+        "differentEvenOddPages": "不同的偶數頁和奇數頁",
+        "differentFirstEvenOddPages": "不同的首頁、偶數頁和奇數頁"
+      }
+    },
+    "columnsModal": {
+      "title": "自訂列調整",
+      "columnAmount": "列數",
+      "columnNumber": "列號",
+      "width": "寬度",
+      "spacing": "間距",
+      "widthAndSpacing": "寬度和間距",
+      "equalColumns": "等寬列"
+    },
+    "marginsModal": {
+      "title": "自訂邊距調整",
+      "leftMargin": "左邊距",
+      "rightMargin": "右邊距",
+      "topMargin": "上邊距",
+      "bottomMargin": "下邊距"
+    },
+    "lineSpacingOptions": {
+      "15": "1.5",
+      "115": "1.15",
+      "single": "單身的",
+      "double": "雙倍的",
+      "custom": "風俗"
+    },
+    "numberDropdown": {
+      "6": "數字 拉丁羅馬 1",
+      "7": "數字 小數",
+      "8": "數字 拉丁羅馬 2",
+      "10": "拉丁羅馬語",
+      "11": "羅馬拉丁數字",
+      "dropdownLabel": "編號預設"
+    },
+    "bulletDropdown": {
+      "0": "子彈",
+      "1": "子彈廣場",
+      "2": "方形子彈",
+      "3": "鑽石",
+      "4": "查看",
+      "5": "箭",
+      "dropdownLabel": "項目符號預設"
+    },
+    "fontSize": {
+      "dropdownLabel": "字體大小"
+    },
+    "fontStyles": {
+      "dropdownLabel": "字體樣式"
+    },
+    "fontFamily": {
+      "dropdownLabel": "字體家族"
+    }
+  },
+  "spreadsheetEditor": {
+    "editing": "編輯",
+    "viewOnly": "觀看",
+    "editingDescription": "編輯文檔",
+    "viewOnlyDescription": "僅供查看",
+    "editModeDropdown": "編輯模式選擇",
+    "bold": "大膽的",
+    "italic": "斜體",
+    "underline": "強調",
+    "strikethrough": "刪除線",
+    "strikeout": "刪除線",
+    "cellBorderStyle": "邊框樣式",
+    "merge": "合併",
+    "unmerge": "取消合併",
+    "cellFormat": "單元格格式",
+    "automaticFormat": "自動的",
+    "plainTextFormat": "純文字",
+    "increaseDecimalFormat": "增加小數",
+    "decreaseDecimalFormat": "減少小數",
+    "numberFormat": "數位",
+    "percentFormat": "百分比",
+    "accountingFormat": "會計",
+    "financialFormat": "金融的",
+    "currencyFormat": "貨幣",
+    "currencyRoundedFormat": "貨幣四捨五入",
+    "calendarFormat": "日期",
+    "clockHourFormat": "時間",
+    "calendarTimeFormat": "日期時間",
+    "formatAsCurrency": "格式為貨幣",
+    "formatAsPercent": "格式為百分比",
+    "formatAsDecDecimal": "減少小數點",
+    "formatAsIncDecimal": "增加小數點",
+    "textColor": "文字顏色",
+    "cellBackgroundColor": "背景顏色",
+    "cellBorderColor": "邊框顏色",
+    "textLabel": "文字",
+    "backgroundLabel": "背景",
+    "borderLabel": "邊界",
+    "textAlignment": "文字對齊",
+    "topAlign": "頂部對齊",
+    "middleAlign": "中間對齊",
+    "bottomAlign": "底部對齊",
+    "cellAdjustment": "細胞調整",
+    "cellFormatMoreOptions": "更多單元格格式選項",
+    "insertColumnLeft": "插入左側列",
+    "insertColumnRight": "插入右側列",
+    "insertRowTop": "在上方插入行",
+    "insertRowBottom": "在下面插入行",
+    "insertColumnShiftDown": "插入單元格並下移",
+    "insertColumnShiftRight": "插入單元格並右移",
+    "deleteColumn": "刪除列",
+    "deleteRow": "刪除行",
+    "deleteColumnShiftUp": "刪除單元格並上移",
+    "deleteColumnShiftLeft": "刪除單元格並左移",
+    "clearBorder": "清除邊框",
+    "all": "所有邊界",
+    "inside": "邊界內",
+    "outside": "境外",
+    "top": "頂部邊框",
+    "bottom": "下邊框",
+    "left": "左邊框",
+    "right": "右邊框",
+    "vertical": "垂直邊框",
+    "horizontal": "水平邊框",
+    "none": "無邊界",
+    "borders": "邊界",
+    "textWrap": "文字換行",
+    "wrap": "裹",
+    "overflow": "溢出",
+    "clip": "夾子",
+    "fontSize": {
+      "dropdownLabel": "字體大小"
+    },
+    "fontFamily": {
+      "dropdownLabel": "字體系列"
+    },
+    "blankSheet": "空白頁",
+    "insertImage": "插入圖片"
+  },
+  "insertPageModal": {
+    "title": "插入新頁面",
+    "tabs": {
+      "blank": "空白的",
+      "upload": "上傳"
+    },
+    "pagePlacements": {
+      "header": "頁面放置",
+      "above": "上頁",
+      "below": "下頁"
+    },
+    "pageLocations": {
+      "header": "頁面位置",
+      "specify": "指定頁面",
+      "specifyLocation": "指定頁面位置",
+      "amount": "頁數",
+      "total": "全部的",
+      "pages": "頁面"
+    },
+    "pageDimensions": {
+      "header": "頁面尺寸",
+      "subHeader": "預設",
+      "presets": {
+        "letter": "信",
+        "halfLetter": "半個字母",
+        "juniorLegal": "初級法律",
+        "custom": "風俗"
+      },
+      "units": "單位"
+    },
+    "browse": "瀏覽文件",
+    "fileSelected": {
+      "title": "選擇要添加的頁面"
+    },
+    "button": "添加頁面",
+    "selectPages": "選擇要添加的頁面",
+    "page": "頁",
+    "warning": {
+      "title": "退出插入新頁面？",
+      "message": "退出將取消您迄今為止所做的所有選擇。你確定你還想退出嗎？"
+    }
+  },
+  "multiViewer": {
+    "dragAndDrop": "將您的文件拖放到此處進行比較",
+    "or": "或者",
+    "browse": "瀏覽文件",
+    "startSync": "開始同步",
+    "stopSync": "停止同步",
+    "closeDocument": "關閉文檔",
+    "save": "保存文檔",
+    "comparePanel": {
+      "Find": "在文檔中查找",
+      "changesList": "更改清單",
+      "change": "改變",
+      "old": "老的",
+      "new": "新的",
+      "page": "頁",
+      "textContent": "文字內容",
+      "delete": "刪除",
+      "insert": "插入",
+      "edit": "編輯"
+    }
+  },
+  "saveModal": {
+    "close": "關",
+    "saveAs": "另存為",
+    "general": "一般的",
+    "fileName": "文件名",
+    "fileType": "文件類型",
+    "fileLocation": "文件位置",
+    "browse": "瀏覽",
+    "pageRange": "頁面範圍",
+    "all": "全部",
+    "currentView": "目前看來",
+    "currentPage": "當前頁面",
+    "specifyPage": "指定頁面",
+    "properties": "特性",
+    "includeAnnotation": "包括註釋",
+    "includeComments": "包括評論",
+    "watermark": "水印",
+    "addWatermark": "加水印",
+    "save": "保存存檔",
+    "fileNameCannotBeEmpty": "文件名不能為空"
+  },
+  "filePicker": {
+    "dragAndDrop": "將您的文件拖放到此處",
+    "selectFile": "在這裡選擇您的文件",
+    "or": "或者"
+  },
+  "stylePanel": {
+    "headings": {
+      "styles": "風格",
+      "annotation": "註解",
+      "annotations": "註解",
+      "tool": "工具",
+      "textStyles": "文字樣式",
+      "currentColor": "目前顏色",
+      "customColors": "客製化顏色",
+      "redactionTextLabel": "文字標籤",
+      "redactionMarkOutline": "標記輪廓",
+      "redactionFill": "密文顏色",
+      "redactionTextPlaceholder": "插入文字標籤",
+      "contentEdit": "內容編輯"
+    },
+    "lineStyles": {
+      "startLineStyleLabel": "起始線樣式",
+      "middleLineStyleLabel": "中線樣式",
+      "endLineStyleLabel": "結束線樣式"
+    },
+    "addColorToCustom": "新增到自訂顏色",
+    "noToolSelected": "選擇工具以查看工具屬性",
+    "noToolStyle": "工具不包含任何樣式屬性。",
+    "noSharedToolStyle": "選定的註釋不共用任何樣式屬性。",
+    "lineEnding": {
+      "start": {
+        "dropdownLabel": "行開始"
+      },
+      "end": {
+        "dropdownLabel": "線路末端"
+      },
+      "middle": {
+        "dropdownLabel": "中線"
+      }
+    },
+    "borderStyle": {
+      "dropdownLabel": "邊界"
+    }
+  },
+  "signatureListPanel": {
+    "header": "簽名列表",
+    "newSignature": "新簽名",
+    "newSignatureAndInitial": "新簽名和首字母縮寫",
+    "signatureList": {
+      "signature": "簽名",
+      "initials": "縮寫"
+    }
+  },
+  "rubberStampPanel": {
+    "header": "郵票",
+    "standard": "標準郵票"
+  },
+  "colorPickerModal": {
+    "modalTitle": "顏色選擇器"
+  },
+  "accessibility": {
+    "landmarks": {
+      "topHeader": "頂部標題",
+      "leftHeader": "左標題",
+      "rightHeader": "右標題",
+      "bottomHeader": "底部標題",
+      "documentContent": "文件內容"
+    },
+    "label": "無障礙",
+    "accessibilityMode": "無障礙模式",
+    "skipTo": "跳至",
+    "document": "文件",
+    "notes": "筆記"
+  },
+  "formulaBar": {
+    "label": "方程式吧",
+    "range": "範圍",
+    "formulas": "公式"
+  },
+  "formulas": {
+    "SUMIF": {
+      "description": "跨範圍的條件總和。",
+      "parameters": {
+        "range": {
+          "name": "範圍",
+          "detail": "根據“標準”進行測試的範圍。"
+        },
+        "criterion": {
+          "name": "標準",
+          "detail": "應用於“範圍”的模式或測試。"
+        },
+        "sum_range": {
+          "name": "總和範圍",
+          "detail": "如果與「範圍」不同，則為要求和的範圍。"
+        }
+      }
+    },
+    "TAN": {
+      "description": "以弧度表示的角度的正切。",
+      "parameters": {
+        "angle": {
+          "name": "角度",
+          "detail": "需要求正切的角度，以弧度為單位。"
+        }
+      }
+    },
+    "TANH": {
+      "description": "任何實數的雙曲正切。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "要計算雙曲正切的任何實值。"
+        }
+      }
+    },
+    "CEILING": {
+      "description": "將數字向上捨入為最接近的因數的倍數。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "要向上捨入為「因子」最接近的整數倍的值。"
+        },
+        "factor": {
+          "name": "因素",
+          "detail": "將把「值」四捨五入為該數字的倍數。"
+        }
+      }
+    },
+    "ATAN": {
+      "description": "值的反正切，以弧度為單位。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "要計算反正切的值。"
+        }
+      }
+    },
+    "ASINH": {
+      "description": "一個數的反雙曲正弦。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "要計算反雙曲正弦的值。"
+        }
+      }
+    },
+    "ABS": {
+      "description": "數字的絕對值。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "傳回其中數字的絕對值。"
+        }
+      }
+    },
+    "ACOS": {
+      "description": "值的反餘弦，以弧度為單位。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "要計算反餘弦值的數值。必須介於 `-1` 和 `1` 之間（含 -1 和 1）。"
+        }
+      }
+    },
+    "ACOSH": {
+      "description": "一個數的反雙曲餘弦。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "要計算反雙曲餘弦的值。必須大於或等於“1”。"
+        }
+      }
+    },
+    "MULTINOMIAL": {
+      "description": "多項分佈函數。",
+      "parameters": {
+        "value1": {
+          "name": "值1",
+          "detail": "要考慮的第一個值或範圍。"
+        },
+        "value2": {
+          "name": "值2",
+          "detail": "需要考慮的附加價值或範圍。"
+        }
+      }
+    },
+    "ATANH": {
+      "description": "一個數的反雙曲正切。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "要計算反雙曲正切的值。必須介於 -1 和 1 之間（不含 -1）。"
+        }
+      }
+    },
+    "ATAN2": {
+      "description": "某個值的反正切。",
+      "parameters": {
+        "x": {
+          "name": "x",
+          "detail": "要計算與 x 軸的角度的線段端點的 x 座標。"
+        },
+        "y": {
+          "name": "和",
+          "detail": "要計算與 x 軸的角度的線段端點的 y 座標。"
+        }
+      }
+    },
+    "COUNTBLANK": {
+      "description": "空值的數量。",
+      "parameters": {
+        "value1": {
+          "name": "值1",
+          "detail": "要計算空白數量的第一個值或範圍。"
+        }
+      }
+    },
+    "COSH": {
+      "description": "任何實數的雙曲餘弦。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "要計算雙曲餘弦的任何實值。"
+        }
+      }
+    },
+    "INT": {
+      "description": "將數字向下捨去為最接近的整數。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "要向下捨入為最接近的整數的值。"
+        }
+      }
+    },
+    "ISEVEN": {
+      "description": "提供的值是否為偶數。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "需要驗證是否為偶數的值。"
+        }
+      }
+    },
+    "ISODD": {
+      "description": "提供的值是否為奇數。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "需要驗證的值是否為奇數。"
+        }
+      }
+    },
+    "LCM": {
+      "description": "一個或多個整數的最小公倍數。",
+      "parameters": {
+        "value1": {
+          "name": "值1",
+          "detail": "在計算中找到最小公倍數時要考慮其因素的第一個值或範圍。"
+        },
+        "value2": {
+          "name": "值2",
+          "detail": "需要考慮其因素以找到最小公倍數的附加價值或範圍。"
+        }
+      }
+    },
+    "LN": {
+      "description": "以 e（歐拉數）為底的數的對數。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "要計算以 e 為底的對數的值。"
+        }
+      }
+    },
+    "LOG": {
+      "description": "一個數關於底數的對數。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "要計算對數的值。"
+        },
+        "base": {
+          "name": "根據",
+          "detail": "用於計算對數的底數。"
+        }
+      }
+    },
+    "LOG10": {
+      "description": "以 10 為底的數的對數。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "要計算以 10 為底的對數的值。"
+        }
+      }
+    },
+    "MOD": {
+      "description": "模數（餘數）運算子。",
+      "parameters": {
+        "dividend": {
+          "name": "股利",
+          "detail": "要除以求餘數的數字。"
+        },
+        "divisor": {
+          "name": "除數",
+          "detail": "要除以的數字。"
+        }
+      }
+    },
+    "MROUND": {
+      "description": "將數字四捨五入為最接近的整數倍。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "要四捨五入為另一個數字的最接近的整數倍數的數字。"
+        },
+        "factor": {
+          "name": "因素",
+          "detail": "將把「值」四捨五入為該數字的倍數。"
+        }
+      }
+    },
+    "ODD": {
+      "description": "將數字向上捨入為最接近的奇數。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "要捨去到下一個最大奇數的值。"
+        }
+      }
+    },
+    "SUMSQ": {
+      "description": "平方和。",
+      "parameters": {
+        "value1": {
+          "name": "值1",
+          "detail": "第一個需要將其平方相加的數字或範圍。"
+        },
+        "value2": {
+          "name": "值2",
+          "detail": "若要將其平方加到「value1」的平方中的附加數字或範圍。"
+        }
+      }
+    },
+    "COMBIN": {
+      "description": "一組物件的組合數。",
+      "parameters": {
+        "n": {
+          "name": "n",
+          "detail": "可供選擇的物件池的大小。"
+        },
+        "k": {
+          "name": "千",
+          "detail": "要選擇的對象的數量。"
+        }
+      }
+    },
+    "SUM": {
+      "description": "一系列數字和/或儲存格的總和。",
+      "parameters": {
+        "value1": {
+          "name": "值1",
+          "detail": "第一個要相加的數字或範圍。"
+        },
+        "value2": {
+          "name": "值2",
+          "detail": "若要新增至「value1」的附加數字或範圍。"
+        }
+      }
+    },
+    "SUBTOTAL": {
+      "description": "使用特定函數對某個範圍進行小計。",
+      "parameters": {
+        "function_code": {
+          "name": "功能代碼",
+          "detail": "小計聚合中使用的函數。"
+        },
+        "range1": {
+          "name": "範圍1",
+          "detail": "計算小計的第一個範圍。"
+        },
+        "range2": {
+          "name": "範圍2",
+          "detail": "計算小計的附加範圍。"
+        }
+      }
+    },
+    "ASIN": {
+      "description": "值的反正弦，以弧度為單位。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "要計算反正弦值的數值。必須介於 `-1` 和 `1` 之間（含 -1 和 1）。"
+        }
+      }
+    },
+    "COUNTIF": {
+      "description": "跨範圍的條件計數。",
+      "parameters": {
+        "range": {
+          "name": "範圍",
+          "detail": "根據“標準”進行測試的範圍。"
+        },
+        "criterion": {
+          "name": "標準",
+          "detail": "應用於“範圍”的模式或測試。"
+        }
+      }
+    },
+    "RADIANS": {
+      "description": "將角度值（以度為單位）轉換為弧度。",
+      "parameters": {
+        "angle": {
+          "name": "角度",
+          "detail": "從度數轉換為弧度的角度。"
+        }
+      }
+    },
+    "RAND": {
+      "description": "介於 0 和 1 之間的隨機數（含 0 和 1）。"
+    },
+    "COUNTUNIQUE": {
+      "description": "計算範圍內唯一值的數量。",
+      "parameters": {
+        "value1": {
+          "name": "值1",
+          "detail": "要考慮唯一性的第一個值或範圍。"
+        },
+        "value2": {
+          "name": "值2",
+          "detail": "為確保唯一性而需要考慮的附加價值或範圍。"
+        }
+      }
+    },
+    "DEGREES": {
+      "description": "將弧度的角度值轉換為度數。",
+      "parameters": {
+        "angle": {
+          "name": "角度",
+          "detail": "從弧度轉換為度的角度。"
+        }
+      }
+    },
+    "ERFC": {
+      "description": "一個值的互補高斯誤差函數。",
+      "parameters": {
+        "z": {
+          "name": "和",
+          "detail": "要計算互補高斯誤差函數的數字。"
+        }
+      }
+    },
+    "EVEN": {
+      "description": "將數字向上舍入為最接近的偶數。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "要四捨五入為下一個最大偶數的值。"
+        }
+      }
+    },
+    "EXP": {
+      "description": "歐拉常數，e（~2.718）的冪。",
+      "parameters": {
+        "exponent": {
+          "name": "指數",
+          "detail": "將 e 提升至的指數。"
+        }
+      }
+    },
+    "FACT": {
+      "description": "一數的階乘。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "將計算並傳回其階乘的數字或數字的參考。"
+        }
+      }
+    },
+    "FACTDOUBLE": {
+      "description": "一個數字的「雙階乘」。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "將計算並返回其雙精度階乘的數字或數字引用。"
+        }
+      }
+    },
+    "PI": {
+      "description": "數字 π。"
+    },
+    "GCD": {
+      "description": "一個或多個整數的最大公約數。",
+      "parameters": {
+        "value1": {
+          "name": "值1",
+          "detail": "在計算最大公約數時要考慮其因素的第一個值或範圍。"
+        },
+        "value2": {
+          "name": "值2",
+          "detail": "尋找最大公約數時需要考慮的附加價值或範圍的因素。"
+        }
+      }
+    },
+    "RANDBETWEEN": {
+      "description": "兩個值之間的隨機整數（含）。",
+      "parameters": {
+        "low": {
+          "name": "低的",
+          "detail": "隨機範圍的低端。"
+        },
+        "high": {
+          "name": "高的",
+          "detail": "隨機範圍的高端。"
+        }
+      }
+    },
+    "ROUND": {
+      "description": "依照標準規則對數字進行四捨五入。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "要四捨五入到「位」數的值。"
+        },
+        "places": {
+          "name": "地方",
+          "detail": "要四捨五入的小數位數。"
+        }
+      }
+    },
+    "ROUNDDOWN": {
+      "description": "將數字向下捨去。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "要四捨五入到「位」數的值，始終向下四捨五入。"
+        },
+        "places": {
+          "name": "地方",
+          "detail": "要四捨五入的小數位數。"
+        }
+      }
+    },
+    "ROUNDUP": {
+      "description": "將數字向上舍入。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "要四捨五入到「位」數的值，始終向上四捨五入。"
+        },
+        "places": {
+          "name": "地方",
+          "detail": "要四捨五入的小數位數。"
+        }
+      }
+    },
+    "SERIESSUM": {
+      "description": "冪級數總和。",
+      "parameters": {
+        "x": {
+          "name": "x",
+          "detail": "冪級數的輸入。根據近似值的類型而變化，可能是角度、指數或其他值。"
+        },
+        "n": {
+          "name": "n",
+          "detail": "在冪級數中對「x」進行提升的初始冪。"
+        },
+        "m": {
+          "name": "米",
+          "detail": "增加“x”的附加增量。"
+        },
+        "a": {
+          "name": "一個",
+          "detail": "包含冪級數係數的陣列或範圍。"
+        }
+      }
+    },
+    "SIGN": {
+      "description": "提供的數字的符號 (+/-/0)。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "需要評估其符號的值。"
+        }
+      }
+    },
+    "SIN": {
+      "description": "以弧度為單位的角度的正弦。",
+      "parameters": {
+        "angle": {
+          "name": "角度",
+          "detail": "要求正弦值的角度，以弧度為單位。"
+        }
+      }
+    },
+    "SINH": {
+      "description": "任何實數的雙曲正弦。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "要計算雙曲正弦的任何實值。"
+        }
+      }
+    },
+    "SQRT": {
+      "description": "正數的正平方根。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "要計算正平方根的數字。"
+        }
+      }
+    },
+    "SQRTPI": {
+      "description": "π 與數字乘積的平方根。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "將與 Pi 相乘並傳回乘積平方根的數字"
+        }
+      }
+    },
+    "GAMMALN": {
+      "description": "伽瑪函數的對數。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "Gamma 函數的輸入。將會傳回 Gamma(`value`) 的自然對數。"
+        }
+      }
+    },
+    "COS": {
+      "description": "以弧度為單位的角度的餘弦。",
+      "parameters": {
+        "angle": {
+          "name": "角度",
+          "detail": "要計算餘弦的角度，以弧度為單位。"
+        }
+      }
+    },
+    "TRUNC": {
+      "description": "截斷一個數字。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "要截斷的值。"
+        },
+        "places": {
+          "name": "地方",
+          "detail": "小數點右邊保留的有效數字的位數。"
+        }
+      }
+    },
+    "QUOTIENT": {
+      "description": "一個數除以另一個數。",
+      "parameters": {
+        "dividend": {
+          "name": "股利",
+          "detail": "待除數。"
+        },
+        "divisor": {
+          "name": "除數",
+          "detail": "要除以的數字。"
+        }
+      }
+    },
+    "POWER": {
+      "description": "數字的冪。",
+      "parameters": {
+        "base": {
+          "name": "根據",
+          "detail": "要進行「指數」冪計算的數字。"
+        },
+        "exponent": {
+          "name": "指數",
+          "detail": "將「底數」提升至的指數。"
+        }
+      }
+    },
+    "SUMIFS": {
+      "description": "根據多個標準對範圍求和。",
+      "parameters": {
+        "sum_range": {
+          "name": "總和範圍",
+          "detail": "要求和的範圍。"
+        },
+        "criteria_range1": {
+          "name": "criteria_range1",
+          "detail": "依標準 1 進行檢查的範圍。"
+        },
+        "criterion1": {
+          "name": "標準1",
+          "detail": "套用於 criteria_range1 的模式或測試。"
+        },
+        "criteria_range2": {
+          "name": "criteria_range2",
+          "detail": "要檢查的附加範圍。"
+        }
+      }
+    },
+    "COUNTIFS": {
+      "description": "根據多個標準計算值。",
+      "parameters": {
+        "criteria_range1": {
+          "name": "criteria_range1",
+          "detail": "根據“criterion1”進行檢查的範圍。"
+        },
+        "criterion1": {
+          "name": "標準1",
+          "detail": "套用於“criteria_range1”的模式或測試。"
+        },
+        "criteria_range2": {
+          "name": "criteria_range2",
+          "detail": "要檢查的附加範圍。"
+        }
+      }
+    },
+    "PRODUCT": {
+      "description": "將一系列數字相乘的結果。",
+      "parameters": {
+        "factor1": {
+          "name": "因素1",
+          "detail": "要計算乘積的第一個數字或範圍。"
+        },
+        "factor2": {
+          "name": "因素2",
+          "detail": "需要計算產品更多的數字或範圍。"
+        }
+      }
+    },
+    "HARMEAN": {
+      "description": "數據集的調和平均值。",
+      "parameters": {
+        "value1": {
+          "name": "值1",
+          "detail": "人口的第一個值或範圍。"
+        },
+        "value2": {
+          "name": "值2",
+          "detail": "要納入總體的附加價值或範圍。"
+        }
+      }
+    },
+    "HYPGEOMDIST": {
+      "description": "超幾何分佈機率。",
+      "parameters": {
+        "num_successes": {
+          "name": "成功次數",
+          "detail": "期望的成功次數。"
+        },
+        "num_draws": {
+          "name": "抽獎次數",
+          "detail": "允許抽獎的次數。"
+        },
+        "successes_in_pop": {
+          "name": "成功率",
+          "detail": "總體中成功的總數。"
+        },
+        "pop_size": {
+          "name": "彈出大小",
+          "detail": "人口總量"
+        },
+        "cumulative": {
+          "name": "累積",
+          "detail": "確定函數形式的邏輯值。\n\n如果cumulative()為TRUE()，HYPGEOM.DIST傳回累積分佈函數；\n\n如果cumulative()為FALSE()，則傳回機率密度函數。"
+        }
+      }
+    },
+    "INTERCEPT": {
+      "description": "透過線性迴歸得出的直線 Y 截距。",
+      "parameters": {
+        "data_y": {
+          "name": "數據",
+          "detail": "表示相關資料數組或矩陣的範圍。"
+        },
+        "data_x": {
+          "name": "資料_x",
+          "detail": "表示獨立資料數組或矩陣的範圍。"
+        }
+      }
+    },
+    "KURT": {
+      "description": "資料集的峰度。",
+      "parameters": {
+        "value1": {
+          "name": "值1",
+          "detail": "資料集的第一個值或範圍。"
+        },
+        "value2": {
+          "name": "值2",
+          "detail": "資料集中要包含的附加價值或範圍。"
+        }
+      }
+    },
+    "LARGE": {
+      "description": "資料集中第 N 個最大元素。",
+      "parameters": {
+        "data": {
+          "name": "數據",
+          "detail": "包含要考慮的資料集的陣列或範圍。"
+        },
+        "n": {
+          "name": "n",
+          "detail": "返回元素從大到小的排名。"
+        }
+      }
+    },
+    "STDEVA": {
+      "description": "樣本的標準差（文字為 0）。",
+      "parameters": {
+        "value1": {
+          "name": "值1",
+          "detail": "樣本的第一個值或範圍。"
+        },
+        "value2": {
+          "name": "值2",
+          "detail": "樣本中要包含的附加價值或範圍。"
+        }
+      }
+    },
+    "STDEVP": {
+      "description": "整個人口的標準差。",
+      "parameters": {
+        "value1": {
+          "name": "值1",
+          "detail": "人口的第一個值或範圍。"
+        },
+        "value2": {
+          "name": "值2",
+          "detail": "要納入總體的附加價值或範圍。"
+        }
+      }
+    },
+    "GEOMEAN": {
+      "description": "數據集的幾何平均值。",
+      "parameters": {
+        "value1": {
+          "name": "值1",
+          "detail": "人口的第一個值或範圍。"
+        },
+        "value2": {
+          "name": "值2",
+          "detail": "要納入總體的附加價值或範圍。"
+        }
+      }
+    },
+    "PERCENTRANK_INC": {
+      "description": "百分比排名（百分位數）從 0 到 1（含）。",
+      "parameters": {
+        "data": {
+          "name": "數據",
+          "detail": "包含要考慮的資料集的陣列或範圍。"
+        },
+        "value": {
+          "name": "價值",
+          "detail": "將確定其百分比等級的值。"
+        },
+        "significant_digits": {
+          "name": "有效數字",
+          "detail": "計算中使用的有效數字位數。預設值為 3。"
+        }
+      }
+    },
+    "FORECAST": {
+      "description": "基於線性迴歸的預期 y 值。",
+      "parameters": {
+        "x": {
+          "name": "x",
+          "detail": "要預測的 x 軸上的值。"
+        },
+        "data_y": {
+          "name": "數據",
+          "detail": "表示相關資料數組或矩陣的範圍。"
+        },
+        "data_x": {
+          "name": "資料_x",
+          "detail": "表示獨立資料數組或矩陣的範圍。"
+        }
+      }
+    },
+    "FISHERINV": {
+      "description": "指定值的逆費希爾變換。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "要計算逆 Fisher 變換的值。"
+        }
+      }
+    },
+    "FISHER": {
+      "description": "指定值的 Fisher 變換。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "要計算 Fisher 變換的值。"
+        }
+      }
+    },
+    "COUNT": {
+      "description": "資料集中的數值數量。",
+      "parameters": {
+        "value1": {
+          "name": "值1",
+          "detail": "計數時要考慮的第一個值或範圍。"
+        },
+        "value2": {
+          "name": "值2",
+          "detail": "計數時要考慮的附加價值或範圍。"
+        }
+      }
+    },
+    "COUNTA": {
+      "description": "資料集中的值的數量。",
+      "parameters": {
+        "value1": {
+          "name": "值1",
+          "detail": "計數時要考慮的第一個值或範圍。"
+        },
+        "value2": {
+          "name": "值2",
+          "detail": "計數時要考慮的附加價值或範圍。"
+        }
+      }
+    },
+    "AVERAGE": {
+      "description": "資料集中的數值平均值，忽略文字。",
+      "parameters": {
+        "value1": {
+          "name": "值1",
+          "detail": "計算平均值時要考慮的第一個值或範圍。"
+        },
+        "value2": {
+          "name": "值2",
+          "detail": "計算平均值時要考慮的附加價值或範圍。"
+        }
+      }
+    },
+    "BINOM_DIST": {
+      "description": "二項分佈機率。",
+      "parameters": {
+        "num_successes": {
+          "name": "成功次數",
+          "detail": "用於計算「num_trials」次試驗中成功機率的次數。"
+        },
+        "num_trials": {
+          "name": "試驗次數",
+          "detail": "獨立試驗的次數。"
+        },
+        "prob_success": {
+          "name": "成功機率",
+          "detail": "任何給定試驗的成功機率。"
+        },
+        "cumulative": {
+          "name": "累積",
+          "detail": "是否使用二項累積分佈。"
+        }
+      }
+    },
+    "DEVSQ": {
+      "description": "基於樣本的偏差平方和。",
+      "parameters": {
+        "value1": {
+          "name": "值1",
+          "detail": "樣本的第一個值或範圍。"
+        },
+        "value2": {
+          "name": "值2",
+          "detail": "樣本中要包含的附加價值或範圍。"
+        }
+      }
+    },
+    "AVERAGEIF": {
+      "description": "根據標準計算出的平均值。",
+      "parameters": {
+        "criteria_range": {
+          "name": "criteria_range",
+          "detail": "根據“標準”進行檢查的範圍。"
+        },
+        "criterion": {
+          "name": "標準",
+          "detail": "套用於“criteria_range”的模式或測試。"
+        },
+        "average_range": {
+          "name": "平均範圍",
+          "detail": "需要計算平均值的範圍。如果未包含，則使用“criteria_range”來計算平均值。"
+        }
+      }
+    },
+    "AVERAGEIFS": {
+      "description": "根據多個標準計算平均值。",
+      "parameters": {
+        "average_range": {
+          "name": "平均範圍",
+          "detail": "平均範圍。"
+        },
+        "criteria_range1": {
+          "name": "criteria_range1",
+          "detail": "根據“criterion1”進行檢查的範圍。"
+        },
+        "criterion1": {
+          "name": "標準1",
+          "detail": "套用於“criteria_range1”的模式或測試。"
+        },
+        "criteria_range2": {
+          "name": "criteria_range2",
+          "detail": "要檢查的附加範圍。"
+        }
+      }
+    },
+    "PERMUT": {
+      "description": "來自多個物件的排列數。",
+      "parameters": {
+        "n": {
+          "name": "n",
+          "detail": "可供選擇的物件池的大小。"
+        },
+        "k": {
+          "name": "千",
+          "detail": "要選擇的對象的數量。"
+        }
+      }
+    },
+    "TRIMMEAN": {
+      "description": "資料集的平均值（不包括高端/低端）。",
+      "parameters": {
+        "data": {
+          "name": "數據",
+          "detail": "包含要考慮的資料集的陣列或範圍。"
+        },
+        "exclude_proportion": {
+          "name": "排除比例",
+          "detail": "從集合的極端中排除的資料集的比例。"
+        }
+      }
+    },
+    "PEARSON": {
+      "description": "皮爾遜積差相關係數。",
+      "parameters": {
+        "data_y": {
+          "name": "數據",
+          "detail": "表示相關資料數組或矩陣的範圍。"
+        },
+        "data_x": {
+          "name": "資料_x",
+          "detail": "表示獨立資料數組或矩陣的範圍。"
+        }
+      }
+    },
+    "MINA": {
+      "description": "資料集中的最小數值。",
+      "parameters": {
+        "value1": {
+          "name": "值1",
+          "detail": "計算最小值時要考慮的第一個值或範圍。"
+        },
+        "value2": {
+          "name": "值2",
+          "detail": "計算最小值時要考慮的附加價值或範圍。"
+        }
+      }
+    },
+    "MIN": {
+      "description": "數值資料集中的最小值。",
+      "parameters": {
+        "value1": {
+          "name": "值1",
+          "detail": "計算最小值時要考慮的第一個值或範圍。"
+        },
+        "value2": {
+          "name": "值2",
+          "detail": "計算最小值時要考慮的附加價值或範圍。"
+        }
+      }
+    },
+    "MEDIAN": {
+      "description": "數值資料集中的中位數。",
+      "parameters": {
+        "value1": {
+          "name": "值1",
+          "detail": "計算中位數時要考慮的第一個值或範圍。"
+        },
+        "value2": {
+          "name": "值2",
+          "detail": "計算中位數時要考慮的其他值或範圍。"
+        }
+      }
+    },
+    "MAXA": {
+      "description": "資料集中的最大數值。",
+      "parameters": {
+        "value1": {
+          "name": "值1",
+          "detail": "計算最大值時要考慮的第一個值或範圍。"
+        },
+        "value2": {
+          "name": "值2",
+          "detail": "計算最大值時要考慮的附加價值或範圍。"
+        }
+      }
+    },
+    "MAX": {
+      "description": "數值資料集中的最大值。",
+      "parameters": {
+        "value1": {
+          "name": "值1",
+          "detail": "計算最大值時要考慮的第一個值或範圍。"
+        },
+        "value2": {
+          "name": "值2",
+          "detail": "計算最大值時要考慮的附加價值或範圍。"
+        }
+      }
+    },
+    "PROB": {
+      "description": "機率值位於一個範圍內。",
+      "parameters": {
+        "data": {
+          "name": "數據",
+          "detail": "包含要考慮的資料集的陣列或範圍。"
+        },
+        "probabilities": {
+          "name": "機率",
+          "detail": "包含與「資料」對應的機率的陣列或範圍。"
+        },
+        "low_limit": {
+          "name": "低限",
+          "detail": "計算機率的值範圍的下限。"
+        },
+        "high_limit": {
+          "name": "上限",
+          "detail": "計算機率的值範圍的上限。"
+        }
+      }
+    },
+    "RSQ": {
+      "description": "相關係數的平方。",
+      "parameters": {
+        "data_y": {
+          "name": "數據",
+          "detail": "表示相關資料數組或矩陣的範圍。"
+        },
+        "data_x": {
+          "name": "資料_x",
+          "detail": "表示獨立資料數組或矩陣的範圍。"
+        }
+      }
+    },
+    "VARA": {
+      "description": "樣本的變異數（文字為 0）。",
+      "parameters": {
+        "value1": {
+          "name": "值1",
+          "detail": "樣本的第一個值或範圍。"
+        },
+        "value2": {
+          "name": "值2",
+          "detail": "樣本中要包含的附加價值或範圍。"
+        }
+      }
+    },
+    "VARPA": {
+      "description": "整個人口的變異數（文本為 0）。",
+      "parameters": {
+        "value1": {
+          "name": "值1",
+          "detail": "人口的第一個值或範圍。"
+        },
+        "value2": {
+          "name": "值2",
+          "detail": "要納入總體的附加價值或範圍。"
+        }
+      }
+    },
+    "STEYX": {
+      "description": "迴歸中預測 y 值的標準誤差。",
+      "parameters": {
+        "data_y": {
+          "name": "數據",
+          "detail": "表示相關資料數組或矩陣的範圍。"
+        },
+        "data_x": {
+          "name": "資料_x",
+          "detail": "表示獨立資料數組或矩陣的範圍。"
+        }
+      }
+    },
+    "STANDARDIZE": {
+      "description": "隨機變數的標準化等價物。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "要規範化的隨機變數的值。"
+        },
+        "mean": {
+          "name": "意思是",
+          "detail": "分佈的平均值。"
+        },
+        "standard_deviation": {
+          "name": "標準差",
+          "detail": "分佈的標準差。"
+        }
+      }
+    },
+    "SMALL": {
+      "description": "資料集中第 N 個最小元素。",
+      "parameters": {
+        "data": {
+          "name": "數據",
+          "detail": "包含要考慮的資料集的陣列或範圍。"
+        },
+        "n": {
+          "name": "n",
+          "detail": "返回元素從小到大的排名。"
+        }
+      }
+    },
+    "SLOPE": {
+      "description": "數據線性迴歸的直線斜率。",
+      "parameters": {
+        "data_y": {
+          "name": "數據",
+          "detail": "表示相關資料數組或矩陣的範圍。"
+        },
+        "data_x": {
+          "name": "資料_x",
+          "detail": "表示獨立資料數組或矩陣的範圍。"
+        }
+      }
+    },
+    "SKEW": {
+      "description": "數據集的偏度。",
+      "parameters": {
+        "value1": {
+          "name": "值1",
+          "detail": "資料集的第一個值或範圍。"
+        },
+        "value2": {
+          "name": "值2",
+          "detail": "資料集中要包含的附加價值或範圍。"
+        }
+      }
+    },
+    "VLOOKUP": {
+      "description": "垂直查找。",
+      "parameters": {
+        "search_key": {
+          "name": "搜尋鍵",
+          "detail": "要搜尋的值。例如，「42」、「Cats」或「I24」。"
+        },
+        "range": {
+          "name": "範圍",
+          "detail": "搜尋時要考慮的範圍。將在該範圍的第一列中搜尋「search_key」中指定的鍵。"
+        },
+        "index": {
+          "name": "指數",
+          "detail": "要傳回的值的列索引，其中「範圍」中的第一列編號為 1。"
+        },
+        "is_sorted": {
+          "name": "已排序",
+          "detail": "指示要搜尋的欄位（指定範圍的第一列）是否已排序，在這種情況下將傳回與「search_key」最接近的符合項。"
+        }
+      }
+    },
+    "HLOOKUP": {
+      "description": "水平查找",
+      "parameters": {
+        "search_key": {
+          "name": "搜尋鍵",
+          "detail": "要搜尋的值。例如，「42」、「Cats」或「I24」。"
+        },
+        "range": {
+          "name": "範圍",
+          "detail": "搜尋時要考慮的範圍。系統會在該範圍的第一行中搜尋「search_key」中指定的鍵。"
+        },
+        "index": {
+          "name": "指數",
+          "detail": "要傳回的值的行索引，其中「範圍」中的第一行編號為 1。"
+        },
+        "is_sorted": {
+          "name": "已排序",
+          "detail": "指示要搜尋的行（指定範圍的第一行）是否已排序。"
+        }
+      }
+    },
+    "LOOKUP": {
+      "description": "找出一個值。",
+      "parameters": {
+        "search_key": {
+          "name": "搜尋鍵",
+          "detail": "要在行或列中搜尋的值。例如，「42」、「Cats」或「I24」。"
+        },
+        "search_range|search_result_array": {
+          "name": "搜尋範圍|搜尋結果數組",
+          "detail": "使用此函數的一種方法是提供一個已排序的行或列“search_range”，並在其中尋找“search_key”，並使用第二個參數“result_range”。另一種方法是將這兩個參數合併為一個“search_result_array”，其中搜尋第一行或第一列，並傳回數組中最後一行或最後一列的值。如果未找到“search_key”，則可能會傳回非精確匹配項。"
+        },
+        "result_range": {
+          "name": "結果範圍",
+          "detail": "傳回結果的範圍。傳回的值對應於「search_key」在「search_range」中的位置。此範圍必須僅為一行或一列，且如果使用「search_result_array」方法則不應使用此範圍。"
+        }
+      }
+    },
+    "ADDRESS": {
+      "description": "單元格引用作為字串。",
+      "parameters": {
+        "row": {
+          "name": "排",
+          "detail": "單元格引用的行號"
+        },
+        "column": {
+          "name": "柱子",
+          "detail": "單元格引用的列號（不是名稱）。 “A”表示列號“1”。"
+        },
+        "absolute_relative_mode": {
+          "name": "絕對相對模式",
+          "detail": "指示引用是否為行/列絕對。 `1` 表示行和列絕對（例如 $A$1），`2` 表示行絕對、列相對（例如 A$1），`3` 表示行相對、列絕對（例如 $A1），`4` 表示行和列相對（例如 A1）。"
+        },
+        "use_a1_notation": {
+          "name": "使用_a1_符號",
+          "detail": "一個布林值，指示是否使用 `A1` 樣式符號 (TRUE) 或 `R1C1` 樣式符號 (FALSE)。"
+        },
+        "sheet": {
+          "name": "床單",
+          "detail": "指示地址指向的工作表的名稱的文字。"
+        }
+      }
+    },
+    "INDIRECT": {
+      "description": "由字串指定的儲存格引用。",
+      "parameters": {
+        "cell_reference_as_string": {
+          "name": "cell_reference_as_string",
+          "detail": "單元格引用，以字串形式寫，並用引號引起來。"
+        },
+        "is_A1_notation": {
+          "name": "是_A1_符號",
+          "detail": "指示儲存格引用是否採用 A1 符號（TRUE）或 R1C1 符號（FALSE）。"
+        }
+      }
+    },
+    "ROW": {
+      "description": "指定單元格的行號。",
+      "parameters": {
+        "cell_reference": {
+          "name": "儲存格引用",
+          "detail": "將返回其行號的儲存格。"
+        }
+      }
+    },
+    "ROWS": {
+      "description": "指定數組或範圍中的行數。",
+      "parameters": {
+        "range": {
+          "name": "範圍",
+          "detail": "將會傳回行數的範圍。"
+        }
+      }
+    },
+    "COLUMN": {
+      "description": "指定單元格的列號。",
+      "parameters": {
+        "cell_reference": {
+          "name": "儲存格引用",
+          "detail": "傳回列號的儲存格。 “A”列對應“1”。"
+        }
+      }
+    },
+    "COLUMNS": {
+      "description": "指定數組或範圍中的列數。",
+      "parameters": {
+        "range": {
+          "name": "範圍",
+          "detail": "將傳回其列數的範圍。"
+        }
+      }
+    },
+    "OFFSET": {
+      "description": "相對於單元格的範圍參考偏移量。",
+      "parameters": {
+        "cell_reference": {
+          "name": "儲存格引用",
+          "detail": "計算偏移行和偏移列的起點。"
+        },
+        "offset_rows": {
+          "name": "偏移行數",
+          "detail": "要偏移的行數。"
+        },
+        "offset_columns": {
+          "name": "偏移列",
+          "detail": "要偏移的列數。"
+        },
+        "height": {
+          "name": "高度",
+          "detail": "從偏移目標開始返回的範圍的高度。"
+        },
+        "width": {
+          "name": "寬度",
+          "detail": "從偏移目標開始傳回的範圍的寬度。"
+        }
+      }
+    },
+    "MATCH": {
+      "description": "範圍內與值相符的項目的位置。",
+      "parameters": {
+        "search_key": {
+          "name": "搜尋鍵",
+          "detail": "要搜尋的值。例如，「42」、「Cats」或「I24」。"
+        },
+        "range": {
+          "name": "範圍",
+          "detail": "要搜尋的一維數組。"
+        },
+        "search_type": {
+          "name": "搜尋類型",
+          "detail": "搜尋方法。 `1`（預設）在 `range` 按升序排序時尋找小於或等於 `search_key` 的最大值。 `0` 在 `range` 未排序時找出精確值。 `-1` 在 `range` 依降序排序時找出大於或等於 `search_key` 的最小值。"
+        }
+      }
+    },
+    "INDEX": {
+      "description": "由行和列偏移指定的儲存格內容。",
+      "parameters": {
+        "reference": {
+          "name": "參考",
+          "detail": "要偏移的儲存格數組。"
+        },
+        "row": {
+          "name": "排",
+          "detail": "偏移行的數量。"
+        },
+        "column": {
+          "name": "柱子",
+          "detail": "偏移列的數量。"
+        }
+      }
+    },
+    "GETPIVOTDATA": {
+      "description": "從資料透視表中提取與指定行和列標題相對應的聚合值。",
+      "parameters": {
+        "value_name": {
+          "name": "值名稱",
+          "detail": "您想要取得資料的資料透視表中的值的名稱。"
+        },
+        "any_pivot_table_cell": {
+          "name": "任何資料透視表單元格",
+          "detail": "對所需資料透視表中儲存格的任何引用（建議使用頂角）。"
+        },
+        "original_column": {
+          "name": "原始列",
+          "detail": "原始資料集（不是資料透視表）中的列的名稱。"
+        },
+        "pivot_item": {
+          "name": "樞軸項目",
+          "detail": "您想要檢索的 *original_column* 對應的資料透視表中顯示的行或列的名稱。"
+        }
+      }
+    },
+    "CHOOSE": {
+      "description": "根據索引選擇清單中的元素。",
+      "parameters": {
+        "index": {
+          "name": "指數",
+          "detail": "傳回哪個選項（最多提供 30 個）。"
+        },
+        "choice1": {
+          "name": "選擇1",
+          "detail": "要傳回的潛在值。必填。可以是對儲存格或單一值的引用。"
+        },
+        "choice2": {
+          "name": "選擇2",
+          "detail": "可供選擇的附加價值。"
+        }
+      }
+    },
+    "TIME": {
+      "description": "將小時/分鐘/秒轉換為時間。",
+      "parameters": {
+        "hour": {
+          "name": "小時",
+          "detail": "時間的小時部分。"
+        },
+        "minute": {
+          "name": "分分鐘",
+          "detail": "時間的分鐘部分。"
+        },
+        "second": {
+          "name": "第二",
+          "detail": "時間的第二個組成部分。"
+        }
+      }
+    },
+    "TIMEVALUE": {
+      "description": "將時間字串轉換為其序號表示形式。",
+      "parameters": {
+        "time_string": {
+          "name": "時間字串",
+          "detail": "保存時間表示的字串。"
+        }
+      }
+    },
+    "EOMONTH": {
+      "description": "某個日期之前或之後一個月的最後一天。",
+      "parameters": {
+        "start_date": {
+          "name": "開始日期",
+          "detail": "計算結果的日期。"
+        },
+        "months": {
+          "name": "個月",
+          "detail": "要考慮的「start_date」之前（負數）或之後（正數）的月份數。"
+        }
+      }
+    },
+    "EDATE": {
+      "description": "日期為另一個日期之前/之後的幾個月。",
+      "parameters": {
+        "start_date": {
+          "name": "開始日期",
+          "detail": "計算結果的日期。"
+        },
+        "months": {
+          "name": "個月",
+          "detail": "要計算的「start_date」之前（負數）或之後（正數）的月份數。"
+        }
+      }
+    },
+    "SECOND": {
+      "description": "特定時間的第二個組成部分。",
+      "parameters": {
+        "time": {
+          "name": "時間",
+          "detail": "計算第二個分量的時間"
+        }
+      }
+    },
+    "MINUTE": {
+      "description": "特定時間的分鐘部分。",
+      "parameters": {
+        "time": {
+          "name": "時間",
+          "detail": "計算分鐘部分的時間。"
+        }
+      }
+    },
+    "HOUR": {
+      "description": "特定時間的小時部分。",
+      "parameters": {
+        "time": {
+          "name": "時間",
+          "detail": "計算小時部分的時間。"
+        }
+      }
+    },
+    "NOW": {
+      "description": "當前日期和時間作為日期值。"
+    },
+    "NETWORKDAYS": {
+      "description": "兩個給定日期之間的淨工作日。",
+      "parameters": {
+        "start_date": {
+          "name": "開始日期",
+          "detail": "計算淨工作天數的期間的開始日期。"
+        },
+        "end_date": {
+          "name": "結束日期",
+          "detail": "計算淨工作天數的期間的結束日期。"
+        },
+        "holidays": {
+          "name": "假期",
+          "detail": "包含考慮假期的日期序號的範圍或陣列常數。"
+        }
+      }
+    },
+    "ISOWEEKNUM": {
+      "description": "ISO 一年中的周數。",
+      "parameters": {
+        "date": {
+          "name": "日期",
+          "detail": "用於確定 ISO 週數的日期。必須引用包含日期的儲存格、傳回日期類型的函數或數字。"
+        }
+      }
+    },
+    "WEEKNUM": {
+      "description": "一年中的周數。",
+      "parameters": {
+        "date": {
+          "name": "日期",
+          "detail": "用於確定週數的日期。必須引用包含日期的儲存格、傳回日期類型的函數或數字。"
+        },
+        "type": {
+          "name": "類型",
+          "detail": "表示一週開始日期的數字。星期日 = 1。"
+        }
+      }
+    },
+    "WEEKDAY": {
+      "description": "所提供日期的星期幾（以數字形式）。",
+      "parameters": {
+        "date": {
+          "name": "日期",
+          "detail": "用於確定星期幾的日期。必須引用包含日期的儲存格、傳回日期類型的函數或數字。"
+        },
+        "type": {
+          "name": "類型",
+          "detail": "一個數字，指示使用哪種計數系統來表示工作日。預設情況下，從星期日開始計數 = 1。"
+        }
+      }
+    },
+    "DAY": {
+      "description": "特定日期所在的月份日期。",
+      "parameters": {
+        "date": {
+          "name": "日期",
+          "detail": "要提取日期的日期。"
+        }
+      }
+    },
+    "DAYS": {
+      "description": "兩個日期之間的天數。",
+      "parameters": {
+        "end_date": {
+          "name": "結束日期",
+          "detail": "日期範圍的結束。"
+        },
+        "start_date": {
+          "name": "開始日期",
+          "detail": "日期範圍的開始。"
+        }
+      }
+    },
+    "DAYS360": {
+      "description": "一年 360 天中兩個日期之間的天數。",
+      "parameters": {
+        "start_date": {
+          "name": "開始日期",
+          "detail": "計算中要考慮的開始日期。必須引用包含日期的儲存格、傳回日期類型的函數或數字。"
+        },
+        "end_date": {
+          "name": "結束日期",
+          "detail": "計算中要考慮的結束日期。必須引用包含日期的儲存格、傳回日期類型的函數或數字。"
+        },
+        "method": {
+          "name": "方法",
+          "detail": "指示使用哪一種天數計算方法。"
+        }
+      }
+    },
+    "DATE": {
+      "description": "將年/月/日轉換為日期。",
+      "parameters": {
+        "year": {
+          "name": "年",
+          "detail": "日期的年份部分。"
+        },
+        "month": {
+          "name": "月",
+          "detail": "日期的月份部分。"
+        },
+        "day": {
+          "name": "天",
+          "detail": "日期的星期部分。"
+        }
+      }
+    },
+    "DATEVALUE": {
+      "description": "將日期字串轉換為日期值。",
+      "parameters": {
+        "date_string": {
+          "name": "日期字串",
+          "detail": "代表日期的字串。"
+        }
+      }
+    },
+    "DATEDIF": {
+      "description": "日期差異。",
+      "parameters": {
+        "start_date": {
+          "name": "開始日期",
+          "detail": "計算中要考慮的開始日期。必須引用包含日期的儲存格、傳回日期類型的函數或數字。"
+        },
+        "end_date": {
+          "name": "結束日期",
+          "detail": "計算中要考慮的結束日期。必須引用包含日期的儲存格、傳回日期類型的函數或數字。"
+        },
+        "unit": {
+          "name": "單元",
+          "detail": "時間單位的字串縮寫。例如，“M”表示月份。可接受的值為「Y」、「M」、「D」、「MD」、「YM」、「YD」。"
+        }
+      }
+    },
+    "WORKDAY": {
+      "description": "自開始日期起的工作天數。",
+      "parameters": {
+        "start_date": {
+          "name": "開始日期",
+          "detail": "開始計數的日期。"
+        },
+        "num_days": {
+          "name": "天數",
+          "detail": "從 `start_date` 開始向前推進的工作天數。如果為負數，則倒數。"
+        },
+        "holidays": {
+          "name": "假期",
+          "detail": "包含要考慮假期的日期的範圍或陣列常數。"
+        }
+      }
+    },
+    "YEAR": {
+      "description": "給定日期指定的年份。",
+      "parameters": {
+        "date": {
+          "name": "日期",
+          "detail": "從中提取年份的日期。"
+        }
+      }
+    },
+    "YEARFRAC": {
+      "description": "兩個日期之間的確切年數。",
+      "parameters": {
+        "start_date": {
+          "name": "開始日期",
+          "detail": "計算中要考慮的開始日期。必須引用包含日期的儲存格、傳回日期類型的函數或數字。"
+        },
+        "end_date": {
+          "name": "結束日期",
+          "detail": "計算中要考慮的結束日期。必須引用包含日期的儲存格、傳回日期類型的函數或數字。"
+        },
+        "day_count_convention": {
+          "name": "day_count_convention",
+          "detail": "指示使用哪一種天數計算方法。"
+        }
+      }
+    },
+    "TODAY": {
+      "description": "當前日期作為日期值。"
+    },
+    "MONTH": {
+      "description": "特定日期所屬的月份。",
+      "parameters": {
+        "date": {
+          "name": "日期",
+          "detail": "從中提取月份的日期。"
+        }
+      }
+    },
+    "EFFECT": {
+      "description": "年實際利率。",
+      "parameters": {
+        "nominal_rate": {
+          "name": "名目利率",
+          "detail": "每年名目利率。"
+        },
+        "periods_per_year": {
+          "name": "每年期間",
+          "detail": "每年複利期數。"
+        }
+      }
+    },
+    "DOLLAR": {
+      "description": "將數字格式化為特定於電子表格區域設定的貨幣。",
+      "parameters": {
+        "number": {
+          "name": "數位",
+          "detail": "要格式化的值。"
+        },
+        "number_of_places": {
+          "name": "位置數量",
+          "detail": "要顯示的小數位數。"
+        }
+      }
+    },
+    "DOLLARDE": {
+      "description": "將小數部分轉換為十進制值。",
+      "parameters": {
+        "fractional_price": {
+          "name": "fractional_price",
+          "detail": "使用小數部分約定給出的報價。"
+        },
+        "unit": {
+          "name": "單元",
+          "detail": "分數的單位，例如 `8` 表示 1/8，`32` 表示 1/32。"
+        }
+      }
+    },
+    "DOLLARFR": {
+      "description": "將十進制值轉換為十進制分數。",
+      "parameters": {
+        "decimal_price": {
+          "name": "十進制價格",
+          "detail": "以十進制值給出的價格報價。"
+        },
+        "unit": {
+          "name": "單元",
+          "detail": "所需分數的單位，例如 `8` 表示 1/8 分之一，或 `32` 表示 1/32 分之一。"
+        }
+      }
+    },
+    "DB": {
+      "description": "採用餘額遞減法提列折舊。",
+      "parameters": {
+        "cost": {
+          "name": "成本",
+          "detail": "資產的初始成本。"
+        },
+        "salvage": {
+          "name": "打撈",
+          "detail": "折舊結束時資產的價值。"
+        },
+        "life": {
+          "name": "生活",
+          "detail": "資產折舊的期間數。"
+        },
+        "period": {
+          "name": "時期",
+          "detail": "計算折舊的“壽命”內單一期間。"
+        },
+        "month": {
+          "name": "月",
+          "detail": "折舊第一年的月份數。"
+        }
+      }
+    },
+    "DDB": {
+      "description": "採用雙倍餘額遞減法提列折舊。",
+      "parameters": {
+        "cost": {
+          "name": "成本",
+          "detail": "資產的初始成本。"
+        },
+        "salvage": {
+          "name": "打撈",
+          "detail": "折舊結束時資產的價值。"
+        },
+        "life": {
+          "name": "生活",
+          "detail": "資產折舊的期間數。"
+        },
+        "period": {
+          "name": "時期",
+          "detail": "「壽命」內計算折舊的單一期間。"
+        },
+        "factor": {
+          "name": "因素",
+          "detail": "折舊減少的因素。"
+        }
+      }
+    },
+    "RATE": {
+      "description": "年金投資的利率。",
+      "parameters": {
+        "number_of_periods": {
+          "name": "週期數",
+          "detail": "需要付款的次數。"
+        },
+        "payment_per_period": {
+          "name": "每期付款",
+          "detail": "每期需支付的金額。"
+        },
+        "present_value": {
+          "name": "現值",
+          "detail": "年金的當前價值。"
+        },
+        "future_value": {
+          "name": "未來價值",
+          "detail": "最終付款後剩餘的未來價值。"
+        },
+        "end_or_beginning": {
+          "name": "結束或開始",
+          "detail": "付款是否在每個期間結束時（「0」）或開始時（「1」）。"
+        },
+        "rate_guess": {
+          "name": "猜測速率",
+          "detail": "對利率的估計。"
+        }
+      }
+    },
+    "CUMPRINC": {
+      "description": "一系列期間內支付的累計本金。",
+      "parameters": {
+        "rate": {
+          "name": "速度",
+          "detail": "利率。"
+        },
+        "number_of_periods": {
+          "name": "週期數",
+          "detail": "需要付款的次數。"
+        },
+        "present_value": {
+          "name": "現值",
+          "detail": "年金的當前價值。"
+        },
+        "first_period": {
+          "name": "第一期",
+          "detail": "開始累計計算的付款期數。"
+        },
+        "last_period": {
+          "name": "上一周期",
+          "detail": "結束累計計算的付款期數。"
+        },
+        "end_or_beginning": {
+          "name": "結束或開始",
+          "detail": "付款是否在每個期間結束時（“0”）或開始時（“1”）。"
+        }
+      }
+    },
+    "COUPNUM": {
+      "description": "結算與到期之間的息票數量。",
+      "parameters": {
+        "settlement": {
+          "name": "沉澱",
+          "detail": "證券的結算日，即證券發行後交付給買方的日期。"
+        },
+        "maturity": {
+          "name": "到期",
+          "detail": "證券的到期日或終止日，可按票面價值贖回。"
+        },
+        "frequency": {
+          "name": "頻率",
+          "detail": "每年利息或票息支付的次數（1、2 或 4）。"
+        },
+        "day_count_convention": {
+          "name": "day_count_convention",
+          "detail": "指示使用哪一種天數計算方法。"
+        }
+      }
+    },
+    "SYD": {
+      "description": "採用年數總和法提列折舊。",
+      "parameters": {
+        "cost": {
+          "name": "成本",
+          "detail": "資產的初始成本。"
+        },
+        "salvage": {
+          "name": "打撈",
+          "detail": "折舊結束時資產的價值。"
+        },
+        "life": {
+          "name": "生活",
+          "detail": "資產折舊的期間數。"
+        },
+        "period": {
+          "name": "時期",
+          "detail": "「壽命」內計算折舊的單一期間。"
+        }
+      }
+    },
+    "TBILLEQ": {
+      "description": "相當於國庫券的殖利率。",
+      "parameters": {
+        "settlement": {
+          "name": "沉澱",
+          "detail": "證券的結算日，即證券發行後交付給買方的日期。"
+        },
+        "maturity": {
+          "name": "到期",
+          "detail": "證券的到期日或終止日，可按票面價值贖回。"
+        },
+        "discount": {
+          "name": "折扣",
+          "detail": "購買時帳單的折扣率。"
+        }
+      }
+    },
+    "TBILLYIELD": {
+      "description": "基於價格的美國國庫券收益率。",
+      "parameters": {
+        "settlement": {
+          "name": "沉澱",
+          "detail": "證券的結算日，即證券發行後交付給買方的日期。"
+        },
+        "maturity": {
+          "name": "到期",
+          "detail": "證券的到期日或終止日，可按票面價值贖回。"
+        },
+        "price": {
+          "name": "價格",
+          "detail": "每 100 票面價值的證券購買價格。"
+        }
+      }
+    },
+    "TBILLPRICE": {
+      "description": "美國國庫券的價格。",
+      "parameters": {
+        "settlement": {
+          "name": "沉澱",
+          "detail": "證券的結算日，即證券發行後交付給買方的日期。"
+        },
+        "maturity": {
+          "name": "到期",
+          "detail": "證券的到期日或終止日，可按票面價值贖回。"
+        },
+        "discount": {
+          "name": "折扣",
+          "detail": "購買時帳單的折扣率。"
+        }
+      }
+    },
+    "PV": {
+      "description": "年金投資的現值。",
+      "parameters": {
+        "rate": {
+          "name": "速度",
+          "detail": "利率。"
+        },
+        "number_of_periods": {
+          "name": "週期數",
+          "detail": "需要付款的次數。"
+        },
+        "payment_amount": {
+          "name": "付款金額",
+          "detail": "每期需支付的金額。"
+        },
+        "future_value": {
+          "name": "未來價值",
+          "detail": "最終付款後剩餘的未來價值。"
+        },
+        "end_or_beginning": {
+          "name": "結束或開始",
+          "detail": "付款是否在每個期間結束時（“0”）或開始時（“1”）。"
+        }
+      }
+    },
+    "COUPDAYBS": {
+      "description": "從第一張息票到結算的天數。",
+      "parameters": {
+        "settlement": {
+          "name": "沉澱",
+          "detail": "證券的結算日，即證券發行後交付給買方的日期。"
+        },
+        "maturity": {
+          "name": "到期",
+          "detail": "證券的到期日或終止日，可按票面價值贖回。"
+        },
+        "frequency": {
+          "name": "頻率",
+          "detail": "每年利息或票息支付的次數（1、2 或 4）。"
+        },
+        "day_count_convention": {
+          "name": "day_count_convention",
+          "detail": "指示使用哪一種天數計算方法。"
+        }
+      }
+    },
+    "COUPDAYS": {
+      "description": "包含結算日期的票面日數。",
+      "parameters": {
+        "settlement": {
+          "name": "沉澱",
+          "detail": "證券的結算日，即證券發行後交付給買方的日期。"
+        },
+        "maturity": {
+          "name": "到期",
+          "detail": "證券的到期日或終止日，可按票面價值贖回。"
+        },
+        "frequency": {
+          "name": "頻率",
+          "detail": "每年利息或票息支付的次數（1、2 或 4）。"
+        },
+        "day_count_convention": {
+          "name": "day_count_convention",
+          "detail": "指示使用哪一種天數計算方法。"
+        }
+      }
+    },
+    "FV": {
+      "description": "年金投資的未來價值。",
+      "parameters": {
+        "rate": {
+          "name": "速度",
+          "detail": "利率。"
+        },
+        "number_of_periods": {
+          "name": "週期數",
+          "detail": "需要付款的次數。"
+        },
+        "payment_amount": {
+          "name": "付款金額",
+          "detail": "每期需支付的金額。"
+        },
+        "present_value": {
+          "name": "現值",
+          "detail": "年金的當前價值。"
+        },
+        "end_or_beginning": {
+          "name": "結束或開始",
+          "detail": "付款是否在每個期間結束時（「0」）或開始時（「1」）。"
+        }
+      }
+    },
+    "FVSCHEDULE": {
+      "description": "根據一系列利率計算出的本金未來價值。",
+      "parameters": {
+        "principal": {
+          "name": "主要的",
+          "detail": "用於複利的初始資本或價值的金額。"
+        },
+        "rate_schedule": {
+          "name": "費率表",
+          "detail": "一系列與「本金」複利的利率。"
+        }
+      }
+    },
+    "YIELD": {
+      "description": "支付定期利息的證券的年收益率。",
+      "parameters": {
+        "settlement": {
+          "name": "沉澱",
+          "detail": "證券的結算日，即證券發行後交付給買方的日期。"
+        },
+        "maturity": {
+          "name": "到期",
+          "detail": "證券的到期日或終止日，可按票面價值贖回。"
+        },
+        "rate": {
+          "name": "速度",
+          "detail": "年利率。"
+        },
+        "price": {
+          "name": "價格",
+          "detail": "每 100 票面價值的證券購買價格。"
+        },
+        "redemption": {
+          "name": "贖回",
+          "detail": "每 100 張票面價值或票面金額的贖回金額。"
+        },
+        "frequency": {
+          "name": "頻率",
+          "detail": "每年利息或票息支付的次數（1、2 或 4）。"
+        },
+        "day_count_convention": {
+          "name": "day_count_convention",
+          "detail": "指示使用哪一種天數計算方法。"
+        }
+      }
+    },
+    "YIELDDISC": {
+      "description": "折扣證券的年收益率。",
+      "parameters": {
+        "settlement": {
+          "name": "沉澱",
+          "detail": "證券的結算日，即證券發行後交付給買方的日期。"
+        },
+        "maturity": {
+          "name": "到期",
+          "detail": "證券的到期日或終止日，可按票面價值贖回。"
+        },
+        "price": {
+          "name": "價格",
+          "detail": "每 100 票面價值的證券購買價格。"
+        },
+        "redemption": {
+          "name": "贖回",
+          "detail": "每 100 張票面價值或票面金額的贖回金額。"
+        },
+        "day_count_convention": {
+          "name": "day_count_convention",
+          "detail": "指示使用哪一種天數計算方法。"
+        }
+      }
+    },
+    "NOMINAL": {
+      "description": "年名目利率。",
+      "parameters": {
+        "effective_rate": {
+          "name": "有效利率",
+          "detail": "年實際利率。"
+        },
+        "periods_per_year": {
+          "name": "每年期間",
+          "detail": "每年複利期數。"
+        }
+      }
+    },
+    "XIRR": {
+      "description": "給定非定期現金流的內部報酬率。",
+      "parameters": {
+        "cashflow_amounts": {
+          "name": "現金流金額",
+          "detail": "包含與投資相關的收入或付款的陣列或範圍。"
+        },
+        "cashflow_dates": {
+          "name": "現金流日期",
+          "detail": "與「cashflow_amounts」中的現金流量對應的日期數組或範圍。"
+        },
+        "rate_guess": {
+          "name": "猜測速率",
+          "detail": "對內部報酬率的估計。"
+        }
+      }
+    },
+    "MIRR": {
+      "description": "修正內部報酬率。",
+      "parameters": {
+        "cashflow_amounts": {
+          "name": "現金流金額",
+          "detail": "包含與投資相關的收入或付款的陣列或範圍。"
+        },
+        "financing_rate": {
+          "name": "融資利率",
+          "detail": "投資資金支付的利率。"
+        },
+        "reinvestment_return_rate": {
+          "name": "再投資報酬率",
+          "detail": "投資所得收入再投資所獲得的回報（以百分比表示）。"
+        }
+      }
+    },
+    "IRR": {
+      "description": "給定定期現金流的內部報酬率。",
+      "parameters": {
+        "cashflow_amounts": {
+          "name": "現金流金額",
+          "detail": "包含與投資相關的收入或付款的陣列或範圍。"
+        },
+        "rate_guess": {
+          "name": "猜測速率",
+          "detail": "對內部報酬率的估計。"
+        }
+      }
+    },
+    "NPV": {
+      "description": "基於一系列定期現金流量和折現率的投資淨現值。",
+      "parameters": {
+        "discount": {
+          "name": "折扣",
+          "detail": "一段期間內投資的折現率。"
+        },
+        "cashflow1": {
+          "name": "現金流1",
+          "detail": "第一個未來現金流。"
+        },
+        "cashflow2": {
+          "name": "現金流2",
+          "detail": "額外的未來現金流。"
+        }
+      }
+    },
+    "XNPV": {
+      "description": "給定非定期現金流的淨現值。",
+      "parameters": {
+        "discount": {
+          "name": "折扣",
+          "detail": "一段期間內投資的折現率。"
+        },
+        "cashflow_amounts": {
+          "name": "現金流金額",
+          "detail": "包含與投資相關的收入或付款的儲存格範圍。"
+        },
+        "cashflow_dates": {
+          "name": "現金流日期",
+          "detail": "具有與「cashflow_amounts」中的現金流相對應的日期的儲存格範圍。"
+        }
+      }
+    },
+    "CUMIPMT": {
+      "description": "一系列期間內支付的累計利息。",
+      "parameters": {
+        "rate": {
+          "name": "速度",
+          "detail": "利率。"
+        },
+        "number_of_periods": {
+          "name": "週期數",
+          "detail": "需要付款的次數。"
+        },
+        "present_value": {
+          "name": "現值",
+          "detail": "年金的當前價值。"
+        },
+        "first_period": {
+          "name": "第一期",
+          "detail": "開始累計計算的付款期數。"
+        },
+        "last_period": {
+          "name": "上一周期",
+          "detail": "結束累計計算的付款期數。"
+        },
+        "end_or_beginning": {
+          "name": "結束或開始",
+          "detail": "付款是否在每個期間結束時（「0」）或開始時（「1」）。"
+        }
+      }
+    },
+    "PMT": {
+      "description": "年金投資的定期付款。",
+      "parameters": {
+        "rate": {
+          "name": "速度",
+          "detail": "利率。"
+        },
+        "number_of_periods": {
+          "name": "週期數",
+          "detail": "需要付款的次數。"
+        },
+        "present_value": {
+          "name": "現值",
+          "detail": "年金的當前價值。"
+        },
+        "future_value": {
+          "name": "未來價值",
+          "detail": "最終付款後剩餘的未來價值。"
+        },
+        "end_or_beginning": {
+          "name": "結束或開始",
+          "detail": "付款是否在每個期間結束時（「0」）或開始時（「1」）。"
+        }
+      }
+    },
+    "IPMT": {
+      "description": "支付投資利息。",
+      "parameters": {
+        "rate": {
+          "name": "速度",
+          "detail": "利率。"
+        },
+        "period": {
+          "name": "時期",
+          "detail": "攤銷期，以期數表示。"
+        },
+        "number_of_periods": {
+          "name": "週期數",
+          "detail": "需要付款的次數。"
+        },
+        "present_value": {
+          "name": "現值",
+          "detail": "年金的當前價值。"
+        },
+        "future_value": {
+          "name": "未來價值",
+          "detail": "最終付款後剩餘的未來價值。"
+        },
+        "end_or_beginning": {
+          "name": "結束或開始",
+          "detail": "付款是否在每個期間結束時（「0」）或開始時（「1」）。"
+        }
+      }
+    },
+    "PPMT": {
+      "description": "支付投資本金。",
+      "parameters": {
+        "rate": {
+          "name": "速度",
+          "detail": "利率。"
+        },
+        "period": {
+          "name": "時期",
+          "detail": "攤銷期，以期數表示。"
+        },
+        "number_of_periods": {
+          "name": "週期數",
+          "detail": "需要付款的次數。"
+        },
+        "present_value": {
+          "name": "現值",
+          "detail": "年金的當前價值。"
+        },
+        "future_value": {
+          "name": "未來價值",
+          "detail": "最終付款後剩餘的未來價值。"
+        },
+        "end_or_beginning": {
+          "name": "結束或開始",
+          "detail": "付款是否在每個期間結束時（“0”）或開始時（“1”）。"
+        }
+      }
+    },
+    "INTRATE": {
+      "description": "計算實際利率。",
+      "parameters": {
+        "buy_date": {
+          "name": "購買日期",
+          "detail": "投資的購買日期。"
+        },
+        "sell_date": {
+          "name": "出售日期",
+          "detail": "投資出售日期。"
+        },
+        "buy_price": {
+          "name": "購買價格",
+          "detail": "購買投資的價格。"
+        },
+        "sell_price": {
+          "name": "售價",
+          "detail": "投資出售的價格。"
+        },
+        "day_count_convention": {
+          "name": "day_count_convention",
+          "detail": "指示使用哪一種天數計算方法。"
+        }
+      }
+    },
+    "PRICE": {
+      "description": "支付定期利息的證券的價格。",
+      "parameters": {
+        "settlement": {
+          "name": "沉澱",
+          "detail": "證券的結算日，即證券發行後交付給買方的日期。"
+        },
+        "maturity": {
+          "name": "到期",
+          "detail": "證券的到期日或終止日，可按票面價值贖回。"
+        },
+        "rate": {
+          "name": "速度",
+          "detail": "年利率。"
+        },
+        "yield": {
+          "name": "屈服",
+          "detail": "該證券的預期年收益率。"
+        },
+        "redemption": {
+          "name": "贖回",
+          "detail": "每 100 張票面價值或票面金額的贖回金額。"
+        },
+        "frequency": {
+          "name": "頻率",
+          "detail": "每年利息或票息支付的次數（1、2 或 4）。"
+        },
+        "day_count_convention": {
+          "name": "day_count_convention",
+          "detail": "指示使用哪一種天數計算方法。"
+        }
+      }
+    },
+    "PRICEDISC": {
+      "description": "折扣證券的價格。",
+      "parameters": {
+        "settlement": {
+          "name": "沉澱",
+          "detail": "證券的結算日，即證券發行後交付給買方的日期。"
+        },
+        "maturity": {
+          "name": "到期",
+          "detail": "證券的到期日或終止日，可按票面價值贖回。"
+        },
+        "discount": {
+          "name": "折扣",
+          "detail": "購買時證券的折扣率。"
+        },
+        "redemption": {
+          "name": "贖回",
+          "detail": "每 100 張票面價值或票面金額的贖回金額。"
+        },
+        "day_count_convention": {
+          "name": "day_count_convention",
+          "detail": "指示使用哪一種天數計算方法。"
+        }
+      }
+    },
+    "PRICEMAT": {
+      "description": "到期支付利息的證券的價格。",
+      "parameters": {
+        "settlement": {
+          "name": "沉澱",
+          "detail": "證券的結算日，即證券發行後交付給買方的日期。"
+        },
+        "maturity": {
+          "name": "到期",
+          "detail": "證券的到期日或終止日，可按票面價值贖回。"
+        },
+        "issue": {
+          "name": "問題",
+          "detail": "證券首次發行的日期。"
+        },
+        "rate": {
+          "name": "速度",
+          "detail": "年利率。"
+        },
+        "yield": {
+          "name": "屈服",
+          "detail": "該證券的預期年收益率。"
+        },
+        "day_count_convention": {
+          "name": "day_count_convention",
+          "detail": "指示使用哪一種天數計算方法。"
+        }
+      }
+    },
+    "RECEIVED": {
+      "description": "證券到期時收到的金額。",
+      "parameters": {
+        "settlement": {
+          "name": "沉澱",
+          "detail": "證券的結算日，即證券發行後交付給買方的日期。"
+        },
+        "maturity": {
+          "name": "到期",
+          "detail": "證券的到期日或終止日，可按票面價值贖回。"
+        },
+        "investment": {
+          "name": "投資",
+          "detail": "投資金額（不論每張證券的面額）。"
+        },
+        "discount": {
+          "name": "折扣",
+          "detail": "所投資證券的折現率。"
+        },
+        "day_count_convention": {
+          "name": "day_count_convention",
+          "detail": "指示使用哪一種天數計算方法。"
+        }
+      }
+    },
+    "DISC": {
+      "description": "基於價格的證券折扣率。",
+      "parameters": {
+        "settlement": {
+          "name": "沉澱",
+          "detail": "證券的結算日，即證券發行後交付給買方的日期。"
+        },
+        "maturity": {
+          "name": "到期",
+          "detail": "證券的到期日或終止日，可按票面價值贖回。"
+        },
+        "price": {
+          "name": "價格",
+          "detail": "每 100 票面價值的證券購買價格。"
+        },
+        "redemption": {
+          "name": "贖回",
+          "detail": "每 100 張票面價值或票面金額的贖回金額。"
+        },
+        "day_count_convention": {
+          "name": "day_count_convention",
+          "detail": "指示使用哪一種天數計算方法。"
+        }
+      }
+    },
+    "NPER": {
+      "description": "投資的付款期數。",
+      "parameters": {
+        "rate": {
+          "name": "速度",
+          "detail": "利率。"
+        },
+        "payment_amount": {
+          "name": "付款金額",
+          "detail": "每次付款的金額。"
+        },
+        "present_value": {
+          "name": "現值",
+          "detail": "年金的當前價值。"
+        },
+        "future_value": {
+          "name": "未來價值",
+          "detail": "最終付款後剩餘的未來價值。"
+        },
+        "end_or_beginning": {
+          "name": "結束或開始",
+          "detail": "付款是否在每個期間結束時（「0」）或開始時（「1」）。"
+        }
+      }
+    },
+    "SLN": {
+      "description": "採用直線法提列資產折舊。",
+      "parameters": {
+        "cost": {
+          "name": "成本",
+          "detail": "資產的初始成本。"
+        },
+        "salvage": {
+          "name": "打撈",
+          "detail": "折舊結束時資產的價值。"
+        },
+        "life": {
+          "name": "生活",
+          "detail": "資產折舊的期間數。"
+        }
+      }
+    },
+    "DURATION": {
+      "description": "投資達到某一價值所需的期間數。",
+      "parameters": {
+        "settlement": {
+          "name": "沉澱",
+          "detail": "證券的結算日，即證券發行後交付給買方的日期。"
+        },
+        "maturity": {
+          "name": "到期",
+          "detail": "證券的到期日或終止日，可按票面價值贖回。"
+        },
+        "rate": {
+          "name": "速度",
+          "detail": "年利率。"
+        },
+        "yield": {
+          "name": "屈服",
+          "detail": "該證券的預期年收益率。"
+        },
+        "frequency": {
+          "name": "頻率",
+          "detail": "每年利息或票息支付的次數（1、2 或 4）。"
+        },
+        "day_count_convention": {
+          "name": "day_count_convention",
+          "detail": "指示使用哪一種天數計算方法。"
+        }
+      }
+    },
+    "MDURATION": {
+      "description": "修正的麥考利久期。",
+      "parameters": {
+        "settlement": {
+          "name": "沉澱",
+          "detail": "證券的結算日，即證券發行後交付給買方的日期。"
+        },
+        "maturity": {
+          "name": "到期",
+          "detail": "證券的到期日或終止日，可按票面價值贖回。"
+        },
+        "rate": {
+          "name": "速度",
+          "detail": "年利率。"
+        },
+        "yield": {
+          "name": "屈服",
+          "detail": "該證券的預期年收益率。"
+        },
+        "frequency": {
+          "name": "頻率",
+          "detail": "每年利息或票息支付的次數（1、2 或 4）。"
+        },
+        "day_count_convention": {
+          "name": "day_count_convention",
+          "detail": "指示使用哪一種天數計算方法。"
+        }
+      }
+    },
+    "BIN2DEC": {
+      "description": "將有符號的二進制數轉換為十進制格式。",
+      "parameters": {
+        "signed_binary_number": {
+          "name": "有符號二進制數",
+          "detail": "要轉換為十進制的有符號的 10 位元二進位值，以字串形式提供。"
+        }
+      }
+    },
+    "BIN2HEX": {
+      "description": "將二進制數轉換為十六進制。",
+      "parameters": {
+        "signed_binary_number": {
+          "name": "有符號二進制數",
+          "detail": "要轉換為有符號十六進位的有符號 10 位元二進位值，以字串形式提供。"
+        },
+        "significant_digits": {
+          "name": "有效數字",
+          "detail": "要確保結果中的有效數字的位數。"
+        }
+      }
+    },
+    "BIN2OCT": {
+      "description": "將二進制數轉換為八進制。",
+      "parameters": {
+        "signed_binary_number": {
+          "name": "有符號二進制數",
+          "detail": "要轉換為有符號八進制的有符號 10 位元二進位值，以字串形式提供。"
+        },
+        "significant_digits": {
+          "name": "有效數字",
+          "detail": "要確保結果中的有效數字的位數。"
+        }
+      }
+    },
+    "DEC2BIN": {
+      "description": "將十進制數轉換為有符號的二進位格式。",
+      "parameters": {
+        "decimal_number": {
+          "name": "十進制數",
+          "detail": "要轉換為有符號二進制的十進制值，以字串形式提供。"
+        },
+        "significant_digits": {
+          "name": "有效數字",
+          "detail": "要確保結果中的有效數字的位數。"
+        }
+      }
+    },
+    "DEC2HEX": {
+      "description": "將十進制數轉換為十六進制。",
+      "parameters": {
+        "decimal_number": {
+          "name": "十進制數",
+          "detail": "要轉換為有符號十六進制的十進制值，以字串形式提供。"
+        },
+        "significant_digits": {
+          "name": "有效數字",
+          "detail": "要確保結果中的有效數字的位數。"
+        }
+      }
+    },
+    "DEC2OCT": {
+      "description": "將十進制數轉換為有符號的八進制格式。",
+      "parameters": {
+        "decimal_number": {
+          "name": "十進制數",
+          "detail": "要轉換為有符號八進制的十進制值，以字串形式提供。"
+        },
+        "significant_digits": {
+          "name": "有效數字",
+          "detail": "要確保結果中的有效數字的位數。"
+        }
+      }
+    },
+    "HEX2BIN": {
+      "description": "將十六進制數轉換為二進制。",
+      "parameters": {
+        "signed_hexadecimal_number": {
+          "name": "有符號十六進制數",
+          "detail": "要轉換為有符號二進制的有符號 40 位元十六進位值，以字串形式提供。"
+        },
+        "significant_digits": {
+          "name": "有效數字",
+          "detail": "要確保結果中的有效數字的位數。"
+        }
+      }
+    },
+    "HEX2DEC": {
+      "description": "將十六進制數轉換為十進制。",
+      "parameters": {
+        "signed_hexadecimal_number": {
+          "name": "有符號十六進制數",
+          "detail": "要轉換為十進制的有符號的 40 位元十六進位值，以字串形式提供。"
+        }
+      }
+    },
+    "HEX2OCT": {
+      "description": "將十六進制數轉換為八進制。",
+      "parameters": {
+        "signed_hexadecimal_number": {
+          "name": "有符號十六進制數",
+          "detail": "要轉換為有符號八進制的有符號 40 位元十六進位值，以字串形式提供。"
+        },
+        "significant_digits": {
+          "name": "有效數字",
+          "detail": "要確保結果中的有效數字的位數。"
+        }
+      }
+    },
+    "OCT2BIN": {
+      "description": "將八進制數轉換為二進制。",
+      "parameters": {
+        "signed_octal_number": {
+          "name": "有符號八進制數",
+          "detail": "要轉換為有符號二進制的有符號 30 位元八進位值，以字串形式提供。"
+        },
+        "significant_digits": {
+          "name": "有效數字",
+          "detail": "要確保結果中的有效數字的位數。"
+        }
+      }
+    },
+    "OCT2DEC": {
+      "description": "將有符號的八進制數轉換為十進制格式。",
+      "parameters": {
+        "signed_octal_number": {
+          "name": "有符號八進制數",
+          "detail": "要轉換為十進制的有符號的 30 位八進制值，以字串形式提供。"
+        }
+      }
+    },
+    "OCT2HEX": {
+      "description": "將八進制數轉換為十六進制。",
+      "parameters": {
+        "signed_octal_number": {
+          "name": "有符號八進制數",
+          "detail": "要轉換為有符號十六進位的有符號 30 位元八進位值，以字串形式提供。"
+        },
+        "significant_digits": {
+          "name": "有效數字",
+          "detail": "要確保結果中的有效數字的位數。"
+        }
+      }
+    },
+    "COMPLEX": {
+      "description": "建立一個複數。",
+      "parameters": {
+        "real_part": {
+          "name": "實部",
+          "detail": "真實係數。"
+        },
+        "imaginary_part": {
+          "name": "虛部",
+          "detail": "虛數係數。"
+        },
+        "suffix": {
+          "name": "後綴",
+          "detail": "虛部係數的字尾只能為 'i' 或 'j'。如果省略，則使用 'i'。"
+        }
+      }
+    },
+    "IMREAL": {
+      "description": "複數的實係數。",
+      "parameters": {
+        "complex_number": {
+          "name": "複數",
+          "detail": "複數，格式為 a+bi 或 a+bj。"
+        }
+      }
+    },
+    "IMAGINARY": {
+      "description": "複數的虛係數。",
+      "parameters": {
+        "complex_number": {
+          "name": "複數",
+          "detail": "複數，格式為 a+bi 或 a+bj。"
+        }
+      }
+    },
+    "IMCONJUGATE": {
+      "description": "一個數的複共軛。",
+      "parameters": {
+        "number": {
+          "name": "數位",
+          "detail": "要計算共軛的複數。"
+        }
+      }
+    },
+    "IMABS": {
+      "description": "複數的絕對值。",
+      "parameters": {
+        "number": {
+          "name": "數位",
+          "detail": "要計算絕對值的複數。"
+        }
+      }
+    },
+    "DELTA": {
+      "description": "比較兩個數值。",
+      "parameters": {
+        "number1": {
+          "name": "號碼1",
+          "detail": "要比較的第一個數字。"
+        },
+        "number2": {
+          "name": "數字2",
+          "detail": "要比較的第二個數字。"
+        }
+      }
+    },
+    "IMSUM": {
+      "description": "一連串複數的總和。",
+      "parameters": {
+        "value1": {
+          "name": "值1",
+          "detail": "要相加的第一個複數或範圍。"
+        },
+        "value2": {
+          "name": "值2",
+          "detail": "若要新增至「value1」的額外複數或範圍。"
+        }
+      }
+    },
+    "IMSUB": {
+      "description": "兩個複數之間的差。",
+      "parameters": {
+        "first_number": {
+          "name": "第一個號碼",
+          "detail": "要從中減去 second_number 的複數。"
+        },
+        "second_number": {
+          "name": "第二個數字",
+          "detail": "要從 first_number 中減去的複數。"
+        }
+      }
+    },
+    "IMPRODUCT": {
+      "description": "將一系列複數相乘的結果。",
+      "parameters": {
+        "factor1": {
+          "name": "因素1",
+          "detail": "要計算乘積的第一個數字或範圍。"
+        },
+        "factor2": {
+          "name": "因素2",
+          "detail": "要計算乘積的附加複數或範圍。"
+        }
+      }
+    },
+    "IMDIV": {
+      "description": "一個複數除以另一個複數。",
+      "parameters": {
+        "dividend": {
+          "name": "股利",
+          "detail": "要除的複數。"
+        },
+        "divisor": {
+          "name": "除數",
+          "detail": "要除的複數。"
+        }
+      }
+    },
+    "NOT": {
+      "description": "傳回所提供的邏輯值的反面。",
+      "parameters": {
+        "logical_expression": {
+          "name": "邏輯表達式",
+          "detail": "表達式或對包含代表某些邏輯值的表達式的單元格的參考。"
+        }
+      }
+    },
+    "TRUE": {
+      "description": "邏輯值“true”。"
+    },
+    "FALSE": {
+      "description": "邏輯值“false”。"
+    },
+    "AND": {
+      "description": "邏輯“與”運算符。",
+      "parameters": {
+        "logical_expression1": {
+          "name": "邏輯表達式1",
+          "detail": "表達式或包含表示某些邏輯值（即“TRUE”或“FALSE”）的表達式的單元格的引用，或可以強制轉換為邏輯值的表達式。"
+        },
+        "logical_expression2": {
+          "name": "邏輯表達式2",
+          "detail": "更多代表邏輯值的表達式。"
+        }
+      }
+    },
+    "IFERROR": {
+      "description": "如果不是錯誤則為值，否則為第二個參數。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "如果「值」本身不是錯誤，則傳回的值。"
+        },
+        "value_if_error": {
+          "name": "錯誤時的值",
+          "detail": "如果「值」有錯誤，則函數傳回的值。"
+        }
+      }
+    },
+    "IF": {
+      "description": "根據邏輯表達式傳回值。",
+      "parameters": {
+        "logical_expression": {
+          "name": "邏輯表達式",
+          "detail": "包含表示某些邏輯值（即“TRUE”或“FALSE”）的表達式的單元格的表達式或引用。"
+        },
+        "value_if_true": {
+          "name": "若為真則為值",
+          "detail": "如果“邏輯表達式”為“TRUE”，則函數傳回的值。"
+        },
+        "value_if_false": {
+          "name": "如果為假則為值",
+          "detail": "如果“logical_expression”為“FALSE”，則函數傳回的值。"
+        }
+      }
+    },
+    "OR": {
+      "description": "邏輯“或”運算符。",
+      "parameters": {
+        "logical_expression1": {
+          "name": "邏輯表達式1",
+          "detail": "表達式或包含表示某些邏輯值（即“TRUE”或“FALSE”）的表達式的單元格的引用，或可以強制轉換為邏輯值的表達式。"
+        },
+        "logical_expression2": {
+          "name": "邏輯表達式2",
+          "detail": "更多可計算邏輯值的表達式。"
+        }
+      }
+    },
+    "NE": {
+      "description": "不相等。",
+      "parameters": {
+        "value1": {
+          "name": "值1",
+          "detail": "第一個值。"
+        },
+        "value2": {
+          "name": "值2",
+          "detail": "與“value1”測試不相等的值。"
+        }
+      }
+    },
+    "EQ": {
+      "description": "平等的。",
+      "parameters": {
+        "value1": {
+          "name": "值1",
+          "detail": "第一個值。"
+        },
+        "value2": {
+          "name": "值2",
+          "detail": "與“value1”測試是否相等的值。"
+        }
+      }
+    },
+    "GT": {
+      "description": "嚴格大於。",
+      "parameters": {
+        "value1": {
+          "name": "值1",
+          "detail": "要測試的值是否大於“value2”。"
+        },
+        "value2": {
+          "name": "值2",
+          "detail": "第二個值。"
+        }
+      }
+    },
+    "GTE": {
+      "description": "大於或等於。",
+      "parameters": {
+        "value1": {
+          "name": "值1",
+          "detail": "要測試的值是否大於或等於“value2”。"
+        },
+        "value2": {
+          "name": "值2",
+          "detail": "第二個值。"
+        }
+      }
+    },
+    "LT": {
+      "description": "少於。",
+      "parameters": {
+        "value1": {
+          "name": "值1",
+          "detail": "要測試的值是否小於“value2”。"
+        },
+        "value2": {
+          "name": "值2",
+          "detail": "第二個值。"
+        }
+      }
+    },
+    "LTE": {
+      "description": "小於或等於。",
+      "parameters": {
+        "value1": {
+          "name": "值1",
+          "detail": "要測試的值是否小於或等於“value2”。"
+        },
+        "value2": {
+          "name": "值2",
+          "detail": "第二個值。"
+        }
+      }
+    },
+    "ADD": {
+      "description": "兩個數字之和",
+      "parameters": {
+        "value1": {
+          "name": "值1",
+          "detail": "第一個加數。"
+        },
+        "value2": {
+          "name": "值2",
+          "detail": "第二個加數。"
+        }
+      }
+    },
+    "MINUS": {
+      "description": "兩個數的差",
+      "parameters": {
+        "value1": {
+          "name": "值1",
+          "detail": "被減數，或者說要減去的數字。"
+        },
+        "value2": {
+          "name": "值2",
+          "detail": "減數，即從「value1」減去的數字。"
+        }
+      }
+    },
+    "MULTIPLY": {
+      "description": "兩個數的乘積",
+      "parameters": {
+        "factor1": {
+          "name": "因素1",
+          "detail": "第一個被乘數。"
+        },
+        "factor2": {
+          "name": "因素2",
+          "detail": "第二個被乘數。"
+        }
+      }
+    },
+    "DIVIDE": {
+      "description": "一個數除以另一個數",
+      "parameters": {
+        "dividend": {
+          "name": "股利",
+          "detail": "待除數。"
+        },
+        "divisor": {
+          "name": "除數",
+          "detail": "要除以的數字。"
+        }
+      }
+    },
+    "CONCAT": {
+      "description": "兩個值的串聯",
+      "parameters": {
+        "value1": {
+          "name": "值1",
+          "detail": "將附加“value2”的值。"
+        },
+        "value2": {
+          "name": "值2",
+          "detail": "要附加到“value1”的值。"
+        }
+      }
+    },
+    "UNARY_PERCENT": {
+      "description": "以百分比形式解釋的值。",
+      "parameters": {
+        "percentage": {
+          "name": "百分比",
+          "detail": "以百分比形式解釋的值。"
+        }
+      }
+    },
+    "CONCATENATE": {
+      "description": "將字串附加到另一個字串。",
+      "parameters": {
+        "string1": {
+          "name": "字串1",
+          "detail": "初始字串。"
+        },
+        "string2": {
+          "name": "字串2",
+          "detail": "按順序附加更多字串。"
+        }
+      }
+    },
+    "CODE": {
+      "description": "字元的數字 Unicode 映射值。",
+      "parameters": {
+        "string": {
+          "name": "細繩",
+          "detail": "將傳回其第一個字元的 Unicode 映射值的字串。"
+        }
+      }
+    },
+    "CHAR": {
+      "description": "取得與數字關聯的字元。",
+      "parameters": {
+        "table_number": {
+          "name": "桌號",
+          "detail": "以十進位格式從目前 Unicode 表中尋找的字元編號。"
+        }
+      }
+    },
+    "ARABIC": {
+      "description": "計算羅馬數字的值。",
+      "parameters": {
+        "roman_numeral": {
+          "name": "羅馬數字",
+          "detail": "要格式化的羅馬數字，其值必須介於 1 到 3999 之間（含 1 和 3999）。"
+        }
+      }
+    },
+    "ROMAN": {
+      "description": "將數字格式化為羅馬數字。",
+      "parameters": {
+        "number": {
+          "name": "數位",
+          "detail": "要格式化的數字，介於 1 到 3999 之間（含）。"
+        }
+      }
+    },
+    "REGEXEXTRACT": {
+      "description": "使用正規表示式提取匹配的子字串。",
+      "parameters": {
+        "text": {
+          "name": "文字",
+          "detail": "輸入文字。"
+        },
+        "regular_expression": {
+          "name": "正規表示式",
+          "detail": "將傳回與該表達式相符的「文字」的第一部分。"
+        }
+      }
+    },
+    "REGEXMATCH": {
+      "description": "一段文字是否與正規表示式相符。",
+      "parameters": {
+        "text": {
+          "name": "文字",
+          "detail": "要根據正規表示式進行測試的文字。"
+        },
+        "regular_expression": {
+          "name": "正規表示式",
+          "detail": "用於測試文字的正規表示式。"
+        }
+      }
+    },
+    "REGEXREPLACE": {
+      "description": "用正規表示式取代文字。",
+      "parameters": {
+        "text": {
+          "name": "文字",
+          "detail": "文字的一部分將被替換。"
+        },
+        "regular_expression": {
+          "name": "正規表示式",
+          "detail": "正規表示式。 “text”中所有符合的實例都將被替換。"
+        },
+        "replacement": {
+          "name": "替代品",
+          "detail": "將插入到原始文字中的文字。"
+        }
+      }
+    },
+    "T": {
+      "description": "字串參數作為文字。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "要轉換為文字的參數。"
+        }
+      }
+    },
+    "FIXED": {
+      "description": "格式化具有固定小數位數的數字。",
+      "parameters": {
+        "number": {
+          "name": "數位",
+          "detail": "要格式化的數字。"
+        },
+        "number_of_places": {
+          "name": "位置數量",
+          "detail": "結果中顯示的小數位數。"
+        },
+        "suppress_separator": {
+          "name": "抑制分隔符",
+          "detail": "是否隱藏某些語言環境中使用的千位分隔符號（例如，將“1,000”替換為“1000”）。如果此值為 0 或省略，則顯示分隔符，否則不顯示。"
+        }
+      }
+    },
+    "FIND": {
+      "description": "文字中找到的字串的第一個位置，區分大小寫。",
+      "parameters": {
+        "search_for": {
+          "name": "搜尋",
+          "detail": "在“text_to_search”中尋找的字串。"
+        },
+        "text_to_search": {
+          "name": "要搜尋的文字",
+          "detail": "用於搜尋第一次出現的「search_for」的文字。"
+        },
+        "starting_at": {
+          "name": "起始時間",
+          "detail": "“text_to_search” 中開始搜尋的字元。"
+        }
+      }
+    },
+    "FINDB": {
+      "description": "在文字（二進位）中首次找到字串的位置。",
+      "parameters": {
+        "search_for": {
+          "name": "搜尋",
+          "detail": "在“text_to_search”中尋找的字串。"
+        },
+        "text_to_search": {
+          "name": "要搜尋的文字",
+          "detail": "用於搜尋第一次出現的「search_for」的文字。"
+        },
+        "starting_at": {
+          "name": "起始時間",
+          "detail": "“text_to_search” 中開始搜尋的字元。"
+        }
+      }
+    },
+    "JOIN": {
+      "description": "使用分隔符號連接數組元素。",
+      "parameters": {
+        "delimiter": {
+          "name": "分隔符",
+          "detail": "放置在每個連接值之間的字元或字串。"
+        },
+        "value_or_array1": {
+          "name": "值或數組1",
+          "detail": "使用“分隔符”附加一個或多個值。"
+        },
+        "value_or_array2": {
+          "name": "值或數組2",
+          "detail": "使用“分隔符”附加更多值。"
+        }
+      }
+    },
+    "LEFT": {
+      "description": "從指定字串的開頭開始的子字串。",
+      "parameters": {
+        "string": {
+          "name": "細繩",
+          "detail": "將傳回左側部分的字串。"
+        },
+        "number_of_characters": {
+          "name": "字元數",
+          "detail": "從“字串”左側傳回的字元數。"
+        }
+      }
+    },
+    "RIGHT": {
+      "description": "指定字串末尾的子字串。",
+      "parameters": {
+        "string": {
+          "name": "細繩",
+          "detail": "將傳回正確部分的字串。"
+        },
+        "number_of_characters": {
+          "name": "字元數",
+          "detail": "從“字串”右側傳回的字元數。"
+        }
+      }
+    },
+    "MID": {
+      "description": "字串的一段。",
+      "parameters": {
+        "string": {
+          "name": "細繩",
+          "detail": "要從中提取片段的字串。"
+        },
+        "starting_at": {
+          "name": "起始時間",
+          "detail": "從 `string` 左側開始擷取的索引。 `string` 中第一個字元的索引為 1。"
+        },
+        "extract_length": {
+          "name": "提取長度",
+          "detail": "要提取的段的長度。"
+        }
+      }
+    },
+    "LEN": {
+      "description": "字串的長度。",
+      "parameters": {
+        "text": {
+          "name": "文字",
+          "detail": "將返回其長度的字串。"
+        }
+      }
+    },
+    "LENB": {
+      "description": "字串的長度（以位元組為單位）。",
+      "parameters": {
+        "text": {
+          "name": "文字",
+          "detail": "將返回其長度的字串。"
+        }
+      }
+    },
+    "LOWER": {
+      "description": "將指定的字串轉換為小寫。",
+      "parameters": {
+        "text": {
+          "name": "文字",
+          "detail": "要轉換為小寫的字串。"
+        }
+      }
+    },
+    "UPPER": {
+      "description": "將指定的字串轉換為大寫。",
+      "parameters": {
+        "text": {
+          "name": "文字",
+          "detail": "要轉換為大寫的字串。"
+        }
+      }
+    },
+    "EXACT": {
+      "description": "測試兩個字串是否相同。",
+      "parameters": {
+        "string1": {
+          "name": "字串1",
+          "detail": "要比較的第一個字串"
+        },
+        "string2": {
+          "name": "字串2",
+          "detail": "要比較的第二個字串"
+        }
+      }
+    },
+    "REPLACE": {
+      "description": "用不同的文字替換部分文字字串。",
+      "parameters": {
+        "text": {
+          "name": "文字",
+          "detail": "文字的一部分將被替換。"
+        },
+        "position": {
+          "name": "位置",
+          "detail": "替換開始的位置（從 1 開始）。"
+        },
+        "length": {
+          "name": "長度",
+          "detail": "文字中要替換的字元數。"
+        },
+        "new_text": {
+          "name": "新文字",
+          "detail": "將插入到原始文字中的文字。"
+        }
+      }
+    },
+    "REPT": {
+      "description": "指定的文字重複多次。",
+      "parameters": {
+        "text_to_repeat": {
+          "name": "重複文字",
+          "detail": "要重複的字元或字串。"
+        },
+        "number_of_repetitions": {
+          "name": "重複次數",
+          "detail": "傳回值中應出現「text_to_repeat」的次數。"
+        }
+      }
+    },
+    "SEARCH": {
+      "description": "文字中找到的字串的第一個位置，忽略大小寫。",
+      "parameters": {
+        "search_for": {
+          "name": "搜尋",
+          "detail": "在“text_to_search”中尋找的字串。"
+        },
+        "text_to_search": {
+          "name": "要搜尋的文字",
+          "detail": "用於搜尋第一次出現的「search_for」的文字。"
+        },
+        "starting_at": {
+          "name": "起始時間",
+          "detail": "“text_to_search” 中開始搜尋的字元。"
+        }
+      }
+    },
+    "SUBSTITUTE": {
+      "description": "用字串中的新文字取代現有文字。",
+      "parameters": {
+        "text_to_search": {
+          "name": "要搜尋的文字",
+          "detail": "要搜尋和取代的文字。"
+        },
+        "search_for": {
+          "name": "搜尋",
+          "detail": "要在「text_to_search」中搜尋的字串。"
+        },
+        "replace_with": {
+          "name": "替換為",
+          "detail": "將替換“search_for”的字串。"
+        },
+        "occurrence_number": {
+          "name": "發生次數",
+          "detail": "在「待搜尋文字」中，指定要取代為「取代內容」的「搜尋條件」實例。預設情況下，所有出現的“搜尋條件”都會被替換；但是，如果指定了“出現次數”，則僅取代指定的“搜尋條件”實例。"
+        }
+      }
+    },
+    "CLEAN": {
+      "description": "從一段文字中刪除不可列印的字元。",
+      "parameters": {
+        "text": {
+          "name": "文字",
+          "detail": "若要刪除不可列印字元的文字。"
+        }
+      }
+    },
+    "TEXT": {
+      "description": "將數字格式化為文字。",
+      "parameters": {
+        "number": {
+          "name": "數位",
+          "detail": "要格式化的數字、日期或時間。"
+        },
+        "format": {
+          "name": "格式",
+          "detail": "格式化數字的模式，用引號引起來。"
+        }
+      }
+    },
+    "TRIM": {
+      "description": "刪除空格字元。",
+      "parameters": {
+        "text": {
+          "name": "文字",
+          "detail": "包含要修剪的文字的儲存格的文字或引用。"
+        }
+      }
+    },
+    "VALUE": {
+      "description": "將日期/時間/數字字串轉換為數字。",
+      "parameters": {
+        "text": {
+          "name": "文字",
+          "detail": "包含要轉換的值的字串。"
+        }
+      }
+    },
+    "PROPER": {
+      "description": "將指定字串中的每個單字大寫。",
+      "parameters": {
+        "text_to_capitalize": {
+          "name": "文字大寫",
+          "detail": "傳回的文字中每個單字的首字母大寫，其他所有字母小寫。"
+        }
+      }
+    },
+    "CONVERT": {
+      "description": "數字的單一轉換。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "將 `start_unit` 中的數值轉換為 `end_unit`。"
+        },
+        "start_unit": {
+          "name": "起始單元",
+          "detail": "起始單位，即目前分配給“value”的單位。"
+        },
+        "end_unit": {
+          "name": "結束單元",
+          "detail": "將參數“值”轉換為的度量單位。"
+        }
+      }
+    },
+    "SUMX2MY2": {
+      "description": "平方差之和。",
+      "parameters": {
+        "array_x": {
+          "name": "array_x",
+          "detail": "數組或數值範圍，其平方將除以“array_y”中相應條目的平方，然後相加。"
+        },
+        "array_y": {
+          "name": "陣列",
+          "detail": "將從 `array_x` 中對應條目的平方中減去其平方的值的陣列或範圍，然後將其相加。"
+        }
+      }
+    },
+    "SUMX2PY2": {
+      "description": "平方和之和。",
+      "parameters": {
+        "array_x": {
+          "name": "array_x",
+          "detail": "數組或值範圍，其平方將被加到「array_y」中對應項目的平方，然後相加。"
+        },
+        "array_y": {
+          "name": "陣列",
+          "detail": "陣列或值的平方將會加到 `array_x` 中對應項目的平方，然後相加。"
+        }
+      }
+    },
+    "SUMXMY2": {
+      "description": "差異的平方和。",
+      "parameters": {
+        "array_x": {
+          "name": "array_x",
+          "detail": "將透過「array_y」中的相應條目減少、求平方並相加的數組或值範圍。"
+        },
+        "array_y": {
+          "name": "陣列",
+          "detail": "將從 `array_x` 中的相應條目中減去的值的數組或範圍，將結果平方，然後將所有這些結果加在一起。"
+        }
+      }
+    },
+    "TRANSPOSE": {
+      "description": "轉置數組的行和列。",
+      "parameters": {
+        "array_or_range": {
+          "name": "數組或範圍",
+          "detail": "將交換行和列的陣列或範圍。"
+        }
+      }
+    },
+    "TREND": {
+      "description": "將點與透過最小平方法得出的線性趨勢相符。",
+      "parameters": {
+        "known_data_y": {
+          "name": "已知數據",
+          "detail": "包含已知依賴（y）值的陣列或範圍，用於曲線擬合理想的線性趨勢。"
+        },
+        "known_data_x": {
+          "name": "已知數據",
+          "detail": "與「known_data_y」對應的獨立變數的值。"
+        },
+        "new_data_x": {
+          "name": "新數據",
+          "detail": "數據點傳回理想曲線擬合的“y”值。"
+        },
+        "b": {
+          "name": "b",
+          "detail": "給定曲線擬合的一般線性形式 `y = m*x+b`，如果為 `TRUE`，則計算 `b`，如果為 `FALSE`，則強制 `b` 為 `0`，僅計算 `m` 值，即強製曲線擬合通過原點。"
+        }
+      }
+    },
+    "FREQUENCY": {
+      "description": "陣列的頻率分佈。",
+      "parameters": {
+        "data": {
+          "name": "數據",
+          "detail": "包含要計數的值的陣列或範圍。"
+        },
+        "classes": {
+          "name": "課程",
+          "detail": "包含類別集的陣列或範圍。"
+        }
+      }
+    },
+    "GROWTH": {
+      "description": "適合指數成長趨勢。",
+      "parameters": {
+        "known_data_y": {
+          "name": "已知數據",
+          "detail": "包含已知依賴（y）值的陣列或範圍，用於曲線擬合理想的指數成長曲線。"
+        },
+        "known_data_x": {
+          "name": "已知數據",
+          "detail": "與「known_data_y」對應的獨立變數的值。"
+        },
+        "new_data_x": {
+          "name": "新數據",
+          "detail": "數據點傳回理想曲線擬合的“y”值。"
+        },
+        "b": {
+          "name": "b",
+          "detail": "給定曲線擬合的一般指數形式 `y = b*m^x`，如果為 `TRUE`，則計算 `b`，如果為 `FALSE`，則強制 `b` 為 `1`，並且僅計算 `m` 值。"
+        }
+      }
+    },
+    "LINEST": {
+      "description": "透過最小平方法得到最佳擬合線性趨勢。",
+      "parameters": {
+        "known_data_y": {
+          "name": "已知數據",
+          "detail": "包含已知依賴（y）值的陣列或範圍，用於曲線擬合理想的線性趨勢。"
+        },
+        "known_data_x": {
+          "name": "已知數據",
+          "detail": "與「known_data_y」對應的獨立變數的值。"
+        },
+        "calculate_b": {
+          "name": "計算_b",
+          "detail": "給定 `y = m*x+b` 的線性形式，如果為 `TRUE`，則計算 y 軸截距 (`b`)。否則，如果為 `FALSE`，則強制 `b` 為 `0`，並且僅計算 `m` 值，即強製曲線擬合通過原點。"
+        },
+        "verbose": {
+          "name": "冗長的",
+          "detail": "指定是否傳回附加迴歸統計資料或僅傳回線性係數和 y 截距（預設）的標誌。"
+        }
+      }
+    },
+    "LOGEST": {
+      "description": "最佳擬合指數成長曲線。",
+      "parameters": {
+        "known_data_y": {
+          "name": "已知數據",
+          "detail": "包含已知依賴（y）值的陣列或範圍，用於曲線擬合理想的指數成長曲線。"
+        },
+        "known_data_x": {
+          "name": "已知數據",
+          "detail": "與「known_data_y」對應的獨立變數的值。"
+        },
+        "b": {
+          "name": "b",
+          "detail": "給定曲線擬合的一般指數形式 `y = b*m^x`，如果為 `TRUE`，則計算 `b`，如果為 `FALSE`，則強制 `b` 為 `1`，並且僅計算 `m` 值。"
+        },
+        "verbose": {
+          "name": "冗長的",
+          "detail": "指定是否傳回附加迴歸統計資料或僅傳回計算出的係數和指數的標誌。"
+        }
+      }
+    },
+    "MDETERM": {
+      "description": "方陣的矩陣行列式。",
+      "parameters": {
+        "square_matrix": {
+          "name": "方陣",
+          "detail": "具有相等行數和列數的陣列或範圍，表示將計算行列式的矩陣。"
+        }
+      }
+    },
+    "MINVERSE": {
+      "description": "方陣的乘法逆元。",
+      "parameters": {
+        "square_matrix": {
+          "name": "方陣",
+          "detail": "具有相等行數和列數的陣列或範圍，表示將計算其乘法逆元的矩陣。"
+        }
+      }
+    },
+    "MMULT": {
+      "description": "兩個矩陣的矩陣積。",
+      "parameters": {
+        "matrix1": {
+          "name": "矩陣1",
+          "detail": "矩陣乘法運算中的第一個矩陣，表示為陣列或範圍。"
+        },
+        "matrix2": {
+          "name": "矩陣2",
+          "detail": "矩陣乘法運算中的第二個矩陣，表示為陣列或範圍。"
+        }
+      }
+    },
+    "SUMPRODUCT": {
+      "description": "兩個數組中元素的乘積之和。",
+      "parameters": {
+        "array1": {
+          "name": "數組1",
+          "detail": "第一個數組或範圍的條目將與第二個數組或範圍中的相應條目相乘。"
+        },
+        "array2": {
+          "name": "數組2",
+          "detail": "第二個數組或範圍的條目將與第一個這樣的數組或範圍中的相應條目相乘。"
+        }
+      }
+    },
+    "ISFORMULA": {
+      "description": "一個值是否是一個公式。",
+      "parameters": {
+        "cell": {
+          "name": "細胞",
+          "detail": "若要驗證是否包含公式的儲存格。"
+        }
+      }
+    },
+    "CELL": {
+      "description": "取得有關單元格的資訊。",
+      "parameters": {
+        "info_type": {
+          "name": "資訊類型",
+          "detail": "所要求的資訊類型（請參閱文章以了解可用類型）"
+        },
+        "reference": {
+          "name": "參考",
+          "detail": "對單元格的引用。"
+        }
+      }
+    },
+    "NA": {
+      "description": "`#N/A` 錯誤。"
+    },
+    "ISBLANK": {
+      "description": "引用的儲存格是否為空。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "引用將被檢查是否為空的儲存格。"
+        }
+      }
+    },
+    "ISERR": {
+      "description": "某個值是否是除“#n/a”之外的錯誤。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "要驗證的值是否為除“#N/A”之外的錯誤類型。"
+        }
+      }
+    },
+    "ISERROR": {
+      "description": "某個值是否錯誤。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "要驗證為錯誤類型的值。"
+        }
+      }
+    },
+    "ISLOGICAL": {
+      "description": "值是“真”還是“假”。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "要驗證的值為邏輯“TRUE”或“FALSE”。"
+        }
+      }
+    },
+    "ISNA": {
+      "description": "一個值是否為錯誤“#n/a”。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "要與錯誤值“#N/A”進行比較的值。"
+        }
+      }
+    },
+    "ISNONTEXT": {
+      "description": "值是否為非文字。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "要檢查的值。"
+        }
+      }
+    },
+    "ISNUMBER": {
+      "description": "值是否為數字。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "需要驗證的值是否為數字。"
+        }
+      }
+    },
+    "ISREF": {
+      "description": "值是否為有效的儲存格引用。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "要驗證作為單元格引用的值。"
+        }
+      }
+    },
+    "ISTEXT": {
+      "description": "值是否為文字。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "要驗證的值是否為文字。"
+        }
+      }
+    },
+    "TYPE": {
+      "description": "獲取值的類型。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "需要確定其類型的值。"
+        }
+      }
+    },
+    "N": {
+      "description": "以數字形式提供的參數。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "要轉換為數字的參數。"
+        }
+      }
+    },
+    "TO_DATE": {
+      "description": "將提供的數字轉換為日期。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "要轉換為日期的儲存格的參數或參考。"
+        }
+      }
+    },
+    "TO_PURE_NUMBER": {
+      "description": "將任何數值轉換為純數字。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "要轉換為純數字的儲存格的參數或參考。"
+        }
+      }
+    },
+    "TO_TEXT": {
+      "description": "將提供的數字值轉換為文字值。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "要轉換為文字的儲存格的參數或引用。"
+        }
+      }
+    },
+    "TO_DOLLARS": {
+      "description": "將提供的數字轉換為美元價值。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "要轉換為美元值的儲存格的參數或參考。"
+        }
+      }
+    },
+    "TO_PERCENT": {
+      "description": "將提供的數字轉換為百分比。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "要轉換為百分比的儲存格的參數或參考。"
+        }
+      }
+    },
+    "DGET": {
+      "description": "來自表格範圍的單一值。",
+      "parameters": {
+        "database": {
+          "name": "資料庫",
+          "detail": "包含要考慮的資料的陣列或範圍，其結構為第一行包含每列值的標籤。"
+        },
+        "field": {
+          "name": "場地",
+          "detail": "指示「資料庫」中的哪一列包含要提取和操作的值。"
+        },
+        "criteria": {
+          "name": "標準",
+          "detail": "包含零個或多個條件的陣列或範圍，用於在操作之前過濾「資料庫」值。"
+        }
+      }
+    },
+    "DMAX": {
+      "description": "表格範圍內的最大值。",
+      "parameters": {
+        "database": {
+          "name": "資料庫",
+          "detail": "包含要考慮的資料的陣列或範圍，其結構為第一行包含每列值的標籤。"
+        },
+        "field": {
+          "name": "場地",
+          "detail": "指示「資料庫」中的哪一列包含要提取和操作的值。"
+        },
+        "criteria": {
+          "name": "標準",
+          "detail": "包含零個或多個條件的陣列或範圍，用於在操作之前過濾「資料庫」值。"
+        }
+      }
+    },
+    "DMIN": {
+      "description": "表格範圍中的最小值。",
+      "parameters": {
+        "database": {
+          "name": "資料庫",
+          "detail": "包含要考慮的資料的陣列或範圍，其結構為第一行包含每列值的標籤。"
+        },
+        "field": {
+          "name": "場地",
+          "detail": "指示「資料庫」中的哪一列包含要提取和操作的值。"
+        },
+        "criteria": {
+          "name": "標準",
+          "detail": "包含零個或多個條件的陣列或範圍，用於在操作之前過濾「資料庫」值。"
+        }
+      }
+    },
+    "DAVERAGE": {
+      "description": "表格範圍內的一組值的平均值。",
+      "parameters": {
+        "database": {
+          "name": "資料庫",
+          "detail": "包含要考慮的資料的陣列或範圍，其結構為第一行包含每列值的標籤。"
+        },
+        "field": {
+          "name": "場地",
+          "detail": "指示「資料庫」中的哪一列包含要提取和操作的值。"
+        },
+        "criteria": {
+          "name": "標準",
+          "detail": "包含零個或多個條件的陣列或範圍，用於在操作之前過濾「資料庫」值。"
+        }
+      }
+    },
+    "DCOUNT": {
+      "description": "從類似表格的範圍內計算值。",
+      "parameters": {
+        "database": {
+          "name": "資料庫",
+          "detail": "包含要考慮的資料的陣列或範圍，其結構為第一行包含每列值的標籤。"
+        },
+        "field": {
+          "name": "場地",
+          "detail": "指示「資料庫」中的哪一列包含要提取和操作的值。"
+        },
+        "criteria": {
+          "name": "標準",
+          "detail": "包含零個或多個條件的陣列或範圍，用於在操作之前過濾「資料庫」值。"
+        }
+      }
+    },
+    "DCOUNTA": {
+      "description": "計算表格範圍內的值和文字。",
+      "parameters": {
+        "database": {
+          "name": "資料庫",
+          "detail": "包含要考慮的資料的陣列或範圍，其結構為第一行包含每列值的標籤。"
+        },
+        "field": {
+          "name": "場地",
+          "detail": "指示「資料庫」中的哪一列包含要提取和操作的值。"
+        },
+        "criteria": {
+          "name": "標準",
+          "detail": "包含零個或多個條件的陣列或範圍，用於在操作之前過濾「資料庫」值。"
+        }
+      }
+    },
+    "DPRODUCT": {
+      "description": "表格範圍內的值的乘積。",
+      "parameters": {
+        "database": {
+          "name": "資料庫",
+          "detail": "包含要考慮的資料的陣列或範圍，其結構為第一行包含每列值的標籤。"
+        },
+        "field": {
+          "name": "場地",
+          "detail": "指示「資料庫」中的哪一列包含要提取和操作的值。"
+        },
+        "criteria": {
+          "name": "標準",
+          "detail": "包含零個或多個條件的陣列或範圍，用於在操作之前過濾「資料庫」值。"
+        }
+      }
+    },
+    "DSTDEV": {
+      "description": "表中總體樣本的標準差。",
+      "parameters": {
+        "database": {
+          "name": "資料庫",
+          "detail": "包含要考慮的資料的陣列或範圍，其結構為第一行包含每列值的標籤。"
+        },
+        "field": {
+          "name": "場地",
+          "detail": "指示「資料庫」中的哪一列包含要提取和操作的值。"
+        },
+        "criteria": {
+          "name": "標準",
+          "detail": "包含零個或多個條件的陣列或範圍，用於在操作之前過濾「資料庫」值。"
+        }
+      }
+    },
+    "DSTDEVP": {
+      "description": "表中整個人口的標準差。",
+      "parameters": {
+        "database": {
+          "name": "資料庫",
+          "detail": "包含要考慮的資料的陣列或範圍，其結構為第一行包含每列值的標籤。"
+        },
+        "field": {
+          "name": "場地",
+          "detail": "指示「資料庫」中的哪一列包含要提取和操作的值。"
+        },
+        "criteria": {
+          "name": "標準",
+          "detail": "包含零個或多個條件的陣列或範圍，用於在操作之前過濾「資料庫」值。"
+        }
+      }
+    },
+    "DSUM": {
+      "description": "表格範圍內的值的總和。",
+      "parameters": {
+        "database": {
+          "name": "資料庫",
+          "detail": "包含要考慮的資料的陣列或範圍，其結構為第一行包含每列值的標籤。"
+        },
+        "field": {
+          "name": "場地",
+          "detail": "指示「資料庫」中的哪一列包含要提取和操作的值。"
+        },
+        "criteria": {
+          "name": "標準",
+          "detail": "包含零個或多個條件的陣列或範圍，用於在操作之前過濾「資料庫」值。"
+        }
+      }
+    },
+    "DVAR": {
+      "description": "與表格範圍相比的總體樣本的變異數。",
+      "parameters": {
+        "database": {
+          "name": "資料庫",
+          "detail": "包含要考慮的資料的陣列或範圍，其結構為第一行包含每列值的標籤。"
+        },
+        "field": {
+          "name": "場地",
+          "detail": "指示「資料庫」中的哪一列包含要提取和操作的值。"
+        },
+        "criteria": {
+          "name": "標準",
+          "detail": "包含零個或多個條件的陣列或範圍，用於在操作之前過濾「資料庫」值。"
+        }
+      }
+    },
+    "DVARP": {
+      "description": "總體與表格範圍的差異。",
+      "parameters": {
+        "database": {
+          "name": "資料庫",
+          "detail": "包含要考慮的資料的陣列或範圍，其結構為第一行包含每列值的標籤。"
+        },
+        "field": {
+          "name": "場地",
+          "detail": "指示「資料庫」中的哪一列包含要提取和操作的值。"
+        },
+        "criteria": {
+          "name": "標準",
+          "detail": "包含零個或多個條件的陣列或範圍，用於在操作之前過濾「資料庫」值。"
+        }
+      }
+    },
+    "SEX_BY_IDCARD": {
+      "description": "根據身分證號碼取得性別。",
+      "parameters": {
+        "ID number": {
+          "name": "身分證號碼",
+          "detail": "15 位或 18 位 ID 號碼或範圍。"
+        }
+      }
+    },
+    "PROVINCE_BY_IDCARD": {
+      "description": "根據身分證號碼取得出生省份。",
+      "parameters": {
+        "ID number": {
+          "name": "身分證號碼",
+          "detail": "15 位或 18 位 ID 號碼或範圍。"
+        }
+      }
+    },
+    "STAR_BY_IDCARD": {
+      "description": "根據ID號碼取得星座。",
+      "parameters": {
+        "ID number": {
+          "name": "身分證號碼",
+          "detail": "15 位或 18 位 ID 號碼或範圍。"
+        }
+      }
+    },
+    "DATA_CN_STOCK_VOLUMN": {
+      "description": "返回A股對應的股票交易量。",
+      "parameters": {
+        "Stock code": {
+          "name": "股票代碼",
+          "detail": "6位股票代碼，必填。"
+        },
+        "Date": {
+          "name": "日期",
+          "detail": "股票的交易日，預設為最新交易日"
+        },
+        "Reversion and exclusion": {
+          "name": "復歸和排除",
+          "detail": "選擇股票除權恢復類型，預設0[恢復前]、1[恢復原價]、2[恢復後]"
+        }
+      }
+    },
+    "ISDATE": {
+      "description": "值是否為日期。",
+      "parameters": {
+        "value": {
+          "name": "價值",
+          "detail": "要驗證的值是否為日期。"
+        }
+      }
+    },
+    "LINESPLINES": {
+      "description": "產生迷你圖折線圖",
+      "parameters": {
+        "Range": {
+          "name": "範圍",
+          "detail": "範圍，可以有效地計算數值，例如 A1:A20，{1,2,3,4,5} 等。"
+        },
+        "Line color": {
+          "name": "線條顏色",
+          "detail": "折線圖的線條顏色可以是範圍 A1、色表索引值或特定顏色值。設定為 0 或 false 則不顯示。支持 regx、rgb、rgba 等。預設值為 #2ec7c9"
+        },
+        "Line thickness": {
+          "name": "線粗細",
+          "detail": "折線圖的線條粗細，預設為1px"
+        },
+        "Auxiliary line": {
+          "name": "輔助線",
+          "detail": "水平線，可以是最小值、最大值、平均值、中位數、範圍或自訂值，預設為 0 無"
+        },
+        "Auxiliary line color": {
+          "name": "輔助線色",
+          "detail": "輔助線顏色設置，同線條顏色配置，預設#000"
+        },
+        "Maximum mark": {
+          "name": "最高分",
+          "detail": "標識折線圖的最大值，同線條顏色配置，預設0不顯示"
+        },
+        "Minimum mark": {
+          "name": "最低分數",
+          "detail": "標識折線圖的最小值，同線條顏色配置，預設0不顯示"
+        },
+        "Mark size": {
+          "name": "標記尺寸",
+          "detail": "最大和最小標記尺寸設置，預設為1.5"
+        }
+      }
+    },
+    "STACKCOLUMNSPLINES": {
+      "description": "產生迷你圖累積垂直直方圖",
+      "parameters": {
+        "Range": {
+          "name": "範圍",
+          "detail": "範圍，可以有效地計算數值，例如 A1:A20，{1,2,3,4,5} 等。"
+        },
+        "Stack by column": {
+          "name": "按列堆疊",
+          "detail": "如果需要按行堆疊，則設定此項為false或0，預設為1"
+        },
+        "Bar interval": {
+          "name": "條形間隔",
+          "detail": "條形之間的距離，預設為1"
+        },
+        "Max": {
+          "name": "最大限度",
+          "detail": "累計條的最大值，用於調節條形的長度，預設為自動計算false,auto,null"
+        },
+        "Color palette": {
+          "name": "調色盤",
+          "detail": "調色盤可以單獨設定各個維度的條形顏色，可以設定為A1:A10等範圍，預設為#2ec7c9、#fc5c5c、#5ab1ef、#ffb980…"
+        }
+      }
+    },
+    "STACKBARSPLINES": {
+      "description": "產生迷你圖累積水平長條圖",
+      "parameters": {
+        "Range": {
+          "name": "範圍",
+          "detail": "範圍，可以有效地計算數值，例如 A1:A20，{1,2,3,4,5} 等。"
+        },
+        "Stack by column": {
+          "name": "按列堆疊",
+          "detail": "如果需要按行堆疊，則設定此項為false或0，預設為1"
+        },
+        "Bar interval": {
+          "name": "條形間隔",
+          "detail": "條形之間的距離，預設為1"
+        },
+        "Max": {
+          "name": "最大限度",
+          "detail": "累計條的最大值，用於調節條形的長度，預設為自動計算false,auto,null"
+        },
+        "Color palette": {
+          "name": "調色盤",
+          "detail": "調色盤可以單獨設定各個維度的條形顏色，可以設定為A1:A10等範圍，預設為#2ec7c9、#fc5c5c、#5ab1ef、#ffb980…"
+        }
+      }
+    },
+    "DISCRETESPLINES": {
+      "description": "產生迷你圖離散圖",
+      "parameters": {
+        "Range": {
+          "name": "範圍",
+          "detail": "範圍，可以有效地計算數值，例如 A1:A20，{1,2,3,4,5} 等。"
+        },
+        "Segmentation threshold": {
+          "name": "分割閾值",
+          "detail": "離散圖列顏色區分，例如：值為0時，大於0為藍色，小於0為紅色，預設為0"
+        },
+        "Above threshold color": {
+          "name": "高於閾值的顏色",
+          "detail": "折線圖的線條顏色可以是範圍 A1、色表索引值或特定顏色值。設定為 0 或 false 則不顯示。支持 regx、rgb、rgba 等。預設值為 #2ec7c9"
+        },
+        "Below threshold color": {
+          "name": "低於閾值顏色",
+          "detail": "閾值以下的條形顏色設置，與閾值以上顏色相同，預設為#fc5c5c"
+        }
+      }
+    },
+    "TRISTATESPLINES": {
+      "description": "產生迷你圖三狀態圖",
+      "parameters": {
+        "Range": {
+          "name": "範圍",
+          "detail": "範圍，可以有效地計算數值，例如 A1:A20，{1,2,3,4,5} 等。"
+        },
+        "Bar interval": {
+          "name": "條形間隔",
+          "detail": "條形之間的距離，預設為1"
+        },
+        "Bar color": {
+          "name": "條形顏色",
+          "detail": "折線圖的線條顏色可以是範圍 A1、色表索引值或特定顏色值。設定為 0 或 false 則不顯示。支持 regx、rgb、rgba 等。預設 #fc5c5c"
+        },
+        "Negative bar color": {
+          "name": "負條顏色",
+          "detail": "負數條形顏色設置，代表負值的顏色，與條形顏色配置相同，預設#97b552"
+        },
+        "Zero value bar color": {
+          "name": "零值條顏色",
+          "detail": "零值條顏色設置，代表0值顏色，與長條圖顏色配置相同，預設#999"
+        },
+        "Color palette": {
+          "name": "調色盤",
+          "detail": "調色板可以單獨設定每個bar的顏色，可以設定多種設置，支援兩種格式：1顏色如#000，表示第一個bar的顏色為黑色；2取值範圍：顏色，如-2:#000表示值為-2的bar為黑色，0:5:#000表示值為0-5的空為黑色，預設為黑色，預設為"
+        }
+      }
+    },
+    "PIESPLINES": {
+      "description": "產生迷你圖餅圖",
+      "parameters": {
+        "Range": {
+          "name": "範圍",
+          "detail": "範圍，可以有效地計算數值，例如 A1:A20，{1,2,3,4,5} 等。"
+        },
+        "Rotation angle": {
+          "name": "旋轉角度",
+          "detail": "圓餅圖的旋轉角度，預設為0"
+        },
+        "border": {
+          "name": "邊界",
+          "detail": "圓餅圖邊框大小，預設為無0"
+        },
+        "Border color": {
+          "name": "邊框顏色",
+          "detail": "圓餅圖邊框顏色，預設為#000"
+        },
+        "Color palette": {
+          "name": "調色盤",
+          "detail": "切片的顏色可以在調色盤中設置，可以設定為A1:A10等範圍，預設為#2ec7c9、#fc5c5c、#5ab1ef、#ffb980…"
+        }
+      }
+    },
+    "BULLETSPLINES": {
+      "description": "產生迷你圖項目符號",
+      "parameters": {
+        "Target": {
+          "name": "目標",
+          "detail": "對於達到的目標值可以進行有效的數值計算，例如A1、100等。"
+        },
+        "achieved": {
+          "name": "已實現",
+          "detail": "只有數值完整，數值才有效計算，如A1，100等。"
+        },
+        "Contrast": {
+          "name": "對比",
+          "detail": "可以有效計算比較值，例如超額、最低和獎勵底線，例如A1、100等。最多可以設定9個比較值"
+        }
+      }
+    },
+    "COMPOSESPLINES": {
+      "description": "將迷你圖合併到一個儲存格中",
+      "parameters": {
+        "config": {
+          "name": "配置",
+          "detail": "迷你圖設置，例如 A1:A20、完成的圓餅圖、折線圖設置等。"
+        }
+      }
+    },
+    "SORT": {
+      "description": "依指定列對範圍的行進行排序。",
+      "parameters": {
+        "range": {
+          "name": "範圍",
+          "detail": "要排序的資料。"
+        },
+        "sort_column": {
+          "name": "排序列",
+          "detail": "「範圍」內或「範圍」外的範圍內的列的索引，包含要按其排序的值。"
+        },
+        "is_ascending": {
+          "name": "升序",
+          "detail": "`TRUE` 或 `FALSE` 表示是否以升序對 `sort_column` 進行排序。 `FALSE` 表示依降序排序。"
+        },
+        "sort_column2": {
+          "name": "排序列2",
+          "detail": "附加列。"
+        }
+      }
+    },
+    "FILTER": {
+      "description": "根據提供的條件過濾範圍。",
+      "parameters": {
+        "range": {
+          "name": "範圍",
+          "detail": "要過濾的數據。"
+        },
+        "condition1": {
+          "name": "條件1",
+          "detail": "包含與「範圍」的第一列或第一行對應的真值或假值的列或行，或計算結果為真或假的陣列公式。"
+        },
+        "condition2": {
+          "name": "條件2",
+          "detail": "包含布林值「TRUE」或「FALSE」的附加行或列，指示「範圍」中對應的行或列是否應通過「篩選」。也可以包含計算結果為此類行或列的陣列公式表達式。所有條件必須屬於同一類型（行或列）。不允許混合使用行條件和列條件。"
+        }
+      }
+    },
+    "UNIQUE": {
+      "description": "提供的來源範圍內的唯一行。",
+      "parameters": {
+        "range": {
+          "name": "範圍",
+          "detail": "按唯一條目過濾的資料。"
+        },
+        "by_col": {
+          "name": "按列",
+          "detail": "[選項] - 邏輯值，指示如何比較；按行 = FALSE() 或省略；按列 = TRUE()。"
+        },
+        "occurs_once": {
+          "name": "發生一次",
+          "detail": "[選項] - 邏輯值，僅傳回唯一值一次出現 = TRUE()；包括所有唯一值 = FALSE() 或省略。"
+        }
+      }
+    },
+    "RANDARRAY": {
+      "description": "傳回隨機數網格。",
+      "parameters": {
+        "rows": {
+          "name": "列",
+          "detail": "用隨機數填滿的行數。"
+        },
+        "columns": {
+          "name": "列",
+          "detail": "用隨機數填滿的列數。"
+        }
+      }
+    },
+    "SEQUENCE": {
+      "description": "返回連續數字的格。",
+      "parameters": {
+        "rows": {
+          "name": "列",
+          "detail": "函數結果網格中的行數。"
+        },
+        "columns": {
+          "name": "列",
+          "detail": "函數結果網格的列數。如果省略，結果網格將只有 1 個欄位。"
+        },
+        "start": {
+          "name": "開始",
+          "detail": "序列的起始數字。如果省略，序列將從 1 開始。"
+        },
+        "step": {
+          "name": "步",
+          "detail": "序列中每個值的差異量。如果省略，則每個值的差異量為 1。"
+        }
+      }
+    },
+    "EVALUATE": {
+      "description": "根據文字公式或表達式進行評估。",
+      "parameters": {
+        "expression": {
+          "name": "表達",
+          "detail": "公式或表達式"
+        }
+      }
+    },
+    "REMOTE": {
+      "description": "呼叫遠端後端伺服器/API 上的函數。",
+      "parameters": {
+        "remote_expression": {
+          "name": "遠端_表達式",
+          "detail": "公式"
+        }
+      }
+    }
+  }
+}

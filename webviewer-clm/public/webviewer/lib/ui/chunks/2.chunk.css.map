@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/ui/src/components/Input/Input.scss"],"names":[],"mappings":"AAAA,gDAAgD,aAAa,yDAAyD,+B","file":"chunks/2.chunk.css","sourcesContent":[".ui__input__wrapper .ui__input .ui__input__icon{margin:0 2px}.ui__input__wrapper .ui__input .ui__input__icon svg path{fill:var(--error-border-color)}"],"sourceRoot":""}

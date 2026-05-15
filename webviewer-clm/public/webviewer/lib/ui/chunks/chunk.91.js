@@ -1,0 +1,2 @@
+(window.webpackJsonpWebViewerUI=window.webpackJsonpWebViewerUI||[]).push([[91],{1819:function(e,n,r){"use strict";r.r(n);r(47),r(9),r(2);var t=r(7),a=r(4),u=r(430),c=r(6),i=r(1658),b=r(0);n.default=function(){var e=Object(t.e)((function(e){return a.a.getSelectedThumbnailPageIndexes(e)}));return Object(b.b)(u.a,{menu:c.a.THUMBNAILS_CONTROL_MANIPULATE_POPUP,trigger:c.a.THUMBNAILS_CONTROL_MANIPULATE_POPUP_TRIGGER,children:Object(b.b)(i.a,{pageNumbers:e.map((function(e){return e+1})),warn:!0})})}}}]);
+//# sourceMappingURL=chunk.91.js.map

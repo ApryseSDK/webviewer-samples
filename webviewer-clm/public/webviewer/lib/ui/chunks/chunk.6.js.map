@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/ui/src/components/PanelListItem/index.js"],"names":["PanelListItem"],"mappings":"iHAAA,cAEeA,MAAa","file":"chunks/chunk.6.js","sourcesContent":["import PanelListItem from './PanelListItem';\n\nexport default PanelListItem;"],"sourceRoot":""}

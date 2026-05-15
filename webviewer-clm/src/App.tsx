@@ -1,12 +1,8 @@
 import {
   Refine,
-  GitHubBanner,
-  WelcomePage,
   Authenticated,
-  useMenu,
-  useGetIdentity,
 } from "@refinedev/core";
-import { DevtoolsPanel, DevtoolsProvider } from "@refinedev/devtools";
+import { DevtoolsProvider } from "@refinedev/devtools";
 import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
 
 import {
@@ -28,7 +24,6 @@ import routerProvider, {
   DocumentTitleHandler,
 } from "@refinedev/react-router";
 import { TemplateList, TemplateCreate, TemplateEdit } from "./pages/templates";
-import { AppIcon } from "./components/app-icon";
 import { supabaseClient } from "./utility";
 import { ColorModeContextProvider } from "./contexts/color-mode";
 import { Header } from "./components/header";
@@ -38,13 +33,11 @@ import {
   FileOutlined,
   UserOutlined,
 } from "@ant-design/icons";
-import AppContent from "./AppContent";
 import { UserList } from "./pages/users/list";
 import { UserEdit } from "./pages/users/edit";
 import { AgreementCreate, AgreementList, AgreementShow } from "./pages/agreements";
 import AccessControlProvider from "./AccessControlProvider";
 import { AgreementSign } from "./pages/agreements/sign";
-import logo from '../src/components/logo.png';
 
 function App() {
   const resources = [
@@ -73,15 +66,6 @@ function App() {
       create: "/agreements/create",
       show: "/agreements/show/:id",
       sign: "/agreements/sign/:id",
-      meta: {
-        icon: <ContainerOutlined />,
-      },
-    },
-    {
-      name: "agreements",
-      list: "/agreements",
-      create: "/agreements/create",
-      show: "/agreements/show/:id",
       meta: {
         icon: <ContainerOutlined />,
       },
