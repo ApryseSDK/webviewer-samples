@@ -66,6 +66,9 @@ const authProvider: AuthProvider = {
         password,
       });
 
+      console.log(data);
+      console.log(error)
+
       if (error) {
         return {
           success: false,
@@ -216,6 +219,7 @@ const authProvider: AuthProvider = {
   },
   getPermissions: async () => {
     const user = await supabaseClient.auth.getUser();
+    console.log(user)
     if (user) {
       return user.data.user?.role;
     }

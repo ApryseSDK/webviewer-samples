@@ -13,6 +13,8 @@ export const UserCreate = () => {
       password: '123456',
     });
 
+    console.log(data)
+
     if(error){
       alert(error.message);
       return;
