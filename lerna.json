@@ -12,7 +12,7 @@
       "webviewer-barcode",
       "webviewer-blazor",
       "webviewer-blazor-wasm",
-      "webivewer-clm",
+      "webviewer-clm",
       "webviewer-cors/webviewer-app",
       "webviewer-cors/webviewer-lib",
       "webviewer-custom-ui",
