@@ -24,3 +24,6 @@ _.ntvs_
 _.njsproj
 _.sln
 \*.sw?
+
+# WebViewer library files (auto-copied at build time by tools/copy-webviewer-files.cjs)
+public/webviewer/lib/
