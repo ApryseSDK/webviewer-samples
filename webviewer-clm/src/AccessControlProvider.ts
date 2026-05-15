@@ -4,7 +4,7 @@ import { supabaseClient } from "./utility";
 let currentUser: any = null;
 
 // Listen to auth state changes
-supabaseClient.auth.onAuthStateChange((event, session) => {
+supabaseClient.auth.onAuthStateChange((_event, session) => {
   currentUser = session?.user ?? null;
 });
 
@@ -14,7 +14,7 @@ supabaseClient.auth.getUser().then(({ data }) => {
 });
 
 const AccessControlProvider: AccessControlProvider = {
-  can: async ({ resource, action }) => {
+  can: async ({ resource }) => {
     // Get user data from Supabase
     if (!currentUser) {
       return { can: false };

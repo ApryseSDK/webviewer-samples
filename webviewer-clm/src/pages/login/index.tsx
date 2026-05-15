@@ -6,7 +6,8 @@ export const Login = () => {
       type="login"
       title={
         <ThemedTitle
-          title="My Title"
+          text="My Title"
+          collapsed={false}
           icon={<img src="https://refine.dev/img/logo.png" />}
         />
       }

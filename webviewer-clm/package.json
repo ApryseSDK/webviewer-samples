@@ -1,5 +1,5 @@
 {
-  "name": "refine-project",
+  "name": "webviewer-clm",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -19,10 +19,9 @@
     "fs-extra": "^11.3.2",
     "i": "^0.3.7",
     "jwt-decode": "^4.0.0",
-    "npm": "^11.6.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-router": "^7.0.2",
+    "react-router": "^7.12.0",
     "uuid": "^13.0.0"
   },
   "devDependencies": {
@@ -39,7 +38,7 @@
     "globals": "^16.0.0",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.30.1",
-    "vite": "^6.3.5"
+    "vite": "^6.4.2"
   },
   "scripts": {
     "dev": "refine dev",

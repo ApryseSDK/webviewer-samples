@@ -1,29 +1,39 @@
 import { Create, useForm, useSelect } from "@refinedev/antd";
-import MDEditor from "@uiw/react-md-editor";
-import { Flex, Form, Input, Select } from "antd";
+import { Flex, Form, Select } from "antd";
 import React, { useEffect, useRef, useState } from "react";
 import { supabaseClient } from "../../utility";
 import { decode, encode } from "base64-arraybuffer";
 import WebViewer, { WebViewerInstance } from "@pdftron/webviewer";
 import { v4 as uuidv4 } from 'uuid';
 
+type UserSelectItem = {
+    id: string;
+    first_name?: string;
+    last_name?: string;
+};
+
+type TemplateSelectItem = {
+    id: string;
+    title?: string;
+};
+
 export const AgreementCreate = () => {
     const viewer = useRef<any>(null);
-    const wvInstance = useRef<WebViewerInstance>(null);
+    const wvInstance = useRef<WebViewerInstance | null>(null);
 
     const [loading, setLoading] = useState(false);
     const { formProps, saveButtonProps, onFinish } = useForm({});
 
-    const { selectProps: users } = useSelect({
+    const { selectProps: users } = useSelect<UserSelectItem>({
         resource: "users",
         optionLabel: (item) => `${item?.first_name} ${item?.last_name}`,
-        optionValue: "id" 
+        optionValue: "id"
     });
 
-    const { selectProps: templates } = useSelect({
+    const { selectProps: templates } = useSelect<TemplateSelectItem>({
         resource: "templates",
-        optionLabel: (item) => item?.title,
-        optionValue: "id" 
+        optionLabel: (item) => item?.title ?? "",
+        optionValue: "id"
     });
 
    const handleOnFinish = async (formData: any) => {
@@ -61,7 +71,12 @@ export const AgreementCreate = () => {
             userData = data;
         }
 
-        const { Core, UI } = wvInstance?.current;
+        const instance = wvInstance.current;
+        if (!instance) {
+            setLoading(false);
+            return;
+        }
+        const { Core } = instance;
         const { PDFNet, Math, Annotations } = Core;
         const { WidgetFlags } = Annotations;
         await PDFNet.initialize()
@@ -91,12 +106,16 @@ export const AgreementCreate = () => {
 
         const txtSearch = await PDFNet.TextSearch.create();
         const document = await PDFNet.PDFDoc.createFromBuffer(pdfData);
+        if (!document) {
+            setLoading(false);
+            return;
+        }
         const replacer = await PDFNet.ContentReplacer.create();
 
         const pattern = '\\[.*?\]';
         const mode = PDFNet.TextSearch.Mode.e_whole_word | PDFNet.TextSearch.Mode.e_reg_expression | PDFNet.TextSearch.Mode.e_highlight;
 
-        txtSearch?.begin(document!, pattern, mode);
+        txtSearch?.begin(document, pattern, mode);
 
         let result = await txtSearch?.run();
 
@@ -136,8 +155,15 @@ export const AgreementCreate = () => {
             result = await txtSearch.run();
         }
     
-        const buffer = await document!.saveMemoryBuffer(wvInstance?.current?.Core.PDFNet.SDFDoc.SaveOptions.e_linearized);
-        const base64 = encode(buffer);
+        const buffer = await document.saveMemoryBuffer(Core.PDFNet.SDFDoc.SaveOptions.e_linearized);
+        const normalizedBuffer = buffer instanceof Uint8Array
+            ? buffer.buffer.slice(buffer.byteOffset, buffer.byteOffset + buffer.byteLength)
+            : buffer;
+        if (!(normalizedBuffer instanceof ArrayBuffer)) {
+            setLoading(false);
+            return;
+        }
+        const base64 = encode(normalizedBuffer);
 
         onFinish({
             ...formData,
@@ -151,7 +177,7 @@ export const AgreementCreate = () => {
       {
         path: "/webviewer/lib",
         fullAPI: true,
-        licenseKey: "demo:1688745488452:7c640dad0300000000ff98c75e9e3a6477a0d966fddd63ac8543da906b"
+        licenseKey: "YOUR_LICENSE_KEY"
       },
       viewer.current
     ).then((instance) => {

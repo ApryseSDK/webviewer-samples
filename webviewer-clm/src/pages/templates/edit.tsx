@@ -14,8 +14,12 @@ export const TemplateEdit = () => {
   const { data: identity } = useGetIdentity<any>();
 
 
-  const handleOnFinish = async (values: any) => {
-    const { documentViewer } = wvInstance.current?.Core!;
+  const handleOnFinish = async (_values: any) => {
+    const core = wvInstance.current?.Core;
+    if (!core) {
+      return;
+    }
+    const { documentViewer } = core;
 
     const document = documentViewer.getDocument();
 
@@ -61,7 +65,7 @@ export const TemplateEdit = () => {
         enableOfficeEditing: true,
         enableFilePicker: false,
         initialMode: "docxEditor",
-        licenseKey: "demo:1688745488452:7c640dad0300000000ff98c75e9e3a6477a0d966fddd63ac8543da906b",
+        licenseKey: "YOUR_LICENSE_KEY",
       },
       viewer.current
     ).then((instance) => {
