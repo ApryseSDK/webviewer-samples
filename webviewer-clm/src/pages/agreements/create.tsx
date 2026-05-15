@@ -126,7 +126,7 @@ export const AgreementCreate = () => {
                 highlights.begin(document);
                 let quad = (await highlights.getCurrentQuads())[0];
                 const mathRect = new PDFNetMath.Quad(quad?.p1x, quad?.p1y, quad?.p2x, quad?.p2y, quad?.p3x, quad?.p3y, quad?.p4x, quad?.p4y).toRect();
-                const rect = new  PDFNet.Rect(mathRect.x1, mathRect.y1, mathRect.x2, mathRect.y2);
+                const rect = new PDFNet.Rect(mathRect.x1, mathRect.y1, mathRect.x2, mathRect.y2);
     
                 await replacer.addString(result.out_str.slice(1,-1), '');
                 const page = await document.getPage(result?.page_num)
