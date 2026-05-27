@@ -1,5 +1,5 @@
 import { HumanMessage, SystemMessage } from '@langchain/core/messages';
-import LLMManager from './llmManager.js';
+import LLMManager, { OPENAI_CLIENT_UNAVAILABLE_FALLBACK, UNKNOWN_MODEL_FALLBACK } from './llmManager.js';
 import InMemoryStore from './inMemoryStore.js';
 import dotenv from 'dotenv';
 import { readFileSync } from 'node:fs';
@@ -60,7 +60,7 @@ export default function registerHandlers(app) {
     try {
       if (!llmManager.isInitialized()) {
         return response.status(200).json({
-          error: 'LangChain not available or missing OPENAI_API_KEY in .env file.',
+          error: llmManager.getInitializationError() || OPENAI_CLIENT_UNAVAILABLE_FALLBACK,
           success: false
         });
       }
@@ -108,7 +108,7 @@ export default function registerHandlers(app) {
       if (!llmManager.isInitialized()) {
         cleanupData();
         return response.status(500).json({
-          error: 'LangChain not available. Please check server configuration.',
+          error: llmManager.getInitializationError() || OPENAI_CLIENT_UNAVAILABLE_FALLBACK,
           success: false
         });
       }
@@ -133,9 +133,10 @@ export default function registerHandlers(app) {
     } catch (error) {
       console.error('Error analyzing document for PII:', error);
       cleanupData();
+      const readableError = error?.message || 'Unknown LLM error occurred while analyzing document for PII.';
       response.status(500).json({
-        error: 'Failed to analyze document for PII',
-        details: error.message,
+        error: readableError,
+        details: 'Failed to analyze document for PII.',
         success: false
       });
     }
@@ -175,13 +176,14 @@ export default function registerHandlers(app) {
   // Endpoint to provide configuration data to client
   app.get('/api/config', (request, response) => {
     const configResponse = {
-      llmModel: 'Unauthorized access to LLM model configuration.',
-      systemPrompt: 'Unauthorized access to system prompt.'
+      llmModel: process.env.OPENAI_MODEL || UNKNOWN_MODEL_FALLBACK,
+      systemPrompt: null,
+      systemPromptExposed: false
     };
 
     if (process.env.EXPOSE_CONFIGURATION === 'true') {
-      configResponse.llmModel = process.env.OPENAI_MODEL;
       configResponse.systemPrompt = formatSystemPrompt(guardRail);
+      configResponse.systemPromptExposed = true;
     }
     
     response.json(configResponse);

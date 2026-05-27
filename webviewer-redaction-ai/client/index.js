@@ -54,6 +54,7 @@ documentViewer.addEventListener('documentLoaded', async () => {
       const configData = await configResponse.json();
       globalThis.llmModel = configData.llmModel;
       globalThis.systemPrompt = configData.systemPrompt;
+      globalThis.systemPromptExposed = Boolean(configData.systemPromptExposed);
       if (!configResponse.ok) {
         return {
           error: errorMessage,
