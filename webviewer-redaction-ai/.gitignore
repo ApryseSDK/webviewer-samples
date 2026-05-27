@@ -5,3 +5,7 @@ node_modules
 # WebViewer
 client/lib
 client/license-key.js
+
+# Playwright artifacts
+test-results/
+playwright-report/
