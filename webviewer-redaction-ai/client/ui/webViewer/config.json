@@ -13,7 +13,7 @@
       "label": "action.download",
       "type": "presetButton",
       "buttonType": "downloadButton",
-      "disabled": true
+      "disabled": false
     },
     "saveAsButton": {
       "dataElement": "saveAsButton",
@@ -85,7 +85,7 @@
     },
     "panToolButton": {
       "dataElement": "panToolButton",
-      "disabled": true,
+      "disabled": false,
       "type": "toolButton",
       "toolName": "Pan"
     },

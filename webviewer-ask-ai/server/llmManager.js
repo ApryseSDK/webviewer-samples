@@ -8,11 +8,7 @@ dotenv.config();
 // LLMManager - Manages LLM initialization, configuration, and execution
 // Handles OpenAI chat models, token counting, and text processing
 class LLMManager {
-  constructor() {
-    this.llm = null;
-    this.parser = null;
-    this.tiktoken = null;
-  }
+  
 
   // Initialize tiktoken library for local token counting
   // @returns {Promise<Object|null>} Tiktoken library or null if failed
@@ -33,18 +29,14 @@ class LLMManager {
   // @param {string} text - Text to count tokens for
   // @param {number} timeoutMs - Timeout in milliseconds
   // @returns {Promise<number>} Token count
-  async getTokenCount(text, timeoutMs = parseInt(process.env.TOKEN_COUNT_TIMEOUT) || 5000) {
+  async getTokenCount(text, timeoutMs = Number.parseInt(process.env.TOKEN_COUNT_TIMEOUT) || 5000) {
     try {
       // First try direct tiktoken (local-only, no network calls)
       const tiktokenLib = await this.initializeTiktoken();
       if (tiktokenLib) {
-        const startTime = Date.now();
-
         const encoder = tiktokenLib.getEncoding('cl100k_base'); // GPT-3.5/4 encoding
         const tokens = encoder.encode(text);
         const result = tokens.length;
-        // Note: js-tiktoken doesn't require manual memory cleanup
-        const duration = Date.now() - startTime;
         return result;
       }
 
@@ -75,7 +67,7 @@ class LLMManager {
 
     } catch (error) {
       logger.warn('Token counting failed, using character estimation:', error.message);
-      console.log('Error details:', error.stack);
+      console.log('Error:', error.stack);
 
       // Geographic hint in error message
       if (error.message.includes('timeout'))
@@ -124,9 +116,9 @@ class LLMManager {
       this.llm = new ChatOpenAI({
         apiKey: process.env.OPENAI_API_KEY,
         modelName: process.env.OPENAI_MODEL,
-        maxTokens: parseInt(process.env.OPENAI_MAX_TOKENS),
-        temperature: parseFloat(process.env.OPENAI_TEMPERATURE),
-        seed: parseInt(process.env.OPENAI_SEED), // For reproducible responses
+        maxTokens: Number.parseInt(process.env.OPENAI_MAX_TOKENS),
+        temperature: Number.parseFloat(process.env.OPENAI_TEMPERATURE),
+        seed: Number.parseInt(process.env.OPENAI_SEED), // For reproducible responses
       });
 
       this.parser = new StringOutputParser();
@@ -145,15 +137,12 @@ class LLMManager {
   // Check LangChain initialization status
   // @returns {boolean} True if initialized, false otherwise
   isInitialized() {
-    if (!this.llm || !this.parser)
-      return false;
-
-    return true;
+    return !(!this.llm || !this.parser);
   }
 
   // Dynamically tune LLM settings
   // @param {Object} settings - Settings object with maxTokens property
-  tuneSettings(settings = { maxTokens }) {
+  tuneSettings(settings) {
     if (!this.isInitialized()) {
       logger.error('Unable to tune settings - LangChain components are not initialized');
       return;
@@ -190,6 +179,9 @@ class LLMManager {
 
     return parsedResponse;
   }
+  llm = null;
+  parser = null;
+  tiktoken = null;
 }
 
 export default LLMManager;

@@ -1,5 +1,17 @@
 // Send the loaded document text to the server, to be
 // analyzed for personal information identification (PII)
+const parseServerResponse = async (response) => {
+  const responseData = await response.json();
+  if (!response.ok) {
+    return {
+      error: responseData.error || responseData.details || `Server error: ${response.status} ${response.statusText}`,
+      success: false,
+    };
+  }
+
+  return responseData;
+};
+
 const sendTextToServer = async () => {
   try {
     const response = await fetch('/api/send-text', {
@@ -30,13 +42,13 @@ const analyzeDocument = async () => {
       },
     });
 
-    if (!response.ok)
-      throw new Error(`Server error: ${response.status} ${response.statusText}`);
-
-    return await response.json();
+    return await parseServerResponse(response);
   } catch (error) {
     console.error('Error analyzing document for PII:', error);
-    throw error;
+    return {
+      error: error.message || 'Failed to analyze document for PII.',
+      success: false,
+    };
   }
 }
 
@@ -50,13 +62,13 @@ const getAnalysisResult = async () => {
       },
     });
 
-    if (!response.ok)
-      throw new Error(`Server error: ${response.status} ${response.statusText}`);
-
-    return await response.json();
+    return await parseServerResponse(response);
   } catch (error) {
     console.error('Error getting analysis result:', error);
-    throw error;
+    return {
+      error: error.message || 'Failed to retrieve analysis results.',
+      success: false,
+    };
   }
 }
 

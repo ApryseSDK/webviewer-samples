@@ -6,7 +6,8 @@ const webViewerFunctionMap = {
     return globalThis.diagnosticsPanel.render();
   },
   'AIPIIRedactionClick': async () => {
-    globalThis.diagnosticsPanel.display(`System Prompt:\n\n${globalThis.systemPrompt}`, 'human');
+    if (globalThis.systemPromptExposed)
+      globalThis.diagnosticsPanel.display(`System Prompt:\n\n${globalThis.systemPrompt}`, 'human');
 
     const analysisSucceeded = await analyzeDocumentForPII();
     if (!analysisSucceeded || !globalThis.aiAnalysisResult) {
@@ -14,7 +15,7 @@ const webViewerFunctionMap = {
       globalThis.diagnosticsPanel.display('Response:', 'system');
       globalThis.diagnosticsPanel.display('Unable to analyze document for PII.', 'system');
       if (globalThis.aiAnalysisResult?.error)
-        globalThis.diagnosticsPanel.display(`Error details: ${globalThis.aiAnalysisResult.error}`, 'system');
+        globalThis.diagnosticsPanel.display(`Error: ${globalThis.aiAnalysisResult.error}`, 'system');
       return;
     }
 

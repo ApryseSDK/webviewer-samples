@@ -223,6 +223,119 @@ test('Expect an alert when document text exceeds 30000 characters with page coun
   await expect.poll(() => mockCalls.getResults).toBe(0);
 });
 
+test('Diagnostics panel separates hidden config from OpenAI model failure', async ({ page }) => {
+  await page.route('**/api/config', async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: 'application/json',
+      body: JSON.stringify({
+        llmModel: 'gpt-3.5-turbo',
+        systemPrompt: 'Not exposed by server configuration.'
+      })
+    });
+  });
+
+  await page.unroute('**/api/analyze-pii');
+  await page.route('**/api/analyze-pii', async (route) => {
+    await route.fulfill({
+      status: 500,
+      contentType: 'application/json',
+      body: JSON.stringify({
+        success: false,
+        error: 'OpenAI could not use model "gpt-3.5-turbo". The configured API key or project does not have access to this model.'
+      })
+    });
+  });
+
+  await page.goto('/client/index.html');
+  await page.locator('button[data-element="toolbarGroup-Redact"]').click();
+
+  await expect.poll(
+    () => page.evaluate(() => globalThis.loadedDocument?.text || '')
+  ).toContain('Peady, Eff, & Wright Exporting');
+
+  const pIIBtn = page.locator('button[data-element="AIPIIRedactionToolButton"]');
+  await pIIBtn.click();
+
+  const panel = page.locator('div.ModularPanel[data-element="diagnosticsPanel"]');
+  await expect(panel).toBeVisible();
+  await expect(panel).toContainText('LLM Model: gpt-3.5-turbo');
+  await expect(panel).toContainText('Error: OpenAI could not use model "gpt-3.5-turbo". The configured API key or project does not have access to this model.');
+});
+
+// Diagnostics panel shows model-specific initialization error when LLM is unavailable at send-text stage.
+test('Diagnostics panel shows OpenAI initialization error from send-text stage', async ({ page }) => {
+  await page.unroute('**/api/send-text');
+  await page.route('**/api/send-text', async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: 'application/json',
+      body: JSON.stringify({
+        success: false,
+        error: 'OpenAI API key is missing for model "gpt-4o-mini". Set OPENAI_API_KEY in the server .env file.'
+      })
+    });
+  });
+
+  await page.goto('/client/index.html');
+  await page.locator('button[data-element="toolbarGroup-Redact"]').click();
+
+  await expect.poll(
+    () => page.evaluate(() => globalThis.loadedDocument?.text || '')
+  ).toContain('Peady, Eff, & Wright Exporting');
+
+  const pIIBtn = page.locator('button[data-element="AIPIIRedactionToolButton"]');
+  const alertPromise = page.waitForEvent('dialog');
+  await pIIBtn.click();
+  const alertDialog = await alertPromise;
+  expect(alertDialog.message()).toContain('OpenAI API key is missing for model "gpt-4o-mini"');
+  await alertDialog.accept();
+
+  // analyze-pii and get-results must not have been called.
+  await expect.poll(() => mockCalls.analyzePII).toBe(0);
+  await expect.poll(() => mockCalls.getResults).toBe(0);
+});
+
+// Diagnostics panel shows failure message when /api/get-results returns a 500 error.
+test('Diagnostics panel shows error when get-results returns 500', async ({ page }) => {
+  await page.unroute('**/api/get-results');
+  await page.route('**/api/get-results', async (route) => {
+    await route.fulfill({
+      status: 500,
+      contentType: 'application/json',
+      body: JSON.stringify({
+        success: false,
+        error: 'Failed to retrieve analysis results',
+        details: 'Internal server error.'
+      })
+    });
+  });
+
+  await page.goto('/client/index.html');
+  await page.locator('button[data-element="toolbarGroup-Redact"]').click();
+
+  await expect.poll(
+    () => page.evaluate(() => globalThis.loadedDocument?.text || '')
+  ).toContain('Peady, Eff, & Wright Exporting');
+
+  const pIIBtn = page.locator('button[data-element="AIPIIRedactionToolButton"]');
+  const alertPromise = page.waitForEvent('dialog');
+  await pIIBtn.click();
+
+  // The flow should reach get-results and fail gracefully without crashing.
+  await expect.poll(() => mockCalls.sendText).toBe(1);
+  await expect.poll(() => mockCalls.analyzePII).toBe(1);
+
+  // Accept the 'No PII result found.' alert that fires when get-results fails.
+  const alertDialog = await alertPromise;
+  await alertDialog.accept();
+
+  const panel = page.locator('div.ModularPanel[data-element="diagnosticsPanel"]');
+  await expect(panel).toBeVisible();
+  await expect(panel).toContainText('Status: Failure');
+  await expect(panel).toContainText('Failed to retrieve analysis results');
+});
+
 // Simulates user hiding and showing the diagnostics panel
 // via clicking the toggle button in the header.
 test('Hide/Show diagnostics panel', async ({ page }) => {
