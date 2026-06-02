@@ -21,7 +21,7 @@
   "dependencies": {
     "@langchain/core": "^1.1.32",
     "@langchain/openai": "^1.2.13",
-    "@pdftron/webviewer": "^11.11.0",
+    "@pdftron/webviewer": "^11.13.0",
     "dotenv": "^17.3.1",
     "express": "^5.2.1"
   }
