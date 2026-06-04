@@ -2,7 +2,7 @@
 
 ---
 
-> **Deprecated:** Webviewer with Next.js v14 has been replaced with a newer version at [/webviewer-nextjs](./webviewer-nextjs/README.md)
+> **Deprecated:** WebViewer with Next.js v14 is no longer maintained. See the updated [Next.js sample](../webviewer-nextjs/README.md).
 
 ---
 
