@@ -21,7 +21,7 @@ cd webviewer-samples
 2. Navigate to the sample you want to run. A list of available samples can be found below
 
 ```bash
-cd webviewer-nextjs-14
+cd webviewer-nextjs
 ```
 
 3. Follow the instructions in the sample's README
@@ -34,7 +34,7 @@ Below is a list of all available samples.
 Samples showing how to get started with WebViewer in different environments.
 
 - [webviewer-react](./webviewer-react) - Integrate WebViewer in a React application
-- [webviewer-nextjs-14](./webviewer-nextjs-14) - Integrate WebViewer in a Next.js application
+- [webviewer-nextjs](./webviewer-nextjs) - Integrate WebViewer in a Next.js application
 - [webviewer-typescript](./webviewer-typescript) - Integrate WebViewer in a TypeScript project
 - [webviewer-angular](./webviewer-angular) - Integrate WebViewer in an Angular application
 - [webviewer-svelte](./webviewer-svelte) - Integrate WebViewer in a Svelte application
