@@ -1,11 +1,11 @@
-# WebViewer - Next.js 14 sample
+# WebViewer - Next.js sample
 
 [WebViewer](https://docs.apryse.com/web/guides/get-started) is a powerful JavaScript-based PDF Library that is part of the [Apryse SDK](https://apryse.com/). It provides a slick out-of-the-box responsive UI that enables you to view, annotate and manipulate PDFs and other document types inside any web project.
 
 - [WebViewer Documentation](https://docs.apryse.com/web/guides/get-started)
 - [WebViewer Demo](https://showcase.apryse.com/)
 
-This sample is specifically designed for any users interested in integrating WebViewer into a Next.js 14 project. With the source code access, it gives developers full control to customize and style the UI, build custom controls and logic, integrate into workflows, or build a UI from scratch.
+This sample is specifically designed for any users interested in integrating WebViewer into a Next.js project. With the source code access, it gives developers full control to customize and style the UI, build custom controls and logic, integrate into workflows, or build a UI from scratch.
 
 Due to SSR in Next.js, the module needs to be imported dynamically, to avoid a "window is not defined" error due to re-rendering.
 Read more here: https://github.com/vercel/next.js/discussions/42319
@@ -26,7 +26,7 @@ Before you begin, make sure the development environment includes [Node.js](https
 
 ```
 git clone --depth=1 https://github.com/ApryseSDK/webviewer-samples.git
-cd webviewer-samples/webviewer-nextjs-14
+cd webviewer-samples/webviewer-nextjs
 npm install
 ```
 
