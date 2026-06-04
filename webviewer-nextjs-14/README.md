@@ -1,5 +1,11 @@
 # WebViewer - Next.js 14 sample
 
+---
+
+> **Deprecated:** WebViewer Next.js v14 is no longer maintained. See the updated [Next.js sample](../webviewer-nextjs/README.md).
+
+---
+
 [WebViewer](https://docs.apryse.com/web/guides/get-started) is a powerful JavaScript-based PDF Library that is part of the [Apryse SDK](https://apryse.com/). It provides a slick out-of-the-box responsive UI that enables you to view, annotate and manipulate PDFs and other document types inside any web project.
 
 - [WebViewer Documentation](https://docs.apryse.com/web/guides/get-started)
