@@ -1,0 +1,2 @@
+(window.webpackJsonpWebViewerUI=window.webpackJsonpWebViewerUI||[]).push([[20],{1682:function(e,n,r){"use strict";var t,u=(t=0,{setPageNumber:function(e){return t=e},getPageNumber:function(){return t}});n.a=u}}]);
+//# sourceMappingURL=chunk.20.js.map

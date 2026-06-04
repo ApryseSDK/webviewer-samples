@@ -1,0 +1,2 @@
+(window.webpackJsonpWebViewerUI=window.webpackJsonpWebViewerUI||[]).push([[21],{1513:function(e,i,n){"use strict";n.d(i,"a",(function(){return s}));n(51),n(63);var s=function(e,i){var n=e.getTotalPages();if(!i||!i.PageNumber||i.PageNumber>n)return!1;var s=e.getDisplayModeObject().getVisiblePages().includes(i.PageNumber);return e.isContinuousDisplayMode()||!e.isContinuousDisplayMode()&&s}}}]);
+//# sourceMappingURL=chunk.21.js.map
