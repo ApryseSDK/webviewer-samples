@@ -26,7 +26,7 @@ npm cache clean --force
 npm install
 ```
 
-> The install command also runs the `postinstall` scrript to copy the required WebViewer resources to the `client\lib` folder.
+> The install command also runs the `postinstall` script to copy the required WebViewer resources to the `client\lib` folder.
 
 ## Run
 
