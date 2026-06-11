@@ -1,7 +1,7 @@
 {
   "name": "webviewer-mendix",
   "widgetName": "WebViewer",
-  "version": "2.1.3",
+  "version": "2.1.4",
   "description": "My widget description",
   "copyright": "2026 Apryse",
   "author": "Andrey Safonov",
