@@ -1,9 +1,9 @@
 {
   "name": "webviewer-mendix",
   "widgetName": "WebViewer",
-  "version": "2.1.2",
+  "version": "2.1.4",
   "description": "My widget description",
-  "copyright": "2024 Apryse",
+  "copyright": "2026 Apryse",
   "author": "Andrey Safonov",
   "config": {
     "projectPath": "../..//",
@@ -18,19 +18,29 @@
     "lint": "pluggable-widgets-tools lint",
     "lint:fix": "pluggable-widgets-tools lint:fix",
     "prerelease": "npm run lint",
-    "release": "pluggable-widgets-tools release:web"
+    "release": "pluggable-widgets-tools release:web",
+    "dev:test": "vite",
+    "dev:test:install-sw": "msw init dev/public/ --save"
   },
   "license": "",
   "devDependencies": {
     "@mendix/pluggable-widgets-tools": "^10.18.0",
     "@types/big.js": "^6.2.2",
     "@types/classnames": "^2.3.4",
-    "@types/lodash": "^4.17.15"
+    "@types/lodash": "^4.17.15",
+    "@vitejs/plugin-react": "^4.3.4",
+    "msw": "^2.6.0",
+    "vite": "^5.4.0"
   },
   "dependencies": {
     "@pdftron/webviewer": "^11.13.0",
     "classnames": "^2.5.1",
     "lodash": "^4.17.21"
+  },
+  "msw": {
+    "workerDirectory": [
+      "dev/public"
+    ]
   },
   "overrides": {
     "react": "18.2.0",

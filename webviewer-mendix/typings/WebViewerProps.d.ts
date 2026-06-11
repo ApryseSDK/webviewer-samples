@@ -19,6 +19,7 @@ export interface WebViewerContainerProps {
     loadAsPDF: boolean;
     enablePdfEditing: boolean;
     enableOfficeEditing: boolean;
+    enableSpreadsheetEditing: boolean;
     enablePageExtraction: boolean;
     allowExtractionDownload: boolean;
     enableFullAPI: boolean;
@@ -67,6 +68,7 @@ export interface WebViewerPreviewProps {
     loadAsPDF: boolean;
     enablePdfEditing: boolean;
     enableOfficeEditing: boolean;
+    enableSpreadsheetEditing: boolean;
     enablePageExtraction: boolean;
     allowExtractionDownload: boolean;
     enableFullAPI: boolean;

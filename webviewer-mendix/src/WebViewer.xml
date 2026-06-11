@@ -35,6 +35,10 @@
                     <caption>Enable Office editing</caption>
                     <description>Switches WebViewer to Office editing.</description>
                 </property>
+                <property key="enableSpreadsheetEditing" type="boolean" defaultValue="false">
+                    <caption>Enable Spreadsheet editing</caption>
+                    <description>Switches WebViewer to Spreadsheet editing.</description>
+                </property>
             </propertyGroup>
             <propertyGroup caption="Page Extraction">
                 <property key="enablePageExtraction" type="boolean" defaultValue="false">
