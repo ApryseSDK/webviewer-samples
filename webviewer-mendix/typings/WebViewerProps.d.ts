@@ -6,7 +6,27 @@
 import { CSSProperties } from "react";
 import { ActionValue, DynamicValue, EditableValue, FileValue } from "mendix";
 
-export type DefaultLanguageEnum = "en" | "de" | "es" | "fr" | "it" | "el" | "ja" | "ko" | "nl" | "pt_br" | "ru" | "zh_cn" | "zh_tw" | "vi" | "uk" | "id" | "ms" | "bn" | "hi" | "tr";
+export type DefaultLanguageEnum =
+    | "en"
+    | "de"
+    | "es"
+    | "fr"
+    | "it"
+    | "el"
+    | "ja"
+    | "ko"
+    | "nl"
+    | "pt_br"
+    | "ru"
+    | "zh_cn"
+    | "zh_tw"
+    | "vi"
+    | "uk"
+    | "id"
+    | "ms"
+    | "bn"
+    | "hi"
+    | "tr";
 
 export interface WebViewerContainerProps {
     name: string;
@@ -19,6 +39,7 @@ export interface WebViewerContainerProps {
     loadAsPDF: boolean;
     enablePdfEditing: boolean;
     enableOfficeEditing: boolean;
+    enableSpreadsheetEditing: boolean;
     enablePageExtraction: boolean;
     allowExtractionDownload: boolean;
     enableFullAPI: boolean;
@@ -67,6 +88,7 @@ export interface WebViewerPreviewProps {
     loadAsPDF: boolean;
     enablePdfEditing: boolean;
     enableOfficeEditing: boolean;
+    enableSpreadsheetEditing: boolean;
     enablePageExtraction: boolean;
     allowExtractionDownload: boolean;
     enableFullAPI: boolean;

@@ -31,6 +31,7 @@ export interface InputProps {
     defaultLanguage: string;
     enablePdfEditing?: boolean;
     enableOfficeEditing?: boolean;
+    enableSpreadsheetEditing?: boolean;
     enablePageExtraction?: boolean;
     allowExtractionDownload?: boolean;
     allowSavingToMendix?: boolean;
@@ -46,6 +47,79 @@ const hasAttribute = (attribute: any): boolean => attribute && attribute.status 
 const DEFAULT_ANNOT_COMMAND =
     '<?xml version="1.0" encoding="UTF-8" ?>\n<xfdf xmlns="http://ns.adobe.com/xfdf/" xml:space="preserve">\n<fields />\n<add />\n<modify />\n<delete />\n</xfdf>';
 
+type WvMode = (typeof viewer.Modes)[keyof typeof viewer.Modes];
+
+/**
+ * Extract a lowercased file extension from a filename (the part after the last dot).
+ * Returns undefined when there is no extension.
+ */
+const getFileExtension = (fileName: string | undefined | null): string | undefined => {
+    if (!fileName) {
+        return undefined;
+    }
+    return fileName.split(".").pop()?.toLowerCase();
+};
+
+/**
+ * Map a file extension to the matching WebViewer initial mode.
+ * Defaults to viewer.Modes.DEFAULT when no editor mode matches.
+ */
+const getModeForExtension = (extension: string | undefined): WvMode => {
+    switch (extension) {
+        case "doc":
+        case "docx":
+            return viewer.Modes.DOCX_EDITOR;
+        case "xls":
+        case "xlsx":
+        case "csv":
+            return viewer.Modes.SPREADSHEET_EDITOR;
+        default:
+            return viewer.Modes.DEFAULT;
+    }
+};
+
+/**
+ * Pick the initial WebViewer mode for the Mendix FileDocument flow.
+ *
+ * Precedence:
+ * 1. `enableSpreadsheetEditing` forces SPREADSHEET_EDITOR regardless of file/url.
+ * 2. Otherwise, if `enableOfficeEditing` is on, the mode is derived from the
+ *    file's extension.
+ * 3. Otherwise we fall back to viewer.Modes.DEFAULT.
+ */
+const getInitialModeForFile = (
+    file: any,
+    enableOfficeEditing: boolean | undefined,
+    enableSpreadsheetEditing: boolean | undefined
+): WvMode => {
+    if (enableSpreadsheetEditing) {
+        return viewer.Modes.SPREADSHEET_EDITOR;
+    }
+    if (!enableOfficeEditing || !file) {
+        return viewer.Modes.DEFAULT;
+    }
+    return getModeForExtension(getFileExtension(file.value && file.value.name));
+};
+
+/**
+ * Pick the initial WebViewer mode for the plain URL flow. The extension is
+ * derived from the URL string itself. See {@link getInitialModeForFile} for
+ * the precedence rules.
+ */
+const getInitialModeForUrl = (
+    fileUrl: string | undefined,
+    enableOfficeEditing: boolean | undefined,
+    enableSpreadsheetEditing: boolean | undefined
+): WvMode => {
+    if (enableSpreadsheetEditing) {
+        return viewer.Modes.SPREADSHEET_EDITOR;
+    }
+    if (!enableOfficeEditing || !fileUrl) {
+        return viewer.Modes.DEFAULT;
+    }
+    return getModeForExtension(getFileExtension(fileUrl));
+};
+
 const PDFViewer: React.FC<InputProps> = props => {
     const viewerRef = useRef<HTMLDivElement>(null);
     const moduleClientRef: React.MutableRefObject<WebViewerModuleClient> = useRef(new WebViewerModuleClient(props.mx));
@@ -56,6 +130,9 @@ const PDFViewer: React.FC<InputProps> = props => {
     const realtimeImportHandleRef: React.MutableRefObject<any> = useRef(null);
     const exportedXfdfCommandsRef: React.MutableRefObject<string[]> = useRef([]);
     const lastQueryDateRef: React.MutableRefObject<string> = useRef(new Date("1950-01-01").toISOString());
+    // Guard against React 18 StrictMode double-mounting, which would otherwise
+    // call viewer() twice and create two WebViewer instances in the same DOM node.
+    const hasMountedRef: React.MutableRefObject<boolean> = useRef(false);
 
     const [wvInstance, setInstance] = useState<null | WebViewerInstance>(null);
 
@@ -270,6 +347,19 @@ const PDFViewer: React.FC<InputProps> = props => {
 
     // Mount WV only once
     useEffect(() => {
+        // React 18 StrictMode runs effects twice in development. Guard against
+        // a second viewer() call which would create a duplicate WebViewer instance.
+        if (hasMountedRef.current) {
+            return;
+        }
+        hasMountedRef.current = true;
+
+        // Pick the initial mode up-front so the WebViewer is constructed with
+        // the right editor (docx/spreadsheet) before any document is loaded.
+        const initialMode = hasAttribute(props.file)
+            ? getInitialModeForFile(props.file, props.enableOfficeEditing, props.enableSpreadsheetEditing)
+            : getInitialModeForUrl(props.fileUrl, props.enableOfficeEditing, props.enableSpreadsheetEditing);
+
         viewer(
             {
                 path: "/resources/lib",
@@ -286,7 +376,9 @@ const PDFViewer: React.FC<InputProps> = props => {
                 selectAnnotationOnCreation: props.selectAnnotationOnCreation,
                 fullAPI: props.enableFullAPI,
                 css: props.customCss,
-                licenseKey: props.l
+                licenseKey: props.l,
+                enableOfficeEditing: props.enableOfficeEditing,
+                initialMode
             },
             viewerRef.current as HTMLDivElement
         ).then((instance: WebViewerInstance) => {
@@ -448,11 +540,27 @@ const PDFViewer: React.FC<InputProps> = props => {
                 swapFileIds(url.get("guid"));
                 wvInstance.UI.loadDocument(props.file.value.uri, {
                     filename: props.file.value.name,
-                    enableOfficeEditing: props.enableOfficeEditing
-                });
+                    enableOfficeEditing: props.enableOfficeEditing,
+                    initialMode: getInitialModeForFile(
+                        props.file,
+                        props.enableOfficeEditing,
+                        props.enableSpreadsheetEditing
+                    ),
+                    // loadAsPDF is supported at runtime via Core.loadDocumentOptions, but is not declared on UI.loadDocumentOptions
+                    loadAsPDF: props.loadAsPDF
+                } as Parameters<typeof wvInstance.UI.loadDocument>[1]);
             } else if (props.fileUrl) {
                 swapFileIds();
-                wvInstance.UI.loadDocument(props.fileUrl, { enableOfficeEditing: props.enableOfficeEditing });
+                wvInstance.UI.loadDocument(props.fileUrl, {
+                    enableOfficeEditing: props.enableOfficeEditing,
+                    initialMode: getInitialModeForUrl(
+                        props.fileUrl,
+                        props.enableOfficeEditing,
+                        props.enableSpreadsheetEditing
+                    ),
+                    // loadAsPDF is supported at runtime via Core.loadDocumentOptions, but is not declared on UI.loadDocumentOptions
+                    loadAsPDF: props.loadAsPDF
+                } as Parameters<typeof wvInstance.UI.loadDocument>[1]);
             }
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
