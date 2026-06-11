@@ -91,6 +91,7 @@ WebViewer({
   initialDoc: 'assets/webviewer-demo-annotated.pdf',
   enableFilePicker: true,
   path: 'webviewer/lib',
+  licenseKey: 'YOUR_LICENSE_KEY',
 }, document.getElementById('viewer')).then((instance) => {
   const { documentViewer } = instance.Core;
   documentViewer.addEventListener('documentLoaded', function() {

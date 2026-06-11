@@ -27,9 +27,9 @@ npm install
 
 Follow the steps below to set the license key in this sample:
 
-- Locate the file /server/api.js
+- Locate the files /server/api.js and /client/index.js
 - Replace 'YOUR_LICENSE_KEY' with your license
-- Save the file
+- Save the files
 
 ## Run
 
