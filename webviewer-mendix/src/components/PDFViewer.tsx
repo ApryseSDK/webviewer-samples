@@ -51,13 +51,16 @@ type WvMode = (typeof viewer.Modes)[keyof typeof viewer.Modes];
 
 /**
  * Extract a lowercased file extension from a filename (the part after the last dot).
- * Returns undefined when there is no extension.
+ * Returns undefined when there is no extension. Query strings and fragments are
+ * stripped first so that signed-URL deployments (e.g. `report.docx?X-Amz-Signature=...`)
+ * still resolve to the correct extension.
  */
 const getFileExtension = (fileName: string | undefined | null): string | undefined => {
     if (!fileName) {
         return undefined;
     }
-    return fileName.split(".").pop()?.toLowerCase();
+    const cleaned = fileName.split(/[?#]/)[0];
+    return cleaned.split(".").pop()?.toLowerCase();
 };
 
 /**

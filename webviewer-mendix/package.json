@@ -20,7 +20,7 @@
     "prerelease": "npm run lint",
     "release": "pluggable-widgets-tools release:web",
     "dev:test": "vite",
-    "dev:test:install-sw": "msw init public/ --save"
+    "dev:test:install-sw": "msw init dev/public/ --save"
   },
   "license": "",
   "devDependencies": {

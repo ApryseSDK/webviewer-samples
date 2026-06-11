@@ -29,9 +29,19 @@ export default defineConfig({
             name: "webviewer-assets-middleware",
             configureServer(server) {
                 server.middlewares.use("/resources/lib", (req, res, next) => {
-                    // Strip the /resources/lib prefix
-                    const url = (req.url || "/").split("?")[0];
-                    const filePath = path.join(webviewerPublic, url);
+                    // Strip the /resources/lib prefix, query string, and any leading slashes
+                    // so that `..` segments cannot escape the webviewer public directory.
+                    const url = (req.url || "/").split("?")[0].replace(/^\/+/, "");
+                    // Use path.resolve against an explicit "." anchor and then verify the
+                    // resolved path is still under webviewerPublic. Anything else gets 403.
+                    const filePath = path.resolve(webviewerPublic, "." + path.sep + url);
+                    const webviewerPublicWithSep = webviewerPublic.endsWith(path.sep)
+                        ? webviewerPublic
+                        : webviewerPublic + path.sep;
+                    if (filePath !== webviewerPublic && !filePath.startsWith(webviewerPublicWithSep)) {
+                        res.statusCode = 403;
+                        return res.end("Forbidden");
+                    }
                     const fs = require("fs") as typeof import("fs");
                     if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
                         const ext = path.extname(filePath).toLowerCase();
