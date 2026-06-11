@@ -7,8 +7,7 @@ WebViewer({
   // ui: 'legacy',
 }, viewerElement).then((instance) => {
 
-  instance.UI.addEventListener('userBookmarksChanged', (detail) => {
-    const bookmarks = { detail };
+  instance.UI.addEventListener('userBookmarksChanged', (bookmarks) => {
     const bookmarksString = JSON.stringify(bookmarks);
     saveBookmarksString(DOCUMENT_ID, bookmarksString).then(() => {
       console.log('Bookmarks saved successfully.');
