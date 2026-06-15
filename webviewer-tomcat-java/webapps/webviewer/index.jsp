@@ -8,6 +8,6 @@
 </head>
 <body>
   <div id='viewer'></div>
-  <script src="index.js"></script>
+  <script src="index.js" type="module"></script>
 </body>
 </html>
