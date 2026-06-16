@@ -4,5 +4,6 @@
     "esModuleInterop": true,
     "jsx": "react"
   },
-  "extends": "./node_modules/@mendix/pluggable-widgets-tools/configs/tsconfig.base.json"
+  "extends": "./node_modules/@mendix/pluggable-widgets-tools/configs/tsconfig.base.json",
+  "exclude": ["node_modules", "dev", "dist", "plans", "vite.config.ts", "tsconfig.dev.json"]
 }
