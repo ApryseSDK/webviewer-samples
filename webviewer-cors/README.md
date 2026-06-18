@@ -49,13 +49,13 @@ If the WebViewer lib folder is on another origin from your app, then you will ne
 
 ## Run
 
-Run WebViewer lib static server to serve WebViewer lib on `http://localhost:8081/lib/`
+Run WebViewer lib static server to serve WebViewer lib on `http://localhost:8080/lib/`
 ```
 cd webviewer-lib
 npm start
 ```
 
-Run React-TypeScript app to load ` http://localhost:3000`. Notice that `App.tsx` fetches the WebViewer from `http://localhost:8081/lib/`
+Run React-TypeScript app to load ` http://localhost:3000`. Notice that `App.tsx` fetches the WebViewer from `http://localhost:8080/lib/`
 
 ```
 cd webviewer-app
