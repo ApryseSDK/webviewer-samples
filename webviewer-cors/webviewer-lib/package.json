@@ -4,7 +4,7 @@
   "description": "This is where WebViewer's lib would be served statically from and @pdftron/webviewer is listed in the dependencies.",
   "main": "index.js",
   "scripts": {
-    "start": "http-server --cors"
+    "start": "http-server --cors --port 8080"
   },
   "author": "Andrey Safonov",
   "license": "ISC",
