@@ -23,11 +23,11 @@ const App = () => {
   const [searchContainerOpen, setSearchContainerOpen] = useState(false);
   const [isInContentEditMode, setIsInContentEditMode] = useState(false);
 
-  const Annotations = window.Core.Annotations;
+  const Annotations = window.globalThis.Core.Annotations;
 
   // if using a class, equivalent of componentDidMount
   useEffect(() => {
-    const Core = window.Core;
+    const Core = window.globalThis.Core;
     Core.setWorkerPath('/webviewer');
     Core.enableFullPDF();
 
@@ -62,14 +62,14 @@ const App = () => {
 
   const endEditingContent = () => {
     setIsInContentEditMode(false);
-    documentViewer.setToolMode(documentViewer.getTool(window.Core.Tools.ToolNames.EDIT));
+    documentViewer.setToolMode(documentViewer.getTool(window.globalThis.Core.Tools.ToolNames.EDIT));
     const contentEditManager = documentViewer.getContentEditManager();
     contentEditManager.endContentEditMode();
   }
 
   const addParagraph = () => {
     if (isInContentEditMode) {
-      const addParagraphTool = documentViewer.getTool(window.Core.Tools.ToolNames.ADD_PARAGRAPH);
+      const addParagraphTool = documentViewer.getTool(window.globalThis.Core.Tools.ToolNames.ADD_PARAGRAPH);
       documentViewer.setToolMode(addParagraphTool);
     } else {
       alert('Content Edit mode is not enabled.')
@@ -78,7 +78,7 @@ const App = () => {
 
   const addImageContent = () => {
     if (isInContentEditMode) {
-      const addImageContentTool = documentViewer.getTool(window.Core.Tools.ToolNames.ADD_IMAGE_CONTENT);
+      const addImageContentTool = documentViewer.getTool(window.globalThis.Core.Tools.ToolNames.ADD_IMAGE_CONTENT);
       documentViewer.setToolMode(addImageContentTool);
     } else {
       alert('Content Edit mode is not enabled.')
@@ -86,15 +86,15 @@ const App = () => {
   };
 
   const createRectangle = () => {
-    documentViewer.setToolMode(documentViewer.getTool(window.Core.Tools.ToolNames.RECTANGLE));
+    documentViewer.setToolMode(documentViewer.getTool(window.globalThis.Core.Tools.ToolNames.RECTANGLE));
   };
 
   const selectTool = () => {
-    documentViewer.setToolMode(documentViewer.getTool(window.Core.Tools.ToolNames.EDIT));
+    documentViewer.setToolMode(documentViewer.getTool(window.globalThis.Core.Tools.ToolNames.EDIT));
   };
 
   const createRedaction = () => {
-    documentViewer.setToolMode(documentViewer.getTool(window.Core.Tools.ToolNames.REDACTION));
+    documentViewer.setToolMode(documentViewer.getTool(window.globalThis.Core.Tools.ToolNames.REDACTION));
   };
 
   const applyRedactions = async () => {
