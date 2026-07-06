@@ -58,7 +58,7 @@ const WebViewerPDFTron = () => {
       });
 
       // Add tool button in header
-      instance.UI.setHeaderItems((header) => {
+      instance.UI.getModularHeaderList((header) => {
         header
           .getHeader('toolbarGroup-Edit')
           .get('cropToolGroupButton')
