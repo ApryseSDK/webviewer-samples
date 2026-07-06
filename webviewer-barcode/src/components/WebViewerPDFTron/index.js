@@ -17,7 +17,6 @@ const WebViewerPDFTron = () => {
         initialDoc:
           'https://pdftron.s3.amazonaws.com/downloads/pl/webviewer-demo.pdf',
         fullAPI: true,
-        ui: 'legacy',
         disabledElements: ['ribbons', 'cropToolGroupButton', 'snippingToolGroupButton']
       },
       viewer.current,
