@@ -17,7 +17,7 @@ const WebViewerPDFTron = () => {
         initialDoc:
           'https://pdftron.s3.amazonaws.com/downloads/pl/webviewer-demo.pdf',
         fullAPI: true,
-        disabledElements: ['ribbons', 'cropToolGroupButton', 'snippingToolGroupButton']
+        disabledElements: ['ribbons', 'cropToolButton', 'snippingToolButton']
       },
       viewer.current,
     ).then(async (instance) => {
@@ -62,7 +62,7 @@ const WebViewerPDFTron = () => {
       instance.UI.getModularHeaderList((header) => {
         header
           .getHeader('toolbarGroup-Edit')
-          .get('cropToolGroupButton')
+          .get('cropToolButton')
           .insertAfter({
             type: 'toolButton',
             toolName: 'SnipTool',
