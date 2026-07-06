@@ -33,12 +33,13 @@ const WebViewerPDFTron = () => {
       await PDFNet.initialize();
 
       const createSnipTool = docViewer => {
-        const SnipTool = function() {
-          Tools.RectangleCreateTool.apply(this, arguments);
-          this.defaults.StrokeColor = new Annotations.Color('#ff0000');
-          this.defaults.StrokeThickness = 2;
-        };
-        SnipTool.prototype = new Tools.RectangleCreateTool();
+        class SnipTool extends Tools.RectangleCreateTool {
+          constructor(viewer) {
+            super(viewer, 'SnipTool');
+            this.defaults.StrokeColor = new Annotations.Color('#ff0000');
+            this.defaults.StrokeThickness = 2;
+          }
+        }
 
         return new SnipTool(docViewer);
       };
