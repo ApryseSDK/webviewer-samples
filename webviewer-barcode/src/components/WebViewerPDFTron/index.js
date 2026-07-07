@@ -95,8 +95,8 @@ const WebViewerPDFTron = () => {
           'pageContainer' + pageIndex,
         );
         const pageCanvas = pageContainer.querySelector('.canvas' + pageIndex);
-        const topOffset = parseFloat(pageContainer.style.top) || 0;
-        const leftOffset = parseFloat(pageContainer.style.left) || 0;
+        const topOffset = Number.parseFloat(pageContainer.style.top) || 0;
+        const leftOffset = Number.parseFloat(pageContainer.style.left) || 0;
 
         const zoom = documentViewer.getZoomLevel();
         const x = annotation.X * zoom - leftOffset;
