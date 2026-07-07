@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-import WebViewer from '@pdftron/webviewer';
+import WebViewer from '@pdftron/webviewer/webviewer.esm.js';
 
 @Component({
   selector: 'webviewer',
