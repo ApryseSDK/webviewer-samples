@@ -4,17 +4,18 @@
   "private": true,
   "dependencies": {
     "@pdftron/webviewer": "^11.13.0",
-    "javascript-barcode-reader": "^0.6.9",
-    "jsbarcode": "^3.11.6",
+    "javascript-barcode-reader": "^1.0.0",
+    "jsbarcode": "^3.12.3",
     "jsqr": "^1.4.0",
     "qrcode": "^1.5.4",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
-    "react-scripts": "3.4.1"
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "react-scripts": "5.0.1"
   },
   "devDependencies": {
+    "ajv": "^8.20.0",
     "download": "^8.0.0",
-    "fs-extra": "^11.3.0"
+    "fs-extra": "^11.3.6"
   },
   "scripts": {
     "start": "react-scripts start",
