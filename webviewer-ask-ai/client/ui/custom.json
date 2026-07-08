@@ -278,7 +278,7 @@
       "buttonType": "redoButton"
     },
     "toggleAccessibilityModeButton": {
-      "dataElement": "toggleAccessibilityModePresetButton",
+      "dataElement": "toggleAccessibilityModeButton",
       "type": "presetButton",
       "buttonType": "toggleAccessibilityModeButton"
     },
@@ -1008,17 +1008,7 @@
         "settingsButton",
         "divider"
       ]
-    },
-    "multiSelectStylePanelFlyout": {
-      "dataElement": "multiSelectStylePanelFlyout",
-      "className": "StylePanelFlyout",
-      "items": [
-        {
-          "dataElement": "stylePanelInFlyout",
-          "render": "stylePanel"
-        }
-      ]
-    }
+    }    
   },
   "popups": {
     "annotationPopup": [
