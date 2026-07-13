@@ -171,10 +171,6 @@
                 <caption>Enable accessibility mode</caption>
                 <description>Enable accessibility features. E.g tab page selection and page text in the DOM.</description>
             </property>
-            <property key="highContrastMode" type="boolean" defaultValue="false">
-                <caption>Enable high contrast mode</caption>
-                <description>Enable high contrast colors to help with accessibility.</description>
-            </property>
         </propertyGroup>
         <propertyGroup caption="Module">
             <propertyGroup caption="Document Updates">

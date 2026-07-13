@@ -40,7 +40,6 @@ export interface WebViewerContainerProps {
     disabledElements: string;
     customCss: string;
     accessibleMode: boolean;
-    highContrastMode: boolean;
     enableDocumentUpdates: boolean;
     enableSaveAsButton: boolean;
     enableRealTimeAnnotating: boolean;
@@ -89,7 +88,6 @@ export interface WebViewerPreviewProps {
     disabledElements: string;
     customCss: string;
     accessibleMode: boolean;
-    highContrastMode: boolean;
     enableDocumentUpdates: boolean;
     enableSaveAsButton: boolean;
     enableRealTimeAnnotating: boolean;
