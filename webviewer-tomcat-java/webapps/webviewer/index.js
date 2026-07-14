@@ -12,8 +12,7 @@ WebViewer({
     // see https://www.pdftron.com/documentation/web/guides/ui/apis for the full list of APIs
     
     // or listen to events from the viewer element
-    document.getElementById('viewer').addEventListener('pageChanged', (e) => {
-      const [ pageNumber ] = e.detail;
+    documentViewer.addEventListener('pageNumberUpdated', (pageNumber) => {
       console.log(`Current page is ${pageNumber}`);
     });
 

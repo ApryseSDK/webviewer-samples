@@ -96,7 +96,7 @@ Before you begin, make sure your development environment includes [Node.js](http
 
 ```
 git clone --depth=1 https://github.com/ApryseSDK/webviewer-samples.git
-cd webviewer-samples/webviewer-linearization
+cd webviewer-samples/webviewer-range-request
 npm install
 ```
 

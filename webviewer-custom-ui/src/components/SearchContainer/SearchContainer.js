@@ -11,7 +11,6 @@ const SearchContainer = (props) => {
   const [toggledSearchModes, setToggledSearchModes] = useState([]);
 
   const {
-    Annotations,
     annotationManager,
     documentViewer,
     open = false,
@@ -37,6 +36,11 @@ const SearchContainer = (props) => {
    */
   const performSearch = () => {
     clearSearchResults(false);
+
+    if (!documentViewer || !window.Core?.Search) {
+      return;
+    }
+
     const {
       current: {
         value: textToSearch
@@ -57,40 +61,31 @@ const SearchContainer = (props) => {
     let jumped = false;
     documentViewer.textSearchInit(textToSearch, mode, {
       fullSearch,
-      onResult: result => {
-        setSearchResults(prevState => [...prevState, result]);
-        const {
-          resultCode,
-          quads,
-          page_num: pageNumber,
-        } = result;
-        const {
-          e_found: eFound,
-        } = window.PDFNet.TextSearch.ResultCode
-        if (resultCode === eFound) {
-          const highlight = new Annotations.TextHighlightAnnotation();
-          /**
-           * The page number in Annotations.TextHighlightAnnotation is not
-           * 0-indexed
-           */
-          highlight.setPageNumber(pageNumber);
-          highlight.Quads.push(quads[0].getPoints());
-          annotationManager.addAnnotation(highlight);
-          annotationManager.drawAnnotations(highlight.PageNumber);
-          if (!jumped) {
-            jumped = true;
-            // This is the first result found, so set `activeResult` accordingly
-            setActiveResultIndex(0);
-            documentViewer.displaySearchResult(result, () => {
-              /**
-               * The page number in documentViewer.displayPageLocation is not
-               * 0-indexed
-               */
-              documentViewer.displayPageLocation(pageNumber, 0, 0, true);
-            });
-          }
+      onResult: (result) => {
+        const foundCode =
+          window.Core?.Search?.ResultCode?.FOUND ??
+          window.PDFNet?.TextSearch?.ResultCode?.FOUND;
+
+        if (result.resultCode !== foundCode) {
+          return;
         }
-      }
+
+        setSearchResults((prevState) => [...prevState, result]);
+
+        if (!jumped) {
+          jumped = true;
+          const pageNumber = result.pageNum ?? result.page_number;
+          // This is the first result found, so set `activeResult` accordingly
+          setActiveResultIndex(0);
+          documentViewer.displaySearchResult(result, () => {
+            /**
+             * The page number in documentViewer.displayPageLocation is not
+             * 0-indexed
+             */
+            documentViewer.displayPageLocation(pageNumber, 0, 0, true);
+          });
+        }
+      },
     });
   };
 
