@@ -12,6 +12,9 @@ import { ReactComponent as AddParagraph } from './assets/icons/ic_paragraph_24px
 import { ReactComponent as AddImageContent } from './assets/icons/ic_add_image_24px.svg';
 import './App.css';
 
+/* global globalThis */
+const root = globalThis;
+
 const App = () => {
   const viewer = useRef(null);
   const scrollView = useRef(null);
@@ -23,27 +26,44 @@ const App = () => {
   const [searchContainerOpen, setSearchContainerOpen] = useState(false);
   const [isInContentEditMode, setIsInContentEditMode] = useState(false);
 
-  const Annotations = window.Core.Annotations;
+  const Annotations = root.Core?.Annotations;
 
   // if using a class, equivalent of componentDidMount
   useEffect(() => {
-    const Core = window.Core;
-    Core.setWorkerPath('/webviewer');
-    Core.enableFullPDF();
+    let pollTimer;
 
-    const documentViewer = new Core.DocumentViewer();
-    documentViewer.setScrollViewElement(scrollView.current);
-    documentViewer.setViewerElement(viewer.current);
-    documentViewer.enableAnnotations();
-    documentViewer.loadDocument('/files/demo.pdf');
+    const initViewer = () => {
+      const Core = root.Core;
+      if (!Core) {
+        pollTimer = setTimeout(initViewer, 50);
+        return;
+      }
 
-    setDocumentViewer(documentViewer);
+      Core.setWorkerPath('/webviewer');
+      Core.enableFullPDF();
 
-    documentViewer.addEventListener('documentLoaded', () => {
-      console.log('document loaded');
-      documentViewer.setToolMode(documentViewer.getTool(Core.Tools.ToolNames.EDIT));
-      setAnnotationManager(documentViewer.getAnnotationManager());
-    });
+      const documentViewer = new Core.DocumentViewer();
+      documentViewer.setScrollViewElement(scrollView.current);
+      documentViewer.setViewerElement(viewer.current);
+      documentViewer.enableAnnotations();
+      documentViewer.loadDocument('/files/demo.pdf');
+
+      setDocumentViewer(documentViewer);
+
+      documentViewer.addEventListener('documentLoaded', () => {
+        console.log('document loaded');
+        documentViewer.setToolMode(documentViewer.getTool(Core.Tools.ToolNames.EDIT));
+        setAnnotationManager(documentViewer.getAnnotationManager());
+      });
+    };
+
+    initViewer();
+
+    return () => {
+      if (pollTimer) {
+        clearTimeout(pollTimer);
+      }
+    };
   }, []);
 
   const zoomOut = () => {
@@ -62,14 +82,14 @@ const App = () => {
 
   const endEditingContent = () => {
     setIsInContentEditMode(false);
-    documentViewer.setToolMode(documentViewer.getTool(window.Core.Tools.ToolNames.EDIT));
+    documentViewer.setToolMode(documentViewer.getTool(root.Core.Tools.ToolNames.EDIT));
     const contentEditManager = documentViewer.getContentEditManager();
     contentEditManager.endContentEditMode();
   }
 
   const addParagraph = () => {
     if (isInContentEditMode) {
-      const addParagraphTool = documentViewer.getTool(window.Core.Tools.ToolNames.ADD_PARAGRAPH);
+      const addParagraphTool = documentViewer.getTool(root.Core.Tools.ToolNames.ADD_PARAGRAPH);
       documentViewer.setToolMode(addParagraphTool);
     } else {
       alert('Content Edit mode is not enabled.')
@@ -78,7 +98,7 @@ const App = () => {
 
   const addImageContent = () => {
     if (isInContentEditMode) {
-      const addImageContentTool = documentViewer.getTool(window.Core.Tools.ToolNames.ADD_IMAGE_CONTENT);
+      const addImageContentTool = documentViewer.getTool(root.Core.Tools.ToolNames.ADD_IMAGE_CONTENT);
       documentViewer.setToolMode(addImageContentTool);
     } else {
       alert('Content Edit mode is not enabled.')
@@ -86,15 +106,15 @@ const App = () => {
   };
 
   const createRectangle = () => {
-    documentViewer.setToolMode(documentViewer.getTool(window.Core.Tools.ToolNames.RECTANGLE));
+    documentViewer.setToolMode(documentViewer.getTool(root.Core.Tools.ToolNames.RECTANGLE));
   };
 
   const selectTool = () => {
-    documentViewer.setToolMode(documentViewer.getTool(window.Core.Tools.ToolNames.EDIT));
+    documentViewer.setToolMode(documentViewer.getTool(root.Core.Tools.ToolNames.EDIT));
   };
 
   const createRedaction = () => {
-    documentViewer.setToolMode(documentViewer.getTool(window.Core.Tools.ToolNames.REDACTION));
+    documentViewer.setToolMode(documentViewer.getTool(root.Core.Tools.ToolNames.REDACTION));
   };
 
   const applyRedactions = async () => {

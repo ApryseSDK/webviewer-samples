@@ -11,6 +11,6 @@
     "fs-extra": "^10.1.0"
   },
   "dependencies": {
-    "@pdftron/webviewer": "^11.13.0"
+    "@pdftron/webviewer": "^12.0.0"
   }
 }

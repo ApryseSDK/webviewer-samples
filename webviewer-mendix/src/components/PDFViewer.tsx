@@ -19,7 +19,6 @@ export interface InputProps {
     enableAutoXfdfExport: boolean;
     enableAutoXfdfImport: boolean;
     loadAsPDF?: boolean;
-    highContrastMode?: boolean;
     notesInLeftPanel?: boolean;
     enabledElements: string;
     disabledElements: string;
@@ -373,7 +372,6 @@ const PDFViewer: React.FC<InputProps> = props => {
                 enableRedaction: props.enableRedaction,
                 enableAnnotations: props.enableAnnotations,
                 loadAsPDF: props.loadAsPDF,
-                highContrastMode: props.highContrastMode,
                 notesInLeftPanel: props.notesInLeftPanel,
                 disabledElements: props.disabledElements.split("\r\n"),
                 selectAnnotationOnCreation: props.selectAnnotationOnCreation,
@@ -434,55 +432,58 @@ const PDFViewer: React.FC<InputProps> = props => {
                         footer: undefined
                     });
 
-                    UI.setHeaderItems((header: any) => {
-                        header.push({
+                    const defaultHeader = UI.getModularHeader("default-top-header");
+                    const headerItems = defaultHeader.getItems();
+                    // @ts-ignore
+                    defaultHeader.setItems([
+                        ...headerItems,
+                        {
                             type: "actionButton",
                             title: "Page Extraction",
                             img: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path class="cls-1" d="M16.49,13.54h1.83V9.25s0,0,0-.06a.59.59,0,0,0,0-.23.32.32,0,0,0,0-.09.8.8,0,0,0-.18-.27l-5.5-5.5a.93.93,0,0,0-.26-.18l-.09,0a1,1,0,0,0-.24,0l-.05,0H5.49A1.84,1.84,0,0,0,3.66,4.67V19.33a1.84,1.84,0,0,0,1.83,1.84H11V19.33H5.49V4.67H11V9.25a.92.92,0,0,0,.92.92h4.58Z"/><path class="cls-1" d="M20.21,17.53,17.05,15a.37.37,0,0,0-.6.29v1.6H12.78v1.84h3.67v1.61a.37.37,0,0,0,.6.29l3.16-2.53A.37.37,0,0,0,20.21,17.53Z"/></svg>`,
                             onClick: () => {
                                 UI.openElements([dataElement]);
                             }
-                        });
-                    });
+                        }
+                    ]);
                 }
 
-                UI.setHeaderItems(() => {
-                    const customHeaderItems: any[] = [];
-                    if (props.enableDocumentUpdates) {
-                        const saveCurrentDocumentButton = new instance.UI.Components.CustomButton({
-                            dataElement: "customSaveCurrentButton",
-                            onClick: () => {
-                                wvUIEventHandlers.current.saveCurrentDocument();
-                            },
-                            img: "icon-save",
-                            // @ts-ignore
-                            style: {
-                                backgroundColor: "#F1F3F5"
-                            }
-                        });
-                        customHeaderItems.push(saveCurrentDocumentButton);
-                    }
+                const customHeaderItems: any[] = [];
+                if (props.enableDocumentUpdates) {
+                    const saveCurrentDocumentButton = new instance.UI.Components.CustomButton({
+                        dataElement: "customSaveCurrentButton",
+                        onClick: () => {
+                            wvUIEventHandlers.current.saveCurrentDocument();
+                        },
+                        img: "icon-save",
+                        // @ts-ignore
+                        style: {
+                            backgroundColor: "#F1F3F5"
+                        }
+                    });
+                    customHeaderItems.push(saveCurrentDocumentButton);
+                }
 
-                    if (props.enableSaveAsButton) {
-                        const saveAsButton = new instance.UI.Components.CustomButton({
-                            dataElement: "customSaveAsButton",
-                            onClick: async () => {
-                                wvUIEventHandlers.current.saveAsDocument();
-                            },
-                            img: "icon-save",
-                            label: "Save As",
-                            // @ts-ignore
-                            style: {
-                                backgroundColor: "#F1F3F5"
-                            }
-                        });
-                        customHeaderItems.push(saveAsButton);
-                    }
-                    // This can now be added to a modular header
-                    const defaultHeader = instance.UI.getModularHeader("default-top-header");
-                    // @ts-ignore
-                    defaultHeader.setItems([...defaultHeader.items, ...customHeaderItems]);
-                });
+                if (props.enableSaveAsButton) {
+                    const saveAsButton = new instance.UI.Components.CustomButton({
+                        dataElement: "customSaveAsButton",
+                        onClick: async () => {
+                            wvUIEventHandlers.current.saveAsDocument();
+                        },
+                        img: "icon-save",
+                        label: "Save As",
+                        // @ts-ignore
+                        style: {
+                            backgroundColor: "#F1F3F5"
+                        }
+                    });
+                    customHeaderItems.push(saveAsButton);
+                }
+                // This can now be added to a modular header
+                const defaultHeader = instance.UI.getModularHeader("default-top-header");
+                const defaultHeaderItems = defaultHeader.getItems();
+                // @ts-ignore
+                defaultHeader.setItems([...defaultHeaderItems, ...customHeaderItems]);
 
                 // Manual and auto XFDF export
                 if (hasAttribute(props.xfdfAttribute)) {
@@ -494,14 +495,18 @@ const PDFViewer: React.FC<InputProps> = props => {
                     }
 
                     if (props.enableXfdfExportButton) {
-                        UI.setHeaderItems((header: any) => {
-                            header.push({
+                        const defaultHeader = UI.getModularHeader("default-top-header");
+                        const headerItems = defaultHeader.getItems();
+                        // @ts-ignore
+                        defaultHeader.setItems([
+                            ...headerItems,
+                            {
                                 type: "actionButton",
                                 title: "Save XFDF",
                                 img: `<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24"><g><path d="M0,0h24v24H0V0z" fill="none"/></g><g><g><path d="M19,3h-4.18C14.4,1.84,13.3,1,12,1S9.6,1.84,9.18,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5 C21,3.9,20.1,3,19,3z M12,2.75c0.41,0,0.75,0.34,0.75,0.75S12.41,4.25,12,4.25s-0.75-0.34-0.75-0.75S11.59,2.75,12,2.75z M19,19H5 V5h14V19z"/><polygon points="15.08,11.03 12.96,8.91 7,14.86 7,17 9.1,17"/><path d="M16.85,9.27c0.2-0.2,0.2-0.51,0-0.71l-1.41-1.41c-0.2-0.2-0.51-0.2-0.71,0l-1.06,1.06l2.12,2.12L16.85,9.27z"/></g></g></svg>`,
                                 onClick: () => wvUIEventHandlers.current.updateXfdfAttribute()
-                            });
-                        });
+                            }
+                        ]);
                     }
                 }
 

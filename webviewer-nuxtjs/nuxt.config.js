@@ -11,6 +11,9 @@ export default {
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
+    script: [
+      { src: '/lib/webviewer/webviewer.min.js', defer: true }
+    ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
