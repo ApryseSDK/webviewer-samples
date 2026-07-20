@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@pdftron/webviewer": "^12.0.0",
+    "@pdftron/webviewer": "^12.0.1",
     "javascript-barcode-reader": "^1.0.0",
     "jsbarcode": "^3.12.3",
     "jsqr": "^1.4.0",
