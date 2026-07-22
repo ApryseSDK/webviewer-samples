@@ -7,11 +7,9 @@
 
 This sample is designed to show you how to integrate WebViewer into a React project. [Read more about integrating with React](https://docs.apryse.com/web/guides/get-started/react).
 
-You can watch [a video here](https://youtu.be/bVhWXuLSL0k) to help you get started.
-
 ## Get your trial key
 
-A license key is required to run WebViewer. You can obtain a trial key in our [get started guides](https://docs.apryse.com/web/guides/get-started), or by signing-up on our [developer portal](https://dev.apryse.com/).
+A license key is required to run WebViewer. You can obtain a trial key in our [get started page](https://docs.apryse.com/web/guides/get-started).
 
 ## Initial setup
 
@@ -19,27 +17,63 @@ Before you begin, make sure your development environment includes [Node.js](http
 
 This sample requires Node version 20. To check your version, run `node -v` in a terminal/console window.
 
-In order to set the license key, you will need to set the string in the WebViewer sample. One such way is by passing it into the constructor of the WebViewer: https://docs.apryse.com/documentation/web/faq/add-license/#passing-into-constructor
+### Setting the License Key
 
-Follow the steps below to set the license key in this sample:
+In order to set the license key, you will need to set the string in the `env` file in the project. Alternatively, the string may be passed into the constructor of the WebViewer: https://docs.apryse.com/documentation/web/faq/add-license/#passing-into-constructor
 
-- Locate the file /src/App.tsx
-- Replace "YOUR_LICENSE_KEY" with your license
-- Save the file
+If this sample was obtained using the `create-webviewer-app` tool then the key has already been set in the `env` file and no fruther action is needed.
 
 
 ## Install
 
+In the terminal, navigate to the project directory:
+
 ```
-git clone --depth=1 https://github.com/ApryseSDK/webviewer-samples.git
 cd webviewer-samples/webviewer-react
+```
+
+Then install dependencies with the preferred package manager.
+
+**Using npm**
+```
 npm install
+```
+**Using pnpm**
+```
+pnpm install
+```
+**Using yarn**
+```
+yarn
+```
+**Using bun**
+```
+bun install
 ```
 
 ## Run
 
+Use the preferred package manager to run the `dev` script to start a local development server and serve the React app with hot reload.
+
+**Using npm**
 ```
-npm start
+npm run dev
 ```
 
-After the app starts, you will be able to see WebViewer running on `localhost:3000`.
+**Using pnpm**
+```
+pnpm dev
+```
+
+**Using yarn**
+```
+yarn dev
+```
+
+**Using bun**
+```
+bun run dev
+```
+
+After the app starts, you will be able to see WebViewer running on `localhost:5173`.
+
