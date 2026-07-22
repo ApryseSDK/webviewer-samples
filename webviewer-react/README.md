@@ -19,10 +19,9 @@ This sample requires Node version 20. To check your version, run `node -v` in a 
 
 ### Setting the License Key
 
-In order to set the license key, you will need to set the string in the `env` file in the project. Alternatively, the string may be passed into the constructor of the WebViewer: https://docs.apryse.com/documentation/web/faq/add-license/#passing-into-constructor
+In order to set the license key, set `VITE_DEMO_KEY` in the `.env` file in the project (or create a `.env.local` file for local-only changes). Alternatively, the string may be passed into the constructor of the WebViewer: https://docs.apryse.com/documentation/web/faq/add-license/#passing-into-constructor
 
-If this sample was obtained using the `create-webviewer-app` tool then the key has already been set in the `env` file and no fruther action is needed.
-
+If this sample was obtained using the `create-webviewer-app` tool then the key has already been set in the `.env` file and no further action is needed.
 
 ## Install
 
