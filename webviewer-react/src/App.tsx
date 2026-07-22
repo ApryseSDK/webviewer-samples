@@ -1,5 +1,5 @@
 import { useRef, useEffect } from 'react';
-import WebViewer from '@pdftron/webviewer';
+import WebViewer, { type WebViewerInstance } from '@pdftron/webviewer';
 import './App.css';
 
 const App = () => {
@@ -9,6 +9,10 @@ const App = () => {
     const viewerElement = viewer.current;
     if (!viewerElement) return;
 
+    let isUnmounted = false;
+    let webViewerInstance: WebViewerInstance | null = null;
+    let onDocumentLoaded: (() => void) | null = null;
+
     WebViewer(
       {
         path: '/lib/webviewer',
@@ -16,12 +20,19 @@ const App = () => {
         licenseKey: import.meta.env.VITE_DEMO_KEY,  // sign up to get a free trial key at https://dev.apryse.com
       },
       viewerElement,
-    ).then((instance) => {
+    ).then((instance: WebViewerInstance) => {
+      if (isUnmounted) {
+        instance.UI.dispose();
+        return;
+      }
+
+      webViewerInstance = instance;
+
       // Access WebViewer instance here
       const { documentViewer, annotationManager, Annotations } = instance.Core;
 
       // Example: Add a rectangle annotation to the first page when the document is loaded
-      documentViewer.addEventListener('documentLoaded', () => {
+      onDocumentLoaded = () => {
         const rectangleAnnot = new Annotations.RectangleAnnotation({
           PageNumber: 1,
           // values are in page coordinates with (0, 0) in the top left
@@ -35,8 +46,22 @@ const App = () => {
         annotationManager.addAnnotation(rectangleAnnot);
         // Need to draw the annotation otherwise it won't show up until the page is refreshed
         annotationManager.redrawAnnotation(rectangleAnnot);
-      });
+      };
+
+      documentViewer.addEventListener('documentLoaded', onDocumentLoaded);
     });
+
+    return () => {
+      isUnmounted = true;
+
+      if (webViewerInstance) {
+        if (onDocumentLoaded) {
+          webViewerInstance.Core.documentViewer.removeEventListener('documentLoaded', onDocumentLoaded);
+        }
+
+        webViewerInstance.UI.dispose();
+      }
+    };
   }, []);
 
   return (
