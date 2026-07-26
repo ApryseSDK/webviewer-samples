@@ -55,7 +55,7 @@ bun install
 
 ## Run
 
-Use the preferred package manager to run the `dev` script to start a local development server and serve the React app with hot reload.
+Use the preferred package manager to run the `dev` script to start a local development server and serve the Angular app with hot reload.
 
 **Using npm**
 ```
