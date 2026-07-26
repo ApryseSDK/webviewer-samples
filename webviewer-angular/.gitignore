@@ -11,9 +11,9 @@ public/lib
 
 # Node
 /node_modules
+.env
 npm-debug.log
 yarn-error.log
-
 # IDEs and editors
 .idea/
 .project
