@@ -15,13 +15,11 @@ A license key is required to run WebViewer. You can obtain a trial key in our [g
 
 Before you begin, make sure your development environment includes [Node.js](https://nodejs.org/en/).
 
-In order to set the license key, you will need to set the string in the WebViewer sample. One such way is by passing it into the constructor of the WebViewer: https://docs.apryse.com/documentation/web/faq/add-license/#passing-into-constructor
+### Setting the License Key
 
-Follow the steps below to set the license key in this sample:
+In order to set the license key, set `NG_APP_DEMO_KEY` in the `.env.example` file in the project and rename the file to `.env` (or create a `.env.local` file for local-only changes). Alternatively, the string may be passed into the constructor of the WebViewer: https://docs.apryse.com/documentation/web/faq/add-license/#passing-into-constructor
 
-- Locate the app.component.ts file at ./src/app/app.component.ts
-- Replace "your_license_key" with your license
-- Save the file
+If this sample was obtained using the `create-webviewer-app` tool then the key has already been set in the `.env` file and no further action is needed.
 
 ## Install
 
