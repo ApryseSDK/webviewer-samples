@@ -15,7 +15,7 @@ export class WebViewerComponent implements AfterViewInit {
 
     WebViewer({
       path: '../../lib/webviewer',
-      licenseKey: import.meta.env['NG_APP_DEMO_KEY'] || '', // set in .env
+      licenseKey: import.meta.env.NG_APP_DEMO_KEY || '', // set in .env
       initialDoc: 'https://apryse.s3.amazonaws.com/public/files/samples/WebviewerDemoDoc.pdf'
     }, this.viewer.nativeElement).then((instance: WebViewerInstance) => {
       
