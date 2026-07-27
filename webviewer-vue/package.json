@@ -7,10 +7,12 @@
     "start": "concurrently \"npm run dev\" \"start http://localhost:5173\"",
     "dev": "npm run copy-webviewer && vite",
     "build": "npm run copy-webviewer && vite build",
+    "type-check": "vue-tsc --noEmit",
     "serve": "vite preview",
     "lint": "eslint --fix .",
     "copy-webviewer": "node scripts/copy-webviewer-files.cjs"
   },
+  "license": "MIT",
   "dependencies": {
     "@pdftron/webviewer": "^12.0.0",
     "vue": "^3.5.4"
@@ -18,13 +20,16 @@
   "devDependencies": {
     "@eslint/js": "^9.10.0",
     "@stylistic/eslint-plugin-js": "^2.13.0",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.26.0",
     "@vitejs/plugin-vue": "^5.2.1",
     "concurrently": "^9.1.2",
     "eslint": "^9.19.0",
     "eslint-plugin-vue": "^9.32.0",
     "fs-extra": "^11.3.0",
     "globals": "^15.14.0",
-    "vite": "^5.4.14"
+    "vite": "^5.4.14",
+    "vue-tsc": "^2.1.10"
   },
   "browserslist": [
     "> 1%",
