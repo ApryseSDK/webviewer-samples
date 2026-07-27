@@ -1,5 +1,6 @@
 {
   "name": "webviewer-react",
+  "license": "MIT",
   "private": true,
   "version": "1.0.0",
   "type": "module",
