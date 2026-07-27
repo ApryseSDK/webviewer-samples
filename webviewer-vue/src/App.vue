@@ -6,15 +6,8 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
 import WebViewer from './components/WebViewer.vue';
-
-export default {
-  name: 'App',
-  components: {
-    WebViewer,
-  },
-};
 </script>
 
 <style>

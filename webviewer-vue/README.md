@@ -11,23 +11,82 @@ This sample is specifically designed for any users interested in integrating Web
 
 A license key is required to run WebViewer. You can obtain a trial key in our [get started guides](https://docs.apryse.com/web/guides/get-started), or by signing-up on our [developer portal](https://dev.apryse.com/).
 
-## Trial
+### Setting the License Key
 
-WebViewer comes with a 7-day trial without any feature limitations or trial key needed. To extend the trial, you can obtain the trial key by signing-up through the [developer portal](https://dev.apryse.com/).
+In order to set the license key, set `VITE_DEMO_KEY` in the `.env` file in the project (or create a `.env.local` file for local-only changes). Alternatively, the string may be passed into the constructor of the WebViewer: https://docs.apryse.com/documentation/web/faq/add-license/#passing-into-constructor
+
+The project has a sample `.env.example` file that can be copied and renamed to `.env`.  
+It contains a placeholder line for providing the license key.
+
+If this sample was obtained using the `create-webviewer-app` tool then the key has already been set in the `.env` file and no further action is needed.
 
 ## Install
 
 Before you begin, make sure the development environment includes [Node.js](https://nodejs.org/en/).
 
+In the terminal, navigate to the project directory:
+
 ```
-git clone --depth=1 https://github.com/ApryseSDK/webviewer-samples.git
 cd webviewer-samples/webviewer-vue
+```
+
+Then install dependencies with the preferred package manager.
+
+**Using npm**
+
+```
 npm install
 ```
 
-## Run
-In Visual Studio Code or from a Command Prompt window, preview the app in `localhost` with an `npm` command.
+**Using pnpm**
 
 ```
-npm start
+pnpm install
 ```
+
+**Using yarn**
+
+```
+yarn
+```
+
+**Using bun**
+
+```
+bun install
+```
+
+## Run
+
+Use the preferred package manager to run the `dev` script to start a local development server and serve the React app with hot reload.
+
+**Using npm**
+
+```
+npm run dev
+```
+
+**Using pnpm**
+
+```
+pnpm dev
+```
+
+**Using yarn**
+
+```
+yarn dev
+```
+
+**Using bun**
+
+```
+bun run dev
+```
+
+After the app starts, you will be able to see WebViewer running on `localhost:5173`.
+
+## License
+
+The Vue sample project is provided under the MIT license.  
+WebViewer React UI project/codebase or any derived works is only permitted in solutions with an active commercial Apryse WebViewer license. For exact licensing terms please refer to your commercial WebViewer license. For any licensing, pricing, or product questions, contact [Sales](https://apryse.com/form/contact-sales).
