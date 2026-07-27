@@ -1,9 +1,9 @@
 import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-import WebViewer from '@pdftron/webviewer';
+import WebViewer, { type WebViewerInstance } from '@pdftron/webviewer';
 
 @Component({
   selector: 'webviewer',
-  templateUrl: './webviewer.component.html',
+  templateUrl: './webviewer.html',
   standalone: true
 })
 export class WebViewerComponent implements AfterViewInit {
@@ -12,11 +12,12 @@ export class WebViewerComponent implements AfterViewInit {
   constructor() { }
 
   ngAfterViewInit(): void {
+
     WebViewer({
       path: '../../lib/webviewer',
-      licenseKey: 'your_license_key', // sign up to get a free trial key at https://dev.apryse.com
+      licenseKey: import.meta.env.NG_APP_DEMO_KEY || '', // set in .env
       initialDoc: 'https://apryse.s3.amazonaws.com/public/files/samples/WebviewerDemoDoc.pdf'
-    }, this.viewer.nativeElement).then(instance => {
+    }, this.viewer.nativeElement).then((instance: WebViewerInstance) => {
       
       const { documentViewer, Annotations, annotationManager } = instance.Core;
 
