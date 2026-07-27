@@ -1,5 +1,6 @@
 {
   "name": "webviewer-angular",
+  "license": "MIT",
   "version": "1.0.0",
   "scripts": {
     "postinstall": "node scripts/copy-webviewer-files.cjs",
