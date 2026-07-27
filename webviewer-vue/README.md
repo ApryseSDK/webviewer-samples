@@ -15,7 +15,7 @@ A license key is required to run WebViewer. You can obtain a trial key in our [g
 
 In order to set the license key, set `VITE_DEMO_KEY` in the `.env` file in the project (or create a `.env.local` file for local-only changes). Alternatively, the string may be passed into the constructor of the WebViewer: https://docs.apryse.com/documentation/web/faq/add-license/#passing-into-constructor
 
-The project has a sample `example.env` file that can be copied and renamed to `.env`.  
+The project has a sample `.env.example` file that can be copied and renamed to `.env`.  
 It contains a placeholder line for providing the license key.
 
 If this sample was obtained using the `create-webviewer-app` tool then the key has already been set in the `.env` file and no further action is needed.
