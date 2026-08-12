@@ -1,0 +1,45 @@
+==========================
+| Installing the project |
+==========================
+
+Use the preferred package manager to install the dependencies.
+
+Using npm:
+npm install
+
+Using pnpm:
+Create a `pnpm-workspace.yaml` file in the project root
+==========================
+allowBuilds:
+'@parcel/watcher': true
+esbuild: true
+lmdb: true
+msgpackr-extract: true
+==========================
+Then run the following:
+pnpm install
+
+Using yarn:
+yarn
+
+Using bun:
+bun install
+
+=======================
+| Running the project |
+=======================
+Use the preferred package manager to run the `dev` script to start a local development server and serve the Angular app with hot reload.
+
+Using npm:
+npm run dev
+
+Using pnpm:
+pnpm dev
+
+Using yarn:
+yarn dev
+
+Using bun:
+bun run dev
+
+Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
