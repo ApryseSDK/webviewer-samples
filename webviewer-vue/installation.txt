@@ -1,35 +1,8 @@
-==========================
-| Installing the project |
-==========================
-Install dependencies with the preferred package manager
-
-Using npm:
+To install and run using npm:
+=============================
 npm install
-
-Using pnpm:
-pnpm install
-
-Using yarn:
-yarn
-
-Using bun:
-bun install
-
-=======================
-| Running the project |
-=======================
-Use the preferred package manager to run the `dev` script to start a local development server and serve the React app with hot reload:
-
-Using npm:
 npm run dev
-
-Using pnpm:
-pnpm dev
-
-Using yarn:
-yarn dev
-
-Using bun:
-bun run dev
-
+=============================
 After the app starts, you will be able to see WebViewer running on http://localhost:5173
+
+For details on using other package managers (pnpm, yarn or bun), see README.md in the project's root folder.
