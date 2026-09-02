@@ -16,6 +16,7 @@ _If you are adding a new sample_
 - [ ] I have added a README to my sample
 - [ ] The sample is fully functional
 - [ ] I have updated `lerna.json` with the new sample name
+- [ ] If this sample is a template for create-webviewer-app, then add it to `sync-templates.json`
 
 _If you are removing an old sample_
 - [ ] I have removed the entry from the root level README
