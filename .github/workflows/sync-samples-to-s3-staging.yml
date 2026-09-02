@@ -2,6 +2,7 @@ name: Sync Samples to S3 (Staging)
 
 on:
   workflow_dispatch:
+  pull_request:
 
 permissions:
   contents: read
