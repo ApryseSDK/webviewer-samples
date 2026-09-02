@@ -1,0 +1,60 @@
+name: Sync Samples to S3 (Staging)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  S3_BUCKET: create-webviewer-app-staging
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      folders: ${{ steps.parse.outputs.folders }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Read folders from sync-templates.json
+        id: parse
+        run: |
+          FOLDERS_JSON=$(jq -c '.folders' sync-templates.json)
+          if [ "$FOLDERS_JSON" = "[]" ] || [ "$FOLDERS_JSON" = "null" ]; then
+            echo "::error::No folders listed in sync-templates.json."
+            exit 1
+          fi
+          echo "folders=$FOLDERS_JSON" >> "$GITHUB_OUTPUT"
+
+  zip-and-upload:
+    needs: prepare
+    runs-on: ubuntu-latest
+    environment: staging
+    strategy:
+      matrix:
+        folder: ${{ fromJson(needs.prepare.outputs.folders) }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Verify folder exists
+        run: |
+          if [ ! -d "${{ matrix.folder }}" ]; then
+            echo "::error::Folder '${{ matrix.folder }}' does not exist in the repository root."
+            exit 1
+          fi
+
+      - name: Zip folder
+        run: zip -r "${{ matrix.folder }}.zip" "${{ matrix.folder }}"
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@cbe3b392738ccf3f987d68400dafcf4b0624a56c 
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Upload zip to S3
+        run: aws s3 cp "${{ matrix.folder }}.zip" "s3://${{ env.S3_BUCKET }}/${{ matrix.folder }}.zip"
