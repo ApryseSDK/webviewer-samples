@@ -1,8 +1,8 @@
 To install and run using npm:
-=============================
+===========================
 npm install
 npm run dev
-=============================
+===========================
 After the app starts, you will be able to see WebViewer running on http://localhost:5173
 
 For details on using other package managers (pnpm, yarn or bun), see README.md in the project's root folder.

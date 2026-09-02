@@ -1,8 +1,8 @@
 To install and run using npm:
-=============================
+===========================
 npm install
 npm run dev
-=============================
+===========================
 Navigate to http://localhost:4200/ . The app will automatically reload if you change any of the source files.
 
 For details on using other package managers (pnpm, yarn or bun), see README.md in the project's root folder.
