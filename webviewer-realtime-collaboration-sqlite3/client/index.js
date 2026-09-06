@@ -8,6 +8,16 @@ const connection = new WebSocket(url);
 const nameList = ['Andy', 'Andrew', 'Logan', 'Justin', 'Matt', 'Sardor', 'Zhijie', 'James', 'Kristian', 'Mary', 'Patricia', 'Jennifer', 'Linda', 'David', 'Joseph', 'Thomas', 'Naman', 'Nancy', 'Sandra'];
 const serializer = new XMLSerializer();
 
+const sendAnnotationChanges = (annotations, action) => {
+  if (!annotations) {
+    return;
+  }
+
+  annotations.childNodes.forEach((child) => {
+    sendAnnotationChange(child, action);
+  });
+};
+
 connection.onerror = error => {
   console.warn(`Error from WebSocket: ${error}`);
 }
@@ -25,10 +35,12 @@ WebViewer.Iframe({
   instance.UI.openElements(['leftPanel']);
   annotationManager = instance.Core.documentViewer.getAnnotationManager();
   // Assign a random name to client
-  annotationManager.setCurrentUser(nameList[Math.floor(Math.random()*nameList.length)]);
-  annotationManager.addEventListener('annotationChanged', async e => {
+  const randomValue = new Uint32Array(1);
+  crypto.getRandomValues(randomValue);
+  annotationManager.setCurrentUser(nameList[Math.floor((randomValue[0] / 2 ** 32) * nameList.length)]);
+  annotationManager.addEventListener('annotationChanged', async (_annotations, _action, info = {}) => {
     // If annotation change is from import, return
-    if (e.imported) {
+    if (info.imported) {
       return;
     }
 
@@ -41,23 +53,16 @@ WebViewer.Iframe({
     const deletedAnnots = commandData.getElementsByTagName('delete')[0];
 
     // List of added annotations
-    addedAnnots.childNodes.forEach((child) => {
-      sendAnnotationChange(child, 'add');
-    });
-
+    sendAnnotationChanges(addedAnnots, 'add');
     // List of modified annotations
-    modifiedAnnots.childNodes.forEach((child) => {
-      sendAnnotationChange(child, 'modify');
-    });
-
-    // List of deleted annotations
-    deletedAnnots.childNodes.forEach((child) => {
-      sendAnnotationChange(child, 'delete');
-    });
+    sendAnnotationChanges(modifiedAnnots, 'modify');
+     // List of deleted annotations
+    sendAnnotationChanges(deletedAnnots, 'delete');
   });
 
   connection.onmessage = async (message) => {
-    const annotation = JSON.parse(message.data);
+    const data = typeof message.data === 'string' ? message.data : await message.data.text();
+    const annotation = JSON.parse(data);
     const annotations = await annotationManager.importAnnotationCommand(annotation.xfdfString);
     await annotationManager.drawAnnotationsFromList(annotations);
   }
@@ -73,8 +78,10 @@ const loadXfdfStrings = (documentId) => {
           resolve(xfdfStrings);
         });
       } else {
-        reject(res);
+        reject(new Error(`Failed to load XFDF strings for document ${documentId}: ${res.status} ${res.statusText}`));
       }
+    }).catch((error) => {
+      reject(new Error(`Failed to fetch XFDF strings for document ${documentId}: ${error.message}`));
     });
   });
 };
