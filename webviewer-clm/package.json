@@ -1,0 +1,65 @@
+{
+  "name": "webviewer-clm",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@ant-design/icons": "^5.6.1",
+    "@pdftron/webviewer": "^11.12.0",
+    "@refinedev/antd": "^6.0.1",
+    "@refinedev/cli": "^2.16.48",
+    "@refinedev/core": "^5.0.0",
+    "@refinedev/devtools": "^2.0.1",
+    "@refinedev/kbar": "^2.0.0",
+    "@refinedev/react-router": "^2.0.0",
+    "@refinedev/supabase": "^6.0.0",
+    "@uiw/react-md-editor": "^4.0.8",
+    "antd": "^5.23.0",
+    "base64-arraybuffer": "^1.0.2",
+    "fs-extra": "^11.3.2",
+    "i": "^0.3.7",
+    "jwt-decode": "^4.0.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router": "^7.12.0",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.25.0",
+    "@types/node": "^20",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@typescript-eslint/eslint-plugin": "^5.57.1",
+    "@typescript-eslint/parser": "^5.57.1",
+    "@vitejs/plugin-react": "^4.4.1",
+    "eslint": "^9.25.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "globals": "^16.0.0",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.30.1",
+    "vite": "^6.4.2"
+  },
+  "scripts": {
+    "dev": "refine dev",
+    "build": "tsc && refine build",
+    "start": "refine start",
+    "refine": "refine",
+    "postinstall": "node tools/copy-webviewer-files.cjs"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "refine": {
+    "projectId": "wzZIH7-0HVyeg-ZpLKuy"
+  }
+}

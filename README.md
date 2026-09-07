@@ -85,3 +85,5 @@ Samples showing how to integrate WebViewer with Artificial Intelligence.
 - [webviewer-ask-ai](./webviewer-ask-ai) - Enable chat-based Q&A, document and selected-text summarization, keyword extraction, and contextual prompts that lets users ask questions about their PDFs
 - [webviewer-redaction-ai](./webviewer-redaction-ai) - Identify and apply redaction of the personal information in the provided PDF
 
+### WebViewer Complete Applications
+- [webviewer-clm](./webviewer-clm) - Complete CLM workflow that leverages multiple webviewer capabilities
