@@ -2,11 +2,11 @@ const fs = require('node:fs');
 const sqlite3 = require('sqlite3').verbose();
 const TABLE = 'annotations';
 const WebSocket = require('ws');
-const wss = new WebSocket.Server({ port: 8181});
+const wss = new WebSocket.Server({ port: 8181 });
 const DB_PATH = 'server/xfdf.db';
 
 const annotationHandler = (app) => {
-  
+
   // Create and initialize database
   if (!fs.existsSync(DB_PATH)) {
     fs.writeFileSync(DB_PATH, '');
@@ -33,11 +33,16 @@ const annotationHandler = (app) => {
         return;
       }
 
-      // Prepare statement to sanitize input
-      let statement = db.prepare(`INSERT OR REPLACE INTO annotations VALUES (?, ?, ?)`);
-      db.serialize(() => {
-        statement.run(documentId, annotationId, xfdfString);
-      });
+      // Persist annotation payload
+      db.run(
+        `INSERT OR REPLACE INTO ${TABLE} (documentId, annotationId, xfdfString) VALUES (?, ?, ?)`,
+        [documentId, annotationId, xfdfString],
+        (err) => {
+          if (err) {
+            console.warn('Failed to persist annotation payload', err);
+          }
+        },
+      );
 
       const message = JSON.stringify(payload);
       wss.clients.forEach((client) => {
@@ -49,10 +54,10 @@ const annotationHandler = (app) => {
     });
   });
 
-  app.get('/server/annotationHandler.js', (req,res) => {
+  app.get('/server/annotationHandler.js', (req, res) => {
     const documentId = req.query.documentId;
     db.all(`SELECT annotationId, xfdfString FROM ${TABLE} WHERE documentId = ?`, [documentId], (err, rows) => {
-      if(err) {
+      if (err) {
         res.status(204);
       } else {
         res.setHeader('Content-Type', 'application/json');
