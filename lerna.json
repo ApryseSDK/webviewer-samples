@@ -33,6 +33,7 @@
       "webviewer-realtime-collaboration-sqlite3",
       "webviewer-redaction-ai",
       "webviewer-server-side-search",
+      "webviewer-sign-app",
       "webviewer-svelte",
       "webviewer-tomcat-java",
       "webviewer-typescript",
