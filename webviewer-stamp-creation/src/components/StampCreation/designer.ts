@@ -18,7 +18,7 @@ type DesignerOptions = {
 
 const decodeBase64 = (base64: string) => {
   const binary = window.atob(base64);
-  return Uint8Array.from(binary, (character) => character.charCodeAt(0)).buffer;
+  return Uint8Array.from(binary, (character) => character.codePointAt(0) ?? 0).buffer;
 };
 
 export const createDesigner = (options: DesignerOptions) => {
@@ -229,8 +229,7 @@ export const createDesigner = (options: DesignerOptions) => {
     portal.classList.add('open');
     updateToolbarLayout();
 
-    if (!instancePromise) {
-      instancePromise = WebViewerConstructor({
+    instancePromise ??= WebViewerConstructor({
         initialDoc: getBlankPdfUrl(),
         path: libPath,
         enableFilePicker: false,
@@ -242,7 +241,6 @@ export const createDesigner = (options: DesignerOptions) => {
         await setupViewer(instance);
         return instance;
       });
-    }
 
     const instance = await instancePromise;
     setActiveInstance(instance);
@@ -272,9 +270,9 @@ export const createDesigner = (options: DesignerOptions) => {
 
     const onMouseDown = (event: MouseEvent) => {
       const eventPath = event.composedPath();
-      const header = eventPath.find((element) => element instanceof HTMLElement
+      const isHeader = eventPath.some((element) => element instanceof HTMLElement
         && element.getAttribute('aria-label') === 'Top Header');
-      if (!header || eventPath.some((element) => element instanceof HTMLButtonElement)) {
+      if (!isHeader || eventPath.some((element) => element instanceof HTMLButtonElement)) {
         return;
       }
       isDragging = true;
