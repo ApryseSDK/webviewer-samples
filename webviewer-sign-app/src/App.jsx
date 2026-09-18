@@ -127,7 +127,6 @@ const App = () => {
         path: 'webviewer',
         fullAPI: true,
         initialDoc: 'contract.pdf',
-        disabledElements: ['leftPanel', 'leftPanelButton'],
       },
       viewer.current,
     ).then(instance => {

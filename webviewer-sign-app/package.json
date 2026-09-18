@@ -9,7 +9,7 @@
     "react-dom": "^16.13.1"
   },
   "scripts": {
-    "start": "vite",
+    "start": "vite --open",
     "build": "vite build",
     "preview": "vite preview",
     "postinstall": "node tools/copy-webviewer-files.js"
