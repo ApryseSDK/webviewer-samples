@@ -1,0 +1,126 @@
+.signing-app {
+  --wv-blue: #1d5fd1;
+  --wv-blue-hover: #174ea6;
+  --wv-blue-soft: #eaf2ff;
+  --wv-border: #d7dce3;
+  --wv-surface: #ffffff;
+  --wv-canvas: #f4f6f8;
+  --wv-text: #1f2933;
+  --wv-muted: #5f6b7a;
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--wv-canvas);
+  color: var(--wv-text);
+}
+
+.signer-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 28px 24px;
+  background: var(--wv-surface);
+  border-right: 1px solid var(--wv-border);
+}
+
+.brand {
+  color: var(--wv-text);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.panel-copy h1 {
+  margin: 6px 0 8px;
+  font-size: 26px;
+  letter-spacing: 0;
+}
+
+.panel-copy p {
+  margin: 0;
+  color: var(--wv-muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.eyebrow {
+  color: var(--wv-blue) !important;
+  font-size: 12px !important;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.signer-list {
+  display: grid;
+  gap: 8px;
+}
+
+.signer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.signer:hover,
+.signer.active {
+  border-color: #a9c6f8;
+  background: var(--wv-blue-soft);
+}
+
+.avatar {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 50%;
+  background: #536273;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.viewer-shell,
+.webviewer {
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+}
+
+@media (max-width: 720px) {
+  .signing-app {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+
+  .viewer-shell {
+    min-height: 0;
+  }
+
+  .signer-panel {
+    gap: 14px;
+    padding: 16px;
+    border-right: 0;
+    border-bottom: 1px solid var(--wv-border);
+  }
+
+  .panel-copy h1,
+  .panel-copy p {
+    display: none;
+  }
+
+  .signer-list {
+    grid-template-columns: 1fr 1fr;
+  }
+
+}

@@ -1,0 +1,21 @@
+{
+  "name": "webviewer-sign-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@pdftron/webviewer": "12.2.0-20260916",
+    "fs-extra": "^9.0.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "postinstall": "node tools/copy-webviewer-files.js"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^6.1.0"
+  }
+}
