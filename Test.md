@@ -68,12 +68,9 @@ git push origin test/lbc-5-implement-global-config-change-for-feature-branches
 
 ```
 
-<<<<<<< HEAD
 
 
 
 
 
 
-=======
->>>>>>> 7d85837f6209e930ac1e436fe924e54446308142
