@@ -1,0 +1,86 @@
+name: tests
+
+on:
+  pull_request:
+    branches:
+      - master
+    types: [opened, synchronize, reopened]
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  discover-e2e-projects:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.discover.outputs.matrix }}
+      count: ${{ steps.discover.outputs.count }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Discover webviewer projects with e2e tests
+        id: discover
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          mapfile -t projects < <(find . -mindepth 1 -maxdepth 1 -type d -name 'webviewer-*' -print | sed 's|^./||' | sort)
+
+          selected=()
+          for project in "${projects[@]}"; do
+            if [ -d "$project/__tests__/e2e" ]; then
+              selected+=("$project")
+            fi
+          done
+
+          if [ ${#selected[@]} -eq 0 ]; then
+            echo "No webviewer-* projects with __tests__/e2e were found."
+            echo 'matrix={"project":[]}' >> "$GITHUB_OUTPUT"
+            echo 'count=0' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          joined=$(IFS=,; echo "${selected[*]}")
+          matrix_json=$(SELECTED="$joined" node -e "const projects=(process.env.SELECTED||'').split(',').filter(Boolean); process.stdout.write(JSON.stringify({ project: projects }));")
+          echo "Discovered projects: ${selected[*]}"
+          echo "matrix=$matrix_json" >> "$GITHUB_OUTPUT"
+          echo "count=${#selected[@]}" >> "$GITHUB_OUTPUT"
+
+  run-e2e-tests:
+    needs: discover-e2e-projects
+    if: needs.discover-e2e-projects.outputs.count != '0'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.discover-e2e-projects.outputs.matrix) }}
+    defaults:
+      run:
+        working-directory: ${{ matrix.project }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        shell: bash
+        run: npm ci --ignore-scripts
+
+      - name: Install Playwright browsers
+        run: ./node_modules/.bin/playwright install --with-deps
+
+      - name: Validate e2e script exists
+        shell: bash
+        run: |
+          node -e "const scripts = (require('./package.json').scripts || {}); if (!scripts['test:e2e']) { console.error('Missing test:e2e script in package.json'); process.exit(1); }"
+
+      - name: Run e2e tests
+        run: npm run test:e2e
