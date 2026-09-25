@@ -72,15 +72,10 @@ jobs:
 
       - name: Install dependencies
         shell: bash
-        run: |
-          if [ -f package-lock.json ]; then
-            npm ci
-          else
-            npm install
-          fi
+        run: npm ci --ignore-scripts
 
       - name: Install Playwright browsers
-        run: npx playwright install --with-deps
+        run: ./node_modules/.bin/playwright install --with-deps
 
       - name: Validate e2e script exists
         shell: bash
