@@ -3,11 +3,11 @@ name: tests
 on:
   pull_request:
     branches:
-      - master
+      - main
     types: [opened, synchronize, reopened]
   push:
     branches:
-      - master
+      - main
   workflow_dispatch:
 
 permissions:
@@ -21,7 +21,7 @@ jobs:
       count: ${{ steps.discover.outputs.count }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Discover webviewer projects with e2e tests
         id: discover
@@ -63,10 +63,10 @@ jobs:
         working-directory: ${{ matrix.project }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 20
 
