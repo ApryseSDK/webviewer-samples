@@ -3,8 +3,7 @@ import { invalidLicenseBaseURL } from '../config/playwright.config';
 
 const gotoSampleApp = async (page: Page, url: string = ''): Promise<void> => {
   await page.goto(`${url}/`);
-  //await expect(page.locator('#webviewer')).toBeVisible();
-  await expect(page.getByText('webviewer-vue-sample')).toBeVisible();
+  await expect(page.locator('#webviewer')).toBeVisible();
 };
 
 const waitForWebViewerReady = async (page: Page): Promise<void> => {
