@@ -11,8 +11,8 @@
     "serve": "vite preview",
     "lint": "eslint --fix .",
     "copy-webviewer": "node scripts/copy-webviewer-files.cjs",
-    "test:e2e": "npx playwright install && npx playwright test --config=__tests__/config/playwright.config.ts",
-    "test:e2e:ui": "npx playwright install && npx playwright test --ui --config=__tests__/config/playwright.config.ts"
+    "test:e2e": "npx playwright test --config=__tests__/config/playwright.config.ts",
+    "test:e2e:ui": "npx playwright test --ui --config=__tests__/config/playwright.config.ts"
   },
   "license": "MIT",
   "dependencies": {
