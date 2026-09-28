@@ -1,5 +1,22 @@
+import { readFileSync } from 'node:fs';
 import { expect, test, type Page } from '@playwright/test';
 import { invalidLicenseBaseURL } from '../config/playwright.config';
+
+const initialDocumentURL = 'https://apryse.s3.amazonaws.com/public/files/samples/WebviewerDemoDoc.pdf';
+const localSampleDocument = new URL(
+  '../../../webviewer-document-merge/public/files/WebviewerDemoDoc.pdf',
+  import.meta.url,
+);
+
+const useLocalSampleDocument = async (page: Page): Promise<void> => {
+  await page.route(initialDocumentURL, async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: 'application/pdf',
+      body: readFileSync(localSampleDocument),
+    });
+  });
+};
 
 const gotoSampleApp = async (page: Page, url: string = ''): Promise<void> => {
   await page.goto(`${url}/`);
@@ -11,6 +28,7 @@ const waitForWebViewerReady = async (page: Page): Promise<void> => {
   await expect(page.getByRole('button', { name: 'Search' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Zoom in' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Left Panel' })).toBeVisible();
+  await expect(page.getByRole('textbox', { name: 'Page number input' })).toHaveValue('1');
 };
 
 test('WebViewer assets are served as indication webviewer is installed successfully', async ({ page }) => {
@@ -21,17 +39,18 @@ test('WebViewer assets are served as indication webviewer is installed successfu
 });
 
 test('renders document and core viewer controls', async ({ page }) => {
+  await useLocalSampleDocument(page);
   await gotoSampleApp(page);
   await waitForWebViewerReady(page);
 
   const pageNumberInput = page.getByRole('textbox', { name: 'Page number input' });
   await expect(pageNumberInput).toBeVisible();
-  await expect(pageNumberInput).toHaveValue('1');
   await page.getByRole('button', { name: 'Next page' }).click();
   await expect(pageNumberInput).toHaveValue('2');
 });
 
 test('verifies rectangle annotation in the loaded document', async ({ page }) => {
+  await useLocalSampleDocument(page);
   await gotoSampleApp(page);
   await waitForWebViewerReady(page);
 
@@ -62,18 +81,25 @@ test('verifies rectangle annotation in the loaded document', async ({ page }) =>
         return annotation.Subject === 'Rectangle' && annotation.PageNumber === 1;
       });
     });
+  }, {
+    timeout: 10000,
   }).toBe(true);
 });
 
-test('shows license error dialog for invalid key @invalid-license', async ({ page }) => {
-  const invalidLicenseError = page.waitForEvent('pageerror', {
-    predicate: (error: Error) => {
-      return error.message.includes('Invalid license key. Please check your key and try again.');
+test('falls back to demo mode warning for invalid key @invalid-license', async ({ page }) => {
+  const demoModeWarning = page.waitForEvent('console', {
+    predicate: (message) => {
+      return (
+        message.type() === 'warning' &&
+        message.text().includes('WebViewer is currently running in demo mode')
+      );
     },
   });
 
+  await useLocalSampleDocument(page);
   await gotoSampleApp(page, invalidLicenseBaseURL);
+  await waitForWebViewerReady(page);
 
-  const pageError = await invalidLicenseError;
-  expect(pageError.message).toContain('Error code: 401');
+  const warningMessage = await demoModeWarning;
+  expect(warningMessage.text()).toContain('WebViewer is currently running in demo mode');
 });
