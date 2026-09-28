@@ -33,6 +33,7 @@ jobs:
 
           event_name="${{ github.event_name }}"
           changed_files=()
+          declare -A affected_map=()
 
           if [ "$event_name" = "pull_request" ]; then
             base_sha="${{ github.event.pull_request.base.sha }}"
@@ -47,11 +48,14 @@ jobs:
             else
               mapfile -t changed_files < <(git diff --name-only "$before_sha..$after_sha")
             fi
+          elif [ "$event_name" = "workflow_dispatch" ]; then
+            while IFS= read -r project; do
+              affected_map["$project"]=1
+            done < <(find . -mindepth 1 -maxdepth 1 -type d -name 'webviewer-*' -printf '%f\n')
           else
             echo "Unsupported event '$event_name' for changed-file discovery."
           fi
 
-          declare -A affected_map=()
           for file_path in "${changed_files[@]}"; do
             top_level="${file_path%%/*}"
             if [[ "$top_level" == webviewer-* ]]; then
