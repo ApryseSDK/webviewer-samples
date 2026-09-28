@@ -98,7 +98,7 @@ test('falls back to demo mode warning for invalid key @invalid-license', async (
 
   await useLocalSampleDocument(page);
   await gotoSampleApp(page, invalidLicenseBaseURL);
-  await expect(page.locator('#webviewer')).toHaveAttribute('data-test-server-label', 'invalid-license');
+  await expect(page).toHaveURL(`${invalidLicenseBaseURL}/`);
   await waitForWebViewerReady(page);
 
   const warningMessage = await demoModeWarning;

@@ -1,9 +1,5 @@
 <template>
-  <div
-    id="webviewer"
-    ref="viewer"
-    :data-test-server-label="serverLabel || undefined"
-  ></div>
+  <div id="webviewer" ref="viewer"></div>
 </template>
 
 <script setup lang="ts">
@@ -11,7 +7,6 @@ import { onMounted, ref } from "vue";
 import WebViewer from "@pdftron/webviewer";
 
 const licenseKey = import.meta.env.VITE_DEMO_KEY;
-const serverLabel = import.meta.env.VITE_TEST_SERVER_LABEL;
 
 const props = defineProps<{
   initialDoc: string;
