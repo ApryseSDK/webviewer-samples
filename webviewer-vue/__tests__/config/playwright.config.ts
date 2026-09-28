@@ -40,6 +40,7 @@ export default defineConfig({
       env: {
         ...env,
         VITE_DEMO_KEY: 'invalid-license-key',
+        VITE_TEST_SERVER_LABEL: 'invalid-license',
       },
     },
   ],
