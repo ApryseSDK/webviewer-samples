@@ -27,19 +27,25 @@ export default defineConfig({
   },
   webServer: [
     {
-      command: 'npm run dev -- --host 127.0.0.1 --port 5173',
+      command: 'node ./node_modules/vite/bin/vite.js --host 127.0.0.1 --port 5173',
       cwd: projectRoot,
       url: defaultBaseURL,
       reuseExistingServer: !isCI,
     },
     {
-      command: 'npm run dev -- --host 127.0.0.1 --port 5174',
+      // Vite server for the invalid license scenario.
+      // This scenario will be used specifically in
+      // case of passing invalid license to
+      // "shows license error dialog for invalid key @invalid-license"
+      // test in order to show the webviewer built-in
+      // "Error Loading Document" dialog, and the test passing
+      command: 'node ./node_modules/vite/bin/vite.js --host 127.0.0.1 --port 5174',
       cwd: projectRoot,
       url: invalidLicenseBaseURL,
       reuseExistingServer: !isCI,
       env: {
         ...env,
-        VITE_DEMO_KEY: 'invalid-license-key',
+        VITE_DEMO_KEY: 'demo:12345',
       },
     },
   ],
