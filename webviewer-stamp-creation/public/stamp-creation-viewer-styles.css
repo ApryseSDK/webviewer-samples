@@ -1,0 +1,176 @@
+[data-element="stamp-creation-rubber-stamp-panel"].ModularPanel {
+  top: 49px !important;
+  bottom: 0 !important;
+  min-width: 250px;
+  max-width: min(480px, calc(100vw - 40px));
+  height: calc(100% - 49px) !important;
+  max-height: calc(100% - 49px) !important;
+}
+
+[data-element="stamp-creation-rubber-stamp-panel"] .ModularPanel-container {
+  box-sizing: border-box;
+  height: 100% !important;
+  max-height: 100% !important;
+}
+
+[data-element="stamp-creation-rubber-stamp-panel"].ModularPanel .stamp-creation-panel-resize-bar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 14px;
+}
+
+[data-element="stylePanel"].ModularPanel {
+  top: 49px !important;
+  bottom: 0 !important;
+  width: 264px !important;
+  max-width: 40% !important;
+  height: calc(100% - 49px) !important;
+  max-height: calc(100% - 49px) !important;
+  padding-inline-end: 0 !important;
+}
+
+[data-element="stylePanel"] .ModularPanel-container.stylePanel {
+  box-sizing: border-box;
+  width: 100% !important;
+  min-width: 0 !important;
+  height: 100% !important;
+  max-height: 100% !important;
+  padding: 12px;
+  overflow-y: auto;
+}
+
+[data-element="stylePanel"] .StylePanel {
+  padding-bottom: 12px;
+}
+
+.stamp-creation-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 32px;
+}
+
+.stamp-creation-panel-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 7px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--icon-color);
+  cursor: pointer;
+}
+
+.stamp-creation-panel-close:hover {
+  background: var(--view-header-button-hover, #e7edf3);
+}
+
+.stamp-creation-panel-close svg {
+  width: 100%;
+  height: 100%;
+}
+
+.stamp-creation-search-overlay {
+  position: relative;
+}
+
+.stamp-creation-filter-popover {
+  position: absolute;
+  z-index: 10;
+  top: 40px;
+  right: 0;
+  min-width: 180px;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--component-background);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+}
+
+.stamp-creation-filter-option {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  min-height: 32px;
+}
+
+#stamp-creation-document-stamp-preview-list .rubber-stamp-virtual-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  padding: 8px 0;
+}
+
+#stamp-creation-document-stamp-preview-list .rubber-stamp {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  aspect-ratio: 160 / 58;
+  align-items: center;
+  justify-content: center;
+}
+
+#stamp-creation-document-stamp-preview-list .rubber-stamp img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.stamp-creation-hidden {
+  display: none !important;
+}
+
+[data-element="stamp-designer-create"] .Icon svg * {
+  stroke: var(--primary-button-text) !important;
+}
+
+[data-element="stamp-designer-create"].stamp-designer-create-button {
+  display: inline-flex;
+  min-width: 0;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 10px;
+  border: 1px solid var(--primary-button);
+  border-radius: 4px;
+  background: var(--primary-button);
+  color: var(--primary-button-text);
+}
+
+[data-element="stamp-designer-create"].stamp-designer-create-button:hover {
+  border-color: var(--primary-button-hover);
+  background-color: var(--primary-button-hover) !important;
+  color: var(--primary-button-text);
+}
+
+[data-element="stamp-designer-create"].stamp-designer-create-button:hover .Icon,
+[data-element="stamp-designer-create"].stamp-designer-create-button:hover .Icon svg * {
+  color: var(--primary-button-text);
+  stroke: var(--primary-button-text) !important;
+}
+
+[data-element="stamp-designer-create"].stamp-designer-create-button:focus-visible {
+  outline: 2px solid var(--focus-ring, var(--primary-button));
+  outline-offset: 2px;
+}
+
+[data-element="stamp-designer-create"].stamp-designer-create-button .Icon {
+  display: inline-flex;
+  width: 16px;
+  height: 16px;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-button-text);
+}
+
+[data-element="stamp-designer-create"].stamp-designer-create-button .Icon svg {
+  transform: translate(2px, -1px);
+}
