@@ -3,11 +3,11 @@ name: tests
 on:
   pull_request:
     branches:
-      - master
+      - main
     types: [opened, synchronize, reopened]
   push:
     branches:
-      - master
+      - main
   workflow_dispatch:
 
 permissions:
@@ -21,25 +21,61 @@ jobs:
       count: ${{ steps.discover.outputs.count }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
-      - name: Discover webviewer projects with e2e tests
+      - name: Discover changed webviewer projects with e2e tests
         id: discover
         shell: bash
         run: |
           set -euo pipefail
 
-          mapfile -t projects < <(find . -mindepth 1 -maxdepth 1 -type d -name 'webviewer-*' -print | sed 's|^./||' | sort)
+          event_name="${{ github.event_name }}"
+          changed_files=()
+
+          if [ "$event_name" = "pull_request" ]; then
+            base_sha="${{ github.event.pull_request.base.sha }}"
+            head_sha="${{ github.event.pull_request.head.sha }}"
+            mapfile -t changed_files < <(git diff --name-only "$base_sha...$head_sha")
+          elif [ "$event_name" = "push" ]; then
+            before_sha="${{ github.event.before }}"
+            after_sha="${{ github.sha }}"
+
+            if [ "$before_sha" = "0000000000000000000000000000000000000000" ]; then
+              mapfile -t changed_files < <(git show --pretty='' --name-only "$after_sha")
+            else
+              mapfile -t changed_files < <(git diff --name-only "$before_sha..$after_sha")
+            fi
+          else
+            echo "Unsupported event '$event_name' for changed-file discovery."
+          fi
+
+          declare -A affected_map=()
+          for file_path in "${changed_files[@]}"; do
+            top_level="${file_path%%/*}"
+            if [[ "$top_level" == webviewer-* ]]; then
+              affected_map["$top_level"]=1
+            fi
+          done
+
+          affected=()
+          for project in "${!affected_map[@]}"; do
+            affected+=("$project")
+          done
+          if [ ${#affected[@]} -gt 0 ]; then
+            IFS=$'\n' affected=($(printf '%s\n' "${affected[@]}" | sort))
+          fi
 
           selected=()
-          for project in "${projects[@]}"; do
+          for project in "${affected[@]}"; do
             if [ -d "$project/__tests__/e2e" ]; then
               selected+=("$project")
             fi
           done
 
           if [ ${#selected[@]} -eq 0 ]; then
-            echo "No webviewer-* projects with __tests__/e2e were found."
+            echo "No changed webviewer-* projects with __tests__/e2e were found."
             echo 'matrix={"project":[]}' >> "$GITHUB_OUTPUT"
             echo 'count=0' >> "$GITHUB_OUTPUT"
             exit 0
@@ -63,10 +99,10 @@ jobs:
         working-directory: ${{ matrix.project }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 20
 
@@ -81,6 +117,9 @@ jobs:
         shell: bash
         run: |
           node -e "const scripts = (require('./package.json').scripts || {}); if (!scripts['test:e2e']) { console.error('Missing test:e2e script in package.json'); process.exit(1); }"
+
+      - name: Prepare test assets
+        run: npm run copy-webviewer --if-present
 
       - name: Run e2e tests
         run: npm run test:e2e
