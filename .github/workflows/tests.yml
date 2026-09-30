@@ -21,7 +21,7 @@ jobs:
       count: ${{ steps.discover.outputs.count }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
@@ -99,12 +99,12 @@ jobs:
         working-directory: ${{ matrix.project }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v5
 
       - name: Set up Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v5
         with:
-          node-version: 24.18.0
+          node-version: 24
 
       - name: Install dependencies
         shell: bash
