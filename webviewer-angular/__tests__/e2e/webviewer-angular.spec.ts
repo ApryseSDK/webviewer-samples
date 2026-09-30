@@ -6,13 +6,6 @@ const gotoSampleApp = async (page: Page, url: string = ''): Promise<void> => {
   await expect(page.getByText('Angular sample')).toBeVisible();
 };
 
-const waitForWebViewerReady = async (page: Page): Promise<void> => {
-  await expect(page.getByRole('main', { name: 'Document Content' })).toBeVisible();
-  await expect(page.getByRole('button', { name: 'Search' })).toBeVisible();
-  await expect(page.getByRole('button', { name: 'Zoom in' })).toBeVisible();
-  await expect(page.getByRole('button', { name: 'Left Panel' })).toBeVisible();
-};
-
 test('WebViewer assets are served as indication webviewer is installed successfully', async ({
   page,
 }) => {
@@ -24,7 +17,10 @@ test('WebViewer assets are served as indication webviewer is installed successfu
 
 test('renders document and core viewer controls', async ({ page }) => {
   await gotoSampleApp(page);
-  await waitForWebViewerReady(page);
+  await expect(page.getByRole('main', { name: 'Document Content' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Search' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Zoom in' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Left Panel' })).toBeVisible();
 
   const pageNumberInput = page.getByRole('textbox', { name: 'Page number input' });
   await expect(pageNumberInput).toBeVisible();
@@ -35,7 +31,6 @@ test('renders document and core viewer controls', async ({ page }) => {
 
 test('verifies rectangle annotation in the loaded document', async ({ page }) => {
   await gotoSampleApp(page);
-  await waitForWebViewerReady(page);
 
   await expect
     .poll(async () => {
