@@ -1,0 +1,129 @@
+:root {
+	--stamp-creation-text-color: var(--text-color, #485056);
+}
+
+.stamp-creation {
+	display: grid;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+#viewer,
+#stamp-designer-viewer {
+	width: 100%;
+	height: 100%;
+	min-height: 0;
+}
+
+.stamp-creation-toolbar {
+	box-sizing: border-box;
+	position: relative;
+	z-index: 20;
+	display: flex;
+	gap: 12px;
+	align-items: center;
+	height: var(--stamp-creation-toolbar-height);
+	padding: 8px 12px;
+	border-bottom: 1px solid #d8dde6;
+	background: #fff;
+	box-shadow: 0 1px 2px rgba(20, 31, 45, 0.08);
+}
+
+.stamp-creation-group {
+	display: flex;
+	gap: 4px;
+	align-items: center;
+	padding: 2px;
+	border-radius: 4px;
+}
+
+.stamp-creation-button {
+	display: inline-flex;
+	gap: 6px;
+	align-items: center;
+	justify-content: center;
+	width: fit-content;
+	min-width: 32px;
+	height: 32px;
+	padding: 0 8px;
+	border: 0;
+	border-radius: 4px;
+	background: transparent;
+	color: var(--stamp-creation-text-color);
+	font: 13px/1.2 sans-serif;
+	cursor: pointer;
+}
+
+.stamp-creation-button:hover {
+	background: var(--view-header-button-hover, #e7edf3);
+}
+
+.stamp-creation-button.active {
+	box-shadow: inset 0 0 0 1px var(--blue-5, #3183c8);
+	background: var(--tools-button-active, #c7d2dd);
+	color: var(--selected-icon-color, #485056);
+}
+
+.stamp-creation-button.primary {
+	border: 1px solid var(--primary-button, #3183c8);
+	background: var(--primary-button, #3183c8);
+	color: var(--primary-button-text, #f8f9fa);
+}
+
+.stamp-creation-button.primary:hover {
+	border-color: var(--primary-button-hover, #1a4971);
+	background: var(--primary-button-hover, #1a4971);
+}
+
+.stamp-creation-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 18px;
+	height: 18px;
+	flex: 0 0 auto;
+	color: currentColor;
+}
+
+.stamp-creation-icon svg {
+	display: block;
+	width: 100%;
+	height: 100%;
+	fill: currentColor;
+}
+
+.stamp-designer-portal {
+	position: fixed;
+	z-index: 1000;
+	display: none;
+	width: 1000px;
+	height: 520px;
+	min-width: min(720px, calc(100vw - 40px));
+	min-height: min(480px, calc(100vh - 80px));
+	max-width: calc(100vw - 40px);
+	max-height: calc(100vh - 80px);
+	flex-direction: column;
+	overflow: hidden;
+	border: 1px solid rgba(20, 31, 45, 0.25);
+	border-radius: 8px;
+	background: #f7f9fc;
+	box-shadow: 0 12px 40px rgba(17, 25, 38, 0.25);
+	transform: translate(-50%, -50%);
+	resize: both;
+}
+
+.stamp-designer-portal.open {
+	display: flex;
+}
+
+.stamp-designer-portal.drag-positioned {
+	transform: none;
+}
+
+.stamp-designer-shell {
+	min-height: 0;
+	flex: 1;
+	overflow: hidden;
+}

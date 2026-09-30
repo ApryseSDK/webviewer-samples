@@ -1,0 +1,50 @@
+{
+  "githubId": "d83a7baa-b9ed-4da9-935a-81704d5f159e",
+  "files": [
+    {
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-stamp-creation/src/components/StampCreation/bootstrap.ts",
+      "description": "",
+      "reason": ""
+    },
+	  {
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-stamp-creation/src/components/StampCreation/designer.ts",
+      "description": "",
+      "reason": ""
+    },
+    {
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-stamp-creation/src/components/StampCreation/index.ts",
+      "description": "",
+      "reason": ""
+    },
+    {
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-stamp-creation/src/components/StampCreation/native-stamp-panel.ts",
+      "description": "",
+      "reason": ""
+    },
+    {
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-stamp-creation/src/components/StampCreation/styles.css",
+      "description": "",
+      "reason": ""
+    },
+    {
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-stamp-creation/src/components/StampCreation/ui-utils.ts",
+      "description": "",
+      "reason": ""
+    },
+    {
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-stamp-creation/src/App.js",
+      "description": "",
+      "reason": ""
+    },
+    {
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-stamp-creation/src/index.js",
+      "description": "",
+      "reason": ""
+    },
+    {
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-stamp-creation/src/index.css",
+      "description": "",
+      "reason": ""
+    }
+  ]
+}
