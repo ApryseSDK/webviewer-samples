@@ -108,7 +108,7 @@ jobs:
 
       - name: Install dependencies
         shell: bash
-        run: npm install --ignore-scripts
+        run: npm ci --ignore-scripts
 
       - name: Install Playwright browsers
         run: ./node_modules/.bin/playwright install --with-deps
