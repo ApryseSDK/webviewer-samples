@@ -4,7 +4,6 @@
   "version": "1.0.0",
   "scripts": {
     "postinstall": "node scripts/copy-webviewer-files.cjs",
-    "copy-webviewer": "node scripts/copy-webviewer-files.cjs",
     "ng": "ng",
     "dev": "ng serve",
     "build": "ng build",

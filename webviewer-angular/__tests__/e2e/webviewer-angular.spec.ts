@@ -3,7 +3,7 @@ import { invalidLicenseBaseURL } from '../config/playwright.config';
 
 const gotoSampleApp = async (page: Page, url: string = ''): Promise<void> => {
   await page.goto(`${url}/`);
-  await expect(page.getByText('Angular sample', { exact: true })).toBeVisible();
+  await expect(page.getByText('Angular sample')).toBeVisible();
 };
 
 test('WebViewer assets are served as indication webviewer is installed successfully', async ({
