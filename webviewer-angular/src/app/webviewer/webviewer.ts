@@ -36,11 +36,13 @@ export class WebViewerComponent implements AfterViewInit {
           Y: 150,
           Width: 200,
           Height: 50,
-          Author: annotationManager.getCurrentUser(),
+          Author: annotationManager.getCurrentUser()
         });
         annotationManager.addAnnotation(rectangleAnnot);
         annotationManager.redrawAnnotation(rectangleAnnot);
       });
+    }).catch((error: unknown) => {
+      console.error('Failed to initialize WebViewer:', error);
     });
   }
 }
