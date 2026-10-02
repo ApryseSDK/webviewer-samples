@@ -1,0 +1,40 @@
+{
+  "githubId": "fef2e840-126f-4b2a-b479-2b6a74167d10",
+  "files": [
+    {
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-sign-app/index.html",
+      "description": "",
+      "reason": ""
+    },
+    {
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-sign-app/src/App.css",
+      "description": "",
+      "reason": ""
+    },
+    {
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-sign-app/src/App.jsx",
+      "description": "",
+      "reason": ""
+    },
+    {
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-sign-app/src/index.css",
+      "description": "",
+      "reason": ""
+    },
+    {
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-sign-app/src/main.jsx",
+      "description": "",
+      "reason": ""
+    },
+    {
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-sign-app/src/signingUIConfig.js",
+      "description": "",
+      "reason": ""
+    },
+    {
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-sign-app/tools/copy-webviewer-files.js",
+      "description": "",
+      "reason": ""
+    }
+  ]
+}
