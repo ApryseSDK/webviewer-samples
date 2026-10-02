@@ -50,6 +50,12 @@ tools/
 npm run build
 ```
 
+## Tests
+
+```bash
+npm test
+```
+
 ## API documentation
 
 See the [Apryse WebViewer API documentation](https://docs.apryse.com/web/).

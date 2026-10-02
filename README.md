@@ -76,6 +76,7 @@ Samples showing how to use various WebViewer features.
 - [webviewer-annotations-sqlite3](./webviewer-annotations-sqlite3) - Save annotations into an SQLite3 database with a Node.js backend
 - [webviewer-user-bookmarks-nodejs](./webviewer-user-bookmarks-nodejs) - Save and load user bookmarks with a Node.js backend
 - [webviewer-barcode](./webviewer-barcode) - Barcode generation with WebViewer
+- [webviewer-sign-app](./webviewer-sign-app) - Sign PDF fields with multiple local users using WebViewer
 - [webviewer-range-request](./webviewer-range-request) - Setup range requests on the backend server for loading linearized PDFs in the WebViewer
 - [webviewer-react-canvasToPDF](./webviewer-react-canvasToPDF) - Export a canvas to PDF with WebViewer
 
