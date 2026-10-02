@@ -79,6 +79,7 @@ Samples showing how to use various WebViewer features.
 - [webviewer-sign-app](./webviewer-sign-app) - Sign PDF fields with multiple local users using WebViewer
 - [webviewer-range-request](./webviewer-range-request) - Setup range requests on the backend server for loading linearized PDFs in the WebViewer
 - [webviewer-react-canvasToPDF](./webviewer-react-canvasToPDF) - Export a canvas to PDF with WebViewer
+- [webviewer-stamp-creation](./webviewer-stamp-creation/) - Create a Stamp Designer that turns PDF into vectorized stamps with WebViewer
 
 ### Artificial Intelligence
 Samples showing how to integrate WebViewer with Artificial Intelligence.
