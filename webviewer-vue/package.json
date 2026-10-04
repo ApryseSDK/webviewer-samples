@@ -24,7 +24,7 @@
     "@playwright/test": "^1.56.1",
     "@stylistic/eslint-plugin-js": "^2.13.0",
     "@types/node": "^26.6.3",
-    "@vitejs/plugin-vue": "^5.2.1",
+    "@vitejs/plugin-vue": "^6.0.0",
     "concurrently": "^9.1.2",
     "eslint": "^9.19.0",
     "eslint-plugin-vue": "^9.32.0",
