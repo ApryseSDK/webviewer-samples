@@ -15,93 +15,16 @@ test('WebViewer assets are served as indication webviewer is installed successfu
 test('renders document and core viewer controls', async ({ page }) => {
   await gotoSampleApp(page);
   await expect(page.locator('#webviewer')).toBeVisible();
+  await expect(page.getByRole('main', { name: 'Document Content' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Search' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Zoom in' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Left Panel' })).toBeVisible();
 
-  await expect
-    .poll(async () => {
-      return page.evaluate(() => {
-        const dynamicWindow = window as Window & {
-          getInstance?: (element: Element) => {
-            Core?: {
-              documentViewer?: {
-                getDocument?: () => unknown;
-                getPageCount?: () => number;
-                getCurrentPage?: () => number;
-                setCurrentPage?: (pageNumber: number) => void;
-              };
-            };
-            UI?: {
-              openElements?: (elements: string[]) => void;
-              setZoomLevel?: (zoom: number) => void;
-            };
-          };
-        };
-
-        const viewerHost = document.querySelector('#webviewer');
-        if (!viewerHost || typeof dynamicWindow.getInstance !== 'function') {
-          return null;
-        }
-
-        const instance = dynamicWindow.getInstance(viewerHost);
-        const documentViewer = instance?.Core?.documentViewer;
-        if (!documentViewer?.getDocument?.()) {
-          return null;
-        }
-
-        return {
-          hasZoomControlApi: typeof instance?.UI?.setZoomLevel === 'function',
-          hasPanelControlApi: typeof instance?.UI?.openElements === 'function',
-          pageCount: documentViewer.getPageCount?.() ?? 0,
-          currentPage: documentViewer.getCurrentPage?.() ?? 0,
-        };
-      });
-    })
-    .toMatchObject({
-      hasZoomControlApi: true,
-      hasPanelControlApi: true,
-      currentPage: 1,
-    });
-
-  const pageCount = await page.evaluate(() => {
-    const dynamicWindow = window as Window & {
-      getInstance?: (element: Element) => {
-        Core?: { documentViewer?: { getPageCount?: () => number } };
-      };
-    };
-    const viewerHost = document.querySelector('#webviewer');
-    if (!viewerHost || typeof dynamicWindow.getInstance !== 'function') {
-      return 0;
-    }
-    return dynamicWindow.getInstance(viewerHost)?.Core?.documentViewer?.getPageCount?.() ?? 0;
-  });
-  expect(pageCount).toBeGreaterThan(1);
-
-  await page.evaluate(() => {
-    const dynamicWindow = window as Window & {
-      getInstance?: (element: Element) => {
-        Core?: { documentViewer?: { setCurrentPage?: (pageNumber: number) => void } };
-      };
-    };
-    const viewerHost = document.querySelector('#webviewer');
-    if (!viewerHost || typeof dynamicWindow.getInstance !== 'function') {
-      return;
-    }
-    dynamicWindow.getInstance(viewerHost)?.Core?.documentViewer?.setCurrentPage?.(2);
-  });
-
-  await expect.poll(async () => {
-    return page.evaluate(() => {
-      const dynamicWindow = window as Window & {
-        getInstance?: (element: Element) => {
-          Core?: { documentViewer?: { getCurrentPage?: () => number } };
-        };
-      };
-      const viewerHost = document.querySelector('#webviewer');
-      if (!viewerHost || typeof dynamicWindow.getInstance !== 'function') {
-        return null;
-      }
-      return dynamicWindow.getInstance(viewerHost)?.Core?.documentViewer?.getCurrentPage?.() ?? null;
-    });
-  }).toBe(2);
+  const pageNumberInput = page.getByRole('textbox', { name: 'Page number input' });
+  await expect(pageNumberInput).toBeVisible();
+  await expect(pageNumberInput).toHaveValue('1');
+  await page.getByRole('button', { name: 'Next page' }).click();
+  await expect(pageNumberInput).toHaveValue('2');
 });
 
 test('verifies rectangle annotation in the loaded document', async ({ page }) => {
