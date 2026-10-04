@@ -5,39 +5,6 @@ const gotoSampleApp = async (page: Page, url: string = ''): Promise<void> => {
   await page.goto(`${url}/`);
 };
 
-const waitForViewerDocumentReady = async (page: Page): Promise<void> => {
-  await expect.poll(async () => {
-    return page.evaluate(() => {
-      const dynamicWindow = window as Window & {
-        getInstance?: (element: Element) => {
-          Core?: {
-            documentViewer?: {
-              getPageCount?: () => number;
-            };
-          };
-        };
-      };
-      const viewerHost = document.querySelector('#webviewer');
-      if (!viewerHost || typeof dynamicWindow.getInstance !== 'function') {
-        return false;
-      }
-
-      const instance = dynamicWindow.getInstance(viewerHost);
-      const documentViewer = instance?.Core?.documentViewer;
-      if (!documentViewer?.getPageCount) {
-        return false;
-      }
-
-      try {
-        const pageCount = documentViewer.getPageCount();
-        return typeof pageCount === 'number' && pageCount > 0;
-      } catch {
-        return false;
-      }
-    });
-  }).toBe(true);
-};
-
 test('WebViewer assets are served as indication webviewer is installed successfully', async ({ page }) => {
   await gotoSampleApp(page);
 
@@ -48,7 +15,7 @@ test('WebViewer assets are served as indication webviewer is installed successfu
 test('renders document and core viewer controls', async ({ page }) => {
   await gotoSampleApp(page);
   await expect(page.locator('#webviewer')).toBeVisible();
-  await waitForViewerDocumentReady(page);
+  await expect(page.getByRole('main', { name: 'Document Content' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Search' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Zoom in' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Left Panel' })).toBeVisible();
