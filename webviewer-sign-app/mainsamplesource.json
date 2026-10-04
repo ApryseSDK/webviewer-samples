@@ -30,11 +30,6 @@
       "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-sign-app/src/signingUIConfig.js",
       "description": "",
       "reason": ""
-    },
-    {
-      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-sign-app/tools/copy-webviewer-files.js",
-      "description": "",
-      "reason": ""
     }
   ]
 }
