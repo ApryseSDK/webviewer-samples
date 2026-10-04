@@ -61,35 +61,14 @@ test('verifies rectangle annotation in the loaded document', async ({ page }) =>
 });
 
 test('shows license error dialog for invalid key @invalid-license', async ({ page }) => {
-  const pageErrors: string[] = [];
-  const consoleErrors: string[] = [];
-  let hasUnauthorizedResponse = false;
-
-  page.on('pageerror', (error: Error) => {
-    pageErrors.push(error.message);
-  });
-
-  page.on('console', (message) => {
-    if (message.type() === 'error') {
-      consoleErrors.push(message.text());
-    }
-  });
-
-  page.on('response', (response) => {
-    if (response.status() === 401) {
-      hasUnauthorizedResponse = true;
-    }
+  const invalidLicenseError = page.waitForEvent('pageerror', {
+    predicate: (error: Error) => {
+      return error.message.includes('Invalid license key. Please check your key and try again.');
+    },
   });
 
   await gotoSampleApp(page, invalidLicenseBaseURL);
 
-  await expect.poll(async () => {
-    const hasDialog = (await page.getByText(/Error Loading Document|Invalid license key/i).count()) > 0;
-    const allErrors = [...pageErrors, ...consoleErrors].join('\n');
-    const hasInvalidLicenseMessage =
-      allErrors.includes('Invalid license key. Please check your key and try again.') ||
-      allErrors.includes('Error code: 401');
-
-    return hasDialog || hasInvalidLicenseMessage || hasUnauthorizedResponse;
-  }).toBe(true);
+  const pageError = await invalidLicenseError;
+  expect(pageError.message).toContain('Error code: 401');
 });
