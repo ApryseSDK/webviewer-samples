@@ -39,5 +39,8 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "allowScripts": {
+    "esbuild@0.21.5": true
+  }
 }
