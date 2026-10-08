@@ -24,28 +24,132 @@ Before you begin, make sure the development environment includes [Node.js](https
 
 ## install
 
+### Using npm
+
 ```
 git clone --depth=1 https://github.com/ApryseSDK/webviewer-samples.git
 cd webviewer-samples/webviewer-nextjs
 npm install
 ```
 
+### Using pnpm
+
+```
+pnpm install
+```
+
+### Using yarn
+
+```
+yarn
+```
+
+### Using bun
+
+```
+bun install
+```
+
 ## Compiles and hot-reloads for development
+
+### Using npm
+
 ```
 npm run dev
 ```
 
+### Using pnpm
+
+```
+pnpm dev
+```
+
+### Using yarn
+
+```
+yarn dev
+```
+
+### Using bun
+
+```
+bun run dev
+```
+
 ## Compiles and minifies for production
+
+### Using npm
+
 ```
 npm run build
 ```
 
+### Using pnpm
+
+```
+pnpm build
+```
+
+### Using yarn
+
+```
+yarn build
+```
+
+### Using bun
+
+```
+bun run build
+```
+
 ## Serves the minified build
+
+### Using npm
+
 ```
 npm start
 ```
 
+### Using pnpm
+
+```
+pnpm start
+```
+
+### Using yarn
+
+```
+yarn start
+```
+
+### Using bun
+
+```
+bun run start
+```
+
 ## Lints and fixes files
+
+### Using npm
+
 ```
 npm run lint
+```
+
+### Using pnpm
+
+```
+pnpm lint
+```
+
+### Using yarn
+
+```
+yarn lint
+```
+
+### Using bun
+
+```
+bun run lint
 ```
