@@ -1,0 +1,151 @@
+name: Black Duck scan
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - webviewer-*/**
+      - sync-templates.json
+      - .github/workflows/package-and-blackduck.yml
+  pull_request:
+    paths:
+      - webviewer-*/**
+      - sync-templates.json
+      - .github/workflows/package-and-blackduck.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Cancel superseded runs on the same PR. Push and manual runs get a unique group, so a queued
+# push to main is never dropped (each push only scans the folders it changed).
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      folders: ${{ steps.parse.outputs.folders }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Read folders from sync-templates.json
+        id: parse
+        shell: bash
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const { execFileSync } = require('node:child_process');
+          const { folders } = JSON.parse(fs.readFileSync('sync-templates.json', 'utf8'));
+          if (!Array.isArray(folders) || folders.length === 0) {
+            throw new Error('sync-templates.json must contain a non-empty folders array.');
+          }
+          if (new Set(folders).size !== folders.length) {
+            throw new Error('sync-templates.json must not contain duplicate folders.');
+          }
+          for (const folder of folders) {
+            if (typeof folder !== 'string' || !/^webviewer-[a-zA-Z0-9_-]+$/.test(folder)) {
+              throw new Error(`Invalid sample folder: ${JSON.stringify(folder)}`);
+            }
+            if (!fs.existsSync(`${folder}/package.json`) || !fs.existsSync(`${folder}/package-lock.json`)) {
+              throw new Error(`Sample folder ${folder} must contain package.json and package-lock.json.`);
+            }
+          }
+
+          // On push, scan only the listed folders that changed. Scan all listed folders on manual
+          // runs, when the diff base is unavailable, or when the folder list or this workflow changes.
+          let selected = folders;
+          const before = process.env.BEFORE_SHA;
+          if (process.env.GITHUB_EVENT_NAME === 'push' && before && !/^0+$/.test(before)) {
+            let changed;
+            try {
+              changed = execFileSync('git', ['diff', '--name-only', before, process.env.GITHUB_SHA], { encoding: 'utf8' })
+                .split('\n')
+                .filter(Boolean);
+            } catch {
+              console.log(`Could not diff against ${before}; scanning all listed folders.`);
+            }
+            const configFiles = ['sync-templates.json', '.github/workflows/package-and-blackduck.yml'];
+            if (changed && !changed.some((file) => configFiles.includes(file))) {
+              selected = folders.filter((folder) => changed.some((file) => file.startsWith(`${folder}/`)));
+            }
+          }
+          console.log(`Folders to scan: ${JSON.stringify(selected)}`);
+          fs.appendFileSync(process.env.GITHUB_OUTPUT, `folders=${JSON.stringify(selected)}\n`);
+          NODE
+
+  blackduck-scan:
+    needs: prepare
+    if: >-
+      needs.prepare.outputs.folders != '[]' &&
+      (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository)
+    name: Black Duck scan ${{ matrix.sample }}
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        sample: ${{ fromJson(needs.prepare.outputs.folders) }}
+    defaults:
+      run:
+        working-directory: ${{ matrix.sample }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24.15.0
+          cache: npm
+          cache-dependency-path: ${{ matrix.sample }}/package-lock.json
+
+      - name: Set up Java for Detect
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Install production dependencies without lifecycle scripts
+        run: npm ci --omit=dev --ignore-scripts
+
+      - name: Generate Black Duck results
+        shell: pwsh
+        env:
+          BLACKDUCK_TOKEN: ${{ secrets.BLACKDUCK_TOKEN }}
+          BLACKDUCK_PROJECT: ${{ github.event.repository.name }}-${{ matrix.sample }}
+          BLACKDUCK_VERSION: ${{ github.head_ref || github.ref_name }}
+          DETECT_LATEST_RELEASE_VERSION: 12.1.0
+        run: |
+          $ErrorActionPreference = 'Stop'
+          if (-not $env:BLACKDUCK_TOKEN) {
+            throw "Missing required secret: BLACKDUCK_TOKEN"
+          }
+
+          [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+          $detectScriptPath = Join-Path $env:RUNNER_TEMP "detect.ps1"
+          $detectScriptUri = "https://detect.blackduck.com/detect.ps1?$(Get-Random)"
+          $expectedSha256 = "17C19E2D434FFC23461FD0926D7D8AE32DE94042F5C23F441B8E52FFD7E49D5D"
+
+          Invoke-WebRequest -Uri $detectScriptUri -OutFile $detectScriptPath
+          $actualSha256 = (Get-FileHash -Path $detectScriptPath -Algorithm SHA256).Hash.ToUpperInvariant()
+          if ($actualSha256 -ne $expectedSha256) {
+            throw "detect.ps1 checksum mismatch. Expected $expectedSha256 but got $actualSha256"
+          }
+
+          . $detectScriptPath
+          detect `
+            --blackduck.url='https://pdftron.app.blackduck.com' `
+            --blackduck.api.token="$env:BLACKDUCK_TOKEN" `
+            --detect.project.name="$env:BLACKDUCK_PROJECT" `
+            --detect.project.version.name="$env:BLACKDUCK_VERSION" `
+            --detect.tools=DETECTOR `
+            --detect.included.detector.types=NPM `
+            --detect.npm.dependency.types.excluded=DEV
