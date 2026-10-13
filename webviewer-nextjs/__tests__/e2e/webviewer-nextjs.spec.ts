@@ -1,4 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
+import type { WebViewerInstance } from '@pdftron/webviewer';
 
 const gotoSampleApp = async (page: Page, url: string = ''): Promise<void> => {
   await page.goto(`${url}/`);
@@ -35,7 +36,7 @@ test('verifies rectangle annotation in the loaded document', async ({ page }) =>
   await waitForWebViewerReady(page);
 
   await expect.poll(() => page.evaluate(() => {
-    const getInstance = (window as { getInstance?: (element: Element) => any }).getInstance;
+    const getInstance = (window as { getInstance?: (element: Element) => WebViewerInstance | undefined }).getInstance;
     if (typeof getInstance !== 'function') {
       return false;
     }
@@ -50,7 +51,7 @@ test('verifies rectangle annotation in the loaded document', async ({ page }) =>
     }
 
     const annotations = instance.Core.annotationManager.getAnnotationsList();
-    return annotations.some((annotation: any) => {
+    return annotations.some((annotation) => {
       return (
         annotation.PageNumber === 1 &&
         annotation.X === 100 &&

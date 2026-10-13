@@ -24,8 +24,8 @@ function addSampleRectangleAnnotation(instance: WebViewerInstance) {
 // Read more here: https://github.com/vercel/next.js/discussions/42319
 async function initializeWebViewer(container: HTMLDivElement): Promise<void> {
   try {
-    const module = await import('@pdftron/webviewer');
-    const WebViewer = module.default;
+    const webViewerModule = await import('@pdftron/webviewer');
+    const WebViewer = webViewerModule.default;
     const instance: WebViewerInstance = await WebViewer(
       {
         path: '/lib/webviewer',
