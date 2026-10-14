@@ -7,12 +7,12 @@ on:
     paths:
       - webviewer-*/**
       - sync-templates.json
-      - .github/workflows/package-and-blackduck.yml
+      - .github/workflows/blackduck.yml
   pull_request:
     paths:
       - webviewer-*/**
       - sync-templates.json
-      - .github/workflows/package-and-blackduck.yml
+      - .github/workflows/blackduck.yml
   workflow_dispatch:
 
 permissions:
@@ -40,6 +40,8 @@ jobs:
         shell: bash
         env:
           BEFORE_SHA: ${{ github.event.before }}
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
           node <<'NODE'
           const fs = require('node:fs');
@@ -60,20 +62,28 @@ jobs:
             }
           }
 
-          // On push, scan only the listed folders that changed. Scan all listed folders on manual
-          // runs, when the diff base is unavailable, or when the folder list or this workflow changes.
+          // On push and pull request, scan only the listed folders that changed. Scan all listed
+          // folders on manual runs, when the diff base is unavailable, or when the folder list or
+          // this workflow changes.
           let selected = folders;
-          const before = process.env.BEFORE_SHA;
-          if (process.env.GITHUB_EVENT_NAME === 'push' && before && !/^0+$/.test(before)) {
+          const eventName = process.env.GITHUB_EVENT_NAME;
+          let diffArgs;
+          if (eventName === 'push' && process.env.BEFORE_SHA && !/^0+$/.test(process.env.BEFORE_SHA)) {
+            diffArgs = [process.env.BEFORE_SHA, process.env.GITHUB_SHA];
+          } else if (eventName === 'pull_request' && process.env.PR_BASE_SHA && process.env.PR_HEAD_SHA) {
+            // Three-dot diff: only the changes the PR introduces, not changes that landed on the base since.
+            diffArgs = [`${process.env.PR_BASE_SHA}...${process.env.PR_HEAD_SHA}`];
+          }
+          if (diffArgs) {
             let changed;
             try {
-              changed = execFileSync('git', ['diff', '--name-only', before, process.env.GITHUB_SHA], { encoding: 'utf8' })
+              changed = execFileSync('git', ['diff', '--name-only', ...diffArgs], { encoding: 'utf8' })
                 .split('\n')
                 .filter(Boolean);
             } catch {
-              console.log(`Could not diff against ${before}; scanning all listed folders.`);
+              console.log(`Could not diff ${diffArgs.join(' ')}; scanning all listed folders.`);
             }
-            const configFiles = ['sync-templates.json', '.github/workflows/package-and-blackduck.yml'];
+            const configFiles = ['sync-templates.json', '.github/workflows/blackduck.yml'];
             if (changed && !changed.some((file) => configFiles.includes(file))) {
               selected = folders.filter((folder) => changed.some((file) => file.startsWith(`${folder}/`)));
             }
