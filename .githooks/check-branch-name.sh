@@ -96,16 +96,16 @@ get_rule_error_message() {
   local rule_name="$1"
   case "$rule_name" in
     "${validation_rule_ids[0]}")
-      echo "ERROR: Branch name validation failed: invalid prefix."
+      echo "ERROR: Branch name validation failed: invalid prefix." >&2
       ;;
     "${validation_rule_ids[1]}")
-      echo "ERROR: Branch name validation failed: invalid ticket segment."
+      echo "ERROR: Branch name validation failed: invalid ticket segment." >&2
       ;;
     "${validation_rule_ids[2]}")
-      echo "ERROR: Branch name validation failed: invalid title format."
+      echo "ERROR: Branch name validation failed: invalid title format." >&2
       ;;
     "${validation_rule_ids[3]}")
-      echo "ERROR: Branch name validation failed: length exceeds 120 characters."
+      echo "ERROR: Branch name validation failed: length exceeds 120 characters." >&2
       ;;
     *)
       echo "Unknown validation rule: $rule_name" >&2
@@ -253,7 +253,7 @@ if (( failed_rule_count > 0 )); then
 
   for rule_name in "${failed_rules[@]}"; do
     if [[ "$MODE" == "strict" ]]; then
-      echo "$(get_rule_error_message "$rule_name")"
+      get_rule_error_message "$rule_name"
     else
       echo "$(get_rule_warning_message "$rule_name")"
     fi
