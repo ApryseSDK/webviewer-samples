@@ -107,6 +107,10 @@ get_rule_error_message() {
     "${validation_rule_ids[3]}")
       echo "ERROR: Branch name validation failed: length exceeds 120 characters."
       ;;
+    *)
+      echo "Unknown validation rule: $rule_name" >&2
+      return 1
+      ;;
   esac
 }
 
@@ -124,6 +128,10 @@ get_rule_warning_message() {
       ;;
     "${validation_rule_ids[3]}")
       echo "WARNING: Branch name validation failed: length exceeds 120 characters."
+      ;;
+    *)
+      echo "Unknown validation rule: $rule_name" >&2
+      return 1
       ;;
   esac
 }
@@ -146,6 +154,10 @@ get_rule_help_message() {
     "${validation_rule_ids[3]}")
       echo "Shorten the branch name to 120 characters or less."
       ;;
+    *)
+      echo "Unknown validation rule: $rule_name" >&2
+      return 1
+      ;;
   esac
 }
 
@@ -163,6 +175,10 @@ get_rule_label_message() {
       ;;
     "${validation_rule_ids[3]}")
       echo '📏 Branch Name: Too Long'
+      ;;
+    *)
+      echo "Unknown validation rule: $rule_name" >&2
+      return 1
       ;;
   esac
 }
