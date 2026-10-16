@@ -11,7 +11,8 @@ public/lib
 
 # Node
 /node_modules
-.env
+.env
+
 npm-debug.log
 yarn-error.log
 # IDEs and editors
@@ -36,6 +37,8 @@ yarn-error.log
 .sass-cache/
 /connect.lock
 /coverage
+/playwright-report
+/test-results
 /libpeerconnection.log
 testem.log
 /typings

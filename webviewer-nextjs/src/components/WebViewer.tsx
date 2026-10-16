@@ -22,22 +22,24 @@ function addSampleRectangleAnnotation(instance: WebViewerInstance) {
 
 // Due to SSR in Next.js, we need to import the module dynamically, to avoid window is not defined error due to re-rendering.
 // Read more here: https://github.com/vercel/next.js/discussions/42319
-function initializeWebViewer(container: HTMLDivElement) {
-  import('@pdftron/webviewer').then((module) => {
-    const WebViewer = module.default;
-    WebViewer(
+async function initializeWebViewer(container: HTMLDivElement): Promise<void> {
+  try {
+    const webViewerModule = await import('@pdftron/webviewer');
+    const WebViewer = webViewerModule.default;
+    const instance: WebViewerInstance = await WebViewer(
       {
         path: '/lib/webviewer',
         initialDoc: 'https://apryse.s3.amazonaws.com/public/files/samples/WebviewerDemoDoc.pdf',
-        licenseKey: 'YOUR_LICENSE_KEY'  // sign up to get a free trial key at https://dev.apryse.com
+        licenseKey: process.env.NEXT_PUBLIC_DEMO_KEY ?? '',
       },
       container,
-    ).then((instance: WebViewerInstance) => {
-      const { documentViewer } = instance.Core;
-      // Run APIs here.
-      documentViewer.addEventListener('documentLoaded', () => addSampleRectangleAnnotation(instance));
-    });
-  });
+    );
+    const { documentViewer } = instance.Core;
+    // Run APIs here.
+    documentViewer.addEventListener('documentLoaded', () => addSampleRectangleAnnotation(instance));
+  } catch (error) {
+    console.error('Failed to initialize WebViewer:', error);
+  }
 }
 
 export default function Viewer() {
@@ -45,11 +47,10 @@ export default function Viewer() {
 
   useEffect(() => {
     if (!viewer.current) return;
-    initializeWebViewer(viewer.current);
+    void initializeWebViewer(viewer.current);
   }, []);
 
   return (
     <div className="h-full w-full" ref={viewer}></div>
   );
 }
-

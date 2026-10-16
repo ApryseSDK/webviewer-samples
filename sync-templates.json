@@ -2,6 +2,7 @@
   "folders": [
     "webviewer-react",
     "webviewer-angular",
-    "webviewer-vue"
+    "webviewer-vue",
+    "webviewer-nextjs"
   ]
 }

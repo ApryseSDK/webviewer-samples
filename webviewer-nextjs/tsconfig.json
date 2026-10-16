@@ -21,6 +21,12 @@
         "name": "next"
       }
     ],
+    "types": [
+      "node",
+      "jest",
+      "@testing-library/jest-dom",
+      "@playwright/test"
+    ],
     "paths": {
       "@/*": [
         "./src/*"
@@ -33,7 +39,10 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts"
+    ".next/dev/types/**/*.ts",
+    "__tests__/config/**/*.ts",
+    "__tests__/e2e/**/*.ts",
+    "__tests__/page.test.tsx"
   ],
   "exclude": [
     "node_modules"
