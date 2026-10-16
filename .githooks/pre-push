@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Local repo hook for branch-name validation.
+#
+# Default behavior is soft validation. To enforce a stricter local check on push,
+# set BRANCH_NAME_POLICY_MODE=strict before running the hook or export it in the
+# current shell session.
+#
+#   export BRANCH_NAME_POLICY_MODE=strict
+#
+# To enable in a repo, run:
+#   git config core.hooksPath .githooks
+#   chmod +x .githooks/pre-commit .githooks/pre-push .githooks/check-branch-name.sh
+
+set -u
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+export BRANCH_NAME_POLICY_MODE="${BRANCH_NAME_POLICY_MODE:-strict}"
+
+"${SCRIPT_DIR}/check-branch-name.sh" "$(git symbolic-ref --short HEAD 2>/dev/null || echo "")"

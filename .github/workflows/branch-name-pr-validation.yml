@@ -1,0 +1,123 @@
+name: Branch Name PR Validation
+
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - reopened
+      - synchronize
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
+jobs:
+  branch-name-policy:
+    name: Validate branch naming policy
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    env:
+      BRANCH_NAME_POLICY_MODE: strict
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate branch name against repo policy
+        id: validate
+        continue-on-error: true
+        shell: bash
+        env:
+          BRANCH_NAME_POLICY_MODE: ${{ env.BRANCH_NAME_POLICY_MODE }}
+          HEAD_REF: ${{ github.head_ref }}
+        run: |
+          bash .githooks/check-branch-name.sh "$HEAD_REF"
+
+      # There are 2 options: soft and strict workflow, see README for details.
+      - name: Apply policy labels to the PR
+        if: always() && env.BRANCH_NAME_POLICY_MODE == 'soft'
+        uses: actions/github-script@v7
+        env:
+          ALL_LABELS: ${{ steps.validate.outputs.all_labels }}
+          FAILED_LABELS: ${{ steps.validate.outputs.failed_labels }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const allLabelsText = (process.env.ALL_LABELS || '').trim();
+            const failedLabelsText = (process.env.FAILED_LABELS || '').trim();
+            const allLabels = allLabelsText ? allLabelsText.split('|').filter(Boolean) : [];
+            const labelsToAdd = failedLabelsText ? failedLabelsText.split('|').filter(Boolean) : [];
+
+            const issueNumber = context.payload.pull_request.number;
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+
+            const existingLabels = await github.paginate(github.rest.issues.listLabelsOnIssue, {
+              owner,
+              repo,
+              issue_number: issueNumber,
+              per_page: 100,
+            });
+
+            for (const labelName of allLabels) {
+              if (existingLabels.some((label) => label.name === labelName)) {
+                await github.rest.issues.removeLabel({
+                  owner,
+                  repo,
+                  issue_number: issueNumber,
+                  name: labelName,
+                }).catch(() => undefined);
+              }
+            }
+
+            if (labelsToAdd.length > 0) {
+              await github.rest.issues.addLabels({
+                owner,
+                repo,
+                issue_number: issueNumber,
+                labels: labelsToAdd,
+              });
+            }
+
+      - name: Request changes review when policy fails and MODE is 'strict'
+        if: always() && env.BRANCH_NAME_POLICY_MODE == 'strict' && steps.validate.outcome == 'failure'
+        uses: actions/github-script@v7
+        env:
+          FAILED_RULES: ${{ steps.validate.outputs.failed_rules }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const issueNumber = context.payload.pull_request.number;
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const failedRules = (process.env.FAILED_RULES || '').trim();
+            const reviewBody = failedRules
+              ? `Branch naming policy failed: ${failedRules.replace(/\|/g, ', ')}. Please review and update the branch name before merging if required by your team policy.`
+              : 'Branch naming policy failed. Please review the branch name before merging if required by your team policy.';
+
+            await github.rest.pulls.createReview({
+              owner,
+              repo,
+              pull_number: issueNumber,
+              event: 'REQUEST_CHANGES',
+              body: reviewBody,
+            });
+
+      - name: Report validation status
+        if: always()
+        shell: bash
+        env:
+          HEAD_REF: ${{ github.head_ref }}
+          VALIDATE_OUTCOME: ${{ steps.validate.outcome }}
+        run: |
+          if [[ "$VALIDATE_OUTCOME" == "success" ]]; then
+            echo "Branch name validation passed for PR: $HEAD_REF"
+          elif [[ "$BRANCH_NAME_POLICY_MODE" == "strict" ]]; then
+            echo "Branch name validation failed for PR: $HEAD_REF"
+            echo "Strict mode: a review change request has been posted, but merge is not blocked."
+          else
+            echo "Branch name validation failed for PR: $HEAD_REF"
+            echo "Soft mode: labels were added and the PR remains open without blocking merge."
+          fi
