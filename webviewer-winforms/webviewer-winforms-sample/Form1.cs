@@ -66,7 +66,17 @@ namespace webviewer_winforms_sample
                 string requestPath = context.Request.Url?.LocalPath ?? "/";
                 if (requestPath == "/") requestPath = string.Format("/{0}", WebviewerIndexPath);
 
-                string filePath = Path.Combine(Directory.GetCurrentDirectory(), requestPath.TrimStart('/'));
+                // Resolve the requested path and ensure it stays within the root directory
+                string rootPath = Path.GetFullPath(Directory.GetCurrentDirectory());
+                if (!rootPath.EndsWith(Path.DirectorySeparatorChar)) rootPath += Path.DirectorySeparatorChar;
+
+                string filePath = Path.GetFullPath(Path.Combine(rootPath, requestPath.TrimStart('/')));
+                if (!filePath.StartsWith(rootPath, StringComparison.OrdinalIgnoreCase))
+                {
+                    context.Response.StatusCode = 403;
+                    context.Response.OutputStream.Close();
+                    return;
+                }
 
                 if (File.Exists(filePath))
                 {
