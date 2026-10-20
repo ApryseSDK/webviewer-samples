@@ -211,11 +211,9 @@ test('Expect an alert when document text exceeds 30000 characters with page coun
 
   // Trigger analyzeDocumentForPII through the UI button and verify the alert content.
   const pIIBtn = page.locator('button[data-element="AIPIIRedactionToolButton"]');
-  const alertPromise = page.waitForEvent('dialog');
+  const alertMessage = acceptNextDialog(page);
   await pIIBtn.click();
-  const alertDialog = await alertPromise;
-  expect(alertDialog.message()).toBe('Document text size exceeds 30000 characters limit.');
-  await alertDialog.accept();
+  expect(await alertMessage).toBe('Document text size exceeds 30000 characters limit.');
 
   // Ensure request flow stops at /api/send-text when request validation fails.
   await expect.poll(() => sendTextCalls).toBe(1);
@@ -285,11 +283,9 @@ test('Diagnostics panel shows OpenAI initialization error from send-text stage',
   ).toContain('Peady, Eff, & Wright Exporting');
 
   const pIIBtn = page.locator('button[data-element="AIPIIRedactionToolButton"]');
-  const alertPromise = page.waitForEvent('dialog');
+  const alertMessage = acceptNextDialog(page);
   await pIIBtn.click();
-  const alertDialog = await alertPromise;
-  expect(alertDialog.message()).toContain('OpenAI API key is missing for model "gpt-4o-mini"');
-  await alertDialog.accept();
+  expect(await alertMessage).toContain('OpenAI API key is missing for model "gpt-4o-mini"');
 
   // analyze-pii and get-results must not have been called.
   await expect.poll(() => mockCalls.analyzePII).toBe(0);
@@ -374,4 +370,14 @@ test('Hide/Show diagnostics panel', async ({ page }) => {
   // Show the diagnostics panel again
   await toggle.click();
   await expect(panel).toBeVisible();
+});
+
+// Accepts the next dialog as soon as it opens and resolves with its message.
+// An alert raised immediately after a click would otherwise block click() from resolving.
+const acceptNextDialog = (page) => new Promise((resolve) => {
+  page.once('dialog', async (dialog) => {
+    const message = dialog.message();
+    await dialog.accept();
+    resolve(message);
+  });
 });

@@ -38,11 +38,9 @@ test('Summarizing selection button visibility', async ({ page }) => {
     pageNumber: 2,
     start: { x: 56.69320848, y: 32.40185332 },
     end: { x: 105.11567193, y: 40.06439572 },
+  }, async (popupButton) => {
+    await expect(popupButton).toBeVisible({ timeout: 1000 });
   });
-
-  const popupButton = page.locator('button[data-element="askWebSDKButton"]');
-  await popupButton.waitFor({ state: 'visible' });
-  await expect(popupButton).toBeVisible();
 });
 
 // Simulates user asking free question within the chatbot panel
@@ -66,12 +64,10 @@ test('Summarize selected text', async ({ page }) => {
     pageNumber: 6,
     start: { x: 179.72459999999998, y: 536.4002 },
     end: { x: 141.165, y: 415.9352 },
+  }, async (popupButton) => {
+    // Click the "Summarize selection" button in the TextPopup
+    await popupButton.click({ timeout: 1000 });
   });
-
-  // Click the "Summarize selection" button in the TextPopup
-  const popupButton = page.locator('button[data-element="askWebSDKButton"]');
-  await popupButton.waitFor({ state: 'visible' });
-  await popupButton.click();
 
   // Validate that the assistant's response contains the expected text from the mock response
   const assistantResponse = page.locator('.askWebSDKAssistantMessageClass').last();
@@ -102,19 +98,28 @@ test('Hide/Show chatbot panel', async ({ page }) => {
   await expect(panel).toBeVisible();
 });
 
-// Helper function to select document text and trigger the TextPopup.
-const simulateDocumentTextSelection = async (page, { pageNumber, start, end }) => {
+// Helper function to select document text, trigger the TextPopup
+// and run the given action against its "askWebSDKButton".
+const simulateDocumentTextSelection = async (page, { pageNumber, start, end }, popupButtonAction) => {
   await page.locator('div.ModularPanel[data-element="askWebSDKPanel"]').waitFor({ state: 'visible' });
+
+  // Navigate to the target page first; scrolling closes the TextPopup,
+  // so selection must happen only after the viewer has settled on that page.
+  await page.evaluate((pageNumber) => {
+    const instance = globalThis.WebViewer.getInstance();
+    instance.UI.setToolMode(instance.Core.Tools.ToolNames.TEXT_SELECT);
+    instance.Core.documentViewer.setCurrentPage(pageNumber, false);
+  }, pageNumber);
+
+  await page.waitForFunction((pageNumber) => {
+    const instance = globalThis.WebViewer.getInstance();
+    return instance.Core.documentViewer.getCurrentPage() === pageNumber;
+  }, pageNumber);
 
   await page.evaluate(({ pageNumber, start, end }) => {
     const instance = globalThis.WebViewer.getInstance();
     const core = instance.Core;
-    const UI = instance.UI;
-    const documentViewer = core.documentViewer;
-    const textSelectTool = documentViewer.getTool(core.Tools.ToolNames.TEXT_SELECT);
-
-    documentViewer.setCurrentPage(pageNumber);
-    UI.setToolMode(core.Tools.ToolNames.TEXT_SELECT);
+    const textSelectTool = core.documentViewer.getTool(core.Tools.ToolNames.TEXT_SELECT);
     textSelectTool.select({ pageNumber, ...start }, { pageNumber, ...end });
   }, { pageNumber, start, end });
 
@@ -124,8 +129,13 @@ const simulateDocumentTextSelection = async (page, { pageNumber, start, end }) =
     return typeof selectedText === 'string' && selectedText.trim().length > 0;
   });
 
-  await page.evaluate(() => {
-    const instance = globalThis.WebViewer.getInstance();
-    instance.UI.openElements(['textPopup']);
-  });
+  // Open the TextPopup and act on its button, retrying both together
+  // since a late scroll/render can close the popup at any moment.
+  const popupButton = page.locator('button[data-element="askWebSDKButton"]');
+  await expect(async () => {
+    await page.evaluate(() => {
+      globalThis.WebViewer.getInstance().UI.openElements(['textPopup']);
+    });
+    await popupButtonAction(popupButton);
+  }).toPass();
 };
