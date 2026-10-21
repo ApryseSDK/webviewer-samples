@@ -1,24 +1,15 @@
 <template>
   <div id="app">
-    <WebViewer
-      url="https://apryse.s3.amazonaws.com/public/files/samples/WebviewerDemoDoc.pdf"
-    />
+    <ClientOnly>
+      <WebViewer
+        url="https://apryse.s3.amazonaws.com/public/files/samples/WebviewerDemoDoc.pdf"
+      />
+    </ClientOnly>
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
 import WebViewer from '../components/WebViewer.vue';
-export default {
-  name: 'App',
-  components: {
-    WebViewer
-  },
-  data() {
-    return {
-      publicPath: process.env.BASE_URL
-    };
-  }
-};
 </script>
 
 <style>
@@ -34,10 +25,6 @@ body {
   text-align: center;
   color: #2c3e50;
   margin: 0 auto;
-  height: 100vh;
-}
-
-#webviewer {
   height: 100vh;
 }
 </style>

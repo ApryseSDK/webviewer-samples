@@ -2,22 +2,30 @@
   "name": "webviewer-nuxtjs-sample",
   "version": "1.0.0",
   "private": true,
+  "license": "MIT",
+  "type": "module",
   "scripts": {
-    "dev": "npm run copy-webviewer && nuxt",
+    "dev": "npm run copy-webviewer && nuxt dev ",
     "build": "npm run copy-webviewer && nuxt build",
-    "generate": "nuxt generate",
-    "start": "npm run copy-webviewer && nuxt start",
+    "generate": "npm run copy-webviewer && nuxt generate",
+    "type-check": "nuxt typecheck",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
     "copy-webviewer": "node scripts/copy-webviewer-files.cjs"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.13.6",
     "@pdftron/webviewer": "^12.2.1",
-    "bootstrap": "^4.6.2",
-    "bootstrap-vue": "^2.23.1",
-    "core-js": "^3.40.0",
-    "nuxt": "^2.18.1",
-    "vue": "^2.7.16",
-    "vue-server-renderer": "^2.7.16",
-    "vue-template-compiler": "^2.7.16"
+    "nuxt": "^4.6.2",
+    "vue": "^3.5.44"
+  },
+  "devDependencies": {
+    "fs-extra": "^11.3.0",
+    "rolldown": "^1.2.15",
+    "typescript": "^5.7.3",
+    "vite": "^8.3.4",
+    "vue-tsc": "^2.2.0"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true
   }
 }

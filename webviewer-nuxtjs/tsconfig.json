@@ -1,0 +1,11 @@
+{
+  // References the per-context configs generated into .nuxt by `nuxt prepare`.
+  // See https://nuxt.com/docs/guide/concepts/typescript
+  "files": [],
+  "references": [
+    { "path": "./.nuxt/tsconfig.app.json" },
+    { "path": "./.nuxt/tsconfig.server.json" },
+    { "path": "./.nuxt/tsconfig.shared.json" },
+    { "path": "./.nuxt/tsconfig.node.json" }
+  ]
+}

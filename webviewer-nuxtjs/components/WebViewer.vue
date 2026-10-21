@@ -2,29 +2,34 @@
   <div id="webviewer" ref="viewer" />
 </template>
 
-<script>
-export default {
-  name: 'WebViewer',
-  props: {
-    url: String
-  },
-  mounted () {
-    const WebViewer = globalThis.WebViewer;
+<script setup lang="ts">
+import { onMounted, ref } from 'vue';
 
-    if (!WebViewer) {
-      console.error('WebViewer script not loaded');
-      return;
-    }
+const props = defineProps<{
+  url: string;
+}>();
 
-    WebViewer.Iframe({
-      path: '/lib/webviewer',
-      initialDoc: this.url,
-      licenseKey: 'your_license_key'
-    }, this.$refs.viewer).then((instance) => {
-      // call apis here
-    });
+const viewer = ref<HTMLDivElement | null>(null);
+
+onMounted(async () => {
+  if (!viewer.value) {
+    return;
   }
-};
+
+  const { public: { demoKey } } = useRuntimeConfig();
+
+  // WebViewer requires browser APIs, so it is imported only after the
+  // component is mounted on the client.
+  const { default: WebViewer } = await import('@pdftron/webviewer');
+
+  WebViewer.Iframe({
+    path: '/lib/webviewer',
+    initialDoc: props.url,
+    licenseKey: demoKey
+  }, viewer.value).then((instance) => {
+    // call apis here
+  });
+});
 </script>
 
 <style>

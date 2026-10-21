@@ -3,6 +3,7 @@
     "webviewer-react",
     "webviewer-angular",
     "webviewer-vue",
-    "webviewer-nextjs"
+    "webviewer-nextjs",
+    "webviewer-nuxtjs"
   ]
 }

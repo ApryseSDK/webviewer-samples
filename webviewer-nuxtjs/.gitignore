@@ -67,6 +67,7 @@ typings/
 
 # nuxt.js build output
 .nuxt
+.output
 
 # Nuxt generate
 dist
@@ -90,6 +91,5 @@ sw.*
 *.swp
 
 # WebViewer Core and UI files
-static/webviewer
-static/lib/webviewer
+public/lib/webviewer
 
