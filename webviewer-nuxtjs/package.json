@@ -11,7 +11,9 @@
     "type-check": "nuxt typecheck",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "copy-webviewer": "node scripts/copy-webviewer-files.cjs"
+    "copy-webviewer": "node scripts/copy-webviewer-files.cjs",
+    "test:e2e": "npx playwright install && npx playwright test --config=__tests__/config/playwright.config.ts",
+    "test:e2e:ui": "npx playwright install && npx playwright test --ui --config=__tests__/config/playwright.config.ts"
   },
   "dependencies": {
     "@pdftron/webviewer": "^12.2.1",
@@ -19,6 +21,8 @@
     "vue": "^3.5.44"
   },
   "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^26.6.3",
     "fs-extra": "^11.3.0",
     "rolldown": "^1.2.15",
     "typescript": "^5.7.3",

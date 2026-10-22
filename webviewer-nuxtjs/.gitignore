@@ -93,3 +93,7 @@ sw.*
 # WebViewer Core and UI files
 public/lib/webviewer
 
+# testing
+/playwright-report
+/test-results
+
