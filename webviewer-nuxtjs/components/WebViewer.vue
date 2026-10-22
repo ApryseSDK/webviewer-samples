@@ -22,7 +22,7 @@ onMounted(async () => {
   // component is mounted on the client.
   const { default: WebViewer } = await import('@pdftron/webviewer');
 
-  WebViewer.Iframe({
+  WebViewer({
     path: '/lib/webviewer',
     initialDoc: props.url,
     licenseKey: demoKey
