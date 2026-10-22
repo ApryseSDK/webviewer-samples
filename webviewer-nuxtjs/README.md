@@ -15,28 +15,61 @@ This sample is written in TypeScript. Nuxt supports TypeScript out of the box, s
 
 A license key is required to run WebViewer. You can obtain a trial key in our [get started guides](https://docs.apryse.com/web/guides/get-started), or by signing-up on our [developer portal](https://dev.apryse.com/).
 
-## Trial
+### Setting the License Key
 
-WebViewer comes with a 7-day trial without any feature limitations or trial key needed. To extend the trial, a trial key can be obtained by signing-up through the [developer portal](https://dev.apryse.com/).
+In order to set the license key, set `NUXT_PUBLIC_DEMO_KEY` in the `.env.example` file in the project and rename the file to `.env` (or create a `.env.local` file for local-only changes). Alternatively, the string may be passed into the constructor of the WebViewer: https://docs.apryse.com/documentation/web/faq/add-license/#passing-into-constructor
+
+If this sample was obtained using the `create-webviewer-app` tool then the key has already been set in the `.env` file and no further action is needed.
 
 ## Install
 
-Before beginning, make sure the development environment includes [Node.js](https://nodejs.org/en/).
+In a terminal opened to the project directory, use the preferred package manager to install the dependencies. 
 
+**Using npm**
 ```
-git clone --depth=1 https://github.com/ApryseSDK/webviewer-samples.git
-cd webviewer-samples/webviewer-nuxtjs
 npm install
 ```
 
-## Run
-In Visual Studio Code or from a Command Prompt window, preview the app in `localhost:3000` with an `npm` command.
+**Using pnpm**
+```
+pnpm install
+```
 
+**Using yarn**
+```
+yarn
+```
+
+**Using bun**
+```
+bun install
+```
+
+## Run
+
+Use the preferred package manager to run the `dev` script to start a local development server and serve the Angular app with hot reload.
+
+**Using npm**
 ```
 npm run dev
 ```
 
-For detailed explanation on Nuxt commands and deployment, check out the [documentation](https://nuxt.com/docs/api/commands/dev).
+**Using pnpm**
+```
+pnpm dev
+```
+
+**Using yarn**
+```
+yarn dev
+```
+
+**Using bun**
+```
+bun run dev
+```
+
+Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Type checking
 
