@@ -31,6 +31,12 @@ npm install
 ```
 
 **Using pnpm**
+Create a `pnpm-workspace.yaml` file in the project root:
+```
+allowBuilds:
+  esbuild: true
+```
+Then run the following:
 ```
 pnpm install
 ```
