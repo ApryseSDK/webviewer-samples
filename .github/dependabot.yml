@@ -5,8 +5,52 @@
 
 version: 2
 updates:
-  - package-ecosystem: "" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  - package-ecosystem: "npm" # See documentation for possible values
+    directory: "/webviewer-vue" # Location of package manifests
     schedule:
       interval: "weekly"
-      
+    ignore:
+      - dependency-name: "typescript"
+        versions: [">=7.0.0"]
+    groups:
+      all-dependencies:
+        patterns:
+          - "*"
+  - package-ecosystem: "npm"
+    directory: "/webviewer-react"
+    schedule:
+      interval: "weekly"
+    ignore:
+      - dependency-name: "typescript"
+        versions: [">=7.0.0"]
+    groups:
+      all-dependencies:
+        patterns:
+          - "*"
+  - package-ecosystem: "npm"
+    directory: "/webviewer-angular"
+    schedule:
+      interval: "weekly"
+    groups:
+      all-dependencies:
+        patterns:
+          - "*"
+  - package-ecosystem: "npm"
+    directory: "/webviewer-nextjs"
+    schedule:
+      interval: "weekly"
+    ignore:
+      - dependency-name: "typescript"
+        versions: [">=7.0.0"]
+    groups:
+      all-dependencies:
+        patterns:
+          - "*"
+  - package-ecosystem: "npm"
+    directory: "/webviewer-nuxtjs"
+    schedule:
+      interval: "weekly"
+    groups:
+      all-dependencies:
+        patterns:
+          - "*"
