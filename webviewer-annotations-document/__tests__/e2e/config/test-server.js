@@ -1,5 +1,5 @@
 // Test-only server: same as server/serve.js but does not open a browser.
-const path = require('path');
+const path = require('node:path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const annotationHandler = require('../../../server/annotationHandler');
