@@ -5,7 +5,7 @@ const projectRoot = path.resolve(__dirname, '..', '..', '..');
 export const siteRoot = path.join(projectRoot, 'server', 'webviewer-annotations-asp-net-sample');
 const port = 54218;
 const baseURL = `http://localhost:${port}`;
-const iisExpress = process.env.IISEXPRESS_PATH || 'C:\\Program Files (x86)\\IIS Express\\iisexpress.exe';
+const iisExpress = process.env.IISEXPRESS_PATH || String.raw`C:\Program Files (x86)\IIS Express\iisexpress.exe`;
 
 export default defineConfig({
   testDir: path.resolve(__dirname, '..'),
