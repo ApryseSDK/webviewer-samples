@@ -8,3 +8,5 @@ server/webviewer-annotations-asp-net-sample/obj
 server/webviewer-annotations-asp-net-sample/bin
 server/webviewer-annotations-asp-net-sample/Scripts/webviewer/license-key.js
 server/webviewer-annotations-asp-net-sample/Scripts/webviewer/lib
+playwright-report
+test-results
