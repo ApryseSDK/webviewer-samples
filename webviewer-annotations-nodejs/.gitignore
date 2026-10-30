@@ -6,3 +6,8 @@ node_modules
 server/xfdf
 client/lib
 client/license-key.js
+
+# Playwright test artifacts
+test-results/
+playwright-report/
+.auth/
