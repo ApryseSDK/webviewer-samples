@@ -9,10 +9,10 @@ import { api, LightningElement, wire } from 'lwc';
 import mimeTypes from './mimeTypes';
 
 function _base64ToArrayBuffer(base64) {
-  var binary_string =  window.atob(base64);
-  var len = binary_string.length;
-  var bytes = new Uint8Array( len );
-  for (var i = 0; i < len; i++)        {
+  const binary_string =  window.atob(base64);
+  const len = binary_string.length;
+  const bytes = new Uint8Array( len );
+  for (let i = 0; i < len; i++)        {
       bytes[i] = binary_string.charCodeAt(i);
   }
   return bytes.buffer;
@@ -64,7 +64,7 @@ export default class ApryseWvInstance extends LightningElement {
   }
 
   renderedCallback() {
-    var self = this;
+    const self = this;
 
     if (this.uiInitialized) { 
         return;
@@ -96,13 +96,12 @@ export default class ApryseWvInstance extends LightningElement {
   }
 
   initUI() {
-    var myObj = {
+    const myObj = {
       libUrl: libUrl,
       fullAPI: this.fullAPI || false,
       namespacePrefix: '',
       username: this.username,
     };
-    var url = myfilesUrl + '/webviewer-demo-annotated.pdf';
 
     const viewerElement = this.template.querySelector('div')
     // eslint-disable-next-line no-unused-vars
