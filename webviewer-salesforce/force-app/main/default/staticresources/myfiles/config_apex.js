@@ -79,7 +79,7 @@ async function saveDocument() {
     contentDocumentId: currentDocId
   }
   // Post message to LWC
-  fileSize < docLimit ? parent.postMessage({ type: 'SAVE_DOCUMENT', payload }, '*') : downloadWebViewerFile();
+  fileSize < docLimit ? parent.postMessage({ type: 'SAVE_DOCUMENT', payload }, window.parent.origin) : downloadWebViewerFile();
 }
 
 const downloadWebViewerFile = async () => {
@@ -141,7 +141,7 @@ window.addEventListener('viewerLoaded', async function () {
 window.addEventListener("message", receiveMessage, false);
 
 function receiveMessage(event) {
-  if (event.isTrusted && typeof event.data === 'object') {
+  if (event.isTrusted && event.origin === window.parent.origin && typeof event.data === 'object') {
     switch (event.data.type) {
       case 'OPEN_DOCUMENT':
         instance.UI.loadDocument(event.data.file)

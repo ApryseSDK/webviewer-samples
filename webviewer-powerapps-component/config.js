@@ -27,7 +27,7 @@
         const payload = {
             file: a
         };
-        window.parent.postMessage({ type: 'SAVE_DOCUMENT', payload }, '*');
+        window.parent.postMessage({ type: 'SAVE_DOCUMENT', payload }, 'http://localhost:3000');
       }
     };
     items.push(saveButton);
@@ -43,7 +43,7 @@ function receiveMessage(event) {
    * below
    */
   // const instance = readerControl;
-  if (event.isTrusted && typeof event.data === 'object') {
+  if (event.isTrusted && typeof event.data === 'object' && event.origin === 'http://localhost:3000') {
     switch (event.data.type) {
       case 'OPEN_DOCUMENT':
         instance.loadDocument(event.data.payload.file, {
