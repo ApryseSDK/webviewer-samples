@@ -90,7 +90,8 @@ jobs:
   run-e2e-tests:
     needs: discover-e2e-projects
     if: needs.discover-e2e-projects.outputs.count != '0'
-    runs-on: ubuntu-latest
+    # IIS Express is Windows-only, so the ASP.NET project must run on a Windows runner.
+    runs-on: ${{ matrix.project == 'webviewer-annotations-aspnet' && 'windows-latest' || 'ubuntu-latest' }}
     strategy:
       fail-fast: false
       matrix: ${{ fromJson(needs.discover-e2e-projects.outputs.matrix) }}
@@ -123,6 +124,39 @@ jobs:
       - name: Prepare test assets
         shell: bash
         run: npm run postinstall --if-present
+
+      - name: Ensure IIS Express is installed
+        if: matrix.project == 'webviewer-annotations-aspnet'
+        shell: pwsh
+        run: |
+          $candidates = @(
+            "${env:ProgramFiles(x86)}\IIS Express\iisexpress.exe",
+            "${env:ProgramFiles}\IIS Express\iisexpress.exe"
+          )
+          $found = $candidates | Where-Object { Test-Path $_ } | Select-Object -First 1
+
+          if (-not $found) {
+            Write-Host "IIS Express not found, installing..."
+            choco install iisexpress -y --no-progress
+            if ($LASTEXITCODE -ne 0) { throw "Failed to install IIS Express" }
+            $found = $candidates | Where-Object { Test-Path $_ } | Select-Object -First 1
+          }
+
+          if (-not $found) { throw "iisexpress.exe not found after installation" }
+
+          Write-Host "Using IIS Express at $found"
+          "IISEXPRESS_PATH=$found" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+
+      - name: Build ASP.NET site
+        if: matrix.project == 'webviewer-annotations-aspnet'
+        shell: pwsh
+        run: |
+          # The site must be built so that /bin is populated before IIS Express serves it.
+          Set-Location server
+          nuget restore webviewer-annotations-asp-net-sample.sln
+          if ($LASTEXITCODE -ne 0) { throw "NuGet restore failed" }
+          msbuild webviewer-annotations-asp-net-sample.sln /p:Configuration=Debug /v:minimal
+          if ($LASTEXITCODE -ne 0) { throw "msbuild failed" }
 
       - name: Run e2e tests
         run: npm run test:e2e
