@@ -59,7 +59,7 @@ export default class PdftronWvInstance extends LightningElement {
       documentId: record.cv.Id
     };
     console.log("payload", payload);
-    this.iframeWindow.postMessage({ type: "OPEN_DOCUMENT_BLOB", payload }, "*");
+    this.iframeWindow.postMessage({ type: "OPEN_DOCUMENT_BLOB", payload }, this.iframeOrigin);
   }
 
   renderedCallback() {
@@ -117,7 +117,9 @@ export default class PdftronWvInstance extends LightningElement {
     );
 
     viewerElement.addEventListener("ready", () => {
-      this.iframeWindow = viewerElement.querySelector("iframe").contentWindow;
+      const iframe = viewerElement.querySelector("iframe");
+      this.iframeWindow = iframe.contentWindow;
+      this.iframeOrigin = iframe.src ? new URL(iframe.src).origin : "*";
     });
   }
 
@@ -135,14 +137,14 @@ export default class PdftronWvInstance extends LightningElement {
             .then((response) => {
               me.iframeWindow.postMessage(
                 { type: "DOCUMENT_SAVED", response },
-                "*"
+                me.iframeOrigin
               );
               fireEvent(this.pageRef, "refreshOnSave", response);
             })
             .catch((error) => {
               me.iframeWindow.postMessage(
                 { type: "DOCUMENT_SAVED", error },
-                "*"
+                me.iframeOrigin
               );
               fireEvent(this.pageRef, "refreshOnSave", error);
               console.error(event.data.payload.contentDocumentId);
@@ -157,11 +159,11 @@ export default class PdftronWvInstance extends LightningElement {
   };
 
   downloadDocument() {
-    this.iframeWindow.postMessage({ type: "DOWNLOAD_DOCUMENT" }, "*");
+    this.iframeWindow.postMessage({ type: "DOWNLOAD_DOCUMENT" }, this.iframeOrigin);
   }
 
   @api
   closeDocument() {
-    this.iframeWindow.postMessage({ type: "CLOSE_DOCUMENT" }, "*");
+    this.iframeWindow.postMessage({ type: "CLOSE_DOCUMENT" }, this.iframeOrigin);
   }
 }

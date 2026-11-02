@@ -15,9 +15,9 @@
     <script src="lib/webviewer.min.js"></script>
 </head>
 <body>
-    <app>
+    <div id="app">
         @(await Html.RenderComponentAsync<App>(RenderMode.ServerPrerendered))
-    </app>
+    </div>
 
     <script src="_framework/blazor.server.js"></script>
     <script src="js/webviewerScripts.js"></script>

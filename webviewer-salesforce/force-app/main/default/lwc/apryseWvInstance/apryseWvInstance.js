@@ -60,7 +60,7 @@ export default class ApryseWvInstance extends LightningElement {
       documentId: record.cv.Id
     };
 
-    this.iframeWindow.postMessage({ type: 'OPEN_DOCUMENT_BLOB', payload }, '*');
+    this.iframeWindow.postMessage({ type: 'OPEN_DOCUMENT_BLOB', payload }, this.iframeOrigin);
   }
 
   renderedCallback() {
@@ -78,7 +78,7 @@ export default class ApryseWvInstance extends LightningElement {
   }
 
   handleFileSelected(file) {
-    this.iframeWindow.postMessage({type: 'OPEN_DOCUMENT', file: file}, '*')
+    this.iframeWindow.postMessage({type: 'OPEN_DOCUMENT', file: file}, this.iframeOrigin)
   }
 
   handleInitWithCurrentUser() {
@@ -123,7 +123,9 @@ export default class ApryseWvInstance extends LightningElement {
     }, viewerElement);
 
     viewerElement.addEventListener('ready', () => {
-      this.iframeWindow = viewerElement.querySelector('iframe').contentWindow;
+      const iframe = viewerElement.querySelector('iframe');
+      this.iframeWindow = iframe.contentWindow;
+      this.iframeOrigin = iframe.src ? new URL(iframe.src).origin : '*';
     })
 
   }
@@ -136,11 +138,11 @@ export default class ApryseWvInstance extends LightningElement {
           const cvId = event.data.payload.contentDocumentId;
           saveDocument({ json: JSON.stringify(event.data.payload), recordId: this.recordId ? this.recordId : '', cvId: cvId })
           .then((response) => {
-            me.iframeWindow.postMessage({ type: 'DOCUMENT_SAVED', response }, '*')
+            me.iframeWindow.postMessage({ type: 'DOCUMENT_SAVED', response }, me.iframeOrigin)
             fireEvent(this.pageRef, 'refreshOnSave', response);
           })
           .catch(error => {
-            me.iframeWindow.postMessage({ type: 'DOCUMENT_SAVED', error }, '*')
+            me.iframeWindow.postMessage({ type: 'DOCUMENT_SAVED', error }, me.iframeOrigin)
             fireEvent(this.pageRef, 'refreshOnSave', error);
             console.error(event.data.payload.contentDocumentId);
             console.error(JSON.stringify(error));
@@ -154,11 +156,11 @@ export default class ApryseWvInstance extends LightningElement {
   }
 
   downloadDocument() {
-    this.iframeWindow.postMessage({type: 'DOWNLOAD_DOCUMENT' }, '*')
+    this.iframeWindow.postMessage({type: 'DOWNLOAD_DOCUMENT' }, this.iframeOrigin)
   }
 
   @api
   closeDocument() {
-    this.iframeWindow.postMessage({type: 'CLOSE_DOCUMENT' }, '*')
+    this.iframeWindow.postMessage({type: 'CLOSE_DOCUMENT' }, this.iframeOrigin)
   }
 }

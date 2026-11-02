@@ -43,7 +43,7 @@ export class WebViewerControl implements ComponentFramework.StandardControl<IInp
         }, viewerElement)
 
         window.addEventListener("message", (event: MessageEvent) => {
-            if (event.isTrusted && typeof event.data === 'object') {
+            if (event.isTrusted && event.origin === 'http://localhost:3000' && typeof event.data === 'object') {
                 switch (event.data.type) {
                     case 'SAVE_DOCUMENT':
                         this.handleDocSave(event.data.payload.file);
@@ -59,7 +59,7 @@ export class WebViewerControl implements ComponentFramework.StandardControl<IInp
         const payload = {
             file: docUrl
         };
-        this.iframeWindow.postMessage({ type: 'OPEN_DOCUMENT', payload }, '*');
+        this.iframeWindow.postMessage({ type: 'OPEN_DOCUMENT', payload }, 'http://localhost:3000');
     }
 
     private handleDocSave(docUrl: string): void {
