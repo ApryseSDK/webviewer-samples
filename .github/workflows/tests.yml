@@ -147,6 +147,14 @@ jobs:
           Write-Host "Using IIS Express at $found"
           "IISEXPRESS_PATH=$found" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
 
+      - name: Set up MSBuild
+        if: matrix.project == 'webviewer-annotations-aspnet'
+        uses: microsoft/setup-msbuild@6fb02220983dee41ce7ae257b6f4d8f9bf5ed4ce # v2.0.0
+
+      - name: Set up NuGet
+        if: matrix.project == 'webviewer-annotations-aspnet'
+        uses: nuget/setup-nuget@d105a947828025cd7a980103c35ba2bfae586d0f # v2.0.2
+
       - name: Build ASP.NET site
         if: matrix.project == 'webviewer-annotations-aspnet'
         shell: pwsh
