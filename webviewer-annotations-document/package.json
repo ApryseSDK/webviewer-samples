@@ -1,19 +1,22 @@
 {
-  "name": "webviewer-annotations-document-sample",
+  "name": "webviewer-annotations-document",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "postinstall": "node tools/copy-webviewer-files.js",
-    "start": "node server/serve.js"
+    "start": "node server/serve.js",
+    "test:e2e": "playwright test --config __tests__/e2e/config/playwright.config.ts",
+    "test:e2e:ui": "playwright test --config __tests__/e2e/config/playwright.config.ts --ui"
   },
   "author": "Apryse Systems Inc.",
   "devDependencies": {
-    "body-parser": "^1.20.3",
-    "express": "^4.21.2",
-    "fs-extra": "^11.3.0",
-    "multer": "^1.4.5-lts.1",
-    "open": "^10.1.0"
+    "@playwright/test": "^1.64.1",
+    "body-parser": "^2.4.0",
+    "express": "^5.3.0",
+    "fs-extra": "^11.4.1",
+    "multer": "^2.5.0",
+    "open": "^11.0.4"
   },
   "dependencies": {
     "@pdftron/webviewer": "^12.2.1"

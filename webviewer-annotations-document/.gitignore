@@ -6,3 +6,8 @@ node_modules
 server/webviewer-demo.pdf
 client/lib
 client/license-key.js
+
+# Playwright
+__tests__/e2e/test-results/
+__tests__/e2e/playwright-report/
+__tests__/e2e/.auth/
