@@ -3,8 +3,8 @@
 
 // Preload config for faster access
 export async function preloadConfig() {
-  if (configData) {
-    return configData;
+  if (globalThis.configData) {
+    return globalThis.configData;
   }
 
   try {
@@ -12,8 +12,8 @@ export async function preloadConfig() {
     if (!response.ok)
       throw new Error(`Failed to load configuration: ${response.statusText}`);
 
-    configData = await response.json();
-    return configData;
+    globalThis.configData = await response.json();
+    return globalThis.configData;
   } catch (error) {
     console.error('Error loading configuration:', error);
     throw error;
