@@ -5,6 +5,7 @@ let configData = null;
 
 // Selected text clipboard for chatbot context
 let clipboard = '';
+globalThis.clipboard = clipboard;
 
 // Chatbot panel div elements
 let askWebSDKMainDiv = null;

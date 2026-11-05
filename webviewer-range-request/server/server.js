@@ -20,6 +20,19 @@ app.use(cors({
   exposedHeaders: ['Content-Range', 'Accept-Ranges'] // Allowed HTTP headers
 }));
 
+// Parse the start and end byte positions from a matched Range header
+const parseRange = (matches, fileSize) => {
+  if (matches[1] === '' && matches[2]) {
+    // Suffix range: bytes=-22 (last 22 bytes of the file) 
+    const suffixLength = parseInt(matches[2], 10);
+    return { start: fileSize - suffixLength, end: fileSize - 1 };
+  }
+  // Normal range: bytes=0-499 or bytes=500- (from byte 500 to end)
+  const start = Number.parseInt(matches[1], 10);
+  const end = matches[2] ? Number.parseInt(matches[2], 10) : fileSize - 1;
+  return { start, end };
+};
+
 // Serving a linearized file with range requests -------------------------------------------- 
 app.get('/linearized', async (req, res) => {
   try {
@@ -38,19 +51,10 @@ app.get('/linearized', async (req, res) => {
     // Handle range requests
     if (range) {
       const matches = range.match(/bytes=(\d*)-(\d*)/);
-      let start, end;
 
       // Parse range values
       if (matches) {
-        if (matches[1] === '' && matches[2]) {
-          // Suffix range: bytes=-22 (last 22 bytes of the file) 
-          const suffixLength = parseInt(matches[2], 10);
-          start = fileSize - suffixLength;
-          end = fileSize - 1;
-        } else { // Normal range: bytes=0-499 or bytes=500- (from byte 500 to end)
-          start = parseInt(matches[1], 10);
-          end = matches[2] ? parseInt(matches[2], 10) : fileSize - 1;
-        }
+        const { start, end } = parseRange(matches, fileSize);
 
         // Validate range
         if (start >= fileSize || start < 0 || end >= fileSize || end < start) {

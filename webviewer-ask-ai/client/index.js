@@ -33,16 +33,16 @@ WebViewer({
   // to be added as context for the chatbot to be processed.
   // The text selection can span multiple pages
   tool.addEventListener('selectionComplete', (startQuad, allQuads) => {
-    clipboard = '';
+    globalThis.clipboard = '';
     Object.keys(allQuads).forEach(pageNum => {
       const text = documentViewer.getSelectedText(pageNum);
-      clipboard += text + `\n<<PAGE_BREAK>> Page ${pageNum}\n`;
+      globalThis.clipboard += text + `\n<<PAGE_BREAK>> Page ${pageNum}\n`;
     });
   });
 
   // Listen for text deselection event
   documentViewer.addEventListener('textSelected', (quads, selectedText, pageNumber) => {
-    clipboard = selectedText;
+    globalThis.clipboard = selectedText;
   });
 
   // Listen for document loaded event to initialize the chatbot panel
@@ -50,7 +50,7 @@ WebViewer({
   // selected text (clipboard), chatbot panel contents, conversation log
   documentViewer.addEventListener('documentLoaded', async () => {
     // Clear selected text (clipboard)
-    clipboard = '';
+    globalThis.clipboard = '';
     // Clear the chatbot panel array of contents, but keep the same reference
     questionsLIs = [];
     // Clear chatbot panel conversation log

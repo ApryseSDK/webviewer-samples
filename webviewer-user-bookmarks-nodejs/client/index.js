@@ -1,5 +1,5 @@
-var viewerElement = document.getElementById('viewer');
-var DOCUMENT_ID = 'webviewer-demo-1';
+const viewerElement = document.getElementById('viewer');
+const DOCUMENT_ID = 'webviewer-demo-1';
 
 WebViewer({
   path: 'lib',
