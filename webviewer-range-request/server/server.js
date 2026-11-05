@@ -28,8 +28,8 @@ const parseRange = (matches, fileSize) => {
     return { start: fileSize - suffixLength, end: fileSize - 1 };
   }
   // Normal range: bytes=0-499 or bytes=500- (from byte 500 to end)
-  const start = parseInt(matches[1], 10);
-  const end = matches[2] ? parseInt(matches[2], 10) : fileSize - 1;
+  const start = Number.parseInt(matches[1], 10);
+  const end = matches[2] ? Number.parseInt(matches[2], 10) : fileSize - 1;
   return { start, end };
 };
 
