@@ -127,7 +127,7 @@ const App = () => {
 
             for (col = 0; col < columns; col++) {
               var x = col * triSide;
-              var y = row * rowHeight;
+              const y = row * rowHeight;
               var clr;
 
               if (row % 2 !== 0) {
