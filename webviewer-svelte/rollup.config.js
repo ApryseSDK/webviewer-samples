@@ -4,6 +4,8 @@ import commonjs from '@rollup/plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import terser from '@rollup/plugin-terser';
 import css from 'rollup-plugin-css-only';
+import replace from '@rollup/plugin-replace';
+import 'dotenv/config';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -16,6 +18,12 @@ export default {
 		file: 'public/bundle.js'
 	},
 	plugins: [
+		// inject the license key from the .env file
+		replace({
+			preventAssignment: true,
+			'process.env.DEMO_KEY': JSON.stringify(process.env.DEMO_KEY || '')
+		}),
+
 		svelte({
 			compilerOptions: {
 				// enable run-time checks when not in production
