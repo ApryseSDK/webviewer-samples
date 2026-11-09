@@ -114,11 +114,11 @@ const App = () => {
           ctx.fillRect(0, 0, annotWidth, annotHeight);
           ctx.lineWidth = 1;
 
-          var hueStart = rnd(0, 360);
-          var triSide = 40;
-          var halfSide = triSide / 2;
-          var rowHeight = Math.floor(triSide * heightScale);
-          var columns = Math.ceil(canvasWidth / triSide) + 1;
+          const hueStart = rnd(0, 360);
+          const triSide = 40;
+          const halfSide = triSide / 2;
+          const rowHeight = Math.floor(triSide * heightScale);
+          const columns = Math.ceil(canvasWidth / triSide) + 1;
           var rows = Math.ceil(canvasHeight / rowHeight);
 
           var col, row;
