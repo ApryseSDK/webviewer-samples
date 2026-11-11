@@ -1,16 +1,16 @@
 import React, { act } from 'react';
 import { createRoot } from 'react-dom/client';
 import WebViewer from '@pdftron/webviewer';
-import StampCreation from '../src/components/StampCreation';
-import { initializeStampCreation } from '../src/components/StampCreation/bootstrap.ts';
-import { createDesigner } from '../src/components/StampCreation/designer.ts';
-import { createStampPanel } from '../src/components/StampCreation/native-stamp-panel.ts';
+import StampCreation from '../../src/components/StampCreation';
+import { initializeStampCreation } from '../../src/components/StampCreation/bootstrap.ts';
+import { createDesigner } from '../../src/components/StampCreation/designer.ts';
+import { createStampPanel } from '../../src/components/StampCreation/native-stamp-panel.ts';
 
 // Mock WebViewer and the stamp creation modules since they require a real browser
 // environment and static assets that aren't available in the test environment.
 jest.mock('@pdftron/webviewer', () => jest.fn());
-jest.mock('../src/components/StampCreation/designer.ts', () => ({ createDesigner: jest.fn() }));
-jest.mock('../src/components/StampCreation/native-stamp-panel.ts', () => ({ createStampPanel: jest.fn() }));
+jest.mock('../../src/components/StampCreation/designer.ts', () => ({ createDesigner: jest.fn() }));
+jest.mock('../../src/components/StampCreation/native-stamp-panel.ts', () => ({ createStampPanel: jest.fn() }));
 
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 

@@ -33,7 +33,7 @@ const createMockInstance = () => {
 const loadSample = async (instance) => {
   WebViewer.mockResolvedValue(instance);
   jest.isolateModules(() => {
-    require('../index.js');
+    require('../../index.js');
   });
   // Let the WebViewer promise resolve and onLoad run.
   await Promise.resolve();
