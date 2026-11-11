@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
-import { createSigningFunctionMap } from '../src/signingUIConfig';
+import { createSigningFunctionMap } from '../../src/signingUIConfig';
 
 class SignatureWidgetAnnotation {
   constructor(id, pageNumber, y, visible = true) {
