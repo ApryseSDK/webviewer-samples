@@ -1,6 +1,6 @@
 import React, { act } from 'react';
 import { createRoot } from 'react-dom/client';
-import App from '../src/App';
+import App from '../../src/App';
 
 // The sample reads WebViewer Core from a global script tag, so a mock Core is
 // installed on globalThis since the real library needs a browser and static assets.

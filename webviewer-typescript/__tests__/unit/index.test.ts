@@ -18,7 +18,7 @@ const createMockInstance = () => ({
 const loadSample = async (instance: ReturnType<typeof createMockInstance>): Promise<void> => {
   mockedWebViewer.mockResolvedValue(instance);
   jest.isolateModules(() => {
-    require('../src/index.ts');
+    require('../../src/index.ts');
   });
   // Let the WebViewer promise resolve and the .then callback run.
   await Promise.resolve();
