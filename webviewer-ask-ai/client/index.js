@@ -52,13 +52,13 @@ WebViewer({
     // Clear selected text (clipboard)
     globalThis.clipboard = '';
     // Clear the chatbot panel array of contents, but keep the same reference
-    questionsLIs = [];
+    globalThis.questionsLIs = [];
     // Clear chatbot panel conversation log
-    conversationLog = [];
+    globalThis.conversationLog = [];
 
     // Load document manager
-    loadedDocument = new DocumentManager(documentViewer);
-    await loadedDocument.initialize().then(() => {
+    globalThis.loadedDocument = new DocumentManager(documentViewer);
+    await globalThis.loadedDocument.initialize().then(() => {
       // Once the loaded document manager is initialized, set up the chatbot panel
       // Ensure chatbot panel is properly set up
       UI.closeElements(['askWebSDKPanel']);
@@ -66,11 +66,11 @@ WebViewer({
       UI.setPanelWidth('askWebSDKPanel', 600);
 
       // Initialize chatbot
-      chatbot = new Chatbot();
+      globalThis.chatbot = new Chatbot();
 
       // Always run contextual questions when history is empty
-      if (chatbot.messagesHistory.length === 0)
-        chatbot.askQuestionByPrompt('DOCUMENT_CONTEXTUAL_QUESTIONS');
+      if (globalThis.chatbot.messagesHistory.length === 0)
+        globalThis.chatbot.askQuestionByPrompt('DOCUMENT_CONTEXTUAL_QUESTIONS');
     }).catch(error => {
       console.error('Failed to initialize document manager:', error);
       return;

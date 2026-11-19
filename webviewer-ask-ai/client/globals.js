@@ -1,7 +1,7 @@
 // Globals for the app
-let loadedDocument = null;
-let chatbot = null;
-let configData = null;
+globalThis.loadedDocument = null;
+globalThis.chatbot = null;
+globalThis.configData = null;
 
 // Selected text clipboard for chatbot context
 let clipboard = '';
@@ -17,9 +17,9 @@ globalThis.assistantContentDiv = assistantContentDiv;
 
 // Chatbot panel conversation log
 // to keep track of assistant and human messages
-let conversationLog = [];
+globalThis.conversationLog = [];
 // Store question LIs for updating with contextual questions
-let questionsLIs = [];
+globalThis.questionsLIs = [];
 
 // Helper function to check if text contains any keyword from a list
 const containsAny = (text, list) => {
