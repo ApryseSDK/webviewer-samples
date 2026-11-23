@@ -13,4 +13,5 @@ const copyFiles = async () => {
   }
 };
 
-await copyFiles();
+// Errors are handled inside copyFiles. Top-level await is not available in CommonJS.
+void copyFiles();
