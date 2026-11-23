@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "dotnet run",
-    "postinstall": "node tools/copy-webviewer-files.js"
+    "postinstall": "node tools/copy-webviewer.js"
   },
   "devDependencies": {
     "fs-extra": "^7.0.1"
