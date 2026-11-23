@@ -3,10 +3,16 @@
   "version": "1.0.0",
   "scripts": {
     "start": "dotnet run",
-    "postinstall": "node tools/copy-webviewer.js"
+    "postinstall": "node tools/copy-webviewer.js",
+    "test": "jest",
+    "test:e2e": "npx playwright install chromium && npx playwright test --config=__tests__/config/playwright.config.ts",
+    "test:e2e:ui": "npx playwright install chromium && npx playwright test --ui --config=__tests__/config/playwright.config.ts"
   },
   "devDependencies": {
-    "fs-extra": "^7.0.1"
+    "@happy-dom/jest-environment": "^21.0.4",
+    "@playwright/test": "^1.65.1",
+    "fs-extra": "^7.0.1",
+    "jest": "^30.5.2"
   },
   "repository": {
     "type": "git",

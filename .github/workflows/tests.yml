@@ -125,6 +125,12 @@ jobs:
         shell: bash
         run: npm run postinstall --if-present
 
+      - name: Set up .NET
+        if: matrix.project == 'webviewer-blazor'
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: 11.0.x
+
       - name: Ensure IIS Express is installed
         if: matrix.project == 'webviewer-annotations-aspnet'
         shell: pwsh
