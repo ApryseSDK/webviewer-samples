@@ -5,6 +5,7 @@
     "webviewer-vue",
     "webviewer-nextjs",
     "webviewer-nuxtjs",
-    "webviewer-svelte"
+    "webviewer-svelte",
+    "webviewer-electron"
   ]
 }
