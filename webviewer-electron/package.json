@@ -13,6 +13,11 @@
   "keywords": [],
   "author": "Apryse",
   "license": "ISC",
+  "dependencies": {
+    "@pdftron/webviewer": "^12.2.1",
+    "electron-squirrel-startup": "^1.0.1"
+  },
+  "devDependencies": {
     "@babel/core": "^7.29.13",
     "@babel/preset-env": "^7.29.14",
     "@babel/preset-typescript": "^7.29.7",
@@ -23,15 +28,10 @@
     "@playwright/test": "^1.65.1",
     "babel-jest": "^30.5.2",
     "babel-plugin-transform-vite-meta-env": "^1.0.3",
+    "electron": "35.0.3",
+    "fs-extra": "^11.3.0",
     "jest": "^30.5.2",
     "jest-mock": "^30.5.2",
-    "jest-util": "^30.5.1",
-  "dependencies": {
-    "@pdftron/webviewer": "^12.2.1",
-    "electron-squirrel-startup": "^1.0.1"
-  },
-  "devDependencies": {
-    "electron": "35.0.3",
-    "fs-extra": "^11.3.0"
+    "jest-util": "^30.5.1"
   }
 }
