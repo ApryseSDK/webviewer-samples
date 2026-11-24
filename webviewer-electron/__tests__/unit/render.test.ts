@@ -45,6 +45,24 @@ const click = async (id: string) => {
   await flushPromises();
 };
 
+describe('WebViewer Electron renderer', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+
+    // Mirror the elements from index.html that the renderer looks up.
+    document.body.innerHTML = `
+      <button id="open">Open File</button>
+      <button id="save">Save File</button>
+      <div id="viewer"></div>
+    `;
+
+    // API exposed to the renderer by preload.ts
+    Object.defineProperty(window, 'electronAPI', {
+      configurable: true,
+      value: { openFile: jest.fn(), saveFile: jest.fn(async () => undefined) },
+    });
+  });
+
   it('applies the dark theme and disables the download button', async () => {
     const instance = createMockInstance();
     await loadSample(instance);

@@ -14,8 +14,8 @@ jest.mock(
 
 // API exposed to the renderer by preload.js
 type ElectronAPI = {
-  openFile: () => Promise<string | undefined>;
-  saveFile: (arr: Uint8Array) => Promise<void>;
+  openFile: () => Promise<{ name: string; data: Uint8Array } | undefined>;
+  saveFile: (arr: Uint8Array, fileName: string) => Promise<void>;
 };
 
 describe('WebViewer Electron preload script', () => {
@@ -35,7 +35,7 @@ describe('WebViewer Electron preload script', () => {
     expect(ipcRenderer.invoke).toHaveBeenCalledWith('dialog:openFile');
 
     const arr = new Uint8Array([1, 2, 3]);
-    void api.saveFile(arr);
-    expect(ipcRenderer.invoke).toHaveBeenCalledWith('dialog:saveFile', arr);
+    void api.saveFile(arr, 'sample.pdf');
+    expect(ipcRenderer.invoke).toHaveBeenCalledWith('dialog:saveFile', arr, 'sample.pdf');
   });
 });

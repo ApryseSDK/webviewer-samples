@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { _electron as electron, expect, test, type ElectronApplication, type Page } from '@playwright/test';
@@ -6,18 +7,24 @@ import { projectRoot } from '../config/playwright.config';
 
 let electronApp: ElectronApplication;
 let page: Page;
+let userDataDir: string;
 
 const launchSampleApp = async (): Promise<void> => {
   // Terminals inside Electron-based editors (e.g. VS Code) set this variable,
   // which would make Electron start as plain Node.js instead of an app.
   const { ELECTRON_RUN_AS_NODE: _runAsNode, ...env } = process.env;
 
+  // WebViewer stores its trial start time in localStorage, which Electron persists in the
+  // user data folder. A fresh folder per launch keeps an old trial from expiring the tests.
+  userDataDir = fs.mkdtempSync(path.join(os.tmpdir(), 'webviewer-electron-e2e-'));
+
   electronApp = await electron.launch({
     args: [
       // Keeps the window hidden unless E2E_SHOW_WINDOW is set (useful for debugging).
       ...(env.E2E_SHOW_WINDOW ? [] : ['-r', path.join(projectRoot, '__tests__/config/hide-window.cjs')]),
-      // Launches `main` from package.json (`src/main.js`).
+      // Launches `main` from package.json (`.vite/build/main.cjs`).
       '.',
+      `--user-data-dir=${userDataDir}`,
       ...(process.platform === 'linux' ? ['--no-sandbox'] : []),
     ],
     cwd: projectRoot,
@@ -37,12 +44,13 @@ test.beforeEach(async () => {
 
 test.afterEach(async () => {
   await electronApp?.close();
+  fs.rmSync(userDataDir, { recursive: true, force: true });
 });
 
 test('WebViewer assets are bundled as indication webviewer is installed successfully', async () => {
-  // `render.js` loads WebViewer from `../lib/webviewer`, relative to `src/index.html`.
+  // `render.ts` loads WebViewer from `./lib/webviewer`, relative to the bundled `index.html`.
   const rendererDir = path.dirname(fileURLToPath(page.url()));
-  expect(fs.existsSync(path.join(rendererDir, '../lib/webviewer/core/webviewer-core.min.js'))).toBeTruthy();
+  expect(fs.existsSync(path.join(rendererDir, 'lib/webviewer/core/webviewer-core.min.js'))).toBeTruthy();
 });
 
 test('renders document and core viewer controls', async () => {
