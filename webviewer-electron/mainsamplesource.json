@@ -2,7 +2,7 @@
   "githubId": "de39c870-2100-4e61-bb63-5a636b96362f",
   "files": [
     {
-      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-electron/src/render.js",
+      "path": "ApryseSDK/webviewer-samples/refs/heads/main/webviewer-electron/src/render.ts",
       "description": "",
       "reason": ""
     }

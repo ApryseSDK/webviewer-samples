@@ -14,8 +14,15 @@ export default async function globalSetup() {
     run('node node_modules/electron/install.js');
   }
 
+<<<<<<< Updated upstream
   // `npm start` copies the WebViewer assets into `lib/webviewer`; do the same here.
   run('npm run copy-webviewer');
+=======
+  // Build the main, preload and renderer bundles into `.vite/`. The tests
+  // launch that build with the Electron binary from node_modules, since the
+  // packaged app has fuses that block Playwright from attaching to it.
+  run('npx electron-forge package');
+>>>>>>> Stashed changes
 
   // Electron needs a display. On headless Linux (e.g. CI) start a virtual one.
   if (process.platform === 'linux' && !process.env.DISPLAY) {

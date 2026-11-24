@@ -96,4 +96,4 @@ out/
 /test-results
 
 # webviewer static files
-lib/webviewer/
+public/lib/webviewer/

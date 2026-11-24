@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "preserve",
+    "moduleResolution": "bundler",
+    "allowJs": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "types": ["node", "jest"]
+  },
+  "include": ["src/**/*", "__tests__/**/*", "*.ts", "*.mts"]
+}
