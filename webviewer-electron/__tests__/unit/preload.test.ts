@@ -12,12 +12,6 @@ jest.mock(
   { virtual: true },
 );
 
-// API exposed to the renderer by preload.js
-type ElectronAPI = {
-  openFile: () => Promise<{ name: string; data: Uint8Array } | undefined>;
-  saveFile: (arr: Uint8Array, fileName: string) => Promise<void>;
-};
-
 describe('WebViewer Electron preload script', () => {
   it('exposes the file dialog API to the renderer through IPC', () => {
     jest.isolateModules(() => {
@@ -29,7 +23,7 @@ describe('WebViewer Electron preload script', () => {
       saveFile: expect.any(Function),
     });
 
-    const api = jest.mocked(contextBridge.exposeInMainWorld).mock.calls[0][1] as ElectronAPI;
+    const api = jest.mocked(contextBridge.exposeInMainWorld).mock.calls[0][1] as Window['electronAPI'];
 
     void api.openFile();
     expect(ipcRenderer.invoke).toHaveBeenCalledWith('dialog:openFile');

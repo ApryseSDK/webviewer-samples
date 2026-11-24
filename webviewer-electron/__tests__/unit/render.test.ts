@@ -47,20 +47,35 @@ const click = async (id: string) => {
 
 describe('WebViewer Electron renderer', () => {
   beforeEach(() => {
-    jest.clearAllMocks();
-
-    // Mirror the elements from index.html that the renderer looks up.
     document.body.innerHTML = `
       <button id="open">Open File</button>
       <button id="save">Save File</button>
       <div id="viewer"></div>
     `;
+    mockedWebViewer.mockReset();
+    window.electronAPI = {
+      openFile: jest.fn(),
+      saveFile: jest.fn(async () => undefined),
+    };
+  });
 
-    // API exposed to the renderer by preload.ts
-    Object.defineProperty(window, 'electronAPI', {
-      configurable: true,
-      value: { openFile: jest.fn(), saveFile: jest.fn(async () => undefined) },
-    });
+  afterEach(() => {
+    delete process.env.VITE_DEMO_KEY;
+  });
+
+  it('initializes WebViewer in the viewer element with the license key', async () => {
+    process.env.VITE_DEMO_KEY = 'test-license-key';
+    await loadSample(createMockInstance());
+
+    expect(mockedWebViewer).toHaveBeenCalledTimes(1);
+    expect(mockedWebViewer).toHaveBeenCalledWith(
+      {
+        path: './lib/webviewer',
+        initialDoc: 'https://apryse.s3.amazonaws.com/public/files/samples/WebviewerDemoDoc.pdf',
+        licenseKey: 'test-license-key',
+      },
+      document.getElementById('viewer'),
+    );
   });
 
   it('applies the dark theme and disables the download button', async () => {

@@ -38,6 +38,46 @@ const launchSampleApp = async (): Promise<void> => {
   }
 };
 
+// Replaces the native dialog so the open/save flows can run without user input.
+const stubShowOpenDialog = async (filePaths: string[]): Promise<void> => {
+  await electronApp.evaluate(({ dialog }, paths) => {
+    dialog.showOpenDialog = async () => ({ canceled: false, filePaths: paths });
+  }, filePaths);
+};
+
+const stubShowSaveDialog = async (filePath: string): Promise<void> => {
+  await electronApp.evaluate(({ dialog }, savePath) => {
+    dialog.showSaveDialog = async () => ({ canceled: false, filePath: savePath });
+  }, filePath);
+};
+
+const getViewerState = () => {
+  return page.evaluate(() => {
+    const dynamicWindow = window as Window & {
+      getInstance?: (element: Element) => {
+        Core?: {
+          documentViewer?: {
+            getDocument: () => { getFilename: () => string } | null;
+            getPageCount: () => number;
+          };
+        };
+      };
+    };
+    const viewerHost = document.querySelector('#viewer');
+    if (!viewerHost || typeof dynamicWindow.getInstance !== 'function') {
+      return null;
+    }
+
+    const documentViewer = dynamicWindow.getInstance(viewerHost)?.Core?.documentViewer;
+    const doc = documentViewer?.getDocument();
+    if (!documentViewer || !doc) {
+      return null;
+    }
+
+    return { filename: doc.getFilename(), pageCount: documentViewer.getPageCount() };
+  });
+};
+
 test.beforeEach(async () => {
   await launchSampleApp();
 });
@@ -71,3 +111,26 @@ test('renders document and core viewer controls', async () => {
   await expect(pageNumberInput).toHaveValue('2');
 });
 
+test('saves the document and opens it again through the native dialogs', async () => {
+  await expect.poll(getViewerState).not.toBeNull();
+  const initialState = await getViewerState();
+
+  const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), 'webviewer-electron-e2e-'));
+  const savedPath = path.join(outputDir, 'annotated.pdf');
+
+  try {
+    // Save the loaded document to the stubbed path.
+    await stubShowSaveDialog(savedPath);
+    await page.getByRole('button', { name: 'Save File' }).click();
+    await expect.poll(() => fs.existsSync(savedPath) && fs.statSync(savedPath).size > 0).toBe(true);
+    expect(fs.readFileSync(savedPath).subarray(0, 4).toString()).toBe('%PDF');
+
+    // Open the saved file and verify WebViewer loads it.
+    await stubShowOpenDialog([savedPath]);
+    await page.getByRole('button', { name: 'Open File' }).click();
+    await expect.poll(async () => (await getViewerState())?.filename).toBe('annotated.pdf');
+    expect((await getViewerState())?.pageCount).toBe(initialState?.pageCount);
+  } finally {
+    fs.rmSync(outputDir, { recursive: true, force: true });
+  }
+});
