@@ -16,7 +16,7 @@ const launchSampleApp = async (): Promise<void> => {
     args: [
       // Keeps the window hidden unless E2E_SHOW_WINDOW is set (useful for debugging).
       ...(env.E2E_SHOW_WINDOW ? [] : ['-r', path.join(projectRoot, '__tests__/config/hide-window.cjs')]),
-      // Launches `main` from package.json, which points at the `.vite/build` output.
+      // Launches `main` from package.json (`src/main.js`).
       '.',
       ...(process.platform === 'linux' ? ['--no-sandbox'] : []),
     ],
@@ -40,8 +40,9 @@ test.afterEach(async () => {
 });
 
 test('WebViewer assets are bundled as indication webviewer is installed successfully', async () => {
+  // `render.js` loads WebViewer from `../lib/webviewer`, relative to `src/index.html`.
   const rendererDir = path.dirname(fileURLToPath(page.url()));
-  expect(fs.existsSync(path.join(rendererDir, 'lib/webviewer/core/webviewer-core.min.js'))).toBeTruthy();
+  expect(fs.existsSync(path.join(rendererDir, '../lib/webviewer/core/webviewer-core.min.js'))).toBeTruthy();
 });
 
 test('renders document and core viewer controls', async () => {
@@ -49,7 +50,8 @@ test('renders document and core viewer controls', async () => {
   await expect(page.getByRole('button', { name: 'Save File' })).toBeVisible();
   await expect(page.locator('#viewer')).toBeVisible();
 
-  await expect(page.getByRole('main', { name: 'Document Content' })).toBeVisible();
+  // WebViewer loads its UI and the remote sample document, which can take longer than the default timeout.
+  await expect(page.getByRole('main', { name: 'Document Content' })).toBeVisible({ timeout: 30_000 });
   await expect(page.getByRole('button', { name: 'Search' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Zoom in' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Left Panel' })).toBeVisible();

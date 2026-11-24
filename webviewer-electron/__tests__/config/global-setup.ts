@@ -14,6 +14,9 @@ export default async function globalSetup() {
     run('node node_modules/electron/install.js');
   }
 
+  // `npm start` copies the WebViewer assets into `lib/webviewer`; do the same here.
+  run('npm run copy-webviewer');
+
   // Electron needs a display. On headless Linux (e.g. CI) start a virtual one.
   if (process.platform === 'linux' && !process.env.DISPLAY) {
     const display = ':99';
