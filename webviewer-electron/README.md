@@ -20,68 +20,35 @@ It contains a placeholder line for providing the license key.
 
 If this sample was obtained using the `create-webviewer-app` tool then the key has already been set in the `.env` file and no further action is needed.
 
-## Install
+## Install and Run
 
-Before you begin, make sure your development environment includes [Node.js](https://nodejs.org/en/).
-
-In the terminal, navigate to the project directory:
-
-```
-cd webviewer-samples/webviewer-electron
-```
-
-Then install dependencies with the preferred package manager.
+In a terminal opened to the project directory, use the preferred package manager to install the dependencies and start the Electron server. Installing the dependencies also copies the WebViewer files into `public/lib`.
 
 **Using npm**
 
 ```
 npm install
-```
-
-**Using pnpm**
-
-```
-pnpm install
-```
-
-**Using yarn**
-
-```
-yarn
-```
-
-**Using bun**
-
-```
-bun install
-```
-
-
-## Run
-
-Use the preferred package manager to run the `dev` script to start a local development server and serve the Electron Forge app.
-
-**Using npm**
-
-```
 npm run dev
 ```
 
 **Using pnpm**
 
 ```
+pnpm install
 pnpm dev
 ```
 
 **Using yarn**
 
 ```
+yarn
 yarn dev
 ```
 
 **Using bun**
 
 ```
+bun install
 bun run dev
 ```
 
