@@ -119,16 +119,16 @@ const App = () => {
           const halfSide = triSide / 2;
           const rowHeight = Math.floor(triSide * heightScale);
           const columns = Math.ceil(canvasWidth / triSide) + 1;
-          var rows = Math.ceil(canvasHeight / rowHeight);
+          const rows = Math.ceil(canvasHeight / rowHeight);
 
-          var col, row;
+          let col, row;
           for (row = 0; row < rows; row++) {
-            var hue = hueStart + row * 3;
+            const hue = hueStart + row * 3;
 
             for (col = 0; col < columns; col++) {
-              var x = col * triSide;
+              let x = col * triSide;
               const y = row * rowHeight;
-              var clr;
+              let clr;
 
               if (row % 2 !== 0) {
                 x -= halfSide;
