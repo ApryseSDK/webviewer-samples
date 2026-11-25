@@ -91,5 +91,9 @@ typings/
 # Electron-Forge
 out/
 
+# testing
+/playwright-report
+/test-results
+
 # webviewer static files
-lib/webviewer/
+public/lib/webviewer/

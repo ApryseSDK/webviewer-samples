@@ -1,0 +1,10 @@
+# Electron Forge requires a flat node_modules when using pnpm
+nodeLinker: hoisted
+
+# pnpm blocks dependency install scripts by default, and fails the install for any it hasn't been told about
+allowBuilds:
+  electron: true
+  # Selects the 7-Zip binary that the Squirrel maker needs for `make` on Windows
+  electron-winstaller: true
+  # Only builds from source when explicitly requested; prebuilt binaries are used otherwise
+  '@parcel/watcher': false

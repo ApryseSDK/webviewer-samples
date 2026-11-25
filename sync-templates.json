@@ -6,6 +6,7 @@
     "webviewer-nextjs",
     "webviewer-nuxtjs",
     "webviewer-svelte",
+    "webviewer-electron",
     "webviewer-blazor"
   ]
 }
