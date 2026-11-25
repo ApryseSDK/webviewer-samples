@@ -20,6 +20,6 @@
   },
   "author": "PDFTron Systems Inc.",
   "dependencies": {
-    "@pdftron/webviewer": "^12.2.1"
+    "@pdftron/webviewer": "^12.3.0"
   }
 }
