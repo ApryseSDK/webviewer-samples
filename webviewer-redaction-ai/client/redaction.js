@@ -3,6 +3,31 @@ function removeLeadingNumbering(text) {
   return text.replace(pattern, '');
 }
 
+function phoneToRegex(phone) {
+  // Remove anything that is not a digit
+  const digits = phone.replace(/\D/g, '');
+
+  // Break into parts
+  const area = digits.slice(0, 3);
+  const exchange = digits.slice(3, 6);
+  const line = digits.slice(6);
+
+  // Return a regex allowing optional spaces, dashes, and parentheses
+  return String.raw`\(?\s*${area}\s*\)?\s*\-?\s*${exchange}\s*\-?\s*${line}`;
+}
+
+function emailToRegex(email) {
+  // Split email into parts
+  const [local, domain] = email.split('@');
+  const domainParts = domain.split('.');
+
+  // Escape parts and allow optional whitespace around @ and .
+  const domainRegex = domainParts.join(String.raw`\s*\.\s*`);
+
+  const pattern = String.raw`\s*@\s*`;
+  return `${local}${pattern}${domainRegex}`;
+}
+
 // Function to create redaction annotations from AI analysis results
 const applyRedactions = async () => {
   const { documentViewer, Search, annotationManager, Annotations } = WebViewer.getInstance().Core;
@@ -31,14 +56,13 @@ const applyRedactions = async () => {
   const modes = [
     Search.Mode.PAGE_STOP,
     Search.Mode.HIGHLIGHT,
-    Search.Mode.CASE_SENSITIVE,
     Search.Mode.WHOLE_WORD
   ];
-  const searchMode = modes.reduce((combinedModes, mode) => combinedModes | mode, 0);
 
+  let redactAnnotations = [];
   // Search for PII entities then create redactions
-  let searchOptions = null;
   for (const piiEntity of piiEntities) {
+    let searchMode = modes.reduce((combinedModes, mode) => combinedModes | mode, 0);
 
     const separatorIndex = piiEntity.indexOf(':');
     if (separatorIndex === -1)
@@ -51,42 +75,39 @@ const applyRedactions = async () => {
 
     classification = removeLeadingNumbering(classification);
 
-    await new Promise((resolve) => {
-      searchOptions = {
-        // search the entire document
-        fullSearch: true,
-        // called when search is complete
-        onDocumentEnd: () => {
-          resolve();
-        },
-        // called when a search result is found
-        onResult: (result) => {
-          if (result.resultCode === Search.ResultCode.FOUND) {
-            // Get the page number and the quads for the search result
-            const { pageNum, quads } = result;
+    let searchStream;
+    if (classification == "Phone") {
+      const piiPhone = phoneToRegex(pii).toString();
+      searchMode |= Search.Mode.REGEX;
+      searchStream = documentViewer.search(piiPhone, searchMode);
+    }
+    else if (classification == "Email") {
+      const piiEmail = emailToRegex(pii).toString();
+      searchMode |= Search.Mode.REGEX;
+      searchStream = documentViewer.search(piiEmail, searchMode);
+    }
+    else
+      searchStream = documentViewer.search(pii, searchMode); // Setting up stream using your string to search.
 
-            // Create a new redaction annotation using the quads and page number
-            const redactAnnot = new Annotations.RedactionAnnotation({
-              PageNumber: pageNum,
-              Quads: quads.map((quad) => quad.getPoints())
-            });
+    const searchResults = await searchStream.getAll(); // NOSONAR - javascript:S9382 sequential await is required to obtain all results.
+    for (const result of searchResults) {
+      const redactAnnot = new Annotations.RedactionAnnotation({
+        PageNumber: result.pageNum,
+        Quads: result.quads.map((quad) => quad.getPoints())
+      });
 
-            redactAnnot.Author = "AI Redaction";
-            redactAnnot.OverlayText = classification;
-            redactAnnot.FontSize = '10pt';
-            redactAnnot.setContents(classification);
-            redactAnnot.setCustomData('trn-annot-preview', documentViewer.getSelectedText(redactAnnot.PageNumber));
-
-            // Apply and redraw the redaction annotation
-            annotationManager.addAnnotations([redactAnnot]);
-            annotationManager.drawAnnotationsFromList([redactAnnot]);
-          }
-        },
-      };
-
-      documentViewer.textSearchInit(pii, searchMode, searchOptions);
-    });
+      redactAnnot.Author = "AI Redaction";
+      redactAnnot.OverlayText = classification;
+      redactAnnot.FontSize = '10pt';
+      redactAnnot.setContents(classification);
+      redactAnnot.setCustomData('trn-annot-preview', documentViewer.getSelectedText(redactAnnot.PageNumber));
+      redactAnnotations.push(redactAnnot);
+    }
   }
+
+  // Apply and redraw the redaction annotations collection
+  annotationManager.addAnnotations(redactAnnotations);
+  annotationManager.drawAnnotationsFromList(redactAnnotations);
 };
 
 export { applyRedactions };
