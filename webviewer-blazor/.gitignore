@@ -5,6 +5,10 @@ obj
 wwwroot/lib
 WebViewer.zip
 
+# testing
+/playwright-report
+/test-results
+
 # compiled output
 /dist
 /tmp
