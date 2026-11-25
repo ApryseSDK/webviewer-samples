@@ -6,8 +6,8 @@ function handleSummarization(question) {
   }
   // summarize selected text (clipboard) in document
   if (containsAny(question, configData.KEYWORDS.selection)) {
-    if (clipboard && clipboard.trim() !== '')
-      chatbot.summarizeTextByPrompt('SELECTED_TEXT_SUMMARY', clipboard);
+    if (globalThis.clipboard && globalThis.clipboard.trim() !== '')
+      chatbot.summarizeTextByPrompt('SELECTED_TEXT_SUMMARY', globalThis.clipboard);
     else
       chatbot.bubble('Please select text in the document first.', 'assistant');
   }
@@ -162,7 +162,7 @@ const functionMap = {
   // Handle selected text (clipboard) summary popup click
   'askWebSDKPopupClick': () => {
     chatbot.bubble('Summarize the selected text.', 'human');
-    chatbot.summarizeTextByPrompt('SELECTED_TEXT_SUMMARY', clipboard);
+    chatbot.summarizeTextByPrompt('SELECTED_TEXT_SUMMARY', globalThis.clipboard);
   },
 };
 

@@ -5,23 +5,24 @@
   "source": "index.js",
   "scripts": {
     "start": "parcel index.html --open http://localhost:1234",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: test type not specified\" && exit 1",
+    "test:unit": "jest",
+    "test:e2e": "npx playwright install && npx playwright test --config=__tests__/config/playwright.config.ts",
+    "test:e2e:ui": "npx playwright install && npx playwright test --ui --config=__tests__/config/playwright.config.ts",
     "build": "parcel build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/PDFTron/webviewer-js-sample.git"
-  },
-  "author": "Andrey Safonov",
-  "bugs": {
-    "url": "https://github.com/PDFTron/webviewer-js-sample/issues"
-  },
-  "homepage": "https://github.com/PDFTron/webviewer-js-sample#readme",
+  "author": "Apryse Systems Inc.",
   "dependencies": {
     "@pdftron/webviewer": "^12.2.1"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.29.7",
+    "@happy-dom/jest-environment": "^21.0.4",
     "@parcel/config-default": "^2.12.0",
+    "@playwright/test": "^1.65.0",
+    "@types/node": "^26.6.6",
+    "babel-jest": "^30.5.2",
+    "jest": "^30.5.2",
     "parcel": "^2.13.3",
     "parcel-reporter-multiple-static-file-copier": "^1.0.5"
   },

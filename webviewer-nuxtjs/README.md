@@ -30,7 +30,7 @@ In a terminal opened to the project directory, use the preferred package manager
 npm install
 ```
 
-**Using pnpm**
+**Using pnpm**  
 Create a `pnpm-workspace.yaml` file in the project root:
 ```
 allowBuilds:

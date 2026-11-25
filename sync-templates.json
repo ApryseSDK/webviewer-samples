@@ -4,6 +4,9 @@
     "webviewer-angular",
     "webviewer-vue",
     "webviewer-nextjs",
-    "webviewer-nuxtjs"
+    "webviewer-nuxtjs",
+    "webviewer-svelte",
+    "webviewer-electron",
+    "webviewer-blazor"
   ]
 }

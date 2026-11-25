@@ -7,14 +7,26 @@
     "typescript": "^5.9.3"
   },
   "devDependencies": {
-    "@parcel/config-default": "^2.16.3",
+    "@babel/preset-env": "^7.29.7",
+    "@babel/preset-typescript": "^7.29.7",
+    "@happy-dom/jest-environment": "^21.0.4",
+    "@parcel/config-default": "2.16.3",
+    "@playwright/test": "^1.65.0",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^26.6.6",
+    "babel-jest": "^30.5.2",
     "fs-extra": "^11.3.2",
+    "jest": "^30.5.2",
     "parcel": "2.16.3",
     "parcel-reporter-multiple-static-file-copier": "^1.0.5"
   },
   "scripts": {
     "start": "node scripts/copy-webviewer-files.cjs && parcel build public/index.html --dist-dir dist --public-url / && node server.js",
-    "copy-webviewer": "node scripts/copy-webviewer-files.cjs"
+    "copy-webviewer": "node scripts/copy-webviewer-files.cjs",
+    "test": "echo \"Error: test type not specified\" && exit 1",
+    "test:unit": "jest",
+    "test:e2e": "npx playwright install && npx playwright test --config=__tests__/config/playwright.config.ts",
+    "test:e2e:ui": "npx playwright install && npx playwright test --ui --config=__tests__/config/playwright.config.ts"
   },
   "multipleStaticFileCopier": [
     {

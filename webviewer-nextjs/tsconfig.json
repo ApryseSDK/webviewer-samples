@@ -42,7 +42,7 @@
     ".next/dev/types/**/*.ts",
     "__tests__/config/**/*.ts",
     "__tests__/e2e/**/*.ts",
-    "__tests__/page.test.tsx"
+    "__tests__/unit/**/*.tsx"
   ],
   "exclude": [
     "node_modules"

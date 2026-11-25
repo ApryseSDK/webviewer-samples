@@ -33,16 +33,16 @@ WebViewer({
   // to be added as context for the chatbot to be processed.
   // The text selection can span multiple pages
   tool.addEventListener('selectionComplete', (startQuad, allQuads) => {
-    clipboard = '';
+    globalThis.clipboard = '';
     Object.keys(allQuads).forEach(pageNum => {
       const text = documentViewer.getSelectedText(pageNum);
-      clipboard += text + `\n<<PAGE_BREAK>> Page ${pageNum}\n`;
+      globalThis.clipboard += text + `\n<<PAGE_BREAK>> Page ${pageNum}\n`;
     });
   });
 
   // Listen for text deselection event
   documentViewer.addEventListener('textSelected', (quads, selectedText, pageNumber) => {
-    clipboard = selectedText;
+    globalThis.clipboard = selectedText;
   });
 
   // Listen for document loaded event to initialize the chatbot panel
@@ -50,15 +50,15 @@ WebViewer({
   // selected text (clipboard), chatbot panel contents, conversation log
   documentViewer.addEventListener('documentLoaded', async () => {
     // Clear selected text (clipboard)
-    clipboard = '';
+    globalThis.clipboard = '';
     // Clear the chatbot panel array of contents, but keep the same reference
-    questionsLIs = [];
+    globalThis.questionsLIs = [];
     // Clear chatbot panel conversation log
-    conversationLog = [];
+    globalThis.conversationLog = [];
 
     // Load document manager
-    loadedDocument = new DocumentManager(documentViewer);
-    await loadedDocument.initialize().then(() => {
+    globalThis.loadedDocument = new DocumentManager(documentViewer);
+    await globalThis.loadedDocument.initialize().then(() => {
       // Once the loaded document manager is initialized, set up the chatbot panel
       // Ensure chatbot panel is properly set up
       UI.closeElements(['askWebSDKPanel']);
@@ -66,11 +66,11 @@ WebViewer({
       UI.setPanelWidth('askWebSDKPanel', 600);
 
       // Initialize chatbot
-      chatbot = new Chatbot();
+      globalThis.chatbot = new Chatbot();
 
       // Always run contextual questions when history is empty
-      if (chatbot.messagesHistory.length === 0)
-        chatbot.askQuestionByPrompt('DOCUMENT_CONTEXTUAL_QUESTIONS');
+      if (globalThis.chatbot.messagesHistory.length === 0)
+        globalThis.chatbot.askQuestionByPrompt('DOCUMENT_CONTEXTUAL_QUESTIONS');
     }).catch(error => {
       console.error('Failed to initialize document manager:', error);
       return;

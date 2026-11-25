@@ -3,3 +3,5 @@ dist/
 .cache/
 .parcel-cache/
 lib/
+playwright-report/
+test-results/

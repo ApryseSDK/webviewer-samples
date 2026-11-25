@@ -3,7 +3,17 @@
 // of the AI PII redaction tool.
 
 import { test, expect } from '@playwright/test';
-import { MOCK_DATA, registerApiRouteMocks } from '../../__mocks__/webviewer-redaction-ai.mock.js';
+import { MOCK_DATA, registerApiRouteMocks } from './mocks/webviewer-redaction-ai.mock.js';
+
+const AI_PII_REDACTION_TOOL_BUTTON_SELECTOR = 'button[data-element="AIPIIRedactionToolButton"]';
+const REDACT_TOOLBAR_GROUP_BUTTON_SELECTOR = 'button[data-element="toolbarGroup-Redact"]';
+const DIAGNOSTICS_PANEL_TOGGLE_BUTTON_SELECTOR = 'button[data-element="diagnosticsPanelToggle"]';
+const DIAGNOSTICS_PANEL_SELECTOR = 'div.ModularPanel[data-element="diagnosticsPanel"]';
+const EXPECTED_ORGANIZATION_NAME = 'Peady, Eff, & Wright Exporting';
+const LLM_MODEL = 'gpt-4o-mini';
+const CLIENT_PAGE_URL = '/client/index.html';
+const MAX_CHARACTERS = 30000;
+const MAX_PAGES = 20;
 
 let mockCalls = null;
 
@@ -25,22 +35,22 @@ const normalizeMultilineText = (value) =>
 // Validating that the AI PII redaction tool button exists in the DOM.
 test('PII redaction tool button visibility', async ({ page }) => {
   // Go to the app page (adjust the URL if needed)
-  await page.goto('/client/index.html');
+  await page.goto(CLIENT_PAGE_URL);
 
   // Click the Redact tab to activate the Redact toolbar group.
-  await page.locator('button[data-element="toolbarGroup-Redact"]').click();
+  await page.locator(REDACT_TOOLBAR_GROUP_BUTTON_SELECTOR).click();
 
   // Locate the AIPIIRedactionToolButton button in ModularHeader
-  let component = page.locator('button[data-element="AIPIIRedactionToolButton"]');
+  let component = page.locator(AI_PII_REDACTION_TOOL_BUTTON_SELECTOR);
   await expect(component).toHaveCount(1);
   await expect(component).toBeVisible();
 });
 
 // Validate the diagnostics panel toggle button visibility.
 test('Diagnostics panel toggle button visibility', async ({ page }) => {
-  await page.goto('/client/index.html');
+  await page.goto(CLIENT_PAGE_URL);
 
-  const toggle = page.locator('button[data-element="diagnosticsPanelToggle"]');
+  const toggle = page.locator(DIAGNOSTICS_PANEL_TOGGLE_BUTTON_SELECTOR);
   await toggle.waitFor({ state: 'visible' });
   await expect(toggle).toBeVisible();
 });
@@ -48,28 +58,28 @@ test('Diagnostics panel toggle button visibility', async ({ page }) => {
 // Test the diagnostics panel is rendering the expected results after clicking
 // the AI PII redaction tool button and completing the mocked workflow.
 test('Diagnostics panel renders the expected results', async ({ page }) => {
-  await page.goto('/client/index.html');
+  await page.goto(CLIENT_PAGE_URL);
 
   // Click the Redact tab to activate the Redact toolbar group.
-  await page.locator('button[data-element="toolbarGroup-Redact"]').click();
+  await page.locator(REDACT_TOOLBAR_GROUP_BUTTON_SELECTOR).click();
 
   // Ensure full document text is loaded before triggering analysis requests.
   await expect.poll(
     () => page.evaluate(() => globalThis.loadedDocument?.text || '')
-  ).toContain('Peady, Eff, & Wright Exporting');
+  ).toContain(EXPECTED_ORGANIZATION_NAME);
 
   // Ensure full document text length/size is within limits before triggering analysis requests.
   await expect.poll(
     () => page.evaluate(() => globalThis.loadedDocument?.text.length || 0)
-  ).toBeLessThanOrEqual(30000);
+  ).toBeLessThanOrEqual(MAX_CHARACTERS);
 
   // Ensure page count is within limits before triggering analysis requests.
   await expect.poll(
     () => page.evaluate(() => globalThis.loadedDocument?.pageCount || 0)
-  ).toBeLessThanOrEqual(20);
+  ).toBeLessThanOrEqual(MAX_PAGES);
 
   // Trigger analyzeDocumentForPII + applyRedactions through the UI button.
-  const pIIBtn = page.locator('button[data-element="AIPIIRedactionToolButton"]');
+  const pIIBtn = page.locator(AI_PII_REDACTION_TOOL_BUTTON_SELECTOR);
   await pIIBtn.click();
 
   // Verify mocked endpoint workflow for send -> analyze -> get result.
@@ -81,35 +91,35 @@ test('Diagnostics panel renders the expected results', async ({ page }) => {
   );
 
   // Assert that the diagnostics panel is visible after clicking the button and completing the mocked workflow.
-  const panel = page.locator('div.ModularPanel[data-element="diagnosticsPanel"]');
+  const panel = page.locator(DIAGNOSTICS_PANEL_SELECTOR);
   await panel.waitFor({ state: 'visible' });
   await expect(panel).toBeVisible();
 });
 
 // Applying AI PII redaction with mocked endpoint responses.
 test('Perform AI PII redaction for document text size and page count within limits', async ({ page }) => {
-  await page.goto('/client/index.html');
+  await page.goto(CLIENT_PAGE_URL);
 
   // Click the Redact tab to activate the Redact toolbar group.
-  await page.locator('button[data-element="toolbarGroup-Redact"]').click();
+  await page.locator(REDACT_TOOLBAR_GROUP_BUTTON_SELECTOR).click();
 
   // Ensure full document text is loaded before triggering analysis requests.
   await expect.poll(
     () => page.evaluate(() => globalThis.loadedDocument?.text || '')
-  ).toContain('Peady, Eff, & Wright Exporting');
+  ).toContain(EXPECTED_ORGANIZATION_NAME);
 
   // Ensure full document text length/size is within limits before triggering analysis requests.
   await expect.poll(
     () => page.evaluate(() => globalThis.loadedDocument?.text.length || 0)
-  ).toBeLessThanOrEqual(30000);
+  ).toBeLessThanOrEqual(MAX_CHARACTERS);
 
   // Ensure page count is within limits before triggering analysis requests.
   await expect.poll(
     () => page.evaluate(() => globalThis.loadedDocument?.pageCount || 0)
-  ).toBeLessThanOrEqual(20);
+  ).toBeLessThanOrEqual(MAX_PAGES);
 
   // Trigger analyzeDocumentForPII + applyRedactions through the UI button.
-  const pIIBtn = page.locator('button[data-element="AIPIIRedactionToolButton"]');
+  const pIIBtn = page.locator(AI_PII_REDACTION_TOOL_BUTTON_SELECTOR);
   await pIIBtn.click();
 
   // Verify mocked endpoint workflow for send -> analyze -> get result.
@@ -137,13 +147,16 @@ test('Perform AI PII redaction for document text size and page count within limi
 
 // Expect an alert when analysis completes but /api/get-results returns no PII findings.
 test('Expect an alert when loaded document has no identifiable PII', async ({ page }) => {
-  await page.goto('/client/index.html');
+  await page.goto(CLIENT_PAGE_URL);
 
   // Click the Redact tab to activate the Redact toolbar group.
-  await page.locator('button[data-element="toolbarGroup-Redact"]').click();
+  await page.locator(REDACT_TOOLBAR_GROUP_BUTTON_SELECTOR).click();
 
-  // Wait until document wrapper is initialized before replacing the loaded text.
-  await expect.poll(() => page.evaluate(() => Boolean(globalThis.loadedDocument))).toBe(true);
+  // Wait until the full document text is loaded before replacing it, otherwise
+  // page text still being appended during initialization would be mixed in.
+  await expect.poll(
+    async () => normalizeMultilineText(await page.evaluate(() => globalThis.loadedDocument?.text || ''))
+  ).toBe(normalizeMultilineText(MOCK_DATA.documentText));
 
   const noPIIText = 'Quarterly operations summary for warehouse inventory and packaging materials.';
   await page.evaluate((text) => {
@@ -166,7 +179,7 @@ test('Expect an alert when loaded document has no identifiable PII', async ({ pa
   });
 
   // Trigger analyzeDocumentForPII through the UI button and verify the alert content.
-  const pIIBtn = page.locator('button[data-element="AIPIIRedactionToolButton"]');
+  const pIIBtn = page.locator(AI_PII_REDACTION_TOOL_BUTTON_SELECTOR);
   const alertPromise = page.waitForEvent('dialog');
   await pIIBtn.click();
   const alertDialog = await alertPromise;
@@ -181,19 +194,20 @@ test('Expect an alert when loaded document has no identifiable PII', async ({ pa
 });
 
 // Expect an alert when document text/pages values exceed limits.
-test('Expect an alert when document text exceeds 30000 characters with page count above 20', async ({ page }) => {
-  await page.goto('/client/index.html');
+test(`Expect an alert when document text exceeds ${MAX_CHARACTERS} characters with page count above ${MAX_PAGES}`, async ({ page }) => {
+  await page.goto(CLIENT_PAGE_URL);
 
   // Click the Redact tab to activate the Redact toolbar group.
-  await page.locator('button[data-element="toolbarGroup-Redact"]').click();
+  await page.locator(REDACT_TOOLBAR_GROUP_BUTTON_SELECTOR).click();
 
   // Wait until document wrapper is initialized before mutating fields.
   await expect.poll(() => page.evaluate(() => Boolean(globalThis.loadedDocument))).toBe(true);
 
-  await page.evaluate(() => {
-    globalThis.loadedDocument.text = 'A'.repeat(30001);
-    globalThis.loadedDocument.pageCount = 21;
-  });
+  // Constants must be passed in explicitly because this callback runs in the browser context.
+  await page.evaluate(({ maxCharacters, maxPages }) => {
+    globalThis.loadedDocument.text = 'A'.repeat(maxCharacters + 1);
+    globalThis.loadedDocument.pageCount = maxPages + 1;
+  }, { maxCharacters: MAX_CHARACTERS, maxPages: MAX_PAGES });
 
   let sendTextCalls = 0;
   await page.unroute('**/api/send-text');
@@ -204,16 +218,16 @@ test('Expect an alert when document text exceeds 30000 characters with page coun
       contentType: 'application/json',
       body: JSON.stringify({
         success: false,
-        error: 'Document text size exceeds 30000 characters limit.'
+        error: `Document text size exceeds ${MAX_CHARACTERS} characters limit.`
       })
     });
   });
 
   // Trigger analyzeDocumentForPII through the UI button and verify the alert content.
-  const pIIBtn = page.locator('button[data-element="AIPIIRedactionToolButton"]');
+  const pIIBtn = page.locator(AI_PII_REDACTION_TOOL_BUTTON_SELECTOR);
   const alertMessage = acceptNextDialog(page);
   await pIIBtn.click();
-  expect(await alertMessage).toBe('Document text size exceeds 30000 characters limit.');
+  expect(await alertMessage).toBe(`Document text size exceeds ${MAX_CHARACTERS} characters limit.`);
 
   // Ensure request flow stops at /api/send-text when request validation fails.
   await expect.poll(() => sendTextCalls).toBe(1);
@@ -227,7 +241,7 @@ test('Diagnostics panel separates hidden config from OpenAI model failure', asyn
       status: 200,
       contentType: 'application/json',
       body: JSON.stringify({
-        llmModel: 'gpt-3.5-turbo',
+        llmModel: LLM_MODEL,
         systemPrompt: 'Not exposed by server configuration.'
       })
     });
@@ -240,25 +254,25 @@ test('Diagnostics panel separates hidden config from OpenAI model failure', asyn
       contentType: 'application/json',
       body: JSON.stringify({
         success: false,
-        error: 'OpenAI could not use model "gpt-3.5-turbo". The configured API key or project does not have access to this model.'
+        error: `OpenAI could not use model "${LLM_MODEL}". The configured API key or project does not have access to this model.`
       })
     });
   });
 
-  await page.goto('/client/index.html');
-  await page.locator('button[data-element="toolbarGroup-Redact"]').click();
+  await page.goto(CLIENT_PAGE_URL);
+  await page.locator(REDACT_TOOLBAR_GROUP_BUTTON_SELECTOR).click();
 
   await expect.poll(
     () => page.evaluate(() => globalThis.loadedDocument?.text || '')
-  ).toContain('Peady, Eff, & Wright Exporting');
+  ).toContain(EXPECTED_ORGANIZATION_NAME);
 
-  const pIIBtn = page.locator('button[data-element="AIPIIRedactionToolButton"]');
+  const pIIBtn = page.locator(AI_PII_REDACTION_TOOL_BUTTON_SELECTOR);
   await pIIBtn.click();
 
-  const panel = page.locator('div.ModularPanel[data-element="diagnosticsPanel"]');
+  const panel = page.locator(DIAGNOSTICS_PANEL_SELECTOR);
   await expect(panel).toBeVisible();
-  await expect(panel).toContainText('LLM Model: gpt-3.5-turbo');
-  await expect(panel).toContainText('Error: OpenAI could not use model "gpt-3.5-turbo". The configured API key or project does not have access to this model.');
+  await expect(panel).toContainText(`LLM Model: ${LLM_MODEL}`);
+  await expect(panel).toContainText(`Error: OpenAI could not use model "${LLM_MODEL}". The configured API key or project does not have access to this model.`);
 });
 
 // Diagnostics panel shows model-specific initialization error when LLM is unavailable at send-text stage.
@@ -270,22 +284,22 @@ test('Diagnostics panel shows OpenAI initialization error from send-text stage',
       contentType: 'application/json',
       body: JSON.stringify({
         success: false,
-        error: 'OpenAI API key is missing for model "gpt-4o-mini". Set OPENAI_API_KEY in the server .env file.'
+        error: `OpenAI API key is missing for model "${LLM_MODEL}". Set OPENAI_API_KEY in the server .env file.`
       })
     });
   });
 
-  await page.goto('/client/index.html');
-  await page.locator('button[data-element="toolbarGroup-Redact"]').click();
+  await page.goto(CLIENT_PAGE_URL);
+  await page.locator(REDACT_TOOLBAR_GROUP_BUTTON_SELECTOR).click();
 
   await expect.poll(
     () => page.evaluate(() => globalThis.loadedDocument?.text || '')
-  ).toContain('Peady, Eff, & Wright Exporting');
+  ).toContain(EXPECTED_ORGANIZATION_NAME);
 
-  const pIIBtn = page.locator('button[data-element="AIPIIRedactionToolButton"]');
+  const pIIBtn = page.locator(AI_PII_REDACTION_TOOL_BUTTON_SELECTOR);
   const alertMessage = acceptNextDialog(page);
   await pIIBtn.click();
-  expect(await alertMessage).toContain('OpenAI API key is missing for model "gpt-4o-mini"');
+  expect(await alertMessage).toContain(`OpenAI API key is missing for model "${LLM_MODEL}"`);
 
   // analyze-pii and get-results must not have been called.
   await expect.poll(() => mockCalls.analyzePII).toBe(0);
@@ -307,14 +321,14 @@ test('Diagnostics panel shows error when get-results returns 500', async ({ page
     });
   });
 
-  await page.goto('/client/index.html');
-  await page.locator('button[data-element="toolbarGroup-Redact"]').click();
+  await page.goto(CLIENT_PAGE_URL);
+  await page.locator(REDACT_TOOLBAR_GROUP_BUTTON_SELECTOR).click();
 
   await expect.poll(
     () => page.evaluate(() => globalThis.loadedDocument?.text || '')
-  ).toContain('Peady, Eff, & Wright Exporting');
+  ).toContain(EXPECTED_ORGANIZATION_NAME);
 
-  const pIIBtn = page.locator('button[data-element="AIPIIRedactionToolButton"]');
+  const pIIBtn = page.locator(AI_PII_REDACTION_TOOL_BUTTON_SELECTOR);
   const alertPromise = page.waitForEvent('dialog');
   await pIIBtn.click();
 
@@ -326,7 +340,7 @@ test('Diagnostics panel shows error when get-results returns 500', async ({ page
   const alertDialog = await alertPromise;
   await alertDialog.accept();
 
-  const panel = page.locator('div.ModularPanel[data-element="diagnosticsPanel"]');
+  const panel = page.locator(DIAGNOSTICS_PANEL_SELECTOR);
   await expect(panel).toBeVisible();
   await expect(panel).toContainText('Status: Failure');
   await expect(panel).toContainText('Failed to retrieve analysis results');
@@ -335,33 +349,33 @@ test('Diagnostics panel shows error when get-results returns 500', async ({ page
 // Simulates user hiding and showing the diagnostics panel
 // via clicking the toggle button in the header.
 test('Hide/Show diagnostics panel', async ({ page }) => {
-  await page.goto('/client/index.html');
+  await page.goto(CLIENT_PAGE_URL);
 
   // Click the Redact tab to activate the Redact toolbar group.
-  await page.locator('button[data-element="toolbarGroup-Redact"]').click();
+  await page.locator(REDACT_TOOLBAR_GROUP_BUTTON_SELECTOR).click();
 
   // Ensure full document text is loaded before triggering analysis requests.
   await expect.poll(
     () => page.evaluate(() => globalThis.loadedDocument?.text || '')
-  ).toContain('Peady, Eff, & Wright Exporting');
+  ).toContain(EXPECTED_ORGANIZATION_NAME);
 
   // Ensure full document text length/size is within limits before triggering analysis requests.
   await expect.poll(
     () => page.evaluate(() => globalThis.loadedDocument?.text.length || 0)
-  ).toBeLessThanOrEqual(30000);
+  ).toBeLessThanOrEqual(MAX_CHARACTERS);
 
   // Ensure page count is within limits before triggering analysis requests.
   await expect.poll(
     () => page.evaluate(() => globalThis.loadedDocument?.pageCount || 0)
-  ).toBeLessThanOrEqual(20);
+  ).toBeLessThanOrEqual(MAX_PAGES);
 
   // Trigger analyzeDocumentForPII + applyRedactions through the UI button.
-  const pIIBtn = page.locator('button[data-element="AIPIIRedactionToolButton"]');
+  const pIIBtn = page.locator(AI_PII_REDACTION_TOOL_BUTTON_SELECTOR);
   await pIIBtn.click();
 
   // Locate the toggle button and diagnostics panel
-  const toggle = page.locator('button[data-element="diagnosticsPanelToggle"]');
-  const panel = page.locator('div.ModularPanel[data-element="diagnosticsPanel"]');
+  const toggle = page.locator(DIAGNOSTICS_PANEL_TOGGLE_BUTTON_SELECTOR);
+  const panel = page.locator(DIAGNOSTICS_PANEL_SELECTOR);
 
   // Hide the diagnostics panel
   await toggle.click();
