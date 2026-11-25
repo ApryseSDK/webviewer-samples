@@ -7,13 +7,13 @@
   "scripts": {
     "postinstall": "node tools/copy-webviewer-files.js",
     "start": "node server/server.js",
-    "test:e2e": "npx playwright test",
-    "test:e2e:ui": "npx playwright test --ui",
-    "test:e2e:debug": "npx playwright test --debug"
+    "test:e2e": "npx playwright test --config __tests__/e2e/config/playwright.config.js",
+    "test:e2e:ui": "npx playwright test --config __tests__/e2e/config/playwright.config.js --ui",
+    "test:e2e:debug": "npx playwright test --config __tests__/e2e/config/playwright.config.js --debug"
   },
   "author": "Apryse Systems Inc.",
   "devDependencies": {
-    "@playwright/test": "^1.58.2",
+    "@playwright/test": "^1.65.1",
     "body-parser": "^2.2.2",
     "fs-extra": "^11.3.4",
     "open": "^11.0.0"
