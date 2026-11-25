@@ -4,7 +4,7 @@ import type { ReporterDescription } from '@playwright/test';
 import path from 'node:path';
 
 const projectRoot = path.resolve(__dirname, '..', '..');
-// Use a port that differs from the launch profile (5000/5001) so a running `npm start`
+// Use a port that differs from the launch profile (5000/5001) so a running `npm run dev`
 // server, which redirects to HTTPS with a self-signed certificate, is never reused.
 const defaultBaseURL = 'http://127.0.0.1:5080';
 const isCI = Boolean(process.env.CI);

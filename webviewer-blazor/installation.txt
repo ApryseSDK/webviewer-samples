@@ -1,7 +1,7 @@
 To install and run using npm:
 ===========================
 npm install
-npm start
+npm run dev
 ===========================
 After the app starts, you will be able to see WebViewer running on https://localhost:5001/webviewer
 

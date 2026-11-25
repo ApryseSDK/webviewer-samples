@@ -27,28 +27,28 @@ In a terminal opened to the project directory, use the preferred package manager
 
 ```
 npm install
-npm start
+npm run dev
 ```
 
 **Using pnpm**
 
 ```
 pnpm install
-pnpm start
+pnpm dev
 ```
 
 **Using yarn**
 
 ```
 yarn
-yarn start
+yarn dev
 ```
 
 **Using bun**
 
 ```
 bun install
-bun run start
+bun run dev
 ```
 
 After the server starts, you can navigate to `https://localhost:5001/webviewer`

@@ -2,7 +2,7 @@
   "name": "webviewer-blazor-sample",
   "version": "1.0.0",
   "scripts": {
-    "start": "dotnet run",
+    "dev": "dotnet run",
     "postinstall": "node tools/copy-webviewer.js",
     "test": "jest",
     "test:e2e": "npx playwright install chromium && npx playwright test --config=__tests__/config/playwright.config.ts",
