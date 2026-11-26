@@ -90,10 +90,10 @@ class LLMManager {
       await creditCheckLlm.invoke('ping');
       return { hasCredit: true };
     } catch (error) {
-      const noCreditCodes = ['insufficient_quota', 'credit_balance_exhausted'];
+      const noCreditCodes = new Set(['insufficient_quota', 'credit_balance_exhausted']);
       const errorMessage = error?.message || '';
-      const noCredit = noCreditCodes.includes(error?.code) ||
-        noCreditCodes.includes(error?.type) ||
+      const noCredit = noCreditCodes.has(error?.code) ||
+        noCreditCodes.has(error?.type) ||
         errorMessage.includes('no credits remaining') ||
         errorMessage.includes('exceeded your current quota');
 
