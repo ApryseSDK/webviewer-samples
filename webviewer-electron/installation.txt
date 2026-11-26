@@ -3,6 +3,6 @@ To install and run using npm:
 npm install
 npm run dev
 ===========================
-After the app starts, you will be able to see WebViewer running on http://localhost:5173
+This builds the main and preload scripts, starts the Vite dev server on `localhost:5173`, and opens an Electron window running WebViewer. The first launch may take a little longer while Vite prepares its dependencies.
 
 For details on using other package managers (pnpm, yarn or bun), see README.md in the project's root folder.
