@@ -40,7 +40,7 @@ documentViewer.addEventListener('documentLoaded', async () => {
 
   globalThis.diagnosticsPanel = new DiagnosticsPanel();
   globalThis.diagnosticsPanel.show();
-  
+
   let result = await getServerConfig();
   globalThis.diagnosticsPanel.display(`LLM Model: ${globalThis.llmModel}`, 'system');
   if (!result.success)
@@ -62,7 +62,7 @@ documentViewer.addEventListener('documentLoaded', async () => {
           success: false,
         };
       }
-      
+
       return {
         status: configResponse.status,
         success: true
@@ -84,4 +84,27 @@ documentViewer.addEventListener('documentLoaded', async () => {
   }).catch(error => {
     console.error('Failed to initialize document manager:', error);
   });
+
+  await checkCredit();
+
+  // Check whether OPENAI_API_KEY has credit, and disable the AI PII redaction button if not
+  async function checkCredit() {
+    try {
+      const creditResponse = await fetch('/api/check-credit');
+      const creditData = await creditResponse.json();
+      globalThis.hasCredit = creditData.hasCredit !== false;
+      if (!globalThis.hasCredit) {
+        globalThis.diagnosticsPanel.display('Status: Failure', 'system');
+        globalThis.diagnosticsPanel.display(creditData.error, 'system');
+      }
+    } catch (error) {
+      console.error('Failed to check OpenAI credit:', error);
+      globalThis.hasCredit = true;
+    }
+
+    // WebViewer UI is rendered inside a shadow root; flag its host element so that
+    // styles.css can show the AI PII redaction button as disabled
+    const webViewerHost = document.getElementById('viewer').firstElementChild;
+    webViewerHost?.classList.toggle('AIPIIRedactionDisabled', !globalThis.hasCredit);
+  }
 });

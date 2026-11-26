@@ -68,5 +68,12 @@ export const registerApiRouteMocks = async (page) => {
     }));
   });
 
+  // Mocking the check-credit endpoint so the AI PII redaction tool button stays enabled.
+  await page.route('**/api/check-credit', async (route) => {
+    await route.fulfill(jsonResponse({
+      hasCredit: true
+    }));
+  });
+
   return calls;
 };

@@ -73,6 +73,40 @@ class LLMManager {
     return !!this.llm && !!this.parser;
   }
 
+  // Check whether the OpenAI account behind OPENAI_API_KEY has credit,
+  // by sending a minimal request that fails with 'insufficient_quota' when it has none
+  // @returns {Promise<{hasCredit: boolean, error?: string}>}
+  async checkCredit() {
+    if (!this.isInitialized())
+      return { hasCredit: true };
+
+    try {
+      const creditCheckLlm = new ChatOpenAI({
+        apiKey: process.env.OPENAI_API_KEY,
+        model: process.env.OPENAI_MODEL,
+        maxTokens: 16,
+        maxRetries: 0
+      });
+      await creditCheckLlm.invoke('ping');
+      return { hasCredit: true };
+    } catch (error) {
+      const noCreditCodes = ['insufficient_quota', 'credit_balance_exhausted'];
+      const errorMessage = error?.message || '';
+      const noCredit = noCreditCodes.includes(error?.code) ||
+        noCreditCodes.includes(error?.type) ||
+        errorMessage.includes('no credits remaining') ||
+        errorMessage.includes('exceeded your current quota');
+
+      if (noCredit)
+        return {
+          hasCredit: false,
+          error: `OPENAI_API_KEY has no credit for model "${this.getModelName()}". Check your OpenAI plan and billing details.`
+        };
+
+      return { hasCredit: true };
+    }
+  }
+
   // Execute messages with LLM and parse response
   // @param {Array} messages - Array of message objects
   // @returns {Promise<string|null>} Parsed response or null if failed

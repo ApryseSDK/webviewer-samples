@@ -189,6 +189,12 @@ export default function registerHandlers(app) {
     response.json(configResponse);
   });
 
+  // Endpoint to check whether OPENAI_API_KEY has credit
+  app.get('/api/check-credit', async (request, response) => {
+    const result = await llmManager.checkCredit();
+    response.status(200).json(result);
+  });
+
   let formatSystemPrompt = (guardRail) => {
     let compiledClassificationDetails = guardRail.piiClassifications.flatMap(item => item.details.map(detail => `\n- ${detail}`)).join('');
     let formattedPrompt = guardRail.systemPrompt.replace('PIICLASSIFICATIONSPLACEHOLDER', compiledClassificationDetails);
