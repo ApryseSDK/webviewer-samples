@@ -31,3 +31,14 @@
   align-self: flex-end;
   max-width: 70%;
 }
+
+
+/* AI PII redaction button disabled when OPENAI_API_KEY has no credit */
+:host(.AIPIIRedactionDisabled) [data-element="AIPIIRedactionToolButton"],
+:host(.AIPIIRedactionDisabled) [data-element="AIPIIRedactionToolButton"] * {
+  cursor: not-allowed !important;
+}
+
+:host(.AIPIIRedactionDisabled) [data-element="AIPIIRedactionToolButton"] {
+  opacity: 0.4;
+}

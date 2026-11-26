@@ -395,3 +395,65 @@ const acceptNextDialog = (page) => new Promise((resolve) => {
     resolve(message);
   });
 });
+
+// Diagnostics panel shows a no-credit message after the document name, and the
+// AI PII redaction tool button is disabled when OPENAI_API_KEY has no credit.
+test('Disable AI PII redaction tool button when OPENAI_API_KEY has no credit', async ({ page }) => {
+  const noCreditMessage = `OPENAI_API_KEY has no credit for model "${LLM_MODEL}". Check your OpenAI plan and billing details.`;
+
+  await page.route('**/api/config', async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: 'application/json',
+      body: JSON.stringify({
+        llmModel: LLM_MODEL,
+        systemPrompt: null,
+        systemPromptExposed: false
+      })
+    });
+  });
+
+  await page.unroute('**/api/check-credit');
+  await page.route('**/api/check-credit', async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: 'application/json',
+      body: JSON.stringify({
+        hasCredit: false,
+        error: noCreditMessage
+      })
+    });
+  });
+
+  await page.goto(CLIENT_PAGE_URL);
+  await page.locator(REDACT_TOOLBAR_GROUP_BUTTON_SELECTOR).click();
+
+  await expect.poll(
+    () => page.evaluate(() => globalThis.hasCredit)
+  ).toBe(false);
+
+  // The no-credit failure status and message are displayed directly after the document name.
+  const panel = page.locator(DIAGNOSTICS_PANEL_SELECTOR);
+  await expect(panel).toBeVisible();
+  const messages = panel.locator('.systemMessageDivClass');
+  await expect(messages).toHaveText([
+    `LLM Model: ${LLM_MODEL}`,
+    /^Document: /,
+    'Status: Failure',
+    noCreditMessage
+  ]);
+
+  // The button is shown as disabled with a prohibited (not-allowed) mouse pointer.
+  const pIIBtn = page.locator(AI_PII_REDACTION_TOOL_BUTTON_SELECTOR);
+  await expect(pIIBtn).toBeVisible();
+  await expect(pIIBtn).toHaveCSS('cursor', 'not-allowed');
+  await pIIBtn.hover();
+  await expect(pIIBtn).toHaveCSS('cursor', 'not-allowed');
+
+  // Clicking the disabled button must not start the AI PII redaction workflow.
+  await pIIBtn.click();
+  await expect(messages).toHaveCount(4);
+  expect(mockCalls.sendText).toBe(0);
+  expect(mockCalls.analyzePII).toBe(0);
+  expect(mockCalls.getResults).toBe(0);
+});

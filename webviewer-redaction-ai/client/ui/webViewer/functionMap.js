@@ -6,6 +6,10 @@ const webViewerFunctionMap = {
     return globalThis.diagnosticsPanel.render();
   },
   'AIPIIRedactionClick': async () => {
+    // Button is disabled when OPENAI_API_KEY has no credit
+    if (globalThis.hasCredit === false)
+      return;
+
     if (globalThis.systemPromptExposed)
       globalThis.diagnosticsPanel.display(`System Prompt:\n\n${globalThis.systemPrompt}`, 'human');
 
