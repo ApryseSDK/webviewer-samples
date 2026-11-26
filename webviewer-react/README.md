@@ -21,54 +21,38 @@ This sample requires Node version 24. To check your version, run `node -v` in a 
 
 In order to set the license key, set `VITE_DEMO_KEY` in the `.env.example` file in the project and rename the file to `.env` (or create a `.env.local` file for local-only changes). Alternatively, the string may be passed into the constructor of the WebViewer: https://docs.apryse.com/documentation/web/faq/add-license/#passing-into-constructor
 
-
 If this sample was obtained using the `create-webviewer-app` tool then the key has already been set in the `.env` file and no further action is needed.
 
+## Install and Run
 
-## Install
-
-In a terminal opened to the project directory, use the preferred package manager to install the dependencies. 
+In a terminal opened to the project directory, use the preferred package manager to install the dependencies. Then run the `dev` script to start a local development server and serve the React app with hot reload.
 
 **Using npm**
+
 ```
 npm install
-```
-**Using pnpm**
-```
-pnpm install
-```
-**Using yarn**
-```
-yarn
-```
-**Using bun**
-```
-bun install
-```
-
-## Run
-
-Use the preferred package manager to run the `dev` script to start a local development server and serve the React app with hot reload.
-
-**Using npm**
-```
 npm run dev
 ```
 
 **Using pnpm**
+
 ```
+pnpm install
 pnpm dev
 ```
 
 **Using yarn**
+
 ```
+yarn
 yarn dev
 ```
 
 **Using bun**
+
 ```
+bun install
 bun run dev
 ```
 
 After the app starts, you will be able to see WebViewer running on `localhost:5173`.
-
